@@ -45,6 +45,12 @@
         .key-map-revenue {
             grid-area: key;
             position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .key-map-revenue>div {
+            flex: 1;
         }
 
         .video-story {
@@ -94,11 +100,19 @@
     <div class="wrapper">
         <div class="intro"><?php locate_template(array('components/intro.php'), true); ?></div>
         <div class="key-map-revenue">
-            <div class="key-user">key user</div>
-            <div class="world-map">world map</div>
-            <div class="revenue">revenue</div>
+            <div class="key-user">
+                <?php locate_template(array('components/keyUser.php'), true); ?>
+            </div>
+            <div class="world-map">
+                <?php locate_template(array('components/worldMap.php'), true); ?>
+            </div>
+            <div class="revenue">
+                <?php locate_template(array('components/revenue/revenue.php'), true); ?>
+            </div>
         </div>
-        <div class="share-icons">share icons</div>
+        <div class="share-icons">
+            <?php locate_template(array('components/shareIcons.php'), true); ?>
+        </div>
         <div class="notifications">notification</div>
         <div class="analytics">
             <div class="area-graph">area graph</div>
