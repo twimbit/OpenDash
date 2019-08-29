@@ -2,12 +2,12 @@
 
 <style scoped>
     .time-line {
-        width: 90%;
         position: absolute;
         right: 0px;
         bottom: 0px;
         top: 0px;
-        border: 1px solid #1c9f9f;
+        left: 0px;
+
     }
 
     p {
@@ -46,7 +46,6 @@
     }
 
     #timeline-content {
-        overflow: auto;
         height: 100%;
     }
 
@@ -55,8 +54,8 @@
         border-left: 4px solid #f16c70;
         border-bottom-right-radius: 4px;
         border-top-right-radius: 4px;
-        background: rgba(255, 255, 255, 0.03);
-        color: rgba(0, 0, 0, 0.8);
+        /* background: rgba(255, 255, 255, 0.03); */
+        /* color: rgba(0, 0, 0, 0.8); */
         font-family: 'Chivo', sans-serif;
         margin: 0 0 0 28px;
         letter-spacing: 0.5px;
@@ -87,10 +86,11 @@
     }
 
     .timeline-inner .event {
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        /* border-bottom: 1px dashed rgba(255, 255, 255, 0.1); */
         padding-bottom: 15px;
         position: relative;
         display: flex;
+        justify-content: space-between;
     }
 
     .timeline-inner .event:last-of-type {
@@ -155,42 +155,41 @@
     }
 </style>
 <div class="time-line">
-    <div id="timeline-content">
+    <div id="timeline-content" data-simplebar>
         <h1>Timeline</h1>
 
         <ul class="timeline-inner">
             <li class="event" data-date="65Million B.C.">
                 <h3>Dinosaurs Roamed the Earth</h3>
-                <h3>2019</h3>
+                <h3 style="margin-left:15px;margin-right:5px">2019</h3>
             </li>
             <li class="event" data-date="2005">
                 <h3>Creative Component Launched</h3>
-                <h3>2018</h3>
+                <h3 style="margin-left:15px;margin-right:5px">2018</h3>
             </li>
             <li class="event" id="date" data-date="2009">
                 <h3>Squareflair was Born</h3>
-                <h3>2017</h3>
-                <p></p>
+                <h3 style="margin-left:15px;margin-right:5px">2017</h3>
             </li>
             <li class="event" data-date="2005">
                 <h3>Creative Component Launched</h3>
-                <h3>2018</h3>
+                <h3 style="margin-left:15px;margin-right:5px">2018</h3>
             </li>
             <li class="event" data-date="2005">
                 <h3>Creative Component Launched</h3>
-                <h3>2018</h3>
+                <h3 style="margin-left:15px;margin-right:5px">2018</h3>
             </li>
             <li class="event" data-date="2005">
                 <h3>Creative Component Launched</h3>
-                <h3>2018</h3>
+                <h3 style="margin-left:15px;margin-right:5px">2018</h3>
             </li>
             <li class="event" data-date="2005">
                 <h3>Creative Component Launched</h3>
-                <h3>2018</h3>
+                <h3 style="margin-left:15px;margin-right:5px">2018</h3>
             </li>
             <li class="event" data-date="2005">
                 <h3>Creative Component Launched</h3>
-                <h3>2018</h3>
+                <h3 style="margin-left:15px;margin-right:5px">2018</h3>
             </li>
         </ul>
     </div>

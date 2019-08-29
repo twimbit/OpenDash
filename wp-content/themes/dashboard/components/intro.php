@@ -34,14 +34,7 @@
     }
 
     .intro-table {
-        width: 90%;
-        position: absolute;
-        right: 0px;
-        right: 0px;
-        bottom: 0px;
-        top: 0px;
-        border: 1px solid #1c9f9f;
-        margin-bottom: 10px;
+        height: 100%;
     }
 
     .active .tab-title {}

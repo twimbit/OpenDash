@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="<?php echo get_template_directory_uri() ?>/src/jquery.js"></script>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/src/simplebar.css" />
+    <script src="<?php echo get_template_directory_uri() ?>/src/simplebar.min.js"></script>
     <title>Twimbit-cigna-Dashboard</title>
     <style scoped>
         * {
@@ -18,19 +21,22 @@
             margin: 0;
             padding: 0;
             border: 0;
+            background: linear-gradient(to right, rgba(23, 45, 66, 1) 43%, rgba(70, 136, 180, 1) 100%);
+            color: #fff;
         }
 
         html,
         body {
             overflow: auto;
+            height: 100%;
         }
 
         .wrapper {
-            display: grid;
+            /* display: grid;
             grid-template-columns: 20% 20% 20% 13% 27%;
             grid-template-areas: 'intro key share noty analy'
                 'timeline key radar noty analy'
-                'timeline key video video video';
+                'timeline key video video video'; */
             position: absolute;
             top: 55px;
             bottom: 0px;
@@ -44,9 +50,15 @@
 
         .key-map-revenue {
             grid-area: key;
-            position: relative;
+            position: absolute;
+            left: 24%;
+            margin-left: 3px;
+            bottom: 0px;
+            top: 0px;
             display: flex;
             flex-direction: column;
+            width: 25%;
+            display: inline-block;
         }
 
         .key-map-revenue>div {
@@ -55,40 +67,66 @@
 
         .video-story {
             grid-area: video;
-            position: relative;
-            /* position: relative;
-            height: 20vh;
-            top: 50vh; */
+            position: absolute;
+            left: 59%;
+            top: 80%;
         }
 
         .intro {
             grid-area: intro;
-            position: relative;
+            width: 23%;
+            height: 39%;
+            display: inline-block;
+            margin-left: 10px;
+            border: 1px solid #1c9f9f;
+            position: absolute;
+            background: #000000a3;
         }
 
         .share-icons {
-            grid-area: share;
-            position: relative;
+            /* grid-area: share; */
+            position: absolute;
+            left: 50%;
+            width: 22%;
+            display: inline-block;
         }
 
         .notifications {
+            width: 12%;
+            display: inline-block;
+            left: 64%;
             grid-area: noty;
             position: relative;
         }
 
         .analytics {
             grid-area: analy;
-            position: relative;
+            position: absolute;
+            left: 77%;
+            right: 0px;
+            display: inline-block;
         }
 
         .radar {
             grid-area: radar;
-            position: relative;
+            position: absolute;
+            left: 60%;
+            top: 49%;
+            width: 20%;
         }
 
         .timeline {
             grid-area: timeline;
+            background: #000000a3;
             position: relative;
+            grid-area: timeline;
+            position: absolute;
+            top: 40%;
+            bottom: 0px;
+            width: 23%;
+            /* height: 100%; */
+            margin-left: 10px;
+            border: 1px solid #1c9f9f;
         }
     </style>
 </head>
