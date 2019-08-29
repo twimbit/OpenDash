@@ -29,12 +29,15 @@
                 }
             ],
         },
-        "xAxisID": "Revenue",
         "options": {
+            "title": {
+                display: false,
+                text: "Revenue",
+            },
             scales: {
                 yAxes: [{
                     scaleLabel: {
-                        display: true,
+                        display: false,
                         labelString: 'revenue'
                     }
                 }]

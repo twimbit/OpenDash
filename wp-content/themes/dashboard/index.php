@@ -46,7 +46,7 @@
         }
 
         .wrapper>div {
-            border: 1px solid grey;
+            /* border: 1px solid grey; */
         }
 
         .key-map-revenue {
@@ -69,8 +69,11 @@
         .video-story {
             grid-area: video;
             position: absolute;
-            left: 59%;
-            top: 80%;
+            left: 50%;
+            top: 75%;
+            bottom: 0px;
+            right: 0px;
+            margin-bottom: 10px;
         }
 
         .intro {
@@ -103,15 +106,17 @@
         .analytics {
             grid-area: analy;
             position: absolute;
-            left: 77%;
+            left: 72%;
             right: 0px;
+            top: 0px;
+            bottom: 26%;
             display: inline-block;
         }
 
         .radar {
             grid-area: radar;
             position: absolute;
-            left: 60%;
+            left: 50%;
             top: 49%;
             width: 20%;
         }
@@ -133,8 +138,18 @@
         .revenue {
             position: relative;
             background: #000000a3;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             border: 1px solid #1c9f9f;
+        }
+
+        .area-graph {
+            position: relative;
+            border-bottom-left-radius: 8px;
+            margin-right: 10px;
+            border-top: 3px solid #f16c70;
+            border-bottom-right-radius: 8px;
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.09) 63%, rgba(0, 0, 0, 0.64) 100%);
+        }
         }
     </style>
 </head>
@@ -161,7 +176,7 @@
         </div>
         <div class="notifications">notification</div>
         <div class="analytics">
-            <div class="area-graph">area graph</div>
+            <div class="area-graph"><?php locate_template(array('components/areaGraph.php'), true); ?></div>
             <div class="bar-graphs">
                 <div class="graph-1">bar-1</div>
                 <div class="graph-2">bar-2</div>
