@@ -8,6 +8,7 @@
     <script src="<?php echo get_template_directory_uri() ?>/src/jquery.js"></script>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/src/simplebar.css" />
     <script src="<?php echo get_template_directory_uri() ?>/src/simplebar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <title>Twimbit-cigna-Dashboard</title>
     <style scoped>
         * {
@@ -58,7 +59,7 @@
             display: flex;
             flex-direction: column;
             width: 25%;
-            display: inline-block;
+
         }
 
         .key-map-revenue>div {
@@ -128,6 +129,13 @@
             margin-left: 10px;
             border: 1px solid #1c9f9f;
         }
+
+        .revenue {
+            position: relative;
+            background: #000000a3;
+            margin-bottom: 15px;
+            border: 1px solid #1c9f9f;
+        }
     </style>
 </head>
 
@@ -145,7 +153,7 @@
                 <?php locate_template(array('components/worldMap.php'), true); ?>
             </div>
             <div class="revenue">
-                <?php locate_template(array('components/revenue/revenue.php'), true); ?>
+                <?php locate_template(array('components/revenue.php'), true); ?>
             </div>
         </div>
         <div class="share-icons">
