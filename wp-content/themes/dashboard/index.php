@@ -33,16 +33,15 @@
         }
 
         .wrapper {
-            /* display: grid;
-            grid-template-columns: 20% 20% 20% 13% 27%;
-            grid-template-areas: 'intro key share noty analy'
-                'timeline key radar noty analy'
-                'timeline key video video video'; */
-            position: absolute;
+            position: fixed;
             top: 55px;
             bottom: 0px;
             left: 0px;
+            margin-left: auto;
             right: 0px;
+            margin-right: auto;
+            min-width: 1024px;
+            max-width: 1440px;
         }
 
         .wrapper>div {
@@ -150,6 +149,14 @@
             border-bottom-right-radius: 8px;
             background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.09) 63%, rgba(0, 0, 0, 0.64) 100%);
         }
+
+        .bar-graphs {
+            display: flex;
+        }
+
+        .bar-graphs>div {
+            flex: 1;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -178,9 +185,9 @@
         <div class="analytics">
             <div class="area-graph"><?php locate_template(array('components/areaGraph.php'), true); ?></div>
             <div class="bar-graphs">
-                <div class="graph-1">bar-1</div>
-                <div class="graph-2">bar-2</div>
-                <div class="graph-3">bar-3</div>
+                <div class="graph-1"><?php locate_template(array('components/barGraphs/graph-1.php'), true); ?></div>
+                <div class="graph-2"><?php locate_template(array('components/barGraphs/graph-2.php'), true); ?></div>
+                <div class="graph-3"><?php locate_template(array('components/barGraphs/graph-3.php'), true); ?></div>
             </div>
             <div class="spider-doughnut">
                 <div class="spider">spider</div>
