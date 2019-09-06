@@ -1,1 +1,0 @@
-<h3>Share icons</h3>
