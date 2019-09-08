@@ -16,7 +16,11 @@
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
-
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <!-- jvectormap -->
     <link
       href="../plugins/jvectormap/jquery-jvectormap-2.0.2.css"
@@ -196,7 +200,65 @@
         <!-- Sidebar -left -->
       </div>
       <div class="board-header">
-        <h3>Uniphore Terminal - Cigna</h3>
+        <h4>Uniphore Terminal - Cigna</h4>
+        <div class="share-links">
+          <div class="social">
+            <a
+              class="social-icon"
+              data-tooltip="email@gmail.com"
+              href="mailto:email@gmail.com"
+            >
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </a>
+
+            <a
+              class="social-icon"
+              data-tooltip="GitHub"
+              href="https://github.com/puikinsh"
+            >
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+
+            <a
+              class="social-icon"
+              data-tooltip="LinkedIn"
+              href="https://www.linkedin.com/company/colorlib"
+            >
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+
+            <a
+              class="social-icon"
+              data-tooltip="Twitter"
+              href="https://twitter.com/colorlib"
+            >
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+
+            <a
+              class="social-icon"
+              data-tooltip="Facebook"
+              href="https://www.facebook.com/colorlib"
+            >
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+
+            <a
+              class="social-icon"
+              data-tooltip="YouTube"
+              href="https://www.youtube.com/c/Colorlib"
+            >
+              <i class="fa fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a
+              class="social-icon"
+              data-tooltip="YouTube"
+              href="https://instagram.com/Colorlib"
+            >
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
       </div>
       <div class="dashboard">
         <div class="main-board" id="main-board">
@@ -475,14 +537,7 @@
               </div>
               <div class="area-graph">
                 <div class="card-box" style="height: 100%">
-                  <h4
-                    class="header-title"
-                    style="    position: absolute;
-              z-index: 99;margin-left: 30px"
-                  >
-                    Area Chart
-                  </h4>
-                  <div id="website-stats" class="flot-chart"></div>
+                  <div id="stacked-area-charts" class="flot-chart"></div>
                 </div>
               </div>
             </div>
@@ -861,10 +916,6 @@
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
 
-    <!-- Counter js  -->
-    <script src="../plugins/waypoints/jquery.waypoints.min.js"></script>
-    <script src="../plugins/counterup/jquery.counterup.min.js"></script>
-
     <!--C3 Chart-->
     <script type="text/javascript" src="../plugins/d3/d3.min.js"></script>
     <script type="text/javascript" src="../plugins/c3/c3.min.js"></script>
@@ -878,18 +929,10 @@
 
     <!-- Dashboard init -->
     <script src="assets/pages/jquery.dashboard.js"></script>
+
     <!-- Flot chart -->
     <script src="../plugins/flot-chart/jquery.flot.min.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.time.js"></script>
     <script src="../plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.resize.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.pie.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.selection.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.stack.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.orderBars.min.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.crosshair.js"></script>
-    <script src="../plugins/flot-chart/curvedLines.js"></script>
-    <script src="../plugins/flot-chart/jquery.flot.axislabels.js"></script>
     <script src="assets/pages/jquery.flot.init.js"></script>
 
     <!-- Owl carousel -->
