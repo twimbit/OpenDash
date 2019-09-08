@@ -384,8 +384,25 @@
         }
       });
 
+      /* Bar-1 */
       this.createStackBarGraph(
         "#bar-1-chart",
+        stack_ticks,
+        ["#23d0ea", "#3f4958", "#ebeff2"],
+        ds
+      );
+
+      /* Bar-2 */
+      this.createStackBarGraph(
+        "#bar-2-chart",
+        stack_ticks,
+        ["#23d0ea", "#3f4958", "#ebeff2"],
+        ds
+      );
+
+      /* Bar-3 */
+      this.createStackBarGraph(
+        "#bar-3-chart",
         stack_ticks,
         ["#23d0ea", "#3f4958", "#ebeff2"],
         ds

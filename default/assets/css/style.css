@@ -62,8 +62,13 @@ File: Main Css
   z-index: 999;
 }
 body,
-html {
+html,
+#main-board {
   height: 100%;
+}
+body,
+html {
+  overflow: hidden;
 }
 
 .topbar .topbar-left {
@@ -167,7 +172,7 @@ html {
   margin-top: 0;
   padding-bottom: 30px;
   position: fixed;
-  top: 70px;
+  top: 0px;
 }
 
 .side-menu .waves-effect .waves-ripple {
@@ -753,6 +758,8 @@ a:focus {
 
 #wrapper {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 0;
   bottom: 0;
   left: 0;
@@ -1030,7 +1037,7 @@ a:focus {
 
 /* Card Box */
 .card-box {
-  /* border: 1px solid #e2e2e2; */
+  position: relative;
   border-radius: 3px;
   background-color: #ffffff;
 }
@@ -7932,33 +7939,26 @@ a:hover {
 .tab-card {
   width: 350px;
   /* display: inline-block; */
-  position: absolute;
   height: 274px;
-  top: 0px;
 }
 .timeline-card {
-  width: 350px;
-  position: absolute;
-  top: 280px;
-  min-height: 382px;
   bottom: 0;
+  position: absolute;
+  top: 279px;
+  width: 350px;
   overflow: auto;
   margin-bottom: 11px !important;
 }
 .main-board {
-  margin: 81px 0 0 83px;
-  min-width: 1024px;
-  max-width: 1920px;
-  max-height: 1080px;
-  min-height: 490px;
   position: absolute;
-  overflow: auto;
-  bottom: 0px;
-  top: 0px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  /* overflow-x: auto;
-  overflow-y: hidden; */
+  margin-left: 83px;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 @media (min-width: 2088px) {
   .main-board {
@@ -7991,9 +7991,8 @@ a:hover {
 }
 
 .video-slider {
-  top: 700px;
   position: relative;
-  left: 966px;
+
   /* height: 150px; */
   /* bottom: 0; */
   /* width: 600px; */
@@ -8037,18 +8036,22 @@ a:hover {
   width: 450px;
 }
 .notification {
-  position: absolute;
-  left: 1320px;
-  top: 0;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
 }
 .notification .panel-title {
   font-size: 15px;
   margin-bottom: 1px;
   margin-top: 0px;
 }
-
-.notification .panel-body {
-  width: 250px;
+.rs-container {
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  width: 600px;
 }
 .notification .list-group-item {
   padding: 5px 5px;
@@ -8062,12 +8065,10 @@ a:hover {
   overflow-y: scroll;
 }
 .realTimeChart {
-  position: absolute;
-  left: 965px;
-  width: 350px;
-  top: 0;
-  height: fit-content;
-  margin-right: 10px;
+  width: 250px;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
   border-top: 3px solid #f16c70;
 }
 .flot-chart {
@@ -8076,25 +8077,31 @@ a:hover {
   position: relative;
 }
 .legend {
-  position: absolute;
-  padding: 6px;
 }
 .profit {
   font-size: 13px;
   color: #26d4d4;
 }
-#world-map-markers {
+#world-map {
   height: 100%;
 }
 .key-map-area {
-  position: absolute;
-  left: 360px;
+  height: 100%;
+  white-space: normal;
+  width: 600px;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+}
+.kma-container {
   display: grid;
   height: 100%;
   /* width: 600px; */
   grid-template-columns: 600px;
-  grid-row-gap: 60px;
-  grid-template-rows: minmax(250px, 33%) minmax(230px, 33%) minmax(200px, 33%);
+  grid-template-rows: minmax(150px, 18%) minmax(233px, 28%) minmax(175px, 19%) minmax(
+      56px,
+      9%
+    );
 }
 
 /* Amp Carousel */
@@ -8124,10 +8131,7 @@ a:hover {
 .right-section {
   display: grid;
   grid-template-columns: 600px;
-  grid-template-rows: minmax(90px, 90px) minmax(200px, 200px) 250px 120px;
-  position: absolute;
-  left: 1575px;
-  top: 0;
+  grid-template-rows: minmax(90px, 90px) minmax(200px, 200px) 350px 120px;
 }
 .right-section > div {
   border: 1px solid #ccc;
@@ -8142,11 +8146,31 @@ a:hover {
   margin: 0 5px 5px 0;
   width: 130px;
 }
+#bar-2-chart {
+  height: 50px;
+  padding: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 5px 5px 0;
+  width: 130px;
+}
+#bar-3-chart {
+  height: 50px;
+  padding: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 5px 5px 0;
+  width: 130px;
+}
 .analytics-bar {
   display: grid;
+  grid-column-gap: 5px;
   grid-template-columns: auto auto auto;
 }
 .analytics-bar > div {
+  border: 2px solid #f16c70;
   position: relative;
   color: #fff;
   background-color: #000000a3;
@@ -8158,4 +8182,65 @@ a:hover {
   /* left: 0; */
   font-size: 10px;
   padding: 0 0 0 5px;
+}
+.podcast {
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
+  flex-direction: column;
+}
+.podcast .play {
+  border: 2px solid #ccc;
+  margin-bottom: 5px;
+  height: 56px;
+  width: 400px;
+  border-radius: 8px;
+  background-color: #000000a3;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.podcast-icon {
+  width: 44px;
+  height: 44px;
+}
+.podcast-icon svg {
+  width: 44px;
+  height: 44px;
+  transform: translate(8px, 4px);
+}
+.podcast-fields {
+  margin-left: 14px;
+  width: 300px;
+  margin-top: 3px;
+  color: #fff;
+}
+.podcast-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+.podcast-desc {
+  font-size: 11px;
+}
+.podcast-length {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 12px;
+  color: #fff;
+  margin-right: 9px;
+}
+.tab-timeline {
+  height: 100%;
+  position: relative;
+  white-space: normal;
+  width: 350px;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+}
+.board-header {
+  margin-left: 83px;
+}
+.dashboard {
+  flex-grow: 1;
+  position: relative;
 }
