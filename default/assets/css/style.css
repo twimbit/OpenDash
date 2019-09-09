@@ -8061,7 +8061,7 @@ a:hover {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
-  width: 500px;
+  width: 400px;
   height: 80%;
 }
 .notification .list-group-item {
@@ -8073,7 +8073,7 @@ a:hover {
   font-size: 12px;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .realTimeChart {
   width: 200px;
@@ -8142,12 +8142,12 @@ a:hover {
 }
 .right-section {
   display: grid;
-  grid-template-columns: 500px;
+  /* grid-template-columns: 400px; */
   grid-template-rows: 16% 40% auto;
   height: 100%;
 }
 .right-section > div {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
 }
 
 #bar-1-chart {
@@ -8203,7 +8203,7 @@ a:hover {
   /* justify-content: flex-end; */
   align-items: flex-end;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: overlay;
 }
 .podcast .play {
   border: 2px solid #ccc;
@@ -8335,9 +8335,7 @@ a:hover {
     opacity: 1;
   }
 }
-.social {
-  margin-left: 40px;
-}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -8465,4 +8463,45 @@ a:hover {
 }
 .social-icon img {
   width: 20px;
+}
+
+/* width */
+.fancy-scrollbar::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+/* Track */
+.fancy-scrollbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.fancy-scrollbar::-webkit-scrollbar-thumb {
+  background: #f16c70;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.fancy-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #f16c70;
+}
+
+.gallery-carousel img {
+  width: 120px;
+  margin-right: 10px;
+  height: 100%;
+}
+.gallery {
+  padding: 11px;
+  border-radius: 5px;
+  overflow-y: hidden;
+  /* overflow-x: auto; */
+  background-color: #000000a3;
+}
+.gallery-carousel {
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
