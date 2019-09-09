@@ -71,6 +71,11 @@ html {
   overflow: hidden;
   min-height: 576px;
   max-height: 1080px;
+  background: linear-gradient(
+    to right,
+    rgba(21, 98, 171, 1) 0%,
+    rgba(16, 43, 71, 1) 100%
+  );
 }
 
 .topbar .topbar-left {
@@ -7966,6 +7971,8 @@ a:hover {
   /* min-width: 1024px; */
   max-width: 1920px;
   /* margin: 0 auto; */
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle, #d0d0d0 1px, rgba(0, 0, 0, 0) 1px);
 }
 
 /* key member css */
@@ -8507,6 +8514,7 @@ a:hover {
 }
 
 .vsl-container {
+  color: #fff;
   font-size: 11px;
   margin-right: 10px;
   width: 170px;
