@@ -1244,7 +1244,7 @@ var stacked_area_chart = echarts.init(
 );
 area_option = {
   title: {
-    text: "Area Chart"
+    text: ""
   },
   tooltip: {
     trigger: "axis",
@@ -1256,7 +1256,7 @@ area_option = {
     }
   },
   legend: {
-    data: ["Line-1", "Line-2", "Line-3", "Line-4", "Line-5"]
+    data: ["Line-1", "Line-2", "Line-3", "Line-4",]
   },
   toolbox: {
     feature: {
@@ -1276,7 +1276,7 @@ area_option = {
     {
       type: "category",
       boundaryGap: false,
-      data: ["X-1", "X-2", "X-3", "X-4", "X-5", "X-6", "X-7"]
+      data: ["X-1", "X-2", "X-3", "X-4", "X-5", "X-6",]
     }
   ],
   yAxis: [
