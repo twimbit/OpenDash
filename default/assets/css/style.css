@@ -68,6 +68,7 @@ html,
 }
 body,
 html {
+  color: #fff;
   overflow: hidden;
   min-height: 576px;
   max-height: 1080px;
@@ -697,70 +698,6 @@ body.enlarged.bg-transparent {
 /* =============
    Common
 ============= */
-body {
-  margin: 0;
-  color: #797979;
-  font-size: 14px;
-  background-color: #f1f1f1;
-}
-
-html {
-  position: relative;
-}
-
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #666f7b;
-  margin: 10px 0;
-}
-
-h5 {
-  font-size: 15px;
-}
-
-p {
-  line-height: 1.6;
-}
-
-* {
-  outline: none !important;
-}
-
-a:hover {
-  outline: 0;
-  text-decoration: none;
-}
-
-a:active {
-  outline: 0;
-  text-decoration: none;
-}
-
-a:focus {
-  outline: 0;
-  text-decoration: none;
-}
-
-.container {
-  width: auto;
-}
-
-.container-alt {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
 
 #wrapper {
   position: absolute;
@@ -1045,7 +982,7 @@ a:focus {
 .card-box {
   position: relative;
   border-radius: 3px;
-  background-color: #ffffff;
+  background-color: #000c22ba;
 }
 
 /* =============
@@ -2912,7 +2849,6 @@ a:focus {
 
 .nav-tabs > li > a,
 .nav-pills > li > a {
-  color: #313a46;
   font-weight: 600;
 }
 
@@ -2974,13 +2910,6 @@ a:focus {
 
 /* Navpills */
 .nav-pills > li > a {
-  color: #313a46;
-}
-
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:focus,
-.nav-pills > li.active > a:hover {
-  background-color: #64c5b1;
 }
 
 /* =============
@@ -7638,10 +7567,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: #000;
-}
-
 .main,
 .container > header {
   width: 90%;
@@ -7813,10 +7738,10 @@ a:hover {
   position: absolute;
   top: 40px;
   bottom: 0;
-  width: 6px;
-  background: #afdcf8;
+  width: 2px;
+  background: #f16c70;
   left: 23px;
-  margin-left: -10px;
+  margin-left: -8px;
 }
 
 /* The date/time */
@@ -7854,7 +7779,6 @@ a:hover {
 .cbp_tmtimeline > li .cbp_tmlabel {
   margin: 0 0 8px 17%;
   /* background: #3594cb; */
-  color: #000000;
   padding: 0em;
   font-size: 1.2em;
   font-weight: 300;
@@ -7888,11 +7812,13 @@ a:hover {
   -webkit-font-smoothing: antialiased;
   position: absolute;
   color: #fff;
-  background: #46a4da;
+  border: 2px solid #f16c70;
   border-radius: 50%;
   left: 74px;
   top: 0;
   margin: 0 0 0 -74px;
+  background-size: contain;
+  background-image: url(https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg);
 }
 
 /* Example Media Queries */
@@ -7958,6 +7884,7 @@ a:hover {
   overflow: auto;
 }
 .main-board {
+  padding-bottom: 5px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -7972,7 +7899,11 @@ a:hover {
   max-width: 1920px;
   /* margin: 0 auto; */
   background-size: 40px 40px;
-  background-image: radial-gradient(circle, #d0d0d0 1px, rgba(0, 0, 0, 0) 1px);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 2px,
+    rgba(0, 0, 0, 0) 6px
+  );
 }
 
 /* key member css */
@@ -7983,10 +7914,7 @@ a:hover {
   color: #0d47a1 !important;
 }
 .key-members {
-  /* position: absolute; */
-  /* width: 600px; */
-  margin-top: -2px;
-  /* left: 355px; */
+  grid-gap: 3px;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: 70px 70px;
@@ -8052,6 +7980,7 @@ a:hover {
   /* width: 450px; */
 }
 .notification {
+  background-color: #000c22ba;
   border-top: 3px solid #f16c70;
   width: 210px;
   display: inline-block;
@@ -8210,15 +8139,14 @@ a:hover {
   align-items: flex-end;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: overlay;
+  overflow-y: scroll;
 }
 .podcast .play {
-  border: 2px solid #ccc;
   margin-bottom: 3px;
   height: 42px;
   width: 400px;
   border-radius: 8px;
-  background-color: #000000a3;
+  background-color: #000c22ba;
   display: flex;
   /* justify-content: space-between; */
 }
@@ -8265,9 +8193,9 @@ a:hover {
 }
 .archive-container {
   position: relative;
-  width: 400px;
+  width: 100%;
   border-radius: 8px;
-  background-color: #000000a3;
+  background-color: #000c22ba;
   padding-top: 5px;
 }
 .archive-container span {
@@ -8499,13 +8427,14 @@ a:hover {
   width: 120px;
   margin-right: 10px;
   height: 100%;
+  border-radius: 5px;
 }
 .gallery {
   padding: 5px;
   border-radius: 5px;
   overflow-y: hidden;
   /* overflow-x: auto; */
-  background-color: #000000a3;
+  background-color: #000c22ba;
 }
 .gallery-carousel {
   height: 100%;
