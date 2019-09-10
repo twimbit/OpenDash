@@ -1101,19 +1101,9 @@ function makeMapData(rawData) {
 // based ready dom, initialize echarts instance
 var chart = echarts.init(document.getElementById("world-map"));
 option = {
-  backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.5, 0.4, [
-    {
-      offset: 0,
-      color: "#4b5769"
-    },
-    {
-      offset: 1,
-      color: "#404a59"
-    }
-  ]),
   title: {
-    text: "Prices and Earnings 2012",
-    subtext: "data from macrofocus",
+    text: "",
+    subtext: "",
     sublink: "#",
     left: "center",
     top: 5,
@@ -1135,7 +1125,7 @@ option = {
     }
   },
   toolbox: {
-    show: true,
+    show: false,
     left: "right",
     iconStyle: {
       normal: {
@@ -1214,7 +1204,7 @@ option = {
       itemStyle: {
         normal: {
           borderColor: "#fff",
-          color: "#577ceb"
+          color: "#f16c70"
         }
       }
     },
@@ -1244,19 +1234,27 @@ var stacked_area_chart = echarts.init(
 );
 area_option = {
   title: {
-    text: ""
+    text: "Revenue",
+    textStyle: {
+      color: "#fff",
+      fontSize: 13
+    },
+    top: 25
   },
   tooltip: {
     trigger: "axis",
     axisPointer: {
       type: "cross",
       label: {
-        backgroundColor: "#6a7985"
+        backgroundColor: "#000c22ba"
       }
     }
   },
   legend: {
-    data: ["Line-1", "Line-2", "Line-3", "Line-4",]
+    data: ["Line-1", "Line-2", "Line-3", "Line-4"],
+    textStyle: {
+      color: "#fff"
+    }
   },
   toolbox: {
     feature: {
@@ -1276,12 +1274,20 @@ area_option = {
     {
       type: "category",
       boundaryGap: false,
-      data: ["X-1", "X-2", "X-3", "X-4", "X-5", "X-6",]
+      data: ["X-1", "X-2", "X-3", "X-4", "X-5", "X-6"],
+      axisLabel: {
+        color: "#fff",
+        fontSize: 10
+      }
     }
   ],
   yAxis: [
     {
-      type: "value"
+      type: "value",
+      axisLabel: {
+        color: "#fff",
+        fontSize: 10
+      }
     }
   ],
   series: [
