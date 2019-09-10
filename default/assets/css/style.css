@@ -983,7 +983,6 @@ body.enlarged.bg-transparent {
 .card-box {
   position: relative;
   border-radius: 3px;
-  background-color: #000c22ba;
 }
 
 /* =============
@@ -7982,7 +7981,6 @@ a {
   /* width: 450px; */
 }
 .notification {
-  background-color: #000c22ba;
   border-top: 3px solid #f16c70;
   width: 210px;
   display: inline-block;
@@ -8148,7 +8146,6 @@ a {
   height: 42px;
   width: 400px;
   border-radius: 8px;
-  background-color: #000c22ba;
   display: flex;
   /* justify-content: space-between; */
 }
@@ -8197,7 +8194,6 @@ a {
   position: relative;
   width: 100%;
   border-radius: 8px;
-  background-color: #000c22ba;
   padding-top: 5px;
 }
 .archive-container span {
@@ -8297,7 +8293,6 @@ a {
   -webkit-transition-timing-function: ease;
   -moz-transition-timing-function: ease;
   transition-timing-function: ease;
-  background-color: #000c22ba;
   text-align: center;
   display: inline-block;
   width: 40px;
@@ -8432,14 +8427,11 @@ a {
   border-radius: 5px;
 }
 
-
 .gallery {
   width: 400px;
   padding: 5px;
   border-radius: 5px;
   overflow-y: hidden;
-  /* overflow-x: auto; */
-  background-color: #000c22ba;
 }
 
 .gallery-carousel {
@@ -8467,4 +8459,7 @@ a {
   padding: 0;
   justify-content: space-between;
   margin: 0;
+}
+.black-tint {
+  background-color: rgba(0, 0, 0, 0.75);
 }
