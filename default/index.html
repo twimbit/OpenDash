@@ -188,7 +188,12 @@
         <!-- Sidebar -left -->
       </div>
       <div class="board-header">
-        <h4 style="color: #fff">Uniphore Terminal - Cigna</h4>
+        <h4
+          style="color: #fff;margin-bottom: 5px;
+        margin-top: 5px;"
+        >
+          Uniphore Terminal - Cigna
+        </h4>
       </div>
       <div class="dashboard">
         <div class="main-board fancy-scrollbar" id="main-board">
@@ -259,7 +264,7 @@
             </div>
 
             <div
-              class="timeline-card card-box widget-box-two widget-two-custom fancy-scrollbar"
+              class="timeline-card card-box widget-box-two widget-two-custom fancy-scrollbar timeline-vertical-scroll"
             >
               <div style="padding:0 10px;">
                 <div class="" style="margin-top: 10px">
@@ -571,7 +576,9 @@
                 >
                   Notifications
                 </p>
-                <ul class="list-group fancy-scrollbar">
+                <ul
+                  class="list-group fancy-scrollbar notification-vertical-scroll"
+                >
                   <li class="list-group-item">
                     <strong>Signature Accommodations</strong>(1480m)
                   </li>
@@ -620,8 +627,8 @@
           </div>
           <div class="rs-container">
             <div class="right-section">
-              <div class="gallery fancy-scrollbar">
-                <div class="gallery-carousel ">
+              <div class="gallery">
+                <div class="gallery-carousel fancy-scrollbar">
                   <a
                     href="assets/images/small/img-4.jpg"
                     data-lightbox="gallery-set"
@@ -668,7 +675,7 @@
               </div>
               <div class="analytics-charts"></div>
               <div class="podcast-archive">
-                <div class="podcast  fancy-scrollbar">
+                <div class="podcast  fancy-scrollbar podcast-vertical-scroll">
                   <div class="play">
                     <div class="podcast-icon">
                       <svg
@@ -1117,7 +1124,9 @@
                 <div class="archive">
                   <div class="archive-container">
                     <span>Archive</span>
-                    <div class="archive-files fancy-scrollbar">
+                    <div
+                      class="archive-files fancy-scrollbar archive-vertical-scroll"
+                    >
                       <div class="archive-file">
                         <div class="title">
                           DBS Bank Account insights -ABM
@@ -1364,6 +1373,12 @@
     <!-- jQuery  -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
+
+    <!-- Mouse wheel js -->
+    <script
+      type="text/javascript"
+      src="assets/pages/jquery.mousewheel.min.js"
+    ></script>
 
     <!-- Popper for Bootstrap -->
     <script src="assets/js/bootstrap.min.js"></script>

@@ -104,7 +104,7 @@
     (FlotChart.prototype.init = function() {
       //real time data representation
       var plot = this.createRealTimeGraph("#flotRealTime", this.randomData(), [
-        "#64c5b1"
+        "#005affbf"
       ]);
       plot.draw();
       var $this = this;

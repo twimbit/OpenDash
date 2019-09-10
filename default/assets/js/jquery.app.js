@@ -95,5 +95,107 @@
     initActiveMenu();
   }
 
+  $(function() {
+    /* gallery horizontal scroll */
+
+    let mainScroll = 30,
+      vgScroll = 30;
+    $("#main-board").mouseover(function() {
+      mainScroll = 30;
+    });
+
+    $(".gallery-carousel").mousewheel(function(event, delta) {
+      mainScroll = 0;
+      this.scrollLeft -= delta * vgScroll;
+      event.preventDefault();
+    });
+
+    /* Main board horizontal scroll */
+    $("#main-board").mousewheel(function(event, delta) {
+      this.scrollLeft -= delta * mainScroll;
+
+      event.preventDefault();
+    });
+
+    /* vsl horizontal scroll */
+    $(".video-slider").mousewheel(function(event, delta) {
+      mainScroll = 0;
+      this.scrollLeft -= delta * vgScroll;
+      event.preventDefault();
+    });
+
+    /* Timeline vertical scroll */
+    $(".timeline-vertical-scroll").mousewheel(function(
+      event,
+      delta,
+      deltaX,
+      deltaY
+    ) {
+      if (delta < 0)
+        $(".timeline-vertical-scroll").scrollTop(
+          $(".timeline-vertical-scroll").scrollTop() + 65
+        );
+      else if (delta > 0)
+        $(".timeline-vertical-scroll").scrollTop(
+          $(".timeline-vertical-scroll").scrollTop() - 65
+        );
+      return false;
+    });
+
+    /* Notification vertical scroll */
+    $(".notification-vertical-scroll").mousewheel(function(
+      event,
+      delta,
+      deltaX,
+      deltaY
+    ) {
+      if (delta < 0)
+        $(".notification-vertical-scroll").scrollTop(
+          $(".notification-vertical-scroll").scrollTop() + 65
+        );
+      else if (delta > 0)
+        $(".notification-vertical-scroll").scrollTop(
+          $(".notification-vertical-scroll").scrollTop() - 65
+        );
+      return false;
+    });
+
+    /* Podcast vertical scroll */
+    $(".podcast-vertical-scroll").mousewheel(function(
+      event,
+      delta,
+      deltaX,
+      deltaY
+    ) {
+      if (delta < 0)
+        $(".podcast-vertical-scroll").scrollTop(
+          $(".podcast-vertical-scroll").scrollTop() + 65
+        );
+      else if (delta > 0)
+        $(".podcast-vertical-scroll").scrollTop(
+          $(".podcast-vertical-scroll").scrollTop() - 65
+        );
+      return false;
+    });
+
+    /* Archive vertical scroll */
+    $(".archive-vertical-scroll").mousewheel(function(
+      event,
+      delta,
+      deltaX,
+      deltaY
+    ) {
+      if (delta < 0)
+        $(".archive-vertical-scroll").scrollTop(
+          $(".archive-vertical-scroll").scrollTop() + 65
+        );
+      else if (delta > 0)
+        $(".archive-vertical-scroll").scrollTop(
+          $(".archive-vertical-scroll").scrollTop() - 65
+        );
+      return false;
+    });
+  });
+
   init();
 })(jQuery);

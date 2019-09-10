@@ -68,6 +68,7 @@ html,
 }
 body,
 html {
+  position: relative;
   color: #fff;
   overflow: hidden;
   min-height: 576px;
@@ -7943,6 +7944,7 @@ a {
 .video-slider img {
   height: 70px;
   width: 168px;
+  border-radius: 4px;
 }
 .owl-item {
   width: 200px !important;
@@ -8003,8 +8005,8 @@ a {
   padding: 5px 5px;
 }
 .list-group {
-  max-height: 220px;
-  margin-bottom: 10px;
+  max-height: 160px;
+  margin-bottom: 5px;
   font-size: 12px;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -8403,7 +8405,7 @@ a {
 /* width */
 .fancy-scrollbar::-webkit-scrollbar {
   height: 5px;
-  width: 5px;
+  width: 3px;
 }
 
 /* Track */
@@ -8424,24 +8426,35 @@ a {
 }
 
 .gallery-carousel img {
-  width: 120px;
+  width: 115px;
   margin-right: 10px;
-  height: 100%;
+  height: 95%;
   border-radius: 5px;
 }
+
+
 .gallery {
+  width: 400px;
   padding: 5px;
   border-radius: 5px;
   overflow-y: hidden;
   /* overflow-x: auto; */
   background-color: #000c22ba;
 }
+
 .gallery-carousel {
   height: 100%;
   width: 100%;
   display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
+/* width */
+.gallery-carousel::-webkit-scrollbar {
+  height: 3px;
+  width: 3px;
+}
 .vsl-container {
   color: #fff;
   font-size: 11px;
