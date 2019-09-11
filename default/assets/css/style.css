@@ -7884,13 +7884,14 @@ a {
   overflow: auto;
 }
 .main-board {
+  /* zoom: 0.923; */
   padding-bottom: 5px;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin-left: 83px;
+  margin-left: 10px;
   padding-right: 10px;
   white-space: nowrap;
   overflow-x: scroll;
@@ -7981,6 +7982,8 @@ a {
   /* width: 450px; */
 }
 .notification {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   border-top: 3px solid #f16c70;
   width: 210px;
   display: inline-block;
@@ -8016,6 +8019,8 @@ a {
   white-space: normal;
   vertical-align: top;
   border-top: 3px solid #f16c70;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .flot-chart {
   height: 100%;
@@ -8226,7 +8231,8 @@ a {
   vertical-align: top;
 }
 .board-header {
-  margin-left: 83px;
+  margin-left: 10px;
+  height: 38px;
 }
 .dashboard {
   flex-grow: 1;
@@ -8300,6 +8306,8 @@ a {
   padding: 9px 0px;
   color: white;
   margin: 2px;
+  background-color: rgba(93, 92, 92, 0.75);
+  border-radius: 50%;
   /* Color each button differently */
 }
 .social-icon:nth-child(1) {
@@ -8453,6 +8461,18 @@ a {
   margin-right: 10px;
   width: 170px;
 }
+.vsl-type {
+  display: flex;
+  justify-content: space-between;
+}
+.vsl-new {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-top: 3px;
+  background-color: #f16c70;
+}
 .vsl-sub-field ul {
   list-style: none;
   display: flex;
@@ -8462,4 +8482,69 @@ a {
 }
 .black-tint {
   background-color: rgba(0, 0, 0, 0.75);
+}
+.social {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+.ext-main {
+  margin: 4px 0;
+  background-color: #fff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 33px;
+}
+.ext-main svg {
+  height: 21px;
+  width: 24px;
+  transform: translate(4px, 5px) scale(0.8);
+}
+.ext-main svg path {
+  fill: #000;
+}
+.client-icon {
+  width: 80px;
+  margin: 4px 0;
+  margin-right: 10px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: #e5e3e3;
+}
+.client-icon img {
+  width: 69px;
+  height: 23px;
+  margin-top: 7px;
+}
+.twimbit-icon {
+  margin-left: auto;
+  margin-right: 40px;
+}
+.twimbit-icon img {
+  width: 80px;
+  margin-top: -4px;
+}
+.right-tools {
+  position: absolute;
+  right: 0px;
+  width: 33px;
+  padding: 6px;
+  transition: opacity 0.2s;
+  top: 5px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #f16c70;
+  z-index: 99;
+}
+.right-tools svg {
+  width: 100%;
+}
+.right-tools path {
+  fill: #fff;
+}
+.fullscreen-icon svg {
+  transform: scale(1.6) !important;
+}
+.right-tools svg {
+  transform: scale(0.7);
 }

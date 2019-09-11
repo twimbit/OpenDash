@@ -1336,3 +1336,4 @@ area_option = {
 };
 
 stacked_area_chart.setOption(area_option);
+

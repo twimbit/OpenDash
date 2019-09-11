@@ -97,10 +97,10 @@
 
   $(function() {
     /* gallery horizontal scroll */
-
     let mainScroll = 30,
       vgScroll = 30;
-    $("#main-board").mouseover(function() {
+    let mainBoard = $("#main-board");
+    mainBoard.mouseover(function() {
       mainScroll = 30;
     });
 
@@ -111,7 +111,7 @@
     });
 
     /* Main board horizontal scroll */
-    $("#main-board").mousewheel(function(event, delta) {
+    mainBoard.mousewheel(function(event, delta) {
       this.scrollLeft -= delta * mainScroll;
 
       event.preventDefault();
@@ -195,7 +195,36 @@
         );
       return false;
     });
+
+    /* Right tools hiding effect */
+    //   $(".gallery")
+    //     .mouseenter(function() {
+    //       $(".right-tools").css("z-index", "0");
+    //       $(".right-tools").css("opacity", "0.3");
+    //     })
+    //     .mouseleave(function() {
+    //       $(".right-tools").css("z-index", "99");
+    //       $(".right-tools").css("opacity", "1");
+    //     });
+
+    /* Zoom and zoom out main container */
+    let currentZoom = 1;
+    $(".zoom-in").click(function() {
+      mainBoard.animate({ zoom: (currentZoom += 0.1) }, "slow");
+    });
+    $(".zoom-out").click(function() {
+      if (currentZoom > 1) {
+        mainBoard.animate({ zoom: (currentZoom -= 0.1) }, "slow");
+      }
+    });
+    $("#btn_ZoomReset").click(function() {
+      currentZoom = 1.0;
+      mainBoard.animate({ zoom: 1 }, "slow");
+    });
+
+    
+
   });
 
-  init();
+  // init();
 })(jQuery);
