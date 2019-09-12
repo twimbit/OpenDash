@@ -5,104 +5,14 @@
  */
 
 (function($) {
-  "use strict";
-
-  function initSlimscrollMenu() {
-    $(".slimscroll-menu").slimscroll({
-      height: "auto",
-      position: "right",
-      size: "5px",
-      color: "#9ea5ab",
-      wheelStep: 5
-    });
-  }
-
-  function initSlimscroll() {
-    $(".slimscroll").slimscroll({
-      height: "auto",
-      position: "right",
-      size: "5px",
-      color: "#9ea5ab"
-    });
-  }
-
-  function initMetisMenu() {
-    //metis menu
-    $("#side-menu").metisMenu();
-  }
-
-  function initLeftMenuCollapse() {
-    // Left menu collapse
-    $(".button-menu-mobile").on("click", function(event) {
-      event.preventDefault();
-      $("body").toggleClass("enlarged");
-    });
-  }
-
-  // function initEnlarge() {
-  //     if ($(window).width() < 1025) {
-  //         $('body').addClass('enlarged');
-  //     } else {
-  //         $('body').removeClass('enlarged');
-  //     }
-  // }
-
-  function initActiveMenu() {
-    // === following js will activate the menu in left side bar based on url ====
-    $("#sidebar-menu a").each(function() {
-      if (this.href == window.location.href) {
-        $(this).addClass("active");
-        $(this)
-          .parent()
-          .addClass("active"); // add active to li of the current link
-        $(this)
-          .parent()
-          .parent()
-          .addClass("in");
-        $(this)
-          .parent()
-          .parent()
-          .prev()
-          .addClass("active"); // add active class to an anchor
-        $(this)
-          .parent()
-          .parent()
-          .parent()
-          .addClass("active");
-        $(this)
-          .parent()
-          .parent()
-          .parent()
-          .parent()
-          .addClass("in"); // add active to li of the current link
-        $(this)
-          .parent()
-          .parent()
-          .parent()
-          .parent()
-          .parent()
-          .addClass("active");
-      }
-    });
-  }
-
-  function init() {
-    initSlimscrollMenu();
-    initSlimscroll();
-    initMetisMenu();
-    initLeftMenuCollapse();
-    // initEnlarge();
-    initActiveMenu();
-  }
-
   $(function() {
     /* gallery horizontal scroll */
     let mainScroll = 30,
       vgScroll = 30;
-    let mainBoard = $("#main-board");
-    mainBoard.mouseover(function() {
-      mainScroll = 30;
-    });
+    // let mainBoard = $("#main-board");
+    // mainBoard.mouseover(function() {
+    //   mainScroll = 30;
+    // });
 
     $(".gallery-carousel").mousewheel(function(event, delta) {
       mainScroll = 0;
@@ -111,11 +21,11 @@
     });
 
     /* Main board horizontal scroll */
-    mainBoard.mousewheel(function(event, delta) {
-      this.scrollLeft -= delta * mainScroll;
+    // mainBoard.mousewheel(function(event, delta) {
+    //   this.scrollLeft -= delta * mainScroll;
 
-      event.preventDefault();
-    });
+    //   event.preventDefault();
+    // });
 
     /* vsl horizontal scroll */
     $(".video-slider").mousewheel(function(event, delta) {
@@ -208,22 +118,70 @@
     //     });
 
     /* Zoom and zoom out main container */
-    let currentZoom = 1;
-    $(".zoom-in").click(function() {
-      mainBoard.animate({ zoom: (currentZoom += 0.1) }, "slow");
-    });
-    $(".zoom-out").click(function() {
-      if (currentZoom > 1) {
-        mainBoard.animate({ zoom: (currentZoom -= 0.1) }, "slow");
-      }
-    });
-    $("#btn_ZoomReset").click(function() {
-      currentZoom = 1.0;
-      mainBoard.animate({ zoom: 1 }, "slow");
-    });
+    // let currentZoom = 1;
+    // $(".zoom-in").click(function() {
+    //   mainBoard.animate({ zoom: (currentZoom += 0.1) }, "slow");
+    // });
+    // $(".zoom-out").click(function() {
+    //   if (currentZoom > 1) {
+    //     mainBoard.animate({ zoom: (currentZoom -= 0.1) }, "slow");
+    //   }
+    // });
+    // $("#btn_ZoomReset").click(function() {
+    //   currentZoom = 1.0;
+    //   mainBoard.animate({ zoom: 1 }, "slow");
+    // });
 
-    
+    /* Drag scroll screen */
+    $.dragScroll = function(options) {
+      var settings = $.extend(
+        {
+          scrollVertical: true,
+          scrollHorizontal: true,
+          cursor: null
+        },
+        options
+      );
 
+      var clicked = false,
+        clickY,
+        clickX;
+
+      var getCursor = function() {
+        if (settings.cursor) return settings.cursor;
+        if (settings.scrollVertical && settings.scrollHorizontal) return "move";
+        if (settings.scrollVertical) return "row-resize";
+        if (settings.scrollHorizontal) return "col-resize";
+      };
+
+      var updateScrollPos = function(e, el) {
+        $('.main-board').css("cursor", getCursor());
+        var $el = $(el);
+        /* Code for scroll vertically */
+        // settings.scrollVertical &&
+        //   $el.scrollTop($el.scrollTop() + (clickY - e.pageY));
+
+        /* Code for scroll horizontal */
+        settings.scrollHorizontal &&
+          $el.scrollLeft($el.scrollLeft() + (clickX - e.pageX));
+      };
+
+      $(".main-board").on({
+        mousemove: function(e) {
+          clicked && updateScrollPos(e, this);
+        },
+        mousedown: function(e) {
+          clicked = true;
+          clickY = e.pageY;
+          clickX = e.pageX;
+        },
+        mouseup: function() {
+          clicked = false;
+          $('.main-board').css("cursor", "auto");
+        }
+      });
+    };
+    $.dragScroll();
   });
 
   // init();

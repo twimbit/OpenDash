@@ -4,6 +4,7 @@ Template Name: Adminox Dashboard
 Author: CoderThemes
 Email: coderthemes@gmail.com
 File: Main Css
+
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Karla:700|Nunito+Sans:600,700");
 /* Metis Menu css */
@@ -11,6 +12,13 @@ File: Main Css
   padding: 0;
 }
 
+* {
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: -moz-none !important;
+  -o-user-select: none !important;
+  user-select: none !important;
+}
 .metismenu ul {
   padding: 0;
 }
@@ -8547,4 +8555,10 @@ a {
 }
 .right-tools svg {
   transform: scale(0.7);
+}
+.zoom-in svg,
+.hamberger-icon svg,
+.fullscreen-icon svg,
+.zoom-out svg:hover {
+  cursor: pointer;
 }
