@@ -8036,9 +8036,13 @@ a {
   position: relative;
 }
 .legend {
+  height: 35px;
+}
+.legend .dollor {
+  font-size: 12px;
 }
 .profit {
-  font-size: 13px;
+  font-size: 12px;
   color: #26d4d4;
 }
 #world-map {
@@ -8098,52 +8102,19 @@ a {
   /* border: 1px solid #ccc; */
 }
 
-#bar-1-chart {
-  height: 50px;
-  padding: 0px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 5px 5px 0;
-  width: 130px;
-}
-#bar-2-chart {
-  height: 50px;
-  padding: 0px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 5px 5px 0;
-  width: 130px;
-}
-#bar-3-chart {
-  height: 50px;
-  padding: 0px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 5px 5px 0;
-  width: 130px;
-}
 .analytics-charts {
-  display: grid;
-  grid-column-gap: 5px;
-  grid-template-columns: auto auto auto;
-}
-.analytics-bar > div {
-  border: 2px solid #f16c70;
   position: relative;
-  color: #fff;
-  background-color: #000000a3;
 }
 
-.analytics-bar ul {
-  list-style-type: none;
+.charts-container {
   position: absolute;
-  /* left: 0; */
-  font-size: 10px;
-  padding: 0 0 0 5px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: -204px;
+  background-color: #0000005e;
 }
+
 .podcast {
   max-height: 131px;
   margin-bottom: 5px;
@@ -8243,6 +8214,7 @@ a {
   height: 38px;
 }
 .dashboard {
+  display: flex;
   flex-grow: 1;
   position: relative;
 }
@@ -8563,7 +8535,6 @@ a {
   cursor: pointer;
 }
 
-
 /* sidebar css */
 #sidebar {
   width: 250px;
@@ -8588,7 +8559,7 @@ a {
   height: 35px;
   line-height: 35px;
   text-align: center;
-  background: #7386D5;
+  background: #7386d5;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -8600,7 +8571,7 @@ a {
 
 #dismiss:hover {
   background: #fff;
-  color: #7386D5;
+  color: #7386d5;
 }
 
 .overlay {
@@ -8640,11 +8611,9 @@ a {
 }
 
 #sidebar ul li a:hover {
-  color: #7386D5;
+  color: #7386d5;
   background: #fff;
 }
-
-
 
 .dropdown-toggle::after {
   display: block;
@@ -8653,4 +8622,23 @@ a {
   right: 20px;
   transform: translateY(-50%);
 }
+.client-name {
+  color: #fff;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
 
+@media (max-width: 480px) {
+  .twimbit-icon {
+    display: none;
+  }
+  .client-name {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: auto;
+    margin-top: auto;
+  }
+  .client-name p {
+    margin-bottom: 0px;
+  }
+}
