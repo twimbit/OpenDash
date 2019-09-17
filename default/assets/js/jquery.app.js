@@ -7,12 +7,12 @@
 (function($) {
   $(function() {
     /* gallery horizontal scroll */
-    let mainScroll = 30,
-      vgScroll = 30;
-    let mainBoard = $("#main-board");
-    mainBoard.mouseover(function() {
-      mainScroll = 30;
-    });
+    // let mainScroll = 30,
+    vgScroll = 30;
+    // let mainBoard = $("#main-board");
+    // mainBoard.mouseover(function() {
+    //   mainScroll = 30;
+    // });
 
     $(".gallery-carousel").mousewheel(function(event, delta) {
       mainScroll = 0;
@@ -21,11 +21,11 @@
     });
 
     /* Main board horizontal scroll */
-    mainBoard.mousewheel(function(event, delta) {
-      this.scrollLeft -= delta * mainScroll;
+    // mainBoard.mousewheel(function(event, delta) {
+    //   this.scrollLeft -= delta * mainScroll;
 
-      event.preventDefault();
-    });
+    //   event.preventDefault();
+    // });
 
     /* vsl horizontal scroll */
     $(".video-slider").mousewheel(function(event, delta) {
@@ -155,18 +155,18 @@
       };
 
       var updateScrollPos = function(e, el) {
-        $(".main-board").css("cursor", getCursor());
+        $(".dashboard").css("cursor", getCursor());
         var $el = $(el);
         /* Code for scroll vertically */
-        // settings.scrollVertical &&
-        //   $el.scrollTop($el.scrollTop() + (clickY - e.pageY));
+        settings.scrollVertical &&
+          $el.scrollTop($el.scrollTop() + (clickY - e.pageY));
 
         /* Code for scroll horizontal */
         settings.scrollHorizontal &&
           $el.scrollLeft($el.scrollLeft() + (clickX - e.pageX));
       };
 
-      $(".main-board").on({
+      $(".dashboard").on({
         mousemove: function(e) {
           clicked && updateScrollPos(e, this);
         },
@@ -177,7 +177,7 @@
         },
         mouseup: function() {
           clicked = false;
-          $(".main-board").css("cursor", "auto");
+          $(".dashboard").css("cursor", "auto");
         }
       });
     };
