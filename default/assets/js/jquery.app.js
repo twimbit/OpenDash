@@ -35,76 +35,76 @@
     });
 
     /* Timeline vertical scroll */
-    $(".timeline-vertical-scroll").mousewheel(function(
-      event,
-      delta,
-      deltaX,
-      deltaY
-    ) {
-      if (delta < 0)
-        $(".timeline-vertical-scroll").scrollTop(
-          $(".timeline-vertical-scroll").scrollTop() + 65
-        );
-      else if (delta > 0)
-        $(".timeline-vertical-scroll").scrollTop(
-          $(".timeline-vertical-scroll").scrollTop() - 65
-        );
-      return false;
-    });
+    // $(".timeline-vertical-scroll").mousewheel(function(
+    //   event,
+    //   delta,
+    //   deltaX,
+    //   deltaY
+    // ) {
+    //   if (delta < 0)
+    //     $(".timeline-vertical-scroll").scrollTop(
+    //       $(".timeline-vertical-scroll").scrollTop() + 65
+    //     );
+    //   else if (delta > 0)
+    //     $(".timeline-vertical-scroll").scrollTop(
+    //       $(".timeline-vertical-scroll").scrollTop() - 65
+    //     );
+    //   return false;
+    // });
 
     /* Notification vertical scroll */
-    $(".notification-vertical-scroll").mousewheel(function(
-      event,
-      delta,
-      deltaX,
-      deltaY
-    ) {
-      if (delta < 0)
-        $(".notification-vertical-scroll").scrollTop(
-          $(".notification-vertical-scroll").scrollTop() + 65
-        );
-      else if (delta > 0)
-        $(".notification-vertical-scroll").scrollTop(
-          $(".notification-vertical-scroll").scrollTop() - 65
-        );
-      return false;
-    });
+    // $(".notification-vertical-scroll").mousewheel(function(
+    //   event,
+    //   delta,
+    //   deltaX,
+    //   deltaY
+    // ) {
+    //   if (delta < 0)
+    //     $(".notification-vertical-scroll").scrollTop(
+    //       $(".notification-vertical-scroll").scrollTop() + 65
+    //     );
+    //   else if (delta > 0)
+    //     $(".notification-vertical-scroll").scrollTop(
+    //       $(".notification-vertical-scroll").scrollTop() - 65
+    //     );
+    //   return false;
+    // });
 
     /* Podcast vertical scroll */
-    $(".podcast-vertical-scroll").mousewheel(function(
-      event,
-      delta,
-      deltaX,
-      deltaY
-    ) {
-      if (delta < 0)
-        $(".podcast-vertical-scroll").scrollTop(
-          $(".podcast-vertical-scroll").scrollTop() + 65
-        );
-      else if (delta > 0)
-        $(".podcast-vertical-scroll").scrollTop(
-          $(".podcast-vertical-scroll").scrollTop() - 65
-        );
-      return false;
-    });
+    // $(".podcast-vertical-scroll").mousewheel(function(
+    //   event,
+    //   delta,
+    //   deltaX,
+    //   deltaY
+    // ) {
+    //   if (delta < 0)
+    //     $(".podcast-vertical-scroll").scrollTop(
+    //       $(".podcast-vertical-scroll").scrollTop() + 65
+    //     );
+    //   else if (delta > 0)
+    //     $(".podcast-vertical-scroll").scrollTop(
+    //       $(".podcast-vertical-scroll").scrollTop() - 65
+    //     );
+    //   return false;
+    // });
 
     /* Archive vertical scroll */
-    $(".archive-vertical-scroll").mousewheel(function(
-      event,
-      delta,
-      deltaX,
-      deltaY
-    ) {
-      if (delta < 0)
-        $(".archive-vertical-scroll").scrollTop(
-          $(".archive-vertical-scroll").scrollTop() + 65
-        );
-      else if (delta > 0)
-        $(".archive-vertical-scroll").scrollTop(
-          $(".archive-vertical-scroll").scrollTop() - 65
-        );
-      return false;
-    });
+    // $(".archive-vertical-scroll").mousewheel(function(
+    //   event,
+    //   delta,
+    //   deltaX,
+    //   deltaY
+    // ) {
+    //   if (delta < 0)
+    //     $(".archive-vertical-scroll").scrollTop(
+    //       $(".archive-vertical-scroll").scrollTop() + 65
+    //     );
+    //   else if (delta > 0)
+    //     $(".archive-vertical-scroll").scrollTop(
+    //       $(".archive-vertical-scroll").scrollTop() - 65
+    //     );
+    //   return false;
+    // });
 
     /* Right tools hiding effect */
     //   $(".gallery")
@@ -195,6 +195,8 @@
       $(".collapse.in").toggleClass("in");
       $("a[aria-expanded=true]").attr("aria-expanded", "false");
     });
+
+    $(".dashboard").animate({ scrollLeft: 500 }, 1000);
   });
 
   // init();

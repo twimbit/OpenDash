@@ -7836,12 +7836,12 @@ a {
 .tab-card {
   width: 100%;
   /* display: inline-block; */
-  height: 274px;
+  height: 200px;
 }
 .timeline-card {
   bottom: 0;
   position: absolute;
-  top: 279px;
+  top: 203px;
   width: 100%;
   overflow: auto;
 }
@@ -7877,10 +7877,12 @@ a {
   color: #0d47a1 !important;
 }
 .key-members {
+  overflow-x: hidden;
+  overflow-y: scroll;
   grid-gap: 3px;
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: 70px 70px;
+  /* grid-template-rows: 70px 70px; */
 }
 .world-map {
   /* position: absolute; */
@@ -8178,6 +8180,7 @@ a {
   display: flex;
   flex-grow: 1;
   position: relative;
+  transition: overflow 0.4s;
 }
 .board-header {
   display: flex;
@@ -8367,6 +8370,12 @@ a {
 /* Handle on hover */
 .fancy-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #f16c70;
+}
+
+/* width */
+.hide-scroll::-webkit-scrollbar {
+  height: 5px;
+  width: 0px;
 }
 
 .gallery-carousel img {
