@@ -133,70 +133,70 @@
     // });
 
     /* Drag scroll screen */
-    $.dragScroll = function(options) {
-      var settings = $.extend(
-        {
-          scrollVertical: true,
-          scrollHorizontal: true,
-          cursor: null
-        },
-        options
-      );
+    // $.dragScroll = function(options) {
+    //   var settings = $.extend(
+    //     {
+    //       scrollVertical: true,
+    //       scrollHorizontal: true,
+    //       cursor: null
+    //     },
+    //     options
+    //   );
 
-      var clicked = false,
-        clickY,
-        clickX;
+    //   var clicked = false,
+    //     clickY,
+    //     clickX;
 
-      var getCursor = function() {
-        if (settings.cursor) return settings.cursor;
-        if (settings.scrollVertical && settings.scrollHorizontal) return "move";
-        if (settings.scrollVertical) return "row-resize";
-        if (settings.scrollHorizontal) return "col-resize";
-      };
+    //   var getCursor = function() {
+    //     if (settings.cursor) return settings.cursor;
+    //     if (settings.scrollVertical && settings.scrollHorizontal) return "move";
+    //     if (settings.scrollVertical) return "row-resize";
+    //     if (settings.scrollHorizontal) return "col-resize";
+    //   };
 
-      var updateScrollPos = function(e, el) {
-        $(".dashboard").css("cursor", getCursor());
-        var $el = $(el);
-        /* Code for scroll vertically */
-        settings.scrollVertical &&
-          $el.scrollTop($el.scrollTop() + (clickY - e.pageY));
+    //   var updateScrollPos = function(e, el) {
+    //     $(".dashboard").css("cursor", getCursor());
+    //     var $el = $(el);
+    //     /* Code for scroll vertically */
+    //     settings.scrollVertical &&
+    //       $el.scrollTop($el.scrollTop() + (clickY - e.pageY));
 
-        /* Code for scroll horizontal */
-        settings.scrollHorizontal &&
-          $el.scrollLeft($el.scrollLeft() + (clickX - e.pageX));
-      };
+    //     /* Code for scroll horizontal */
+    //     settings.scrollHorizontal &&
+    //       $el.scrollLeft($el.scrollLeft() + (clickX - e.pageX));
+    //   };
 
-      $(".dashboard").on({
-        mousemove: function(e) {
-          clicked && updateScrollPos(e, this);
-        },
-        mousedown: function(e) {
-          clicked = true;
-          clickY = e.pageY;
-          clickX = e.pageX;
-        },
-        mouseup: function() {
-          clicked = false;
-          $(".dashboard").css("cursor", "auto");
-        }
-      });
-    };
-    $.dragScroll();
+    //   $(".dashboard").on({
+    //     mousemove: function(e) {
+    //       clicked && updateScrollPos(e, this);
+    //     },
+    //     mousedown: function(e) {
+    //       clicked = true;
+    //       clickY = e.pageY;
+    //       clickX = e.pageX;
+    //     },
+    //     mouseup: function() {
+    //       clicked = false;
+    //       $(".dashboard").css("cursor", "auto");
+    //     }
+    //   });
+    // };
+    // $.dragScroll();
 
-    $("#dismiss, .overlay").on("click", function() {
-      $("#sidebar").removeClass("active");
-      $(".overlay").removeClass("active");
-    });
+    // $("#dismiss, .overlay").on("click", function() {
+    //   $("#sidebar").removeClass("active");
+    //   $(".overlay").removeClass("active");
+    // });
 
-    $("#sidebarCollapse").on("click", function() {
-      $("#sidebar").addClass("active");
-      $("#sidebar").css("overflow", "visible");
-      $(".overlay").addClass("active");
-      $(".collapse.in").toggleClass("in");
-      $("a[aria-expanded=true]").attr("aria-expanded", "false");
-    });
+    // $("#sidebarCollapse").on("click", function() {
+    //   $("#sidebar").addClass("active");
+    //   $("#sidebar").css("overflow", "visible");
+    //   $(".overlay").addClass("active");
+    //   $(".collapse.in").toggleClass("in");
+    //   $("a[aria-expanded=true]").attr("aria-expanded", "false");
+    // });
 
-    $(".dashboard").animate({ scrollLeft: 500 }, 1000);
+    // $(".dashboard").animate({ scrollLeft: 500 }, 1000);
   });
 
   // init();

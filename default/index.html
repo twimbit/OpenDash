@@ -16,6 +16,11 @@
       custom-element="amp-carousel"
       src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"
     ></script>
+    <script
+      async
+      custom-element="amp-sidebar"
+      src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
+    ></script>
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <link
@@ -47,75 +52,25 @@
     <!-- Begin page -->
     <div id="wrapper">
       <!-- Sidebar  -->
-      <nav id="sidebar">
-        <div id="dismiss">
-          <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-
-        <div class="sidebar-header">
-          <h3>DBS Bank</h3>
-        </div>
-
-        <ul class="list-unstyled components">
-          <p>Dummy Heading</p>
-          <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
-              >Home</a
-            >
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-              <li>
-                <a href="#">Home 1</a>
-              </li>
-              <li>
-                <a href="#">Home 2</a>
-              </li>
-              <li>
-                <a href="#">Home 3</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">About</a>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-              >Pages</a
-            >
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li>
-                <a href="#">Page 1</a>
-              </li>
-              <li>
-                <a href="#">Page 2</a>
-              </li>
-              <li>
-                <a href="#">Page 3</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Portfolio</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
+      <amp-sidebar
+        id="sidebar-right"
+        class="sample-sidebar"
+        layout="nodisplay"
+        side="right"
+      >
+        <h3>Sidebar</h3>
+        <button on="tap:sidebar-right.close">Close sidebar</button>
+        <nav toolbar="(min-width: 784px)" toolbar-target="target-element-right">
+          <ul>
+            <li>Nav item 1</li>
+            <li>Nav item 2</li>
+          </ul>
+        </nav>
+        <ul>
+          <li>Nav item 3</li>
+          <li>Nav item 4</li>
         </ul>
-
-        <ul class="list-unstyled CTAs">
-          <li>
-            <a
-              href="https://bootstrapious.com/tutorial/files/sidebar.zip"
-              class="download"
-              >Download source</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://bootstrapious.com/p/bootstrap-sidebar"
-              class="article"
-              >Back to article</a
-            >
-          </li>
-        </ul>
-      </nav>
+      </amp-sidebar>
 
       <div class="board-header">
         <div class="ext-main">
@@ -145,6 +100,7 @@
         <div class="right-tools">
           <div class="hamberger-icon">
             <svg
+              on="tap:sidebar-right.toggle"
               id="sidebarCollapse"
               aria-hidden="true"
               focusable="false"
@@ -1313,6 +1269,7 @@
                 height="85"
                 layout="fixed-height"
                 type="carousel"
+                controls
                 class="fancy-scrollbar"
               >
                 <div class="vsl-container">
@@ -1468,7 +1425,7 @@
           </div>
         </div>
       </div>
-      <div class="overlay"></div>
+      
     </div>
     <!-- container -->
 
