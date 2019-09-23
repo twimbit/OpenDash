@@ -1,10 +1,10 @@
-* {
+/* * {
   -webkit-user-select: none !important;
   -khtml-user-select: none !important;
   -moz-user-select: -moz-none !important;
   -o-user-select: none !important;
   user-select: none !important;
-}
+} */
 
 body,
 html,
@@ -196,7 +196,7 @@ a {
 .timeline-card {
   bottom: 0;
   position: absolute;
-  top: 284px;
+  top: 203px;
   width: 100%;
   overflow: auto;
 }
@@ -228,7 +228,7 @@ a {
   overflow-x: hidden;
   overflow-y: scroll;
   grid-gap: 3px;
-  height: 93px;
+  height: 121px;
   display: grid;
   grid-template-columns: auto auto;
   /* grid-template-rows: 70px 70px; */
@@ -249,7 +249,7 @@ a {
 .video-slider {
   padding: 0 10px;
   /* position: absolute; */
-  margin-right: 10px;
+  /* margin-right: 10px; */
   /* top: 81%; */
   /* bottom: 10px; */
   /* left: 250px; */
@@ -419,6 +419,10 @@ a {
   right: 5%;
   background-image: url("https://amp.dev/static/samples/img/carousel-arrow-right.png");
 }
+.amp-carousel-button {
+  border-radius: 50%;
+  background-color: #f16c70a1;
+}
 .right-section {
   position: absolute;
   right: 0;
@@ -434,7 +438,7 @@ a {
 
 .analytics-charts {
   position: relative;
-  height: 40%;
+  height: 41%;
   width: 100%;
 }
 
@@ -812,6 +816,7 @@ a {
   height: 115px;
   /* width: 796px; */
   right: 17px;
+  justify-content: space-between;
   /* display: inline-block; */
   /* white-space: normal; */
   /* display: flex; */

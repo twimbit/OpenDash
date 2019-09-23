@@ -39,12 +39,6 @@
       type="text/css"
     />
 
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-    <link
-      href="assets/css/metismenu.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
   </head>
 
@@ -197,35 +191,20 @@
           <div class="tab-timeline">
             <div class="tab-card card-box black-tint">
               <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a
-                    href="#home"
-                    data-toggle="tab"
-                    aria-expanded="false"
-                    class="nav-link active show"
+                <li>
+                  <a data-toggle="tab" href="#home" class="nav-link active"
+                    >Home</a
                   >
-                    Home
-                  </a>
                 </li>
-                <li class="nav-item">
-                  <a
-                    href="#profile"
-                    data-toggle="tab"
-                    aria-expanded="true"
-                    class="nav-link"
+                <li>
+                  <a data-toggle="tab" href="#profile" class="nav-link"
+                    >Profile</a
                   >
-                    Profile
-                  </a>
                 </li>
-                <li class="nav-item">
-                  <a
-                    href="#messages"
-                    data-toggle="tab"
-                    aria-expanded="false"
-                    class="nav-link"
+                <li>
+                  <a data-toggle="tab" href="#messages" class="nav-link"
+                    >Messages</a
                   >
-                    Messages
-                  </a>
                 </li>
               </ul>
               <div class="tab-content fancy-scrollbar">
@@ -264,17 +243,7 @@
                 </div>
               </div>
             </div>
-            <div class="realTimeChart black-tint">
-              <div class="legend">
-                <div class="dollor">$200.01</div>
-                <div class="profit">+#99.9(1.98)</div>
-              </div>
-              <div
-                id="flotRealTime"
-                style="height: 42px; padding: 0px; position: relative;"
-                class="flot-chart"
-              ></div>
-            </div>
+
             <div
               class="timeline-card card-box widget-box-two widget-two-custom fancy-scrollbar timeline-vertical-scroll black-tint"
             >
@@ -691,6 +660,17 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="realTimeChart black-tint">
+                <div class="legend">
+                  <div class="dollor">$200.01</div>
+                  <div class="profit">+#99.9(1.98)</div>
+                </div>
+                <div
+                  id="flotRealTime"
+                  style="height: 42px; padding: 0px; position: relative;"
+                  class="flot-chart"
+                ></div>
               </div>
               <div class="world-map">
                 <div id="world-map"></div>
@@ -1266,6 +1246,7 @@
             <div class="video-slider fancy-scrollbar black-tint">
               <span>Story</span>
               <amp-carousel
+                id="custom-button"
                 height="85"
                 layout="fixed-height"
                 type="carousel"
@@ -1317,6 +1298,7 @@
             <div class="video-slider fancy-scrollbar black-tint">
               <span>Videos</span>
               <amp-carousel
+                id="custom-button"
                 height="85"
                 layout="fixed-height"
                 type="carousel"
@@ -1375,6 +1357,7 @@
             <div class="video-slider fancy-scrollbar black-tint">
               <span>Live</span>
               <amp-carousel
+                id="custom-button"
                 height="85"
                 layout="fixed-height"
                 type="carousel"
@@ -1425,7 +1408,6 @@
           </div>
         </div>
       </div>
-      
     </div>
     <!-- container -->
 
