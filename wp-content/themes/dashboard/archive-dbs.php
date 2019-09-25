@@ -26,15 +26,63 @@
     <link href="<?php echo $template_dir; ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
     <link href="<?php echo $template_dir; ?>/assets/css/style.css" rel="stylesheet" type="text/css" />
-
+ 
 </head>
+<style>
+    /* Main loader */
+    #main-loader {
+        border: 5px solid #f3f3f3;
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #f16c70;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    #loader {
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+    }
+</style>
 
 <body style="height: 100% !important">
     <!-- Begin page -->
+    <div id="loader">
+        <div id="main-loader">
+        </div>
+    </div>
     <div id="wrapper">
         <!-- Sidebar  -->
         <amp-sidebar id="sidebar-right" class="sample-sidebar" layout="nodisplay" side="right">
-            <h3>Sidebar</h3>
             <button on="tap:sidebar-right.close">Close sidebar</button>
             <nav toolbar="(min-width: 784px)" toolbar-target="target-element-right">
                 <ul>
@@ -47,7 +95,6 @@
                 <li>Nav item 4</li>
             </ul>
         </amp-sidebar>
-
         <div class="board-header">
             <div class="ext-main">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15.72" height="15.72" viewBox="0 0 15.72 15.72">
@@ -969,7 +1016,9 @@
                 </div>
             </div>
         </div>
+
     </div>
+
     <!-- container -->
 
     <!-- jQuery  -->
@@ -1000,6 +1049,12 @@
     <!-- App js -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.app.js"></script>
     <script>
+        document.onreadystatechange = function() {
+            let state = document.readyState;
+            if (state == "interactive") {
+                // $('#loader').hide();
+            }
+        };
         document.addEventListener("keypress", keyUpTextField, false);
 
         function keyUpTextField(e) {

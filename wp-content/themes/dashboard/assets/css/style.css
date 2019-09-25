@@ -18,11 +18,6 @@ html {
   overflow: hidden;
   /* min-width: 1366px; */
   max-height: 1080px;
-  background: linear-gradient(
-    to right,
-    rgba(21, 98, 171, 1) 0%,
-    rgba(16, 43, 71, 1) 100%
-  );
 }
 
 #wrapper {
@@ -34,6 +29,11 @@ html {
   left: 0;
   right: 0;
   transition: margin 0.1s ease-in;
+  background: linear-gradient(
+    to right,
+    rgba(21, 98, 171, 1) 0%,
+    rgba(16, 43, 71, 1) 100%
+  );
 }
 
 /* Card Box */
@@ -286,13 +286,7 @@ a {
 .tab-content p {
   font-size: 12px;
 }
-.area-graph {
-  /* position: absolute; */
-  /* top: 433px;
-  left: 355px;
-  bottom: 10px; */
-  /* width: 450px; */
-}
+
 .notification {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -410,9 +404,6 @@ a {
   /* grid-template-columns: 400px; */
   grid-template-rows: 42% minmax(83px, 11%) auto;
   height: 100%;
-}
-.right-section > div {
-  /* border: 1px solid #ccc; */
 }
 
 .analytics-charts {
@@ -914,86 +905,6 @@ a {
   cursor: pointer;
 }
 
-/* sidebar css */
-#sidebar {
-  width: 250px;
-  position: fixed;
-  top: 0;
-  right: -250px;
-  height: 100vh;
-  z-index: 999;
-  background: #f16c70;
-  color: #fff;
-  transition: all 0.3s;
-  overflow-y: scroll;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-}
-
-#sidebar.active {
-  right: 0;
-}
-
-#dismiss {
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
-  text-align: center;
-  background: #7386d5;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-#dismiss:hover {
-  background: #fff;
-  color: #7386d5;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 998;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-.overlay.active {
-  display: block;
-  opacity: 1;
-}
-
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: #6d7fcc;
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-  color: #fff;
-  padding: 10px;
-}
-
-#sidebar ul li a {
-  padding: 10px;
-  font-size: 1.1em;
-  display: block;
-}
-
-#sidebar ul li a:hover {
-  color: #7386d5;
-  background: #fff;
-}
-
 .dropdown-toggle::after {
   display: block;
   position: absolute;
@@ -1052,33 +963,32 @@ a {
   .client-name p {
     margin-bottom: 0px;
   }
-  .kma-container {
-    /* grid-template-rows: minmax(143px, 16%) minmax(134px, 37%) minmax(93px, 30%) minmax(
-        25px,
-        15%
-      ); */
-  }
-  .video-slider {
-    /* top: 79%; */
-  }
-  .rs-container {
-    /* height: 79%; */
-  }
-  .podcast {
-    max-height: 105px;
-  }
-  .tab-card {
-    /* height: 240px; */
-  }
-  .timeline-card {
-    /* top: 244px; */
-  }
-  .key-map-area {
-    /* width: 340px; */
-  }
+
   .social-icon {
     width: 32px;
     height: 30px;
     padding: 4px 0px;
   }
+}
+
+/* Amp Sidebar css */
+.sample-sidebar {
+  width: 250px;
+  padding: var(--space-2);
+}
+.sample-sidebar > * {
+  margin-top: var(--space-2);
+}
+.sample-sidebar li,
+nav[toolbar] li {
+  margin-bottom: var(--space-2);
+  margin-left: 0;
+  margin-right: var(--space-2);
+  list-style: none;
+}
+.previewOnly {
+  margin: var(--space-2);
+}
+#sidebar-right nav.amp-sidebar-toolbar-target-shown {
+  display: none;
 }

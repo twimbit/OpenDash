@@ -1229,9 +1229,9 @@ option = {
 chart.setOption(option);
 
 /* area charts */
-var stacked_area_chart = echarts.init(
-  document.getElementById("stacked-area-charts")
-);
+// var stacked_area_chart = echarts.init(
+//   document.getElementById("stacked-area-charts")
+// );
 area_option = {
   title: {
     text: "Revenue",
@@ -1335,5 +1335,5 @@ area_option = {
   ]
 };
 
-stacked_area_chart.setOption(area_option);
+// stacked_area_chart.setOption(area_option);
 
