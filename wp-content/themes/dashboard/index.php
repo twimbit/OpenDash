@@ -10,7 +10,8 @@ $users = $pc_users->get_user(pc_user_logged('id'), $args);
 $user_cats = $users['categories'];
 foreach ($user_cats as $cat_id) {
     $cat_name = get_the_category_by_ID($cat_id);
-    $cat_link = get_post_type_archive_link($cat_name);
+    $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
+
     ?>
     <a href="<?php echo $cat_link; ?>"><?php echo $cat_name; ?></a>
 <?php
