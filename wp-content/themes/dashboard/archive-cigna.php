@@ -1,11 +1,13 @@
 <?php
-$args = array('post_type' => 'post');
+$args = array('post_type' => 'insight');
+
 $q = new WP_Query($args);
+
 if ($q->have_posts()) {
-    while ($q->have_posts()) {
-        $q->the_post();
+    foreach ($q as $val) {
         //
-        echo the_title() . "<br>";
+        print_r(get_field('chart_data', $val));
+       
 
         //
     } // end while

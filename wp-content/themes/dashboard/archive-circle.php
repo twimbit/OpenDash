@@ -6,7 +6,6 @@ if ($q->have_posts()) {
         $q->the_post();
         //
         echo the_title() . "<br>";
-
         //
     } // end while
 } // end if
