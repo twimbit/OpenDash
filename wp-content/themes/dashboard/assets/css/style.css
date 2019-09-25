@@ -430,6 +430,9 @@ a {
   grid-template-columns: auto;
   /* width: 100%; */
 }
+.podcast-container {
+  min-height: 105px;
+}
 
 .podcast {
   max-height: 100px;
