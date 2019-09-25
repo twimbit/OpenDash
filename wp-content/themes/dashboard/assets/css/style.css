@@ -303,6 +303,10 @@ a {
 }
 .rs-container {
   white-space: normal;
+  width: 400px;
+}
+.rs-container span {
+  font-size: 12px;
 }
 .rs-inner {
   display: flex;
@@ -439,7 +443,7 @@ a {
 .podcast .play {
   margin-bottom: 3px;
   height: 42px;
-  width: 400px;
+  width: 375px;
   border-radius: 8px;
   display: flex;
   /* justify-content: space-between; */
@@ -474,7 +478,7 @@ a {
   margin-right: 9px;
 }
 .podcast-archive {
-  width: 404px;
+  width: 100%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -757,22 +761,25 @@ a {
 }
 
 .gallery-carousel img {
-  width: 115px;
+  width: 65px;
   margin-right: 10px;
-  height: 95%;
+  height: 45px;
   border-radius: 5px;
 }
 
 .gallery {
   /* margin: 3px 0; */
-  width: 400px;
-  padding: 5px;
+  height: 95px;
+  width: 100%;
   border-radius: 5px;
   overflow-y: hidden;
 }
+.gallery-in {
+  padding: 5px;
+}
 
 .gallery-carousel {
-  height: 100%;
+  height: 54px;
   width: 100%;
   display: flex;
   overflow-x: scroll;
@@ -830,6 +837,7 @@ a {
 .black-tint {
   background-color: rgba(0, 0, 0, 0.75);
   border: 0.5px solid #fff;
+  border-radius: 5px;
 }
 .social {
   display: flex;
