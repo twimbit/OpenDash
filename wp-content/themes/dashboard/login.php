@@ -1,136 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+wp_head();
+$template_dir = get_template_directory_uri();
+?>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <?php
-    wp_head();
-    /* Template Name: Login */
-    $template_dir = get_template_directory_uri();
-    ?>
-    <style scoped>
-        body,
-        html {
-            height: 100%;
-        }
+    /*main div */
+    .sign_in_page {
+        display: flex;
+        height: 100%;
+    }
 
-        body {
-            margin: 0px;
-            padding: 0px;
-        }
+    /*left side div */
+    .login_banner {
+        left: 0;
+        background-image: url("<?php echo $template_dir; ?>/assets/images/login.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        flex: 1;
+    }
 
-        /*main div */
-        .sign_in_page {
-            display: flex;
-            height: 100%;
-        }
+    /*right side div */
+    .login_side {
+        background-color: rgba(255, 255, 255, 1);
+        flex: 1;
+    }
 
-        /*left side div */
+    /*center text of both the sides */
+    .login_left {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    /*css for logo icon in login form */
+    .login_left img {
+        width: 200px;
+    }
+
+    ​ ​ .login_right {
+        position: relative;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 60%;
+    }
+
+    .login_heading {
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: 20%;
+        letter-spacing: 6px;
+        font-family: 'Montserrat', sans-serif;
+        color: rgba(67, 66, 93, 1);
+    }
+
+    .login_welcome {
+        margin-top: 3%;
+        color: #738e96;
+        font-size: 15px;
+    }
+
+    .login_form {
+        margin-top: 10%;
+    }
+
+    .remember {
+        margin-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        margin-top: -12px;
+        color: rgba(67, 66, 93, 1);
+    }
+
+    .login_button {
+        /*padding: 16px 50px;*/
+        width: 170px;
+        height: 50px;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 15%;
+        margin-right: 20px;
+        cursor: pointer;
+        background-color: white;
+        color: rgba(67, 66, 93, 1);
+        border: 2px solid rgba(67, 66, 93, 1);
+        border-radius: 5px;
+    }
+
+    ​ .login_button:hover {
+        background-color: rgba(67, 66, 93, 1);
+        color: white;
+    }
+
+    ​ .login_remember_me {
+        text-align: left;
+        font-size: 18px;
+    }
+
+    ​ @media (max-width: 768px) {
         .login_banner {
-            left: 0;
-            background-image: url("<?php echo $template_dir; ?>/assets/images/login.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            flex: 1;
+            display: none;
         }
-
-        /*right side div */
-        .login_side {
-            background-color: rgba(255, 255, 255, 1);
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login_right {
-            padding: 10px;
-        }
-
-        /*center text of both the sides */
-        .login_left {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        /*css for logo icon in login form */
-        .login_left img {
-            width: 200px;
-        }
-
-        .login_heading {
-            text-align: center;
-            font-weight: bold;
-            font-size: 30px;
-            /* margin-top: 20%; */
-            letter-spacing: 6px;
-            font-family: 'Montserrat', sans-serif;
-            color: rgba(67, 66, 93, 1);
-        }
-
-        .login_welcome {
-            text-align: center;
-            margin-top: 3%;
-            color: #738e96;
-            font-size: 15px;
-        }
-
-        .login_form {
-            margin-top: 10%;
-        }
-
-        .remember {
-            margin-left: 10px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            margin-top: -12px;
-            color: rgba(67, 66, 93, 1);
-        }
-
-        .login_button {
-            /*padding: 16px 50px;*/
-            width: 170px;
-            height: 50px;
-            text-align: center;
-            font-size: 16px;
-            /* margin-top: 15%;
-            margin-right: 20px; */
-            cursor: pointer;
-            background-color: white;
-            color: rgba(67, 66, 93, 1);
-            border: 2px solid rgba(67, 66, 93, 1);
-            border-radius: 5px;
-        }
-
-        ​.login_button:hover {
-            background-color: rgba(67, 66, 93, 1);
-            color: white;
-        }
-
-        ​.login_remember_me {
-            text-align: left;
-            font-size: 18px;
-        }
-
-        @media (max-width:768px) {
-            .login_banner {
-                display: none;
-            }
-        }
-    </style>
-</head>
+    }
+</style>
+​
 <?php
 if (pc_user_logged('username')) {
     wp_redirect(home_url());
 } else { ?>
 
     <body>
+
 
         <div class="sign_in_page">
             <div class="login_banner">
@@ -148,7 +135,7 @@ if (pc_user_logged('username')) {
                         <span>Welcome back! Please login to your account.</span>
                     </div>
                     <div class="login_form">
-                        <form class="pc_rm_login  pc_lf_long_labels">
+                        <form class="pc_rm_login  pc_lf_long_labels" style="margin:45px;">
                             <div class="pc_login_row ">
                                 <div class="pc_field_container">
                                     <input type="text" name="pc_auth_username" value="" autocapitalize="off" autocomplete="off" autocorrect="off" maxlength="150" class="login_inputbox" placeholder="Email">
@@ -176,6 +163,7 @@ if (pc_user_logged('username')) {
                                     </div>
                                     <span class="remember"> Remember me</span>
                                 </div>
+                                <small class="pcma_psw_recovery_trigger" style="top:-15px; font-size: 15px; color:rgba(67,66,93,1);border-left-style: none; ">Forget Password</small>
                             </div>
                             <button class="login_button pc_auth_btn">
                                 <span class="pc_inner_btn">Login</span>
@@ -203,7 +191,4 @@ if (pc_user_logged('username')) {
     </body>
     <!-- echo do_shortcode('[pc-login-form align="center"]'); -->
 <?php } ?>
-
-</html>
-
 <?php wp_footer(); ?>

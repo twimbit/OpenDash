@@ -9,7 +9,7 @@ foreach ($podcast as $val) {
     $description = $val->post_content;
     $url = get_permalink($val->ID);
     ?>
-    <a href="<?php echo $url; ?>">
+    <a href="<?php echo $url; ?>" data-lightbox="iframe" style="text-decoration:none">
         <div class="play black-tint">
             <div class="podcast-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85.658" height="85.658" viewBox="0 0 85.658 85.658" class="icon">

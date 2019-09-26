@@ -49,15 +49,17 @@
         </amp-sidebar>
         <div class="board-header">
             <div class="ext-main">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15.72" height="15.72" viewBox="0 0 15.72 15.72">
-                    <path id="ic_exit_to_app_24px" d="M12.528,14,11.3,15.227,6.93,10.86,11.3,6.493l1.231,1.231L10.275,9.987H18.72v1.747H10.275ZM4.747,3H16.973A1.746,1.746,0,0,1,18.72,4.747V8.24H16.973V4.747H4.747V16.973H16.973V13.48H18.72v3.493a1.746,1.746,0,0,1-1.747,1.747H4.747A1.752,1.752,0,0,1,3,16.973V4.747A1.752,1.752,0,0,1,4.747,3Z" transform="translate(-3 -3)" fill="#fff" />
-                </svg>
+                <a href="<?php echo home_url(); ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.72" height="15.72" viewBox="0 0 15.72 15.72">
+                        <path id="ic_exit_to_app_24px" d="M12.528,14,11.3,15.227,6.93,10.86,11.3,6.493l1.231,1.231L10.275,9.987H18.72v1.747H10.275ZM4.747,3H16.973A1.746,1.746,0,0,1,18.72,4.747V8.24H16.973V4.747H4.747V16.973H16.973V13.48H18.72v3.493a1.746,1.746,0,0,1-1.747,1.747H4.747A1.752,1.752,0,0,1,3,16.973V4.747A1.752,1.752,0,0,1,4.747,3Z" transform="translate(-3 -3)" fill="#fff" />
+                    </svg>
+                </a>
             </div>
             <div class="client-icon">
                 <img src="<?php echo $template_dir; ?>/assets/images/twimbit-pro-logo.png" alt="" />
             </div>
             <h4 class="client-name">
-                <p><span style="font-weight: 700">Terminal</span> - DBS Bank</p>
+                <p><span style="font-weight: 700">Terminal</span> - <?php echo get_queried_object()->name; ?></p>
             </h4>
             <div class="twimbit-icon">
                 <img src="<?php echo $template_dir; ?>/assets/images/twimbit-logo-transparent-white1.png" alt="" />
