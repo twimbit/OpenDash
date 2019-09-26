@@ -13,6 +13,7 @@ html,
 }
 body,
 html {
+  scroll-behavior: smooth;
   position: relative;
   color: #fff;
   overflow: hidden;
@@ -200,6 +201,7 @@ a {
   overflow: auto;
 }
 .main-board {
+  margin: 0 auto;
   display: flex;
   padding-right: 10px;
   flex-direction: column;
@@ -237,6 +239,8 @@ a {
 }
 .world-map {
   width: 394px;
+  height: 260px;
+  margin: auto;
 }
 .gap {
   margin: 3px;
@@ -1002,4 +1006,65 @@ nav[toolbar] li {
 }
 #sidebar-right nav.amp-sidebar-toolbar-target-shown {
   display: none;
+}
+
+/* Radar css */
+.radar {
+  flex: 1;
+}
+.radar-back {
+  height: 100%;
+  position: relative;
+  right: 46px;
+}
+.radar-container {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: flex;
+}
+.radar-container svg {
+  position: absolute;
+  width: 320px;
+  height: 248px;
+  margin-right: 80px;
+}
+.radar-labels {
+  width: 320px;
+  height: 248px;
+}
+.client-label {
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  top: 60px;
+  left: 59px;
+}
+.overview-label {
+  position: relative;
+  top: 66px;
+  left: 65px;
+  font-size: 12px;
+}
+.members-label {
+  position: relative;
+  font-size: 12px;
+  top: 30px;
+  left: 48px;
+}
+.live-label {
+  position: relative;
+  top: 173px;
+  left: 99px;
+  font-size: 12px;
+}
+.story-label {
+  position: relative;
+  top: 173px;
+  right: 47px;
+  font-size: 12px;
+}
+.radar-labels div {
+  display: inline-block;
 }

@@ -131,7 +131,6 @@ if (pc_user_logged('username')) {
 } else { ?>
 
     <body>
-
         <div class="sign_in_page">
             <div class="login_banner">
                 <div class="login_left">

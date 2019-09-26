@@ -4,12 +4,15 @@ $args = array(
     'cat' => get_queried_object()->term_id
 );
 $podcast = get_posts($args);
-foreach ($podcast as $val) {
-    $title = $val->post_title;
-    $description = $val->post_content;
-    $url = get_permalink($val->ID);
-    ?>
-    <a href="<?php echo $url; ?>" data-lightbox="iframe" style="text-decoration:none">
+$url = get_permalink($podcast[0]->ID);
+?>
+<a href="javascript:void(0);" class="iframe-lightbox-link" data-src="<?php echo $url ?>" data-padding-bottom="56.25%" style="text-decoration:none">
+    <?php
+    foreach ($podcast as $val) {
+        $title = $val->post_title;
+        $description = $val->post_content;
+        ?>
+
         <div class="play black-tint">
             <div class="podcast-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85.658" height="85.658" viewBox="0 0 85.658 85.658" class="icon">
@@ -53,5 +56,5 @@ foreach ($podcast as $val) {
                 10:23
             </div>
         </div>
-    </a>
-<?php } ?>
+    <?php } ?>
+</a>

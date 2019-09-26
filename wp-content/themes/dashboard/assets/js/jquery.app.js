@@ -196,7 +196,7 @@
     //   $("a[aria-expanded=true]").attr("aria-expanded", "false");
     // });
 
-    // $(".dashboard").animate({ scrollLeft: 500 }, 1000);
+    $(".dashboard").animate({ scrollLeft: 600 }, 1000);
   });
 
   // init();
