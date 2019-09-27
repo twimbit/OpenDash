@@ -4,15 +4,15 @@ $args = array(
     'cat' => get_queried_object()->term_id
 );
 $podcast = get_posts($args);
-$url = get_permalink($podcast[0]->ID);
+$cat = get_queried_object()->term_id;
 ?>
-<a href="javascript:void(0);" class="iframe-lightbox-link" data-src="<?php echo $url ?>" data-padding-bottom="56.25%" style="text-decoration:none">
-    <?php
-    foreach ($podcast as $val) {
-        $title = $val->post_title;
-        $description = $val->post_content;
-        ?>
-
+<?php
+foreach ($podcast as $val) {
+    $title = $val->post_title;
+    $description = $val->post_content;
+    $url = get_field('audio', $val)['url'];
+    ?>
+    <a href="#" style="text-decoration:none" class='pd-player' pd-id="<?php echo $val->ID; ?>">
         <div class="play black-tint">
             <div class="podcast-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85.658" height="85.658" viewBox="0 0 85.658 85.658" class="icon">
@@ -56,5 +56,5 @@ $url = get_permalink($podcast[0]->ID);
                 10:23
             </div>
         </div>
-    <?php } ?>
-</a>
+    </a>
+<?php } ?>

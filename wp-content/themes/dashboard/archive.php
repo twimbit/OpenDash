@@ -26,8 +26,6 @@
     <link href="<?php echo $template_dir; ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $template_dir; ?>/assets/css/style.css" rel="stylesheet" type="text/css" />
 
-    <!-- Iframe-lightbox css -->
-    <link href="<?php echo $template_dir; ?>/assets/css/iframe-lightbox.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -156,7 +154,7 @@
                     </div>
                     <div class="column-1">
                         <div class="row-2-1">
-                            <div class="world-map gap" style="margin:auto">
+                            <div class="world-map gap">
                                 <?php get_template_part("widgets/dashboard", "wm"); ?>
                             </div>
                             <div class="radar">
@@ -436,7 +434,25 @@
 
     </div>
 
-    <!-- container -->
+    <!-- gallery, video and live Modal container -->
+    <div class="video-container" id="gvl" style="display:none">
+        <div class="infinite">
+            <div class="pace pace-active">
+                <div class="pace-activity" style="display:none"></div>
+            </div>
+        </div>
+        <div class="vc-con">
+            <div class="in-title-c">
+                <div class="title">This is title</div>
+                <a href="#" id="vc-con-rm">
+                    <div class="close-button"></div>
+                </a>
+            </div>
+            <div class="vc-main">
+
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery  -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.min.js"></script>
@@ -462,9 +478,6 @@
 
     <!-- Light Box js -->
     <script src="<?php echo $template_dir; ?>/plugins/lightbox/js/lightbox.min.js" type="text/javascript"></script>
-
-    <!-- iframe lightbox -->
-    <script src="<?php echo $template_dir; ?>/assets/js/iframe-lightbox.min.js" type="text/javascript"></script>
 
     <!-- App js -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.app.js"></script>
@@ -516,9 +529,48 @@
                 }
             }
         }
-        [].forEach.call(document.getElementsByClassName("iframe-lightbox-link"), function(el) {
-            el.lightbox = new IframeLightbox(el);
+        // Podcast player logic
+        pd_player = $('.pd-player');
+        for (i = 0; i < pd_player.length; i++) {
+            pd_player[i].addEventListener('click', function() {
+                $('#gvl').fadeIn(200);
+                pd_id = $(this).attr('pd-id');
+                // Ajax call
+                loadArticle(pd_id, 'podcast');
+            });
+        }
+
+        /* Video carousel logic */
+        v_player = $('.v-player');
+        for (i = 0; i < v_player.length; i++) {
+            v_player[i].addEventListener('click', function() {
+                $('#gvl').fadeIn(200);
+                v_id = $(this).attr('v-id');
+                // Ajax call
+                loadArticle(v_id, 'video');
+            });
+        }
+
+        // Modal closing.
+        $('#vc-con-rm').click(function() {
+            $('#gvl').fadeOut(200);
+            $('.vc-main').html("");
         });
+
+        // Ajax calling method
+        function loadArticle(id, type) {
+            $('.pace-activity').show('fast');
+            $.ajax({
+                url: "<?php echo admin_url(); ?>admin-ajax.php",
+                type: 'POST',
+                data: "action=infinite_scroll&pd_id=" + id + "&type=" + type,
+                success: function(data) {
+                    $('.pace-activity').hide('1000');
+                    $(".vc-main").append(data);
+                }
+            });
+            return false;
+        }
     </script>
 </body>
 

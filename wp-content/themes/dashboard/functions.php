@@ -1,0 +1,43 @@
+<?php
+// Featured image functionality.
+function mytheme_post_thumbnails()
+{
+    add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'mytheme_post_thumbnails');
+
+//Infinite Scroll
+function wp_infinitepaginate()
+{
+    $type = $_POST['type'];
+    if ($type == "video") {
+        $v_id = $_POST['pd_id'];
+        $v_post = get_post($v_id);
+        $url = get_field('video', $v_post)['url'];
+        ?>
+        <div class="vc-main-c">
+            <div class="video-box" style="position:relative">
+                <amp-video autoplay src="<?php echo $url; ?>" layout="fill" controls>
+                </amp-video>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $v_post->post_title; ?></p>
+                <p class="video-date"><?php echo $v_post->post_date; ?></p>
+                <p>
+                    <?php echo $v_post->post_content; ?>
+                </p>
+            </div>
+        </div>
+    <?php   } else if ($type == "podcast") {
+            $pd_id = $_POST['id'];
+            $pd_post = get_post($pd_id);
+            $url = get_field('video', $pd_post)['url'];
+            ?>
+
+        asdkljasdklaskldh
+<?php
+    }
+    die();
+}
+add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
+add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
