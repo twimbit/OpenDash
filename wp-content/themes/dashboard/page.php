@@ -85,38 +85,42 @@
             margin-top: 10%;
         }
 
+        .login_remember_me {
+            text-align: left;
+            font-size: 18px;
+        }
+        .pc_checkbox{
+            margin-bottom: -3px;
+        }
+
         .remember {
-            margin-left: 10px;
+
             font-family: 'Montserrat', sans-serif;
             font-size: 15px;
             margin-top: -12px;
             color: rgba(67, 66, 93, 1);
         }
 
-        .login_button {
+        .login_button
+        {
             /*padding: 16px 50px;*/
-            width: 170px;
-            height: 50px;
+            width:170px;
+            height:50px;
+            margin:30px 100px;
             text-align: center;
             font-size: 16px;
-            /* margin-top: 15%;
-            margin-right: 20px; */
             cursor: pointer;
             background-color: white;
-            color: rgba(67, 66, 93, 1);
-            border: 2px solid rgba(67, 66, 93, 1);
+            color:rgba(67,66,93,1);
+            border: 2px solid rgba(67,66,93,1);
             border-radius: 5px;
         }
 
-        ​.login_button:hover {
-            background-color: rgba(67, 66, 93, 1);
+        .login_button:hover {
+            background-color: rgba(67,66,93,1);
             color: white;
         }
 
-        ​.login_remember_me {
-            text-align: left;
-            font-size: 18px;
-        }
 
         @media (max-width:768px) {
             .login_banner {
@@ -173,15 +177,16 @@ if (pc_user_logged('username')) {
                                     <div class="pc_checkbox " data-name="pc_remember_me" data-val="1">
                                         <span>✓</span>
                                     </div>
-                                    <span class="remember"> Remember me</span>
+                                    <span class="remember">  Remember me</span>
                                 </div>
+                                <small class="pcma_psw_recovery_trigger" style="top:-15px; font-size: 15px; color:rgba(67,66,93,1);border-left-style: none; ">Forget Password</small>
                             </div>
                             <button class="login_button pc_auth_btn">
                                 <span class="pc_inner_btn">Login</span>
                             </button>
                             <div class="pcma_psw_recovery_wrap" style="display: none;">
                                 <div class="pc_login_row ">
-                                    <label style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: rgba(67,66,93,1); ">Insert your username or e-mail</label>
+                                    <label style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: rgba(67,66,93,1); text-align: center;">Insert your username or e-mail</label>
                                     <div class="pc_field_container" style="margin-top: 10px;">
                                         <input type="text" name="pcma_psw_username" class="pcma_psw_username" value="" autocomplete="off">
                                     </div>
