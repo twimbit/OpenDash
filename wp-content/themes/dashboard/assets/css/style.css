@@ -203,7 +203,7 @@ a {
 .main-board {
   margin: 0 auto;
   display: flex;
-  padding-right: 10px;
+  padding-right: 45px;
   flex-direction: column;
   /* zoom: 0.923; */
   padding-bottom: 5px;
@@ -414,6 +414,7 @@ a {
   height: 100%;
 }
 
+/* Analytics chart */
 .analytics-charts {
   position: relative;
   flex-grow: 1;
@@ -430,10 +431,49 @@ a {
 .charts-container {
   display: grid;
   grid-template-rows: auto auto auto;
-  /* height: 100%; */
-  grid-template-columns: auto;
-  /* width: 100%; */
+  grid-auto-columns: 135px;
+  grid-gap: 2px;
+  grid-auto-flow: column dense;
+  padding: 4px;
+  width: 99%;
+  overflow: auto;
 }
+.chart-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.chart-container .pim-title {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000080;
+}
+.pim {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.pim img {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-span-1 {
+  grid-row: 1 / span 1;
+}
+
+.chart-span-2 {
+  grid-row: 1 / span 2;
+}
+.chart-span-3 {
+  grid-row: 1 / span 3;
+}
+
 .podcast-container {
   min-height: 105px;
 }
@@ -734,14 +774,14 @@ a {
 
 /* width */
 .hide-scroll::-webkit-scrollbar {
-  height: 5px;
+  height: 0px;
   width: 0px;
 }
 
 /* width */
 .fancy-scrollbar::-webkit-scrollbar {
   height: 5px;
-  width: 3px;
+  width: 5px;
 }
 
 /* Track */
@@ -759,12 +799,6 @@ a {
 /* Handle on hover */
 .fancy-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #f16c70;
-}
-
-/* width */
-.hide-scroll::-webkit-scrollbar {
-  height: 5px;
-  width: 0px;
 }
 
 .gallery-carousel img {
@@ -1111,9 +1145,9 @@ p {
   background-color: red;
   border-radius: 50%;
 }
-.charts-container {
+.charts-container-m {
   display: flex;
-  /* margin-top: 15px; */
+  margin-top: 15px;
   box-shadow: 0px 1px 5px #888, 0px 1px 5px #888;
 }
 .chart {
@@ -1206,8 +1240,13 @@ p {
   animation: pace-spinner 400ms linear infinite;
 }
 .infinite {
-  z-index: 999;
+  /* z-index: 99999999999; */
   position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @-webkit-keyframes pace-spinner {
   0% {

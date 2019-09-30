@@ -8,7 +8,6 @@
     <title>Login</title>
     <?php
     wp_head();
-    /* Template Name: Login */
     $template_dir = get_template_directory_uri();
     ?>
     <style scoped>

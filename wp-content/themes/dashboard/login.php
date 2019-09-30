@@ -1,4 +1,5 @@
 <?php
+/* Template Name: Login */
 wp_head();
 $template_dir = get_template_directory_uri();
 ?>

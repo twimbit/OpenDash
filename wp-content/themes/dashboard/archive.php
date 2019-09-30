@@ -26,6 +26,8 @@
     <link href="<?php echo $template_dir; ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $template_dir; ?>/assets/css/style.css" rel="stylesheet" type="text/css" />
 
+    <!-- Classyscroll css -->
+    <link href="<?php echo $template_dir; ?>/assets/css/jquery.Classyscroll.css" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -140,12 +142,8 @@
                         </div>
                     </div>
 
-                    <div class="analytics-charts gap">
-                        <div class="charts-container black-tint">
-                            <div class="chart-container">
-                                <div class="line"></div>
-                            </div>
-                        </div>
+                    <div class="analytics-charts black-tint">
+                        <?php get_template_part("widgets/dashboard", "insight"); ?>
                     </div>
                 </div>
                 <div class="row-2">
@@ -435,13 +433,13 @@
     </div>
 
     <!-- gallery, video and live Modal container -->
-    <div class="video-container" id="gvl" style="display:none">
-        <div class="infinite">
-            <div class="pace pace-active">
-                <div class="pace-activity" style="display:none"></div>
-            </div>
-        </div>
+    <div class="video-container" id="gvl" style="display:none;">
         <div class="vc-con">
+            <div class="infinite">
+                <div class="pace pace-active">
+                    <div class="pace-activity" style="display:none"></div>
+                </div>
+            </div>
             <div class="in-title-c">
                 <div class="title">This is title</div>
                 <a href="#" id="vc-con-rm">
@@ -478,6 +476,12 @@
 
     <!-- Light Box js -->
     <script src="<?php echo $template_dir; ?>/plugins/lightbox/js/lightbox.min.js" type="text/javascript"></script>
+
+    <!-- Jquery ui -->
+    <script src="<?php echo $template_dir; ?>/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+
+    <!-- classyscroll js -->
+    <script src="<?php echo $template_dir; ?>/assets/js/jquery.classyscroll.js"></script>
 
     <!-- App js -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.app.js"></script>
@@ -529,6 +533,7 @@
                 }
             }
         }
+        $('.vc-con').draggable();
         // Podcast player logic
         pd_player = $('.pd-player');
         for (i = 0; i < pd_player.length; i++) {
@@ -539,6 +544,7 @@
                 loadArticle(pd_id, 'podcast');
             });
         }
+
 
         /* Video carousel logic */
         v_player = $('.v-player');
