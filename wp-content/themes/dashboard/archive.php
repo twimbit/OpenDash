@@ -541,6 +541,17 @@
         /* Making draggable model */
         $('.vc-con').draggable();
 
+        /* Gallery logic */
+        gallery = $('.gl');
+        for (i = 0; i < gallery.length; i++) {
+            gallery[i].addEventListener('click', function() {
+                $('#gvl').fadeIn(200);
+                g_id = $(this).attr('g-id');
+                // Ajax call
+                loadArticle(g_id, 'gallery');
+            });
+        }
+
 
         // Podcast player logic
         pd_player = $('.pd-player');

@@ -48,6 +48,34 @@ function wp_infinitepaginate()
             </div>
         </div>
 
+    <?php
+        } else if ($type == "gallery") {
+            $g_id = $_POST['id'];
+            $gallery = get_post($g_id);
+            $gallery_array = get_field('photos', $gallery);
+            ?>
+        <div class="vc-main-c">
+            <div class="g-container">
+                <div class="g-content">
+                    <amp-carousel layout="fill" type="slides">
+                        <?php
+                                foreach ($gallery_array as $val) {
+                                    $url = $val['sizes']['medium'];
+                                    ?>
+                            <amp-img src="<?php echo $url; ?>" layout="fill" alt=""></amp-img>
+                        <?php } ?>
+                    </amp-carousel>
+                </div>
+            </div>
+
+            <div class="video-about">
+                <p class="video-titile"><?php echo $gallery->post_title; ?></p>
+                <p class="video-date"><?php echo $gallery->post_date; ?></p>
+                <p>
+                    <?php echo $gallery->post_content; ?>
+                </p>
+            </div>
+        </div>
 <?php
     }
     die();

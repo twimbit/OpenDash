@@ -1,21 +1,27 @@
 <?php $template_dir = get_template_directory_uri(); ?>
-<div class="gallery-carousel fancy-scrollbar">
-    <a href="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" data-lightbox="gallery-set" data-title="Click the right half of the image to move forward.">
-        <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-    </a>
-    <a href="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" data-lightbox="gallery-set" data-title="Click the right half of the image to move forward.">
-        <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-    </a>
-    <a href="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" data-lightbox="gallery-set" data-title="Click the right half of the image to move forward.">
-        <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-    </a>
-    <a href="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" data-lightbox="gallery-set" data-title="Click the right half of the image to move forward.">
-        <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-    </a>
-    <a href="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" data-lightbox="gallery-set" data-title="Click the right half of the image to move forward.">
-        <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-    </a>
-    <a href="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" data-lightbox="gallery-set" data-title="Click the right half of the image to move forward.">
-        <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-    </a>
-</div>
+<amp-carousel id="custom-button" height="55" layout="fixed-height" type="carousel" class="fancy-scrollbar">
+    <?php
+    $args = array(
+        'post_type' => 'gallery',
+        'cat' => get_queried_object()->term_id
+    );
+    $gallery = get_posts($args);
+    $cat = get_queried_object()->term_id;
+    ?>
+    <?php
+    foreach ($gallery as $val) {
+        $title = $val->post_title;
+        $description = $val->post_content;
+        $url = get_field('photos', $val);
+        $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
+        ?>
+        <div class="vsl-container">
+            <div class="vsl-new"></div>
+            <div class="vsl-content">
+                <a href="#" class='gl' g-id="<?php echo $val->ID; ?>">
+                    <amp-img src="<?php echo $thumbnail; ?>" height="41" width="60" alt=""></amp-img>
+                </a>
+            </div>
+        </div>
+    <?php } ?>
+</amp-carousel>

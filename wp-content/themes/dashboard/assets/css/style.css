@@ -818,6 +818,7 @@ a {
 }
 .gallery-in {
   padding: 5px;
+  height: 95%;
 }
 
 .gallery-carousel {
@@ -1215,6 +1216,22 @@ p {
   grid-template-rows: auto 135px;
 }
 
+/* Gallery modal */
+.gl amp-img {
+  height: 41px;
+  width: 60px;
+  border-radius: 4px;
+}
+.g-container {
+  height: 300px;
+  width: 500px;
+}
+
+.g-content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
 /* Infine loading css */
 .pace {
   -webkit-pointer-events: none;
