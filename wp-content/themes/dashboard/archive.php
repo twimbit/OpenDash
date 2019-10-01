@@ -582,6 +582,7 @@
                 autoOpen: true
             });
         }
+
         /* Gallery logic */
         gallery = $('.gl');
         for (i = 0; i < gallery.length; i++) {
@@ -600,7 +601,6 @@
             });
         }
 
-
         // Podcast player logic
         pd_player = $('.pd-player');
         for (i = 0; i < pd_player.length; i++) {
@@ -618,7 +618,6 @@
             });
         }
 
-
         /* Video carousel logic */
         v_player = $('.v-player');
         for (i = 0; i < v_player.length; i++) {
@@ -635,13 +634,6 @@
                 }
             });
         }
-
-        // Modal closing.
-        $('#vc-con-rm').click(function() {
-            document.querySelector('.vc-con').style = "position:relative";
-            $('#gvl').fadeOut(200);
-            $('.vc-main').html("");
-        });
 
         // Ajax calling method
         function loadArticle(id, type) {
