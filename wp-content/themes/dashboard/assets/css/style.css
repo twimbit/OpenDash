@@ -402,7 +402,9 @@ a {
 }
 .amp-carousel-button {
   border-radius: 50%;
-  background-color: #f16c70a1;
+  /* background-color: #f16c70a1; */
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
 }
 .right-section {
   position: absolute;
@@ -851,12 +853,12 @@ a {
 }
 
 #custom-button .amp-carousel-button-prev {
-  left: 5%;
-  background-image: url("https://amp.dev/static/samples/img/carousel-arrow-left.png");
+  left: 0;
+  background-image: url("https://img.icons8.com/small/16/000000/less-than.png");
 }
 #custom-button .amp-carousel-button-next {
-  right: 5%;
-  background-image: url("https://amp.dev/static/samples/img/carousel-arrow-right.png");
+  right: 0%;
+  background-image: url("https://img.icons8.com/small/16/000000/more-than.png");
 }
 .vsl-type {
   display: flex;
@@ -1130,7 +1132,7 @@ p {
   justify-content: center;
   color: #fff;
   /* margin-top: 5px; */
-  background-color: #7415b5c7;
+  background-color: #f16c70;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -1144,7 +1146,7 @@ p {
   margin-top: 7px;
   width: 12px;
   height: 12px;
-  background-color: red;
+  background-color: #b000ff;
   border-radius: 50%;
 }
 .charts-container-m {
@@ -1318,4 +1320,10 @@ p {
     transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+.amp-carousel-button-next {
+  background-image: url('https://img.icons8.com/small/16/000000/more-than.png');
+}
+.amp-carousel-button-prev {
+  background-image: url("https://img.icons8.com/small/16/000000/less-than.png");
 }
