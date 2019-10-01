@@ -18,7 +18,7 @@
         <div class="vsl-container">
             <div class="vsl-new"></div>
             <div class="vsl-content">
-                <a href="#" class='v-player' v-id="<?php echo $val->ID; ?>">
+                <a href="#" class='v-player' v-id="<?php echo $val->ID; ?>" v-title="<?php echo $title; ?>">
                     <img src="<?php echo $thumbnail; ?>" alt="" />
                 </a>
             </div>

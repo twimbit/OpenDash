@@ -435,7 +435,6 @@
 
     </div>
     <div id="dialog_window_minimized_container"></div>
-    <div class="model-container" style="display:none"></div>
     <!-- jQuery  -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.min.js"></script>
     <script src="<?php echo $template_dir; ?>/assets/js/popper.min.js"></script>
@@ -491,12 +490,15 @@
             }).click(function() {
                 //add a click event as well to do our "minimalization" of the window
                 dialog_element.close();
+
+                // $('.model-container').hide();
                 $('#' + dialog_id + '_minimized').show();
             });
 
             //create another click event that maximizes our minimized window
             $('#' + dialog_id + '_minimized').click(function() {
                 $(this).hide();
+                // $('.model-container').show();
                 dialog_element.open();
             });
         };
@@ -556,7 +558,7 @@
             }
         }
 
-        function createModel(model_id) {
+        function createModel(model_id, title) {
             //get the total number of existing dialog windows plus one (1)
             var div_count = $('.dialog_window').length + 1;
 
@@ -568,7 +570,7 @@
             // var div_content = $('#new_window_content').val();
 
             //append the dialog window HTML to the body
-            $('body').append('<div class="dialog_window" id="' + div_id + '"><div class="infinite"><div class="pace pace-active"><div class="pace-activity" style="display:none"></div> </div> </div><div class="vc-main" id="' + model_id + '"></div></div>');
+            $('body').append('<div class="dialog_window" id="' + div_id + '" title="' + title + '"><div class="infinite"><div class="pace pace-active"><div class="pace-activity" style="display:none"></div> </div> </div><div class="vc-main" id="' + model_id + '"></div></div>');
 
             //initialize our new dialog
             var dialog = $('#' + div_id).dialog({
@@ -585,13 +587,12 @@
         for (i = 0; i < gallery.length; i++) {
             gallery[i].addEventListener('click', function() {
                 g_id = $(this).attr('g-id');
+                g_title = $(this).attr('g-title');
                 /* Create model */
                 if ($('#' + 'gallery-' + g_id).length) {
-                    $('.model-container').show();
                     $('#dialog-' + 'gallery-' + g_id).dialog('open');
                 } else {
-                    $('.model-container').show();
-                    createModel('gallery-' + g_id);
+                    createModel('gallery-' + g_id, g_title);
                     // Ajax call
                     loadArticle(g_id, 'gallery');
                 }
@@ -604,10 +605,16 @@
         pd_player = $('.pd-player');
         for (i = 0; i < pd_player.length; i++) {
             pd_player[i].addEventListener('click', function() {
-                $('#gvl').fadeIn(200);
+                pd_title = $(this).attr('pd-title');
                 pd_id = $(this).attr('pd-id');
-                // Ajax call
-                loadArticle(pd_id, 'podcast');
+                /* Create model */
+                if ($('#' + 'podcast-' + pd_id).length) {
+                    $('#dialog-' + 'podcast-' + pd_id).dialog('open');
+                } else {
+                    createModel('podcast-' + pd_id, pd_title);
+                    // Ajax call
+                    loadArticle(pd_id, 'podcast');
+                }
             });
         }
 
@@ -616,10 +623,16 @@
         v_player = $('.v-player');
         for (i = 0; i < v_player.length; i++) {
             v_player[i].addEventListener('click', function() {
-                $('#gvl').fadeIn(200);
+                v_title = $(this).attr('v-title');
                 v_id = $(this).attr('v-id');
-                // Ajax call
-                loadArticle(v_id, 'video');
+                /* Create model */
+                if ($('#' + 'video-' + v_id).length) {
+                    $('#dialog-' + 'video-' + v_id).dialog('open');
+                } else {
+                    createModel('video-' + v_id, v_title);
+                    // Ajax call
+                    loadArticle(v_id, 'video');
+                }
             });
         }
 
