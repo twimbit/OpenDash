@@ -157,16 +157,7 @@ wp_footer();
         const notification = document.querySelector(".two");
         const availability = document.querySelector(".three");
         const btn = document.querySelectorAll("button");
-        // btn.forEach(btn => {
-        //   // btn.addEventListener("click", function() {
-        //   // //   const list = [...btn.classList];
-        //   // //   if (list.includes("btn-active")) {
-        //   // //     btn.classList.remove("btn-active");
-        //   // //   } else {
-        //   // //     btn.classList.add("btn-active");
-        //   // //   }
-        //   // // });
-        // });
+
         btn[0].addEventListener("click", function() {
             if ([...btn[0].classList].includes("btn-active")) {
                 btn[0].classList.remove("btn-active");

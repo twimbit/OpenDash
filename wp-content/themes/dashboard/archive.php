@@ -22,15 +22,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <?php $template_dir = get_template_directory_uri(); ?>
-    <!-- Lightbox css -->
-    <link href="<?php echo $template_dir; ?>/plugins/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
     <!-- App css -->
     <link href="<?php echo $template_dir; ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $template_dir; ?>/assets/css/style.css" rel="stylesheet" type="text/css" />
 
-    <!-- Classyscroll css -->
-    <link href="<?php echo $template_dir; ?>/assets/css/jquery.Classyscroll.css" rel="stylesheet" type="text/css" />
+    <!-- Jquery ui css -->
+    <link href="<?php echo $template_dir; ?>/assets/css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 
@@ -434,27 +434,8 @@
         </div>
 
     </div>
-
-    <!-- gallery, video and live Modal container -->
-    <div class="video-container" id="gvl" style="display:none;">
-        <div class="vc-con">
-            <div class="infinite">
-                <div class="pace pace-active">
-                    <div class="pace-activity" style="display:none"></div>
-                </div>
-            </div>
-            <div class="in-title-c">
-                <div class="title">This is title</div>
-                <a href="#" id="vc-con-rm">
-                    <div class="close-button"></div>
-                </a>
-            </div>
-            <div class="vc-main">
-
-            </div>
-        </div>
-    </div>
-
+    <div id="dialog_window_minimized_container"></div>
+    <div class="model-container" style="display:none"></div>
     <!-- jQuery  -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.min.js"></script>
     <script src="<?php echo $template_dir; ?>/assets/js/popper.min.js"></script>
@@ -477,11 +458,49 @@
     <script src="<?php echo $template_dir; ?>/plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
     <script src="<?php echo $template_dir; ?>/assets/pages/jquery.flot.init.js"></script>
 
-    <!-- Light Box js -->
-    <script src="<?php echo $template_dir; ?>/plugins/lightbox/js/lightbox.min.js" type="text/javascript"></script>
 
     <!-- Jquery ui -->
     <script src="<?php echo $template_dir; ?>/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script>
+        /* Minimize modal logic */
+        var _init = $.ui.dialog.prototype._init;
+        $.ui.dialog.prototype._init = function() {
+            //Run the original initialization code
+            _init.apply(this, arguments);
+
+            //set some variables for use later
+            var dialog_element = this;
+            var dialog_id = this.uiDialogTitlebar.next().attr('id');
+
+            //append our minimize icon
+            this.uiDialogTitlebar.append('<a href="#" id="' + dialog_id +
+                '-minbutton" class="ui-dialog-titlebar-minimize ui-corner-all">' +
+                '<span class="ui-icon ui-icon-minusthick"></span></a>');
+
+            //append our minimized state
+            $('#dialog_window_minimized_container').append(
+                '<div class="dialog_window_minimized ui-widget ui-state-default ui-corner-all" id="' +
+                dialog_id + '_minimized">' + this.uiDialogTitlebar.find('.ui-dialog-title').text() +
+                '<span class="ui-icon ui-icon-newwin"></div>');
+
+            //create a hover event for the minimize button so that it looks good
+            $('#' + dialog_id + '-minbutton').hover(function() {
+                $(this).addClass('ui-state-hover');
+            }, function() {
+                $(this).removeClass('ui-state-hover');
+            }).click(function() {
+                //add a click event as well to do our "minimalization" of the window
+                dialog_element.close();
+                $('#' + dialog_id + '_minimized').show();
+            });
+
+            //create another click event that maximizes our minimized window
+            $('#' + dialog_id + '_minimized').click(function() {
+                $(this).hide();
+                dialog_element.open();
+            });
+        };
+    </script>
 
     <!-- classyscroll js -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.classyscroll.js"></script>
@@ -537,20 +556,46 @@
             }
         }
 
+        function createModel(model_id) {
+            //get the total number of existing dialog windows plus one (1)
+            var div_count = $('.dialog_window').length + 1;
 
-        /* Making draggable model */
-        $('.vc-con').draggable();
+            //generate a unique id based on the total number
+            var div_id = 'dialog-' + model_id;
 
+            //get the title of the new window from our form, as well as the content
+            // var div_title = $('#new_window_title').val();
+            // var div_content = $('#new_window_content').val();
 
+            //append the dialog window HTML to the body
+            $('body').append('<div class="dialog_window" id="' + div_id + '"><div class="infinite"><div class="pace pace-active"><div class="pace-activity" style="display:none"></div> </div> </div><div class="vc-main" id="' + model_id + '"></div></div>');
 
+            //initialize our new dialog
+            var dialog = $('#' + div_id).dialog({
+                width: "auto",
+                height: "auto",
+                'min-height': '100px',
+                'max-height': '250px',
+                'z-index': '10',
+                autoOpen: true
+            });
+        }
         /* Gallery logic */
         gallery = $('.gl');
         for (i = 0; i < gallery.length; i++) {
             gallery[i].addEventListener('click', function() {
-                $('#gvl').fadeIn(200);
                 g_id = $(this).attr('g-id');
-                // Ajax call
-                loadArticle(g_id, 'gallery');
+                /* Create model */
+                if ($('#' + 'gallery-' + g_id).length) {
+                    $('.model-container').show();
+                    $('#dialog-' + 'gallery-' + g_id).dialog('open');
+                } else {
+                    $('.model-container').show();
+                    createModel('gallery-' + g_id);
+                    // Ajax call
+                    loadArticle(g_id, 'gallery');
+                }
+
             });
         }
 
@@ -594,7 +639,7 @@
                 data: "action=infinite_scroll&id=" + id + "&type=" + type,
                 success: function(data) {
                     $('.pace-activity').hide('1000');
-                    $(".vc-main").append(data);
+                    $('#' + type + '-' + id).append(data);
                 }
             });
             return false;

@@ -1227,7 +1227,8 @@ p {
 }
 .g-container {
   height: 300px;
-  width: 500px;
+  width: 100%;
+  min-width: 530px;
 }
 
 .g-content {
@@ -1328,4 +1329,12 @@ p {
 }
 .amp-carousel-button-prev {
   background-image: url("https://img.icons8.com/small/16/000000/less-than.png");
+}
+.model-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
