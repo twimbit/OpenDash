@@ -445,6 +445,7 @@ a {
   height: 100%;
   position: relative;
   background-color: blueviolet;
+  cursor: pointer;
 }
 .chart-container .pim-title {
   position: absolute;
@@ -1209,8 +1210,8 @@ p {
   border-radius: 5px;
   background-color: #fff;
   color: #000;
-  /* width: auto; */
-  /* height: auto; */
+  width: auto;
+  height: auto;
 }
 .vc-main-c {
   height: 100%;
@@ -1234,6 +1235,7 @@ p {
   width: 100%;
   position: relative;
 }
+
 /* Infine loading css */
 .pace {
   -webkit-pointer-events: none;
@@ -1322,7 +1324,7 @@ p {
   }
 }
 .amp-carousel-button-next {
-  background-image: url('https://img.icons8.com/small/16/000000/more-than.png');
+  background-image: url("https://img.icons8.com/small/16/000000/more-than.png");
 }
 .amp-carousel-button-prev {
   background-image: url("https://img.icons8.com/small/16/000000/less-than.png");

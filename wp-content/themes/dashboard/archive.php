@@ -541,6 +541,8 @@
         /* Making draggable model */
         $('.vc-con').draggable();
 
+
+
         /* Gallery logic */
         gallery = $('.gl');
         for (i = 0; i < gallery.length; i++) {
