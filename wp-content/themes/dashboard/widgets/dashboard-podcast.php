@@ -10,7 +10,7 @@ $cat = get_queried_object()->term_id;
 foreach ($podcast as $val) {
     $title = $val->post_title;
     $description = $val->post_content;
-    $url = get_field('audio', $val)['url'];
+    $url = get_field('audio_file', $val);
     ?>
     <a href="#" style="text-decoration:none" class='pd-player' pd-id="<?php echo $val->ID; ?>">
         <div class="play black-tint">

@@ -16,7 +16,9 @@ $cat = get_queried_object()->term_id;
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
         <div class="chart-container <?php echo $size; ?>">
-            <div class="pim-title"><?php echo $title; ?></div>
+            <div class="pim-title">
+                <?php echo $title; ?>
+            </div>
             <div class="pim">
                 <img src="<?php echo $thumbnail; ?>" alt="">
             </div>

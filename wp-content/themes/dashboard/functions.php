@@ -11,12 +11,12 @@ function wp_infinitepaginate()
 {
     $type = $_POST['type'];
     if ($type == "video") {
-        $v_id = $_POST['pd_id'];
+        $v_id = $_POST['id'];
         $v_post = get_post($v_id);
-        $url = get_field('video', $v_post)['url'];
+        $url = get_field('video_file', $v_post);
         ?>
         <div class="vc-main-c">
-            <div class="video-box" style="position:relative">
+            <div class="video-box" style="position:relative;height:400px;width:800px">
                 <amp-video autoplay src="<?php echo $url; ?>" layout="fill" controls>
                 </amp-video>
             </div>
@@ -31,10 +31,23 @@ function wp_infinitepaginate()
     <?php   } else if ($type == "podcast") {
             $pd_id = $_POST['id'];
             $pd_post = get_post($pd_id);
-            $url = get_field('video', $pd_post)['url'];
+            $url = get_field('audio_file', $pd_post);
             ?>
+        <div class="vc-main-c">
+            <div class="video-box" style="position:relative;width:400px">
+                <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
+                    <div fallback>Your browser doesn’t support HTML5 audio</div>
+                </amp-audio>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $pd_post->post_title; ?></p>
+                <p class="video-date"><?php echo $pd_post->post_date; ?></p>
+                <p>
+                    <?php echo $pd_post->post_content; ?>
+                </p>
+            </div>
+        </div>
 
-        asdkljasdklaskldh
 <?php
     }
     die();

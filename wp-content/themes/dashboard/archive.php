@@ -14,6 +14,9 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
+
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -533,7 +536,12 @@
                 }
             }
         }
+
+
+        /* Making draggable model */
         $('.vc-con').draggable();
+
+
         // Podcast player logic
         pd_player = $('.pd-player');
         for (i = 0; i < pd_player.length; i++) {
@@ -559,6 +567,7 @@
 
         // Modal closing.
         $('#vc-con-rm').click(function() {
+            document.querySelector('.vc-con').style = "position:relative";
             $('#gvl').fadeOut(200);
             $('.vc-main').html("");
         });
@@ -569,7 +578,7 @@
             $.ajax({
                 url: "<?php echo admin_url(); ?>admin-ajax.php",
                 type: 'POST',
-                data: "action=infinite_scroll&pd_id=" + id + "&type=" + type,
+                data: "action=infinite_scroll&id=" + id + "&type=" + type,
                 success: function(data) {
                     $('.pace-activity').hide('1000');
                     $(".vc-main").append(data);

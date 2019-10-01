@@ -12,7 +12,7 @@
     foreach ($video as $val) {
         $title = $val->post_title;
         $description = $val->post_content;
-        $url = get_field('video', $val)['url'];
+        $url = get_field('video_file', $val);
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
         <div class="vsl-container">
