@@ -30,27 +30,6 @@
     <link href="<?php echo $template_dir; ?>/assets/css/style.css" rel="stylesheet" type="text/css" />
 
 </head>
-<style>
-    .insight-board {
-        display: flex;
-        flex-flow: column wrap;
-        height: 100%;
-        width: 100%;
-        overflow: auto;
-    }
-
-    .insight-board div {
-        width: 25%;
-        height: 25%;
-        background: #EC985A;
-        color: white;
-        margin: 5px;
-        text-align: center;
-        font-family: system-ui;
-        font-weight: 900;
-        font-size: 2rem;
-    }
-</style>
 
 <body style="height: 100% !important">
     <!-- Begin page -->
@@ -128,20 +107,7 @@
         </div>
         <div class="dashboard fancy-scrollbar">
             <div class="main-board" id="main-board">
-                <div class="insight-board">
-                    <div class="div-1"></div>
-                    <div class="div-2"></div>
-                    <div class="div-3"></div>
-                    <div class="div-4"></div>
-                    <div class="div-5"></div>
-                    <div class="div-6"></div>
-                    <div class="div-7"></div>
-                    <div class="div-8"></div>
-                    <div class="div-9"></div>
-                    <div class="div-10"></div>
-                    <div class="div-11"></div>
-                    <div class="div-12"></div>
-                </div>
+
             </div>
         </div>
     </div>

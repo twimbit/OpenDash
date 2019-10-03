@@ -1,4 +1,5 @@
 <?php
+
 // Featured image functionality.
 function mytheme_post_thumbnails()
 {
@@ -76,6 +77,23 @@ function wp_infinitepaginate()
                 </p>
             </div>
         </div>
+    <?php
+        } else if ($type == "insight") {
+            $in_id = $_POST['id'];
+            $in_post = get_post($in_id);
+            $url = get_field('audio_file', $in_post);
+            ?>
+        <div class="vc-main-c">
+
+            <div class="video-about">
+                <p class="video-titile"><?php echo $in_post->post_title; ?></p>
+                <p class="video-date"><?php echo $in_post->post_date; ?></p>
+                <p>
+                    <?php echo $in_post->post_content; ?>
+                </p>
+            </div>
+        </div>
+
 <?php
     }
     die();

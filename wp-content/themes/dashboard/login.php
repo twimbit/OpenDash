@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Login */
+/* Template Name: Login Page */
 wp_head();
 $template_dir = get_template_directory_uri();
 ?>
@@ -30,6 +30,15 @@ $template_dir = get_template_directory_uri();
         flex: 1;
     }
 
+    .login_right {
+        position: relative;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 60%;
+    }
+
     /*center text of both the sides */
     .login_left {
         position: relative;
@@ -44,25 +53,18 @@ $template_dir = get_template_directory_uri();
         width: 200px;
     }
 
-    ​ ​ .login_right {
-        position: relative;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        width: 60%;
-    }
-
     .login_heading {
+        text-align: center;
         font-weight: bold;
         font-size: 30px;
-        margin-top: 20%;
+        /* margin-top: 20%; */
         letter-spacing: 6px;
         font-family: 'Montserrat', sans-serif;
         color: rgba(67, 66, 93, 1);
     }
 
     .login_welcome {
+        text-align: center;
         margin-top: 3%;
         color: #738e96;
         font-size: 15px;
@@ -72,8 +74,17 @@ $template_dir = get_template_directory_uri();
         margin-top: 10%;
     }
 
+    .login_remember_me {
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .pc_checkbox {
+        margin-bottom: -3px;
+    }
+
     .remember {
-        margin-left: 10px;
+
         font-family: 'Montserrat', sans-serif;
         font-size: 15px;
         margin-top: -12px;
@@ -84,10 +95,9 @@ $template_dir = get_template_directory_uri();
         /*padding: 16px 50px;*/
         width: 170px;
         height: 50px;
+        margin: 30px 100px;
         text-align: center;
         font-size: 16px;
-        margin-top: 15%;
-        margin-right: 20px;
         cursor: pointer;
         background-color: white;
         color: rgba(67, 66, 93, 1);
@@ -95,31 +105,25 @@ $template_dir = get_template_directory_uri();
         border-radius: 5px;
     }
 
-    ​ .login_button:hover {
+    .login_button:hover {
         background-color: rgba(67, 66, 93, 1);
         color: white;
     }
 
-    ​ .login_remember_me {
-        text-align: left;
-        font-size: 18px;
-    }
 
-    ​ @media (max-width: 768px) {
+    @media (max-width:768px) {
         .login_banner {
             display: none;
         }
     }
 </style>
-​
+</head>
 <?php
 if (pc_user_logged('username')) {
     wp_redirect(home_url());
 } else { ?>
 
     <body>
-
-
         <div class="sign_in_page">
             <div class="login_banner">
                 <div class="login_left">
@@ -136,7 +140,7 @@ if (pc_user_logged('username')) {
                         <span>Welcome back! Please login to your account.</span>
                     </div>
                     <div class="login_form">
-                        <form class="pc_rm_login  pc_lf_long_labels" style="margin:45px;">
+                        <form class="pc_rm_login  pc_lf_long_labels">
                             <div class="pc_login_row ">
                                 <div class="pc_field_container">
                                     <input type="text" name="pc_auth_username" value="" autocapitalize="off" autocomplete="off" autocorrect="off" maxlength="150" class="login_inputbox" placeholder="Email">
@@ -171,7 +175,7 @@ if (pc_user_logged('username')) {
                             </button>
                             <div class="pcma_psw_recovery_wrap" style="display: none;">
                                 <div class="pc_login_row ">
-                                    <label style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: rgba(67,66,93,1); ">Insert your username or e-mail</label>
+                                    <label style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: rgba(67,66,93,1); text-align: center;">Insert your username or e-mail</label>
                                     <div class="pc_field_container" style="margin-top: 10px;">
                                         <input type="text" name="pcma_psw_username" class="pcma_psw_username" value="" autocomplete="off">
                                     </div>

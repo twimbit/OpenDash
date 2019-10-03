@@ -13,15 +13,16 @@ $cat = get_queried_object()->term_id;
         $title = $val->post_title;
         $description = $val->post_content;
         $size = get_field('size', $val);
+        $type = get_field('type', $val);
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
-        <div class="chart-container <?php echo $size; ?>">
-            <div class="pim-title">
-                <?php echo $title; ?>
+        <a href="#" class='insight <?php echo $size; ?>' in-id="<?php echo $val->ID; ?>" in-title="<?php echo $title; ?>">
+            <div class="chart-container">
+                <?php
+                    if ($type == "charts") {
+                        echo do_shortcode($description);
+                    } ?>
             </div>
-            <div class="pim">
-                <img src="<?php echo $thumbnail; ?>" alt="">
-            </div>
-        </div>
+        </a>
     <?php } ?>
 </div>
