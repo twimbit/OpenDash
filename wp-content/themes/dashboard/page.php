@@ -31,10 +31,34 @@
         /*left side div */
         .login_banner {
             left: 0;
-            background-image: url("<?php echo $template_dir; ?>/assets/images/login.png");
-            background-repeat: no-repeat;
-            background-size: cover;
             flex: 1;
+        }
+        #Group_244{
+            position: absolute;
+            width: 800px;
+            height: 960px;
+            left: 0px;
+            top: 0px;
+            overflow: visible;
+        }
+
+        /*login gradient for banner background */
+        .login_gradient
+        {
+            position: absolute;
+            overflow: visible;
+            width: 800px;
+            height: 960px;
+            left: 0px;
+            top: 0px;
+        }
+        #login_pattern{
+            position: absolute;
+            width: 800px;
+            height: 960px;
+            left: 0px;
+            top: 0px;
+            overflow: visible;
         }
 
         /*right side div */
@@ -51,12 +75,13 @@
         }
 
         /*center text of both the sides */
-        .login_left {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+        .logo_svg{
+            position: absolute;
+            overflow: visible;
+            width: 272px;
+            height: 272px;
+            left: 273px;
+            top: 353.022px;
         }
 
         /*css for logo icon in login form */
@@ -94,7 +119,6 @@
         }
 
         .remember {
-
             font-family: 'Montserrat', sans-serif;
             font-size: 15px;
             margin-top: -12px;
@@ -121,7 +145,7 @@
             color: white;
         }
 
-
+        /* media query for mobile to hide the login_banner */
         @media (max-width:768px) {
             .login_banner {
                 display: none;
@@ -135,12 +159,40 @@ if (pc_user_logged('username')) {
 } else { ?>
 
     <body>
-        <div class="sign_in_page">
+        <div class="sign_in_page">    <!-- main div -->
             <div class="login_banner">
-                <div class="login_left">
-                    <img src="<?php echo $template_dir; ?>/assets/images/logo.png" alt="Twimbit logo">
+
+                <div id="Group_244">
+                    <svg class="login_gradient">  <!-- gradient shade for login banner -->
+                        <linearGradient spreadMethod="pad" id="LinearGradientFill2" x1="0.897" x2="0.206" y1="0.14" y2="0.877">
+                            <stop offset="0" stop-color="#242348" stop-opacity="1"></stop>
+                            <stop offset="1" stop-color="#44728b" stop-opacity="1"></stop>
+                        </linearGradient>
+                        <rect fill="url(#LinearGradientFill2)" id="Rectangle_176" rx="0" ry="0" x="0" y="0" width="800" height="960">
+                        </rect>
+                    </svg>
+
+                    <div id="login_pattern">  <!-- div for the login pattern svg -->
+                        <svg style="width:inherit;height:inherit;overflow:visible;">
+                            <rect fill="url(<?php echo $template_dir; ?>/assets/images/pattern.png)" width="100%" height="100%"></rect>
+                            <pattern elementid="Group_4_A0_Group_13" id="Group_4_A0_Group_13_pattern" x="0" y="0" width="100%" height="100%">
+                                <image x="0" y="0" width="100%" height="100%" href="Group_4_A0_Group_13_pattern.png" xlink:href="Group_4_A0_Group_13_pattern.png"></image>
+                            </pattern>
+                        </svg>
+                    </div>
                 </div>
+
+                <svg class="logo_svg">
+                    <pattern elementid="t_icon_02_A0_Rectangle_9" id="t_icon_02_A0_Rectangle_9_pattern" x="0" y="0" width="100%" height="100%">
+                        <image x="0" y="0" width="100%" height="100%" href="<?php echo $template_dir; ?>/assets/images/logo.png" alt="Twimbit logo">" xlink:href="t_icon_02_A0_Rectangle_9_pattern.png"></image>
+                    </pattern>
+                    <rect fill="url(#t_icon_02_A0_Rectangle_9_pattern)" id="t_icon_02" rx="24" ry="24" x="0" y="0" width="254" height="254">
+                    </rect>
+                </svg>
+
             </div>
+
+
             ​
             <div class="login_side">
                 <div class="login_right">
