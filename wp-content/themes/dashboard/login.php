@@ -20,7 +20,7 @@ $template_dir = get_template_directory_uri();
     /*left side div */
     .login_banner {
         left: 0;
-        background-image: url("<?php echo $template_dir; ?>/assets/images/login.png");
+        background-image: url("<?php echo $template_dir; ?>/assets/images/login-svg.svg");
         background-repeat: no-repeat;
         background-size: cover;
         flex: 1;
