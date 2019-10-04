@@ -81,18 +81,21 @@ function wp_infinitepaginate()
         } else if ($type == "insight") {
             $in_id = $_POST['id'];
             $in_post = get_post($in_id);
-            $url = get_field('audio_file', $in_post);
+            $description = $in_post->post_content;
             ?>
-        <div class="vc-main-c">
-
+        <div class="chart-ajax" style="height: 400px;width: 700px;min-height: 300px;min-width: 300px;">
+            <div class="chart-div" style="height:70%">
+                <?php
+                        wp_head();
+                        echo do_shortcode($description);
+                        ?>
+            </div>
             <div class="video-about">
                 <p class="video-titile"><?php echo $in_post->post_title; ?></p>
                 <p class="video-date"><?php echo $in_post->post_date; ?></p>
-                <p>
-                    <?php echo $in_post->post_content; ?>
-                </p>
             </div>
         </div>
+        <?php wp_footer(); ?>
 
 <?php
     }
@@ -100,3 +103,28 @@ function wp_infinitepaginate()
 }
 add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
 add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
+
+
+
+function updateRestoreId()
+{
+    $id = $_POST['id'];
+    $restore_id = $_POST['restore_id'];
+    echo $restore_id;
+    // update user - setting new email and surname
+    global $pc_users;
+    $data = array(
+        'surname'     => $restore_id
+    );
+    $result = $pc_users->update_user($id, $data);
+    if (!$result) {
+        // an error occurred - check related properties  
+        return http_response_code(401);
+    } else {
+        // success
+        return http_response_code(201);
+    }
+    die();
+}
+add_action('wp_ajax_update_restore_id', 'updateRestoreId'); // for logged in user
+add_action('wp_ajax_nopriv_update_restore_id', 'updateRestoreId'); // if user not logged in

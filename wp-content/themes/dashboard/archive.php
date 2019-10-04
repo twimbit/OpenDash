@@ -326,7 +326,7 @@
         for (i = 0; i < insight.length; i++) {
             insight[i].addEventListener('click', function() {
                 in_title = $(this).attr('in-title');
-                in_id = $(this).attr('v-id');
+                in_id = $(this).attr('in-id');
                 /* Create model */
                 if ($('#' + 'insight-' + in_id).length) {
                     $('#dialog-' + 'insight-' + in_id).dialog('open');

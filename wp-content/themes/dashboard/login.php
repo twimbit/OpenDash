@@ -1,6 +1,7 @@
 <?php
 /* Template Name: Login Page */
-wp_head();
+get_header();
+
 $template_dir = get_template_directory_uri();
 ?>
 <style>

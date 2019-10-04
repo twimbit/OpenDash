@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-wp_head();
+get_header();
+
 $template_dir = get_template_directory_uri();
 global $pc_users;
 $args = array(
@@ -18,7 +17,7 @@ foreach ($user_cats as $cat_id) {
 }
 // echo do_shortcode('[pc-logout-box]');
 
-wp_footer();
+   
 ?>
 
 <head>
@@ -210,6 +209,4 @@ wp_footer();
             availability.style.width = "100%";
         });
     </script>
-</body>
-
-</html>
+    <?php get_footer(); ?>
