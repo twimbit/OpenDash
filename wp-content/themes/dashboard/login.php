@@ -14,7 +14,7 @@ $template_dir = get_template_directory_uri();
     /*main div */
     .sign_in_page {
         display: flex;
-        height: 100%;
+        height: 100vh;
     }
 
     /*left side div */
@@ -195,7 +195,7 @@ if (pc_user_logged('username')) {
                 </div>
             </div>
         </div>
-    </body>
-    <!-- echo do_shortcode('[pc-login-form align="center"]'); -->
-<?php } ?>
-<?php wp_footer(); ?>
+
+        <!-- echo do_shortcode('[pc-login-form align="center"]'); -->
+    <?php } ?>
+    <?php wp_footer(); ?>

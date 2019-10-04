@@ -16,8 +16,6 @@ foreach ($user_cats as $cat_id) {
     $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
 }
 // echo do_shortcode('[pc-logout-box]');
-
-   
 ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
@@ -26,7 +24,7 @@ foreach ($user_cats as $cat_id) {
 </head>
 
 <body>
-    <div class="container">
+    <div class="hm-container">
         <header class="nav">
             <div class="left">
                 <div class="search">

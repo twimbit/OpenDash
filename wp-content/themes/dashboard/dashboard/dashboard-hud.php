@@ -4,7 +4,7 @@ $template_dir = get_template_directory_uri();
 <title>Dashboard-<?php echo get_queried_object()->name; ?></title>
 </head>
 
-<body style="height: 100% !important">
+<body>
     <!-- Begin page -->
 
     <div id="wrapper">

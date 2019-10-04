@@ -25,7 +25,7 @@ button {
   border-radius: 2px;
 }
 .container {
-  width: 100%;
+  /* width: 100%; */
   height: 100vh;
 }
 .nav {
@@ -109,7 +109,7 @@ input {
   width: 100%;
   height: 10%;
   /* background-color: black; */
-  color: rgb(194, 193, 193);
+  color: #000;
   margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
@@ -297,4 +297,11 @@ input {
   .right img {
     width: 18px;
   }
+}
+.hm-container {
+  height: 100vh;
+}
+.item a {
+  color: #000;
+  text-decoration: none;
 }
