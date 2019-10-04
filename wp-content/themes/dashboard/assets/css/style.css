@@ -468,7 +468,8 @@ a {
   grid-auto-flow: column dense;
   margin: 8px;
   /* width: 100%; */
-  overflow: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 .chart-container {
   width: 100%;
@@ -527,6 +528,7 @@ a {
 
 .podcast-container {
   min-height: 105px;
+  height: 50%;
 }
 
 .podcast {
@@ -592,11 +594,11 @@ a {
   flex-grow: 1;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  /* display: flex; */
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 .archive {
   display: -webkit-box;
@@ -1331,8 +1333,12 @@ p {
   z-index: 999;
 }
 .video-about {
+  /* flex: 1; */
   padding: 15px;
   margin-left: 19px;
+  min-width: fit-content;
+  /* height: 106px; */
+  min-height: fit-content;
 }
 .video-titile {
   font-size: 23px;
@@ -1355,8 +1361,10 @@ p {
 }
 .vc-main-c {
   height: 100%;
-  display: grid;
-  grid-template-rows: auto 135px;
+  display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+  min-height: fit-content;
 }
 
 /* Gallery modal */
@@ -1366,9 +1374,10 @@ p {
   border-radius: 4px;
 }
 .g-container {
-  height: 300px;
+  /* height: 300px; */
   width: 100%;
-  min-width: 530px;
+  flex: 1;
+  /* min-width: 530px; */
 }
 
 .g-content {
@@ -1470,9 +1479,7 @@ p {
   font-weight: 900;
   font-size: 2rem;
 }
-.visualizer-front,
-.visualizer-front > div,
-.visualizer-front > div > div {
+.visualizer-front {
   height: 100% !important;
   width: 100% !important;
 }
@@ -1508,4 +1515,20 @@ p {
   left: 0;
   right: 0;
   background-color: #0000007d;
+}
+.chart-div {
+  background-color: #000000ba;
+  flex: 1;
+}
+.chart-ajax {
+  min-height: 400px;
+  min-width: 600px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.vc-main {
+  height: 100%;
+  min-width: fit-content;
+  min-height: fit-content;
 }

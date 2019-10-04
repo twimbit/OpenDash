@@ -16,9 +16,9 @@ function wp_infinitepaginate()
         $v_post = get_post($v_id);
         $url = get_field('video_file', $v_post);
         ?>
-        <div class="vc-main-c">
-            <div class="video-box" style="position:relative;height:400px;width:800px">
-                <amp-video autoplay src="<?php echo $url; ?>" layout="fill" controls>
+        <div class="vc-main-c" style="min-height:300px;min-width:400px">
+            <div class="video-box" style="position:relative;">
+                <amp-video autoplay src="<?php echo $url; ?>" layout="responsive" width="717" height="405" controls>
                 </amp-video>
             </div>
             <div class="video-about">
@@ -35,7 +35,7 @@ function wp_infinitepaginate()
             $url = get_field('audio_file', $pd_post);
             ?>
         <div class="vc-main-c">
-            <div class="video-box" style="position:relative;width:400px">
+            <div class="video-box" style="position:relative;width:100%">
                 <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>
@@ -58,12 +58,12 @@ function wp_infinitepaginate()
         <div class="vc-main-c">
             <div class="g-container">
                 <div class="g-content">
-                    <amp-carousel layout="fill" type="slides">
+                    <amp-carousel width="400" height="300" layout="responsive" type="slides">
                         <?php
                                 foreach ($gallery_array as $val) {
                                     $url = $val['sizes']['medium'];
                                     ?>
-                            <amp-img src="<?php echo $url; ?>" layout="fill" alt=""></amp-img>
+                            <amp-img src="<?php echo $url; ?>" width="400" height="300" layout="responsive" alt=""></amp-img>
                         <?php } ?>
                     </amp-carousel>
                 </div>
@@ -82,12 +82,13 @@ function wp_infinitepaginate()
             $in_id = $_POST['id'];
             $in_post = get_post($in_id);
             $description = $in_post->post_content;
+            $visualiser = get_field('visualizer', $in_post);
             ?>
-        <div class="chart-ajax" style="height: 400px;width: 700px;min-height: 300px;min-width: 300px;">
+        <div class="chart-ajax">
             <div class="chart-div" style="height:70%">
                 <?php
                         wp_head();
-                        echo do_shortcode($description);
+                        echo $visualiser;
                         ?>
             </div>
             <div class="video-about">

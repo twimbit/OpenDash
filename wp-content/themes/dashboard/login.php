@@ -1,9 +1,10 @@
 <?php
 /* Template Name: Login Page */
 get_header();
-
 $template_dir = get_template_directory_uri();
 ?>
+<title>Dashboard-Login</title>
+</head>
 <style>
     body {
         margin: 0px;

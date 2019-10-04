@@ -197,6 +197,130 @@
     // });
 
     $(".dashboard").animate({ scrollLeft: 600 }, 1000);
+
+    document.onreadystatechange = function() {
+      let state = document.readyState;
+      if (state == "interactive") {
+        // $('#loader').hide();
+      }
+    };
+   
+
+    function createModel(model_id, title) {
+      //get the total number of existing dialog windows plus one (1)
+      var div_count = $(".dialog_window").length + 1;
+
+      //generate a unique id based on the total number
+      var div_id = "dialog-" + model_id;
+
+      //get the title of the new window from our form, as well as the content
+      // var div_title = $('#new_window_title').val();
+      // var div_content = $('#new_window_content').val();
+
+      //append the dialog window HTML to the body
+      $("body").append(
+        '<div class="dialog_window" id="' +
+          div_id +
+          '" title="' +
+          title +
+          '"><div class="infinite"><div class="pace pace-active"><div class="pace-activity" style="display:none"></div> </div> </div><div class="vc-main" id="' +
+          model_id +
+          '"></div></div>'
+      );
+
+      //initialize our new dialog
+      var dialog = $("#" + div_id).dialog({
+        width: "auto",
+        height: "auto",
+        "min-height": "100px",
+        "max-height": "250px",
+        "z-index": "10",
+        autoOpen: true
+      });
+    }
+
+    /* Gallery logic */
+    gallery = $(".gl");
+    for (i = 0; i < gallery.length; i++) {
+      gallery[i].addEventListener("click", function() {
+        g_id = $(this).attr("g-id");
+        g_title = $(this).attr("g-title");
+        /* Create model */
+        if ($("#" + "gallery-" + g_id).length) {
+          $("#dialog-" + "gallery-" + g_id).dialog("open");
+        } else {
+          createModel("gallery-" + g_id, g_title);
+          // Ajax call
+          loadArticle(g_id, "gallery");
+        }
+      });
+    }
+
+    // Podcast player logic
+    pd_player = $(".pd-player");
+    for (i = 0; i < pd_player.length; i++) {
+      pd_player[i].addEventListener("click", function() {
+        pd_title = $(this).attr("pd-title");
+        pd_id = $(this).attr("pd-id");
+        /* Create model */
+        if ($("#" + "podcast-" + pd_id).length) {
+          $("#dialog-" + "podcast-" + pd_id).dialog("open");
+        } else {
+          createModel("podcast-" + pd_id, pd_title);
+          // Ajax call
+          loadArticle(pd_id, "podcast");
+        }
+      });
+    }
+
+    /* Video carousel logic */
+    v_player = $(".v-player");
+    for (i = 0; i < v_player.length; i++) {
+      v_player[i].addEventListener("click", function() {
+        v_title = $(this).attr("v-title");
+        v_id = $(this).attr("v-id");
+        /* Create model */
+        if ($("#" + "video-" + v_id).length) {
+          $("#dialog-" + "video-" + v_id).dialog("open");
+        } else {
+          createModel("video-" + v_id, v_title);
+          // Ajax call
+          loadArticle(v_id, "video");
+        }
+      });
+    }
+
+    /* insight logic */
+    insight = $(".insight");
+    for (i = 0; i < insight.length; i++) {
+      insight[i].addEventListener("click", function() {
+        in_title = $(this).attr("in-title");
+        in_id = $(this).attr("in-id");
+        /* Create model */
+        if ($("#" + "insight-" + in_id).length) {
+          $("#dialog-" + "insight-" + in_id).dialog("open");
+        } else {
+          createModel("insight-" + in_id, in_title);
+          // Ajax call
+          loadArticle(in_id, "insight");
+        }
+      });
+    }
+
+    // Ajax calling method
+    function loadArticle(id, type) {
+      $(".pace-activity").show("fast");
+      $.ajax({
+        url: "/ds/wp-admin/admin-ajax.php",
+        type: "POST",
+        data: "action=infinite_scroll&id=" + id + "&type=" + type,
+        success: function(data) {
+          $(".pace-activity").hide("1000");
+          $("#" + type + "-" + id).append(data);
+        }
+      });
+      return false;
+    }
   });
 
   // init();
