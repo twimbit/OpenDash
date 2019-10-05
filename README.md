@@ -1,14 +1,14 @@
 # kaas-core documenatation
 
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/']
-    * Then copy the content of text file to import post types. 
-2. Install **ACF pro plugin** 
-    *  Then import field groups. 
+    * Then copy the content of text file to import post types. ['CPT_UI config file.txt']
+2. Install **ACF pro plugin** ['advanced-custom-fields-pro.zip']
+    *  Then import field groups. ['acf config file.zip']
 3. Install **Visualizer: Tables and Charts Manager for WordPress** ['https://wordpress.org/plugins/visualizer/'] 
-4. Upload **PrivateContent plugin** in wordpress.
+4. Upload **PrivateContent plugin** in wordpress. ['private-content.zip']
     * Also Upload the add-on plugins with the private content plugin that is,
-        * PrivateContent - Mail Actions Add-on
-        * PrivateContent - Secure Links Add-on
+        * PrivateContent - Mail Actions Add-on . ['private-content-mail-actions.zip']
+        * PrivateContent - Secure Links Add-on . ['private-content-secure-links.zip']
     * Create **Users in PrivateContent** plugin and assign categories to every users.
     * Assign categories to the post 
     * Restrict the categories according to the user category to restrict the content. *(last step)*
