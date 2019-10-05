@@ -1,10 +1,10 @@
 # kaas-core documenatation
 
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/'] and create post types.
-    * Then import the code.
+    *  Then import configuation file. 
 2. Install **ACF pro plugin** ['https://www.advancedcustomfields.com/pro/']
     * Create field groups for each post type.
-    * Then import the code.
+    * Then  import configuation file
 3. Install **Visualizer: Tables and Charts Manager for WordPress** ['https://wordpress.org/plugins/visualizer/'] 
     * link this plugin to insights post using ACF pro.
 4. Upload **PrivateContent plugin** in wordpress.
