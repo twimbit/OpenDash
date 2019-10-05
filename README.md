@@ -1,10 +1,10 @@
 # kaas-core documenatation
 
 
-### Use file from attachment [uploading file.zip] ###
+### Use file from attachment [Download this](main.zip) ###
 
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/']
-    * Go to CPT UI -> Tools and paste the txt file to import types. ['CPT UI config file.txt']  
+    * Go to CPT UI -> Tools and paste the txt file to import types. [download this](main/CPT UI config file.txt.zip)  
 2. Install **ACF pro plugin** from the ['advanced-custom-fields-pro.zip file']
     * Go to Custom fields -> Tools and upload the zip file to Import field groups. ['acf config file.zip'] 
 3. Install **Visualizer: Tables and Charts Manager for WordPress** ['https://wordpress.org/plugins/visualizer/'] 
