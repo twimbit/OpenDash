@@ -1,5 +1,8 @@
 # kaas-core documenatation
 
+
+### Use file from attachment [uploading file.zip] ###
+
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/']
     * Then copy the content of text file to import post types. ['CPT_UI config file.txt']
 2. Install **ACF pro plugin** ['advanced-custom-fields-pro.zip']
