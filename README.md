@@ -1,9 +1,9 @@
 # kaas-core documenatation
 
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/']
-    *  Then import configuation file. 
+    * Then copy the content of text file to import post types. 
 2. Install **ACF pro plugin** 
-    * Then  import configuation file
+    *  Then import field groups. 
 3. Install **Visualizer: Tables and Charts Manager for WordPress** ['https://wordpress.org/plugins/visualizer/'] 
 4. Upload **PrivateContent plugin** in wordpress.
     * Also Upload the add-on plugins with the private content plugin that is,
