@@ -15,9 +15,9 @@
     * Assign categories to the post 
     * Restrict the categories according to the user category to restrict the content. *(last step)*
     * Enable Password recovery system in Password recovery in PrivateContent - Mail Actions
-5. Make account in Zapier.
-6. Install **WP Webhooks** ['https://wordpress.org/plugins/wp-webhooks/']
+5. Install **WP Webhooks** ['https://wordpress.org/plugins/wp-webhooks/']
     * Go to Wordpress -> Settings -> WP Webhooks
     * Go to Settings in Wp Webhooks and Activate the Triggers and Actions accordingly and save them.
     * Then go to Receive data and copy the link from Webhook URL.
-7. Install Plugin
+6. Install Plugin **WP Mail SMTP by WPForms** ['https://wordpress.org/plugins/wp-mail-smtp/'] for sending mails.
+
