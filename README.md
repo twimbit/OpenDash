@@ -4,14 +4,14 @@
 ### Use file from attachment [Download this](main.zip) ###
 
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/']
-    * Go to CPT UI -> Tools and paste the txt file to import types. [download this](main/CPT UI config file.txt.zip)  
-2. Install **ACF pro plugin** from the ['advanced-custom-fields-pro.zip file']
-    * Go to Custom fields -> Tools and upload the zip file to Import field groups. ['acf config file.zip'] 
+    * Go to CPT UI -> Tools and paste the txt file to import types. [Download this](main/CPT_UI.txt.zip)  
+2. Install **ACF pro plugin** from the [Download this](main/acf-pro.zip)
+    * Go to Custom fields -> Tools and upload the zip file to Import field groups.[Download this](main/acf.json.zip) 
 3. Install **Visualizer: Tables and Charts Manager for WordPress** ['https://wordpress.org/plugins/visualizer/'] 
-4. Upload **PrivateContent plugin** in wordpress. from the ['private-content.zip'] file
+4. Upload **PrivateContent plugin** in wordpress. from the [Download this](main/private-content.zip)
     * Also Upload the add-on plugins with the private content plugin that is,
-        * PrivateContent - Mail Actions Add-on . ['private-content-mail-actions.zip']
-        * PrivateContent - Secure Links Add-on . ['private-content-secure-links.zip']
+        * PrivateContent - Mail Actions Add-on  [Download this](main/mail-actions.zip)
+        * PrivateContent - Secure Links Add-on  [Download this](main/secure-links.zip)
     * Create **Users in PrivateContent** plugin and assign categories to every users.
     * Assign categories to the post 
     * Restrict the categories according to the user category to restrict the content. *(last step)*
