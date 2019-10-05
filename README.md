@@ -4,9 +4,9 @@
 ### Use file from attachment [uploading file.zip] ###
 
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/']
-    * Go to CPT UI -> Tools and paste the txt file to import types. ['CPT UI config file.txt']
-2. Install **ACF pro plugin** from the advanced-custom-fields-pro.zip file
-    * Go to Custom fields -> Tools and upload the zip file to Import field groups. ['acf config file.zip']
+    * Go to CPT UI -> Tools and paste the txt file to import types. ['CPT UI config file.txt']  
+2. Install **ACF pro plugin** from the ['advanced-custom-fields-pro.zip file']
+    * Go to Custom fields -> Tools and upload the zip file to Import field groups. ['acf config file.zip'] 
 3. Install **Visualizer: Tables and Charts Manager for WordPress** ['https://wordpress.org/plugins/visualizer/'] 
 4. Upload **PrivateContent plugin** in wordpress. from the ['private-content.zip'] file
     * Also Upload the add-on plugins with the private content plugin that is,
