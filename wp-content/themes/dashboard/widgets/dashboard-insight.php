@@ -16,7 +16,7 @@ $cat = get_queried_object()->term_id;
         $visualiser = get_field('visualizer', $val);
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
-        <a href="#" class='insight <?php echo $size; ?>' in-id="<?php echo $val->ID; ?>" in-title="<?php echo $title; ?>">
+        <a href="#" class='insight <?php echo $size; ?>' onclick="openModal('insight',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
             <div class="chart-container">
                 <?php echo $visualiser; ?>
             </div>

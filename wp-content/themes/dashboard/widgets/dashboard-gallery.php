@@ -18,7 +18,7 @@
         <div class="vsl-container">
             <div class="vsl-new"></div>
             <div class="vsl-content">
-                <a href="#" class='gl' g-id="<?php echo $val->ID; ?>" g-title="<?php echo $title; ?>">
+                <a href="#" class='gl' onclick="openModal('gallery',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <amp-img src="<?php echo $thumbnail; ?>" height="41" width="60" alt=""></amp-img>
                 </a>
             </div>

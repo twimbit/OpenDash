@@ -15,7 +15,7 @@ $archive = get_posts($args);
                 <?php echo $title; ?>
             </div>
             <div class="archive-open">
-                <a href="#" style="text-decoration:none" class='archive-f' a-id="<?php echo $val->ID; ?>" a-title="<?php echo $title; ?>">
+                <a href="#" style="text-decoration:none" class='archive-f' onclick="openModal('archive',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     open
                 </a>
             </div>

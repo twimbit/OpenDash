@@ -14,7 +14,7 @@ $webinars = get_posts($args);
         <div class="vsl-container">
             <div class="vsl-new"></div>
             <div class="vsl-content">
-                <a href="#" style="text-decoration:none" class='archive-f' l-id="<?php echo $val->ID; ?>" l-title="<?php echo $title; ?>">
+                <a href="#" style="text-decoration:none" class='archive-f' onclick="openModal('live',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <img src="<?php echo $image; ?>" alt="" />
                 </a>
             </div>
