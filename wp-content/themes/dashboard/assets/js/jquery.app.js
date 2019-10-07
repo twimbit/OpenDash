@@ -250,7 +250,7 @@
       });
     }
 
-    /* Gallery logic */
+    /* gallery modal code*/
     gallery = $(".gl");
     for (i = 0; i < gallery.length; i++) {
       gallery[i].addEventListener("click", function() {
@@ -267,7 +267,7 @@
       });
     }
 
-    // Podcast player logic
+    /* podcast modal code*/
     pd_player = $(".pd-player");
     for (i = 0; i < pd_player.length; i++) {
       pd_player[i].addEventListener("click", function() {
@@ -284,7 +284,7 @@
       });
     }
 
-    /* Video carousel logic */
+    /* video modal code*/
     v_player = $(".v-player");
     for (i = 0; i < v_player.length; i++) {
       v_player[i].addEventListener("click", function() {
@@ -301,7 +301,7 @@
       });
     }
 
-    /* insight logic */
+    /* insight modal code*/
     insight = $(".insight");
     for (i = 0; i < insight.length; i++) {
       insight[i].addEventListener("click", function() {
@@ -318,7 +318,7 @@
       });
     }
 
-    /* archive login */
+    /* archive modal code*/
     archive = $(".archive-f");
     for (i = 0; i < archive.length; i++) {
       archive[i].addEventListener("click", function() {
@@ -331,6 +331,23 @@
           createModel("archive-" + a_id, a_title);
           // Ajax call
           loadArticle(a_id, "archive");
+        }
+      });
+    }
+
+    /* webinar modal code*/
+    webinar = $(".webinar");
+    for (i = 0; i < webinar.length; i++) {
+      webinar[i].addEventListener("click", function() {
+        live_title = $(this).attr("l-title");
+        live_id = $(this).attr("l-id");
+        /* Create model */
+        if ($("#" + "webinar-" + live_id).length) {
+          $("#dialog-" + "webinar-" + live_id).dialog("open");
+        } else {
+          createModel("webinar-" + live_id, live_title);
+          // Ajax call
+          loadArticle(live_id, "webinar");
         }
       });
     }

@@ -1,43 +1,24 @@
-<?php $template_dir = get_template_directory_uri(); ?>
+<?php
+$args = array(
+    'post_type' => 'webinar',
+    'cat' => get_queried_object()->term_id
+);
+$webinars = get_posts($args);
+?>
 <amp-carousel id="custom-button" height="85" layout="fixed-height" type="carousel" class="fancy-scrollbar">
-    <div class="vsl-container">
-        <div class="vsl-new"></div>
-        <div class="vsl-content">
-            <a href="#">
-                <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-            </a>
+    <?php foreach ($webinars as $val) {
+        $title = $val->post_title;
+        $image = get_the_post_thumbnail_url($val, 'thumbnail');
+        $file_url = get_field('archive_file_url', $val);
+        ?>
+        <div class="vsl-container">
+            <div class="vsl-new"></div>
+            <div class="vsl-content">
+                <a href="#" style="text-decoration:none" class='archive-f' l-id="<?php echo $val->ID; ?>" l-title="<?php echo $title; ?>">
+                    <img src="<?php echo $image; ?>" alt="" />
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="vsl-container">
-        <div class="vsl-new"></div>
-        <div class="vsl-content">
-            <a href="#">
-                <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-            </a>
-        </div>
-    </div>
-    <div class="vsl-container">
-        <div class="vsl-new"></div>
-        <div class="vsl-content">
-            <a href="#">
-                <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-            </a>
-        </div>
-    </div>
-    <div class="vsl-container">
-        <div class="vsl-new"></div>
-        <div class="vsl-content">
-            <a href="#">
-                <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-            </a>
-        </div>
-    </div>
-    <div class="vsl-container">
-        <div class="vsl-new"></div>
-        <div class="vsl-content">
-            <a href="#">
-                <img src="<?php echo $template_dir; ?>/assets/images/small/img-4.jpg" alt="" />
-            </a>
-        </div>
-    </div>
+    <?php } ?>
+
 </amp-carousel>

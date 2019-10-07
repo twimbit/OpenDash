@@ -273,8 +273,8 @@ a {
 }
 
 .video-slider img {
-  height: 61px;
-  width: 102px;
+  height: 54px;
+  width: 70px;
   border-radius: 4px;
 }
 .owl-item {
@@ -1355,7 +1355,7 @@ p {
   padding: 15px;
   margin-left: 19px;
   min-width: fit-content;
-  /* height: 106px; */
+  height: 125px;
   min-height: fit-content;
 }
 .video-titile {
@@ -1536,9 +1536,9 @@ p {
 }
 .chart-div {
   background-color: #000000ba;
-  flex: 1;
+  flex: 2;
   z-index: 3;
-  height: 100%;
+  height: 70%;
   width: 100%;
 }
 .chart-ajax {

@@ -85,7 +85,7 @@ function wp_infinitepaginate()
             $visualiser = get_field('visualizer', $in_post);
             ?>
         <div class="chart-ajax">
-            <div class="chart-div" style="height:70%">
+            <div class="chart-div">
                 <?php
                         wp_head();
                         echo $visualiser;
@@ -118,6 +118,22 @@ function wp_infinitepaginate()
             <div class="video-about">
                 <p class="video-titile"><?php echo $a_post->post_title; ?></p>
                 <p class="video-date"><?php echo $a_post->post_date; ?></p>
+            </div>
+        </div>
+    <?php
+        } else if ($type == "live") {
+            $live_id = $_POST['id'];
+            $live_post = get_post($live_id);
+            $description = $live_post->post_content;
+            $url = get_field('webinar_url', $live_post);
+            ?>
+        <div class="archive-ajax">
+            <div class="chart-div">
+                <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:350px;height:100%;width:100%"></iframe>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $live_post->post_title; ?></p>
+                <p class="video-date"><?php echo $live_post->post_date; ?></p>
             </div>
         </div>
 <?php
