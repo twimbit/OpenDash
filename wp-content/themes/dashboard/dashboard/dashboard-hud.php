@@ -85,26 +85,7 @@ $template_dir = get_template_directory_uri();
                         <?php get_template_part("widgets/dashboard", "tabs"); ?>
                     </div>
                     <div class="social-links gap">
-                        <div class="social black-tint">
-                            <a class="social-icon" data-tooltip="LinkedIn" href="https://www.linkedin.com/company/colorlib">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            </a>
-
-                            <a class="social-icon" data-tooltip="Twitter" href="https://twitter.com/colorlib">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-
-                            <a class="social-icon" data-tooltip="Facebook" href="https://www.facebook.com/colorlib">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-
-                            <a class="social-icon" data-tooltip="YouTube" href="https://www.youtube.com/c/Colorlib">
-                                <i class="fa fa-youtube" aria-hidden="true"></i>
-                            </a>
-                            <a class="social-icon" data-tooltip="YouTube" href="https://instagram.com/Colorlib">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                        <?php get_template_part("widgets/dashboard", "social"); ?>
                     </div>
                     <div class="mr">
                         <div class="key-members fancy-scrollbar gap">
