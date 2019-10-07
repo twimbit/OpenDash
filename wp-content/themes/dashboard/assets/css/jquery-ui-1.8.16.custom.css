@@ -1179,8 +1179,8 @@ button.ui-button::-moz-focus-inner {
   overflow: hidden;
   z-index: 12;
   background-color: #fff;
-  min-width: fit-content;
-  min-height: fit-content;
+  min-width: fit-content !important;
+  min-height: fit-content !important;
 }
 .ui-dialog .ui-dialog-titlebar {
   /* padding: 0.4em 1em; */

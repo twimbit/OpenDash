@@ -318,6 +318,23 @@
       });
     }
 
+    /* archive login */
+    archive = $(".archive-f");
+    for (i = 0; i < archive.length; i++) {
+      archive[i].addEventListener("click", function() {
+        a_title = $(this).attr("a-title");
+        a_id = $(this).attr("a-id");
+        /* Create model */
+        if ($("#" + "archive-" + a_id).length) {
+          $("#dialog-" + "archive-" + a_id).dialog("open");
+        } else {
+          createModel("archive-" + a_id, a_title);
+          // Ajax call
+          loadArticle(a_id, "archive");
+        }
+      });
+    }
+
     // Ajax calling method
     function loadArticle(id, type) {
       $(".pace-activity").show("fast");

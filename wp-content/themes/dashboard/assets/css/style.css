@@ -1202,6 +1202,9 @@ nav[toolbar] li {
   width: 320px;
   height: 248px;
 }
+.radar-labels a {
+  text-decoration: none;
+}
 .client-label {
   font-weight: bold;
   font-size: 16px;
@@ -1214,24 +1217,36 @@ nav[toolbar] li {
   top: 66px;
   left: 65px;
   font-size: 12px;
+  background-color: #0000ffd4;
+  border-radius: 10px;
+  padding: 1px 4px;
 }
 .members-label {
   position: relative;
   font-size: 12px;
   top: 30px;
   left: 48px;
+  background-color: #0000ffd4;
+  border-radius: 10px;
+  padding: 1px 4px;
 }
 .live-label {
   position: relative;
   top: 173px;
   left: 99px;
+  background-color: #0000ffd4;
+  border-radius: 10px;
+  padding: 1px 4px;
   font-size: 12px;
 }
 .story-label {
   position: relative;
-  top: 173px;
-  right: 47px;
+  top: 175px;
+  right: 76px;
   font-size: 12px;
+  background-color: #0000ffd4;
+  border-radius: 10px;
+  padding: 1px 4px;
 }
 .radar-labels div {
   display: inline-block;
@@ -1522,6 +1537,9 @@ p {
 .chart-div {
   background-color: #000000ba;
   flex: 1;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
 }
 .chart-ajax {
   min-height: 400px;
@@ -1560,4 +1578,28 @@ p {
   margin: 3px 1px;
   background-color: rgba(93, 92, 92, 0.75);
   border-radius: 50%;
+}
+
+.archive-ajax {
+  min-height: 400px;
+  min-width: 600px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.archive-download {
+    position: absolute;
+    top: -11px;
+    right: 62px;
+    background-color: red;
+    border-radius: 5px;
+    padding: 0px 6px;
+    height: 22px;
+}
+.archive-download a {
+    color: #cecccc !important;
+    text-decoration: none;
+    font-size: 13px;
+    position: relative;
+    top: -4px;
 }

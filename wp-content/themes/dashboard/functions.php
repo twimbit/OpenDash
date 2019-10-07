@@ -98,6 +98,28 @@ function wp_infinitepaginate()
         </div>
         <?php wp_footer(); ?>
 
+    <?php
+        } else if ($type == "archive") {
+            $a_id = $_POST['id'];
+            $a_post = get_post($a_id);
+            $description = $a_post->post_content;
+            $url = get_field('archive_file_url', $a_post);
+            ?>
+        <div class="archive-ajax">
+            <div class="archive-download" style="display:none">
+                <a href="#">Download
+                    <i class="fa fa-download" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <div class="chart-div">
+                <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:350px;height:100%;width:100%"></iframe>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $a_post->post_title; ?></p>
+                <p class="video-date"><?php echo $a_post->post_date; ?></p>
+            </div>
+        </div>
 <?php
     }
     die();
