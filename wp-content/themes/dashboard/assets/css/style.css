@@ -1533,3 +1533,29 @@ p {
   min-width: fit-content;
   min-height: fit-content;
 }
+.collapse-content i {
+  font-size: 11px;
+}
+.social-link-member {
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 3px;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  text-align: center;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 4px 0px;
+  color: white;
+  margin: 3px 1px;
+  background-color: rgba(93, 92, 92, 0.75);
+  border-radius: 50%;
+}
