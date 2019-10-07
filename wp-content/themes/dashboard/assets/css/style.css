@@ -470,6 +470,7 @@ a {
   /* width: 100%; */
   overflow-x: scroll;
   overflow-y: hidden;
+  /* z-index: 99999; */
 }
 .chart-container {
   width: 100%;

@@ -20,6 +20,13 @@
       event.preventDefault();
     });
 
+    /* Charts container mousewheel scroll */
+    $(".charts-container").mousewheel(function(event, delta) {
+      mainScroll = 0;
+      this.scrollLeft -= delta * vgScroll;
+      event.preventDefault();
+    });
+
     /* Main board horizontal scroll */
     // mainBoard.mousewheel(function(event, delta) {
     //   this.scrollLeft -= delta * mainScroll;
@@ -198,13 +205,17 @@
 
     $(".dashboard").animate({ scrollLeft: 600 }, 1000);
 
+    // $(".analytics-charts, .charts-container").dragscrollable({
+    //   dragSelector: "a",
+    //   acceptPropagatedEvent: false
+    // });
+
     document.onreadystatechange = function() {
       let state = document.readyState;
       if (state == "interactive") {
         // $('#loader').hide();
       }
     };
-   
 
     function createModel(model_id, title) {
       //get the total number of existing dialog windows plus one (1)
