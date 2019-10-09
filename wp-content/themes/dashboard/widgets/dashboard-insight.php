@@ -7,6 +7,7 @@ $args = array(
 $video = get_posts($args);
 $cat = get_queried_object()->term_id;
 ?>
+
 <div class="charts-container gap">
     <?php
     foreach ($video as $val) {
@@ -23,3 +24,5 @@ $cat = get_queried_object()->term_id;
         </a>
     <?php } ?>
 </div>
+<div class="in-prev"></div>
+<div class="in-next"></div>

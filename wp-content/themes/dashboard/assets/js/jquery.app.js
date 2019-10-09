@@ -1,9 +1,3 @@
-/**
- * Theme: Adminox Admin Template
- * Author: Coderthemes
- * Module/App: Main Js
- */
-
 /* gallery horizontal scroll */
 // let mainScroll = 30,
 vgScroll = 30;
@@ -201,7 +195,7 @@ $(".video-slider").mousewheel(function(event, delta) {
 //   $("a[aria-expanded=true]").attr("aria-expanded", "false");
 // });
 
-$(".dashboard").animate({ scrollLeft: 600 }, 1000);
+// $(".dashboard").animate({ scrollLeft: 600 }, 1000);
 
 // $(".analytics-charts, .charts-container").dragscrollable({
 //   dragSelector: "a",
@@ -246,7 +240,22 @@ function createModel(model_id, title) {
     "z-index": "10",
     autoOpen: true
   });
+
+  $(".ui-dialog").css({
+    "margin-right": "auto",
+    "margin-left": "auto"
+  });
 }
+
+/* Insight section scrolling next and previous buttons */
+$(".in-next").click(function() {
+  var leftPos = $(".charts-container").scrollLeft();
+  $(".charts-container").animate({ scrollLeft: leftPos + 200 }, 800);
+});
+$(".in-prev").click(function() {
+  var leftPos = $(".charts-container").scrollLeft();
+  $(".charts-container").animate({ scrollLeft: leftPos - 200 }, 800);
+});
 
 /* Create modals */
 function openModal(modal, id, title) {
@@ -260,108 +269,6 @@ function openModal(modal, id, title) {
     loadArticle(id, modal);
   }
 }
-
-/* gallery modal code*/
-// gallery = $(".gl");
-// for (i = 0; i < gallery.length; i++) {
-//   gallery[i].addEventListener("click", function() {
-//     g_id = $(this).attr("g-id");
-//     g_title = $(this).attr("g-title");
-//     /* Create model */
-//     if ($("#" + "gallery-" + g_id).length) {
-//       $("#dialog-" + "gallery-" + g_id).dialog("open");
-//     } else {
-//       createModel("gallery-" + g_id, g_title);
-//       // Ajax call
-//       loadArticle(g_id, "gallery");
-//     }
-//   });
-// }
-
-/* podcast modal code*/
-// pd_player = $(".pd-player");
-// for (i = 0; i < pd_player.length; i++) {
-//   pd_player[i].addEventListener("click", function() {
-//     pd_title = $(this).attr("pd-title");
-//     pd_id = $(this).attr("pd-id");
-//     /* Create model */
-//     if ($("#" + "podcast-" + pd_id).length) {
-//       $("#dialog-" + "podcast-" + pd_id).dialog("open");
-//     } else {
-//       createModel("podcast-" + pd_id, pd_title);
-//       // Ajax call
-//       loadArticle(pd_id, "podcast");
-//     }
-//   });
-// }
-
-/* video modal code*/
-// v_player = $(".v-player");
-// for (i = 0; i < v_player.length; i++) {
-//   v_player[i].addEventListener("click", function() {
-//     v_title = $(this).attr("v-title");
-//     v_id = $(this).attr("v-id");
-//     /* Create model */
-//     if ($("#" + "video-" + v_id).length) {
-//       $("#dialog-" + "video-" + v_id).dialog("open");
-//     } else {
-//       createModel("video-" + v_id, v_title);
-//       // Ajax call
-//       loadArticle(v_id, "video");
-//     }
-//   });
-// }
-
-/* insight modal code*/
-// insight = $(".insight");
-// for (i = 0; i < insight.length; i++) {
-//   insight[i].addEventListener("click", function() {
-//     in_title = $(this).attr("in-title");
-//     in_id = $(this).attr("in-id");
-//     /* Create model */
-//     if ($("#" + "insight-" + in_id).length) {
-//       $("#dialog-" + "insight-" + in_id).dialog("open");
-//     } else {
-//       createModel("insight-" + in_id, in_title);
-//       // Ajax call
-//       loadArticle(in_id, "insight");
-//     }
-//   });
-// }
-
-/* archive modal code*/
-// archive = $(".archive-f");
-// for (i = 0; i < archive.length; i++) {
-//   archive[i].addEventListener("click", function() {
-//     a_title = $(this).attr("a-title");
-//     a_id = $(this).attr("a-id");
-//     /* Create model */
-//     if ($("#" + "archive-" + a_id).length) {
-//       $("#dialog-" + "archive-" + a_id).dialog("open");
-//     } else {
-//       createModel("archive-" + a_id, a_title);
-//       // Ajax call
-//       loadArticle(a_id, "archive");
-//     }
-//   });
-// }
-
-// /* webinar modal code*/
-// webinar = $(".webinar");
-// for (i = 0; i < webinar.length; i++) {
-//   webinar[i].addEventListener("click", function() {
-//     live_title = $(this).attr("l-title");
-//     live_id = $(this).attr("l-id");
-//     /* Create model */
-//     if ($("#" + "webinar-" + live_id).length) {
-//       $("#dialog-" + "webinar-" + live_id).dialog("open");
-//     } else {
-//       createModel("webinar-" + live_id, live_title);
-//       // Ajax call
-//       loadArticle(live_id, "webinar");
-//     }
-//   });
-// }
 
 // Ajax calling method
 function loadArticle(id, type) {

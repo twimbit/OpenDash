@@ -249,7 +249,7 @@ a {
   grid-gap: 3px;
   height: 108px;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 49% 49%;
   /* grid-template-rows: 70px 70px; */
 }
 .world-map {
@@ -276,6 +276,7 @@ a {
   height: 54px;
   width: 70px;
   border-radius: 4px;
+  object-fit: cover;
 }
 .owl-item {
   width: 200px !important;
@@ -458,17 +459,18 @@ a {
   bottom: 0;
   right: 2px;
   left: 0;
+  /* overflow: hidden; */
 }
 
 .charts-container {
   display: grid;
-  grid-template-rows: 30% 30% 30%;
+  grid-template-rows: 31% 31% 32%;
   grid-auto-columns: 123px;
   grid-gap: 6px;
   grid-auto-flow: column dense;
   margin: 8px;
   /* width: 100%; */
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
   /* z-index: 99999; */
 }
@@ -827,7 +829,7 @@ a {
 }
 /* width */
 ::-webkit-scrollbar {
-  height: 7px;
+  height: 3px;
   width: 3px;
 }
 
@@ -857,7 +859,7 @@ a {
 /* width */
 .fancy-scrollbar::-webkit-scrollbar {
   height: 5px;
-  width: 5px;
+  width: 3px;
 }
 
 /* Track */
@@ -1535,7 +1537,7 @@ p {
   background-color: #0000007d;
 }
 .chart-div {
-  background-color: #000000ba;
+  /* background-color: #000000ba; */
   flex: 2;
   z-index: 3;
   height: 70%;
@@ -1588,18 +1590,38 @@ p {
   flex-direction: column;
 }
 .archive-download {
-    position: absolute;
-    top: -11px;
-    right: 62px;
-    background-color: red;
-    border-radius: 5px;
-    padding: 0px 6px;
-    height: 22px;
+  position: absolute;
+  top: -11px;
+  right: 62px;
+  background-color: red;
+  border-radius: 5px;
+  padding: 0px 6px;
+  height: 22px;
 }
 .archive-download a {
-    color: #cecccc !important;
-    text-decoration: none;
-    font-size: 13px;
-    position: relative;
-    top: -4px;
+  color: #cecccc !important;
+  text-decoration: none;
+  font-size: 13px;
+  position: relative;
+  top: -4px;
 }
+.in-prev {
+    position: absolute;
+    box-sizing: border-box;
+    cursor: pointer;
+    top: 50%;
+    height: 34px;
+    margin-left: 5px;
+    width: 34px;
+    pointer-events: all;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-image: url(https://img.icons8.com/small/16/000000/less-than.png);
+    border-radius: 50%;
+    background-color: hsl(0, 0%, 100%);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+}
+.in-next {position: absolute;box-sizing: border-box;cursor: pointer;top: 50%;height: 34px;right: 5px;width: 34px;pointer-events: all;background-position: 50% 50%;background-repeat: no-repeat;transform: translateY(-50%);z-index: 10;background-image: url("https://img.icons8.com/small/16/000000/more-than.png");border-radius: 50%;background-color: hsl(0, 0%, 100%);-webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);}

@@ -1,5 +1,5 @@
 <?php $template_dir = get_template_directory_uri(); ?>
-<amp-carousel id="custom-button" height="85" layout="fixed-height" type="carousel" controls class="fancy-scrollbar">
+<amp-carousel id="custom-button" height="85" layout="fixed-height" type="carousel" controls>
     <?php
     $args = array(
         'post_type' => 'amp_story',

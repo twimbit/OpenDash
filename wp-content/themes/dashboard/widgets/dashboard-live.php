@@ -5,7 +5,7 @@ $args = array(
 );
 $webinars = get_posts($args);
 ?>
-<amp-carousel id="custom-button" height="85" layout="fixed-height" type="carousel" class="fancy-scrollbar">
+<amp-carousel id="custom-button" height="85" layout="fixed-height" type="carousel">
     <?php foreach ($webinars as $val) {
         $title = $val->post_title;
         $image = get_the_post_thumbnail_url($val, 'thumbnail');

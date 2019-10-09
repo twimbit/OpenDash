@@ -15,6 +15,7 @@ function wp_infinitepaginate()
         $v_id = $_POST['id'];
         $v_post = get_post($v_id);
         $url = get_field('video_file', $v_post);
+        add_post_meta($v_id, 'viewed', '1', true);
         ?>
         <div class="vc-main-c" style="min-height:300px;min-width:400px">
             <div class="video-box" style="position:relative;">
@@ -129,7 +130,7 @@ function wp_infinitepaginate()
             ?>
         <div class="archive-ajax">
             <div class="chart-div">
-                <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:350px;height:100%;width:100%"></iframe>
+
             </div>
             <div class="video-about">
                 <p class="video-titile"><?php echo $live_post->post_title; ?></p>
@@ -144,7 +145,7 @@ add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in u
 add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
 
 
-
+/* Restoring update id for chat */
 function updateRestoreId()
 {
     $id = $_POST['id'];
@@ -167,3 +168,28 @@ function updateRestoreId()
 }
 add_action('wp_ajax_update_restore_id', 'updateRestoreId'); // for logged in user
 add_action('wp_ajax_nopriv_update_restore_id', 'updateRestoreId'); // if user not logged in
+
+
+/* User last login update */
+function user_last_login($user_id)
+{
+    $date = new DateTime();
+    global $pc_meta;
+    $pc_meta->add_meta($user_id, 'last_login', $date->getTimestamp());
+}
+add_action('pc_user_login', 'user_last_login');
+
+
+/**
+ * Display last login time
+ *
+ */
+
+function lastlogin()
+{
+    $last_login = get_the_author_meta(‘last_login’);
+    $the_login_date = human_time_diff($last_login);
+    return $the_login_date;
+}
+
+// echo lastlogin();
