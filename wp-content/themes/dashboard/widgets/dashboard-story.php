@@ -17,7 +17,12 @@
             <div class="vsl-new"></div>
             <div class="vsl-content">
                 <a href="<?php echo $url; ?>">
-                    <img src="<?php echo $thumbnail; ?>" alt="" />
+                    <div class="infinite">
+                        <div class="pace pace-active">
+                            <div class="pace-activity" style="display: block;"></div>
+                        </div>
+                    </div>
+                    <amp-img src="<?php echo $thumbnail; ?>" alt=""></amp-img>
                 </a>
             </div>
         </div>

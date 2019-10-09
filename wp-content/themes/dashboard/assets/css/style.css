@@ -272,11 +272,12 @@ a {
   font-size: 12px;
 }
 
-.video-slider img {
+.video-slider amp-img {
   height: 54px;
   width: 70px;
   border-radius: 4px;
   object-fit: cover;
+  z-index: 2;
 }
 .owl-item {
   width: 200px !important;
@@ -479,10 +480,9 @@ a {
   width: 100%;
   display: block;
   position: relative;
+  padding: 1px;
   height: 99%;
-  /* background-color: blueviolet; */
-  /* margin: 5px; */
-  background-color: #000;
+  /* background-color: #000; */
   border: 0.5px solid #cccccc4a;
 }
 .chart-container .pim-title {
@@ -916,7 +916,7 @@ a {
   width: 3px;
 }
 .vsl-main {
-  padding: 0 3px;
+  padding: 0 0 0 5px;
   height: 120px;
   /* justify-content: space-between; */
   overflow-y: hidden;
@@ -928,9 +928,16 @@ a {
 .vsl-container {
   margin-bottom: 5px;
   color: #fff;
+  position: relative;
   font-size: 11px;
   /* margin-right: 10px;
   width: 100%; */
+}
+.vsl-content amp-img img {
+  height: 54px;
+  width: 70px;
+  border-radius: 4px;
+  object-fit: cover;
 }
 
 #custom-button .amp-carousel-button-prev {
@@ -1276,7 +1283,7 @@ p {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
-.insight{
+.insight {
   z-index: 1;
   position: relative;
 }
@@ -1509,13 +1516,15 @@ p {
 }
 .visualizer-front {
   height: 100% !important;
+  z-index: 2;
   width: 100% !important;
+  position: relative;
 }
 .visualizer-front > div {
   /* height: 100% !important; */
 }
 .visualizer-front svg > rect {
-  fill: transparent;
+  fill: #000;
 }
 .visualizer-front svg :nth-child(4) :nth-child(4) text {
   fill: #fff;

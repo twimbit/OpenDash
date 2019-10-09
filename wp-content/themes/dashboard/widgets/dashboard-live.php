@@ -15,7 +15,12 @@ $webinars = get_posts($args);
             <div class="vsl-new"></div>
             <div class="vsl-content">
                 <a href="#" style="text-decoration:none" class='archive-f' onclick="openModal('live',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
-                    <img src="<?php echo $image; ?>" alt="" />
+                    <div class="infinite">
+                        <div class="pace pace-active">
+                            <div class="pace-activity" style="display: block;"></div>
+                        </div>
+                    </div>
+                    <amp-img src="<?php echo $image; ?>" alt=""></amp-img>
                 </a>
             </div>
         </div>

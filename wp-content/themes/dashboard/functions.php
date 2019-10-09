@@ -24,7 +24,7 @@ function wp_infinitepaginate()
                         <div class="pace-activity" style="display: block;"></div>
                     </div>
                 </div>
-                <amp-video autoplay src="<?php echo $url; ?>" layout="responsive" width="717" height="405" controls>
+                <amp-video autoplay src="<?php echo $url; ?>" layout="responsive" width="717" height="405" controls style="z-index:2">
                 </amp-video>
             </div>
             <div class="video-about">

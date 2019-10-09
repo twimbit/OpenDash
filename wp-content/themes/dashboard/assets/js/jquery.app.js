@@ -247,6 +247,8 @@ function createModel(model_id, title) {
   });
 }
 
+
+
 /* Insight section loader hide */
 window.onload = function() {
   $(".pace-activity").hide();
