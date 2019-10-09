@@ -83,18 +83,41 @@ function wp_infinitepaginate()
             $in_id = $_POST['id'];
             $in_post = get_post($in_id);
             $description = $in_post->post_content;
+            $title = $in_post->post_title;
+            $date = $in_post->post_date;
             $visualiser = get_field('visualizer', $in_post);
+            $excerpt = $in_post->post_excerpt;
             ?>
         <div class="chart-ajax">
-            <div class="chart-div">
-                <?php
-                        wp_head();
-                        echo $visualiser;
-                        ?>
+            <div class="in-upper-content">
+                <div class="chart-div">
+                    <div class="infinite">
+                        <div class="pace pace-active">
+                            <div class="pace-activity" style="display: block;"></div>
+                        </div>
+                    </div>
+                    <?php
+                            wp_head();
+                            echo $visualiser;
+                            ?>
+                </div>
+                <div class="in-title">
+                    <ul>
+                        <li class="in-title-1">
+                            <?php echo $title; ?>
+                        </li>
+                        <li class="in-date">
+                            <?php echo $date; ?>
+                        </li>
+                        <li class="in-about">
+                            <?php echo $excerpt; ?>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
             <div class="video-about">
-                <p class="video-titile"><?php echo $in_post->post_title; ?></p>
-                <p class="video-date"><?php echo $in_post->post_date; ?></p>
+                <p class="video-date"><?php echo $description; ?></p>
             </div>
         </div>
         <?php wp_footer(); ?>

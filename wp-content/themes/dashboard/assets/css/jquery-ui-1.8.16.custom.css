@@ -1195,13 +1195,14 @@ button.ui-button::-moz-focus-inner {
 .ui-dialog .ui-dialog-titlebar-close {
   position: absolute;
   right: 0.5em;
-  top: 58%;
-  width: 15px;
+  top: 62%;
+  width: 12px;
   margin: -10px 0 0 0;
   padding: 1px;
-  height: 15px;
+  height: 12px;
   border-radius: 50px;
   background-color: red;
+  outline: none !important;
 }
 .ui-dialog .ui-dialog-titlebar-close span {
   display: block;
@@ -1606,6 +1607,10 @@ button.ui-button::-moz-focus-inner {
   text-orientation: inherit;
   padding-left: 6px;
   width: 30px;
+  height: 60px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .dialog_window_minimized .ui-icon {
@@ -1619,10 +1624,10 @@ button.ui-button::-moz-focus-inner {
   padding: 1px;
   position: absolute;
   right: 2em;
-  top: 58%;
-  width: 15px;
+  top: 62%;
+  width: 12px;
   margin: -10px 0 0 0;
-  height: 15px;
+  height: 12px;
   border-radius: 50px;
   background-color: green;
 }
