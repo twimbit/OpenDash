@@ -19,6 +19,11 @@ function wp_infinitepaginate()
         ?>
         <div class="vc-main-c" style="min-height:300px;min-width:400px">
             <div class="video-box" style="position:relative;">
+                <div class="infinite">
+                    <div class="pace pace-active">
+                        <div class="pace-activity" style="display: block;"></div>
+                    </div>
+                </div>
                 <amp-video autoplay src="<?php echo $url; ?>" layout="responsive" width="717" height="405" controls>
                 </amp-video>
             </div>
