@@ -250,11 +250,11 @@ function createModel(model_id, title) {
 /* Insight section scrolling next and previous buttons */
 $(".in-next").click(function() {
   var leftPos = $(".charts-container").scrollLeft();
-  $(".charts-container").animate({ scrollLeft: leftPos + 200 }, 800);
+  $(".charts-container").animate({ scrollLeft: leftPos + 200 }, 400);
 });
 $(".in-prev").click(function() {
   var leftPos = $(".charts-container").scrollLeft();
-  $(".charts-container").animate({ scrollLeft: leftPos - 200 }, 800);
+  $(".charts-container").animate({ scrollLeft: leftPos - 200 }, 400);
 });
 
 /* Create modals */

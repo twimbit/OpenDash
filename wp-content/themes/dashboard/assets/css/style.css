@@ -1154,6 +1154,7 @@ a {
 }
 .sample-sidebar > * {
   margin-top: var(--space-2);
+  color: #000;
 }
 .sample-sidebar li,
 nav[toolbar] li {
@@ -1537,7 +1538,7 @@ p {
   background-color: #0000007d;
 }
 .chart-div {
-  /* background-color: #000000ba; */
+  background-color: #000000ba;
   flex: 2;
   z-index: 3;
   height: 70%;
@@ -1606,22 +1607,51 @@ p {
   top: -4px;
 }
 .in-prev {
-    position: absolute;
-    box-sizing: border-box;
-    cursor: pointer;
-    top: 50%;
-    height: 34px;
-    margin-left: 5px;
-    width: 34px;
-    pointer-events: all;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-image: url(https://img.icons8.com/small/16/000000/less-than.png);
-    border-radius: 50%;
-    background-color: hsl(0, 0%, 100%);
-    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  box-sizing: border-box;
+  cursor: pointer;
+  top: 50%;
+  height: 34px;
+  margin-left: 5px;
+  width: 34px;
+  pointer-events: all;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-image: url(https://img.icons8.com/small/16/000000/less-than.png);
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 100%);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
 }
-.in-next {position: absolute;box-sizing: border-box;cursor: pointer;top: 50%;height: 34px;right: 5px;width: 34px;pointer-events: all;background-position: 50% 50%;background-repeat: no-repeat;transform: translateY(-50%);z-index: 10;background-image: url("https://img.icons8.com/small/16/000000/more-than.png");border-radius: 50%;background-color: hsl(0, 0%, 100%);-webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);}
+.in-next {
+  position: absolute;
+  box-sizing: border-box;
+  cursor: pointer;
+  top: 50%;
+  height: 34px;
+  right: 5px;
+  width: 34px;
+  pointer-events: all;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-image: url("https://img.icons8.com/small/16/000000/more-than.png");
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 100%);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-close {
+  border-radius: 50%;
+  border: none;
+  height: 32px;
+  width: 32px;
+  margin-top: 10px;
+  outline: none !important;
+  margin-left: 10px;
+  cursor: pointer;
+}

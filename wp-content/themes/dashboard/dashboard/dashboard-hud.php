@@ -10,17 +10,18 @@ $template_dir = get_template_directory_uri();
     <div id="wrapper">
         <!-- Sidebar  -->
         <amp-sidebar id="sidebar-right" class="sample-sidebar" layout="nodisplay" side="right">
-            <button on="tap:sidebar-right.close">Close sidebar</button>
+            <button on="tap:sidebar-right.close" class="sidebar-close">X</button>
             <nav>
                 <ul>
                     <li>Nav item 1</li>
                     <li>Nav item 2</li>
+                    <li>Nav item 1</li>
+                    <li>Nav item 2</li>
+                    <li>Nav item 1</li>
+                    <li>Nav item 2</li>
                 </ul>
             </nav>
-            <ul>
-                <li>Nav item 3</li>
-                <li>Nav item 4</li>
-            </ul>
+
         </amp-sidebar>
 
         <div class="board-header">
