@@ -247,8 +247,6 @@ function createModel(model_id, title) {
   });
 }
 
-
-
 /* Insight section loader hide */
 window.onload = function() {
   $(".pace-activity").hide();
@@ -264,7 +262,7 @@ $(".in-prev").click(function() {
   $(".charts-container").animate({ scrollLeft: leftPos - 200 }, 400);
 });
 
-/* Create modals */
+/* Create modals for widgets*/
 function openModal(modal, id, title) {
   modalClass = $(modal);
   /* Create model */
@@ -277,7 +275,7 @@ function openModal(modal, id, title) {
   }
 }
 
-// Ajax calling method
+// Ajax calling method for modals
 function loadArticle(id, type) {
   $(".pace-activity").show("fast");
   $.ajax({

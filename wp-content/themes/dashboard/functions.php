@@ -1,5 +1,5 @@
 <?php
-
+global $pc_users;
 // Featured image functionality.
 function mytheme_post_thumbnails()
 {
@@ -122,7 +122,9 @@ function wp_infinitepaginate()
             </div>
 
             <div class="video-about">
-                <p class="video-date"><?php echo $description; ?></p>
+                <p class="video-date"><?php echo $description;
+                                                newPost($in_id);
+                                                ?></p>
             </div>
         </div>
         <?php wp_footer(); ?>
@@ -199,25 +201,35 @@ add_action('wp_ajax_nopriv_update_restore_id', 'updateRestoreId'); // if user no
 
 
 /* User last login update */
-function user_last_login($user_id)
+// function user_last_login($user_id)
+// {
+//     $date = new DateTime();
+//     global $pc_meta;
+//     $pc_meta->add_meta($user_id, 'last_login', $date->getTimestamp());
+// }
+// add_action('pc_user_login', 'user_last_login');
+
+
+function last_login_time($user_id)
 {
-    $date = new DateTime();
     global $pc_meta;
-    $pc_meta->add_meta($user_id, 'last_login', $date->getTimestamp());
+    $userLastLoginTime = strtotime(pc_user_logged('last_access'));
+    $pc_meta->add_meta($user_id, 'last_login', $userLastLoginTime);
 }
-add_action('pc_user_login', 'user_last_login');
+add_action('pc_user_logout', 'last_login_time');
 
 
-/**
- * Display last login time
- *
- */
-
-function lastlogin()
+/* Checking a post is new */
+function newPost($post_id)
 {
-    $last_login = get_the_author_meta(‘last_login’);
-    $the_login_date = human_time_diff($last_login);
-    return $the_login_date;
+    global $pc_meta;
+    $userCurrentTime = strtotime(pc_user_logged('last_access'));
+    $userLastLoginTime = $pc_meta->get_meta(pc_user_logged('id'), 'last_login');
+    $postCreateTime = get_the_time($d = 'U', $post_id);
+    if ($postCreateTime >= $userLastLoginTime && $postCreateTime <= $userCurrentTime) {
+        return true;
+    } else if ($postCreateTime >= $userLastLoginTime) {
+        return true;
+    }
 }
-
 // echo lastlogin();

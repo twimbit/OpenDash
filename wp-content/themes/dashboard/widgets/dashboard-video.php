@@ -16,7 +16,11 @@
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
         <div class="vsl-container">
-            <div class="vsl-new"></div>
+            <div class="vsl-new" style="visibility:<?php if (newPost($val->ID)) {
+                                                            echo 'show';
+                                                        } else {
+                                                            echo 'hidden';
+                                                        } ?>"></div>
             <div class="vsl-content">
                 <a href="#" class='v-player' onclick="openModal('video',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <div class="infinite">
