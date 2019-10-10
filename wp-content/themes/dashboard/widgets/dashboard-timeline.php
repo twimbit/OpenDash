@@ -20,7 +20,7 @@ $timeline = get_field('timeline_details', $timelines[0]);
                         <p>
                             <?php echo $val['timeline_content'] ?>
                         </p>
-                        <p style="margin-left: 5px;"><?php echo $val['timeline_year'] ?></p>
+                        <p class="timeline-year" style="margin-left: 5px;"><?php echo $val['timeline_year'] ?></p>
                     </div>
                 </li>
             <?php } ?>

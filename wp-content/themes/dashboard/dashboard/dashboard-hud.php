@@ -102,7 +102,7 @@ $template_dir = get_template_directory_uri();
                     </div>
                 </div>
                 <div class="row-2">
-                    <div class="timeline-card card-box widget-box-two gap fancy-scrollbar timeline-vertical-scroll black-tint">
+                    <div class="timeline-card card-box widget-box-two gap fancy-scrollbar timeline-vertical-scroll black-tint container-title">
                         <?php get_template_part("widgets/dashboard", "timeline"); ?>
                     </div>
                     <div class="column-1">
@@ -346,19 +346,19 @@ $template_dir = get_template_directory_uri();
                                 <div class="rs-inner">
                                     <div class="gallery">
                                         <div class="gallery-in gap black-tint">
-                                            <span>Gallery</span>
+                                            <span class="container-title">Gallery</span>
                                             <?php get_template_part("widgets/dashboard", "gallery"); ?></div>
                                     </div>
                                     <div class="podcast-archive">
                                         <div class="podcast-container black-tint gap">
-                                            <span style="margin-left:10px">Podcast</span>
+                                            <span class="container-title" style="margin-left:10px">Podcast</span>
                                             <div class="podcast fancy-scrollbar podcast-vertical-scroll">
                                                 <?php get_template_part("widgets/dashboard", "podcast"); ?>
                                             </div>
                                         </div>
                                         <div class="archive gap black-tint">
                                             <div class="archive-container">
-                                                <span>Archive</span>
+                                                <span class="container-title">Archive</span>
                                                 <?php get_template_part("widgets/dashboard", "archive"); ?>
                                             </div>
                                         </div>
@@ -368,15 +368,15 @@ $template_dir = get_template_directory_uri();
                         </div>
                         <div class="vsl-main">
                             <div class="video-slider gap fancy-scrollbar black-tint">
-                                <span>Story</span>
+                                <span class="container-title">Story</span>
                                 <?php get_template_part("widgets/dashboard", "story"); ?>
                             </div>
                             <div class="video-slider gap fancy-scrollbar black-tint">
-                                <span>Videos</span>
+                                <span class="container-title">Videos</span>
                                 <?php get_template_part("widgets/dashboard", "video"); ?>
                             </div>
                             <div class="video-slider gap fancy-scrollbar black-tint">
-                                <span>Live</span>
+                                <span class="container-title">Live</span>
                                 <?php get_template_part("widgets/dashboard", "live"); ?>
                             </div>
                         </div>
