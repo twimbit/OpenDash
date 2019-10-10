@@ -16,11 +16,7 @@
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
         <div class="vsl-container">
-            <div class="vsl-new" style="visibility:<?php if (newPost($val->ID)) {
-                                                            echo 'visible';
-                                                        } else {
-                                                            echo 'hidden';
-                                                        } ?>"></div>
+            <div class="vsl-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">
                 <a href="#" class='gl' onclick="openModal('gallery',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <amp-img src="<?php echo $thumbnail; ?>" height="41" width="60" alt=""></amp-img>

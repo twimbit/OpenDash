@@ -14,11 +14,7 @@
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
         <div class="vsl-container">
-            <div class="vsl-new" style="visibility:<?php if (newPost($val->ID)) {
-                                                            echo 'show';
-                                                        } else {
-                                                            echo 'hidden';
-                                                        } ?>"></div>
+            <div class="vsl-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">
                 <a href="<?php echo $url; ?>">
                     <div class="infinite">

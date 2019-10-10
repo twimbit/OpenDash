@@ -18,6 +18,7 @@ $cat = get_queried_object()->term_id;
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
         <a href="#" class='insight <?php echo $size; ?>' onclick="openModal('insight',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
+            <div class="vsl-new in-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="infinite">
                 <div class="pace pace-active">
                     <div class="pace-activity" style="display: block;"></div>

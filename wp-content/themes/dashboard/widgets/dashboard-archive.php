@@ -11,6 +11,7 @@ $archive = get_posts($args);
         $file_url = get_field('archive_file_url', $val);
         ?>
         <div class="archive-file">
+            <div class="vsl-new archive-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="title">
                 <?php echo $title; ?>
             </div>

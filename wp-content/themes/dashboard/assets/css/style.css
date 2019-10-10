@@ -956,8 +956,8 @@ a {
 .vsl-new {
   margin-left: auto;
   margin-bottom: 1px;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #f16c70;
 }
@@ -1762,4 +1762,14 @@ p {
 .goog-tooltip {
   z-index: 15;
   color: #000;
+}
+.in-new {
+  position: absolute;
+  right: 6px;
+  top: 4px;
+}
+.archive-new {
+  position: absolute;
+  right: 48px;
+  top: 6px;
 }

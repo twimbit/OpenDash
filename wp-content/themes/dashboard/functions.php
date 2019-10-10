@@ -223,13 +223,12 @@ add_action('pc_user_logout', 'last_login_time');
 function newPost($post_id)
 {
     global $pc_meta;
-    $userCurrentTime = strtotime(pc_user_logged('last_access'));
     $userLastLoginTime = $pc_meta->get_meta(pc_user_logged('id'), 'last_login');
     $postCreateTime = get_the_time($d = 'U', $post_id);
-    if ($postCreateTime >= $userLastLoginTime && $postCreateTime <= $userCurrentTime) {
-        return true;
-    } else if ($postCreateTime >= $userLastLoginTime) {
-        return true;
+    if ($postCreateTime >= $userLastLoginTime) {
+        echo 'visible';
+    } else {
+        echo 'hidden';
     }
 }
 // echo lastlogin();

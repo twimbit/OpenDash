@@ -12,11 +12,7 @@ $webinars = get_posts($args);
         $file_url = get_field('archive_file_url', $val);
         ?>
         <div class="vsl-container">
-            <div class="vsl-new" style="visibility:<?php if (newPost($val->ID)) {
-                                                            echo 'show';
-                                                        } else {
-                                                            echo 'hidden';
-                                                        } ?>"></div>
+            <div class="vsl-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">
                 <a href="#" style="text-decoration:none" class='archive-f' onclick="openModal('live',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <div class="infinite">
