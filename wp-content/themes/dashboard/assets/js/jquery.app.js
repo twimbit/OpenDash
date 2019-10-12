@@ -19,6 +19,15 @@ $(".charts-container").mousewheel(function(event, delta) {
   event.preventDefault();
 });
 
+/* Amp carousel mouse wheel scroll */
+$(".i-amphtml-scrollable-carousel-container").mousewheel(function(
+  event,
+  delta
+) {
+  mainScroll = 0;
+  this.scrollLeft -= delta * vgScroll;
+  event.preventDefault();
+});
 /* Main board horizontal scroll */
 // mainBoard.mousewheel(function(event, delta) {
 //   this.scrollLeft -= delta * mainScroll;

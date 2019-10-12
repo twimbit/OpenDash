@@ -27,7 +27,7 @@ $tabs = get_field('tab', $tab[0]);
     }
     ?>
 </ul>
-<div class="tab-content fancy-scrollbar">
+<div class="tab-content">
     <?php
     $i = 0;
     foreach ($tabs as $val) {

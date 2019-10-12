@@ -1,5 +1,4 @@
-<?php $template_dir = get_template_directory_uri(); ?>
-<amp-carousel id="custom-button" height="55" layout="fixed-height" type="carousel" class="fancy-scrollbar">
+<amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
     $args = array(
         'post_type' => 'gallery',
@@ -18,9 +17,18 @@
         <div class="vsl-container">
             <div class="vsl-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">
-                <a href="#" class='gl' onclick="openModal('gallery',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
-                    <amp-img src="<?php echo $thumbnail; ?>" height="41" width="60" alt=""></amp-img>
+                <a href="#" onclick="openModal('gallery',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
+                    <amp-img src="<?php echo $thumbnail; ?>" alt="" layout='fill'>
+                        <div class="infinite">
+                            <div class="pace pace-active">
+                                <div class="pace-activity" style="display: block;"></div>
+                            </div>
+                        </div>
+                    </amp-img>
                 </a>
+                <div class="video-title">
+                    <span>this is title</span>
+                </div>
             </div>
         </div>
     <?php } ?>

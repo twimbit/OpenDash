@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <div class="dashboard fancy-scrollbar">
+        <div class="dashboard">
             <div class="main-board" id="main-board">
 
             </div>

@@ -1,5 +1,4 @@
-<?php $template_dir = get_template_directory_uri(); ?>
-<amp-carousel id="custom-button" height="85" layout="fixed-height" type="carousel" controls>
+<amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
     $args = array(
         'post_type' => 'amp_story',
@@ -17,13 +16,17 @@
             <div class="vsl-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">
                 <a href="<?php echo $url; ?>">
-                    <div class="infinite">
-                        <div class="pace pace-active">
-                            <div class="pace-activity" style="display: block;"></div>
+                    <amp-img src="<?php echo $thumbnail; ?>" alt="" layout='fill'>
+                        <div class="infinite">
+                            <div class="pace pace-active">
+                                <div class="pace-activity" style="display: block;"></div>
+                            </div>
                         </div>
-                    </div>
-                    <amp-img src="<?php echo $thumbnail; ?>" alt=""></amp-img>
+                    </amp-img>
                 </a>
+                <div class="video-title">
+                    <span>this is title</span>
+                </div>
             </div>
         </div>
     <?php } ?>

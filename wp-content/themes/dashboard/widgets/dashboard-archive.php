@@ -5,7 +5,7 @@ $args = array(
 );
 $archive = get_posts($args);
 ?>
-<div class="archive-files fancy-scrollbar archive-vertical-scroll">
+<div class="archive-files  archive-vertical-scroll">
     <?php foreach ($archive as $val) {
         $title = $val->post_title;
         $file_url = get_field('archive_file_url', $val);
