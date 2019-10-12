@@ -9,12 +9,12 @@ $theme_color = get_field('theme_color', get_queried_object());
 ?>
 <style>
     #wrapper {
-        background: -webkit-gradient(linear, left top, right top, from(<?php echo $gradient_start; ?>), to(<?php echo $gradient_end; ?>));
-        background: gradient(linear, left top, right top, from(<?php echo $gradient_start; ?>), to(<?php echo $gradient_end; ?>));
+        background: -webkit-gradient(linear, left top, right top, from(<?php echo $gradient_start; ?>), to(<?php echo $gradient_end; ?>)) !important;
+        background: gradient(linear, left top, right top, from(<?php echo $gradient_start; ?>), to(<?php echo $gradient_end; ?>)) !important;
     }
 
     .ext-main {
-        background-color: <?php echo $primary_color; ?>;
+        background-color: <?php echo $primary_color; ?> !important;
     }
 
     .social-icon:hover,
@@ -24,20 +24,20 @@ $theme_color = get_field('theme_color', get_queried_object());
     }
 
     .nav-tabs .nav-link.active {
-        background-color: <?php echo $secondary_color; ?>;
+        background-color: <?php echo $secondary_color; ?> !important;
     }
 
     .cbp_tmtimeline>li .cbp_tmicon {
-        border: 2px solid <?php echo $secondary_color; ?>;
-        background-color: <?php echo $secondary_color; ?>;
+        border: 2px solid <?php echo $secondary_color; ?> !important;
+        background-color: <?php echo $secondary_color; ?> !important;
     }
 
     .cbp_tmtimeline:before {
-        background: <?php echo $secondary_color; ?>;
+        background: <?php echo $secondary_color; ?> !important;
     }
 
     .black-tint {
-        background-color: <?php echo $theme_color; ?>;
+        background-color: <?php echo $theme_color; ?> !important;
         -webkit-box-shadow: inset 0px 0px 19px 2px #00000038, 2px 3px 5px 0px #00000042;
         box-shadow: inset 0px 0px 19px 2px #00000038, 2px 3px 5px 0px #00000042;
         /* background-color: white; */
@@ -60,7 +60,7 @@ $theme_color = get_field('theme_color', get_queried_object());
     }
 
     .right-tools {
-        background-color: <?php echo $secondary_color; ?>;
+        background-color: <?php echo $secondary_color; ?> !important;
     }
 
     .chart-container {

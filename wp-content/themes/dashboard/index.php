@@ -6,7 +6,6 @@ $user_name = pc_user_logged('name');
 foreach ($user_cats as $cat_id) {
     $cat_name = get_the_category_by_ID($cat_id);
     $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
-    echo $cat_id;
 }
 // echo do_shortcode('[pc-logout-box]');
 ?>

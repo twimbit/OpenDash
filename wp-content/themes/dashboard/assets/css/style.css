@@ -33,13 +33,13 @@ html {
   /* font-size: 17px; */
   /* left: 0; */
   /* right: 0; */
-  /* background: -webkit-gradient(
+  background: -webkit-gradient(
     linear,
     left top,
     right top,
     from(rgb(18, 38, 56)),
     to(rgb(41, 55, 55))
-  ); */
+  );
   /* background: radial-gradient(       rgb(67, 145, 223) 0%,     rgb(205, 205, 250) 100%   ); */
 }
 
@@ -139,11 +139,11 @@ a {
 }
 
 .client-link {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 pd-player {
@@ -894,42 +894,19 @@ pd-player {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  /* background: #e2d9d98f; */
-  /* border-radius: 10px; */
+  background: #e2d9d98f;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  /* background: #dee1e1; */
+  background: #dee1e1;
 }
 
 /* width */
 .hide-scroll::-webkit-scrollbar {
   height: 0px;
   width: 0px;
-}
-
-/* width */
-.fancy-scrollbar::-webkit-scrollbar {
-  height: 5px;
-  width: 3px;
-}
-
-/* Track */
-.fancy-scrollbar::-webkit-scrollbar-track {
-  /* box-shadow: inset 0 0 5px grey; */
-  border-radius: 10px;
-}
-
-/* Handle */
-.fancy-scrollbar::-webkit-scrollbar-thumb {
-  background: #dee2e6;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-.fancy-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #f16c70;
 }
 
 .gallery-carousel img {
@@ -1041,14 +1018,14 @@ pd-player {
   margin: 0;
 }
 .black-tint {
-  /* background-color: #1410104a; */
+  background-color: #1410104a;
   /* border: 0.5px solid #ffffffb5; */
   /* border-radius: 3px; */
   padding: 7px;
   position: relative;
   margin: 5px;
   /* width: 98%; */
-  /* box-shadow: inset 0px 0px 19px 2px #00000038, 2px 3px 5px 0px #00000042; */
+  box-shadow: inset 0px 0px 19px 2px #00000038, 2px 3px 5px 0px #00000042;
   /* background-color: white; */
   /* box-shadow: 1px 1px 1px black; */
 }
@@ -1072,7 +1049,7 @@ pd-player {
 }
 .ext-main {
   margin: 4px 0;
-  /* background-color: #859ba1; */
+  background-color: #859ba1;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   width: 33px;
@@ -1122,7 +1099,7 @@ pd-player {
   top: 5px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  /* background-color: #859ba1; */
+  background-color: #859ba1;
   z-index: 99;
 }
 .right-tools svg {
