@@ -1,9 +1,6 @@
-<?php
-$insight = getPostArray('insights', get_queried_object()->term_id);
-?>
-
 <div class="charts-container gap">
     <?php
+    $insight = getPostArray('insights', get_queried_object()->term_id);
     foreach ($insight as $val) {
         $title = $val->post_title;
         $description = $val->post_content;

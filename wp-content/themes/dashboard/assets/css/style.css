@@ -113,6 +113,15 @@ Lightbox
   box-sizing: border-box;
 }
 
+.sidebar-social-links {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
 .in-title-n h4 {
   font-size: 14px;
   text-overflow: ellipsis;
@@ -1962,6 +1971,8 @@ amp-carousel > div {
   color: #000000ba;
   text-decoration: none;
 }
+
+
 .i-amphtml-accordion-header {
   border: none;
   font-size: 18px;
@@ -1973,4 +1984,25 @@ amp-carousel > div {
 }
 .social-icon i {
   /* transform: translate(0px, 2px); */
+}
+
+/* Amp social links */
+amp-social-share {
+  background-color: #008080;
+  background-image: url("https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_share_white_48dp.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-size: 67%;
+  border-radius: 50%;
+  height: 50px !important;
+  width: 50px !important;
+  margin-right: 4px;
+}
+.sidebar-nav {
+  position: absolute;
+  right: 17px;
+  left: 20px;
+  bottom: 130px;
+  top: 48px;
 }
