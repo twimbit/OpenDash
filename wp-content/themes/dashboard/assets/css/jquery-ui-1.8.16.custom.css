@@ -1180,12 +1180,12 @@ button.ui-button::-moz-focus-inner {
   overflow: hidden;
   z-index: 12;
   background-color: #fff;
-  /* min-width: fit-content !important; */
+  min-width: 720px;
   min-height: fit-content !important;
   /* border-radius: 5px; */
   min-height: 60vh !important;
   /* transform: translate(-50%, -50%); */
-  min-width: 40vw !important;
+  /* min-width: 60vw !important; */
   /* display: flex; */
 }
 .ui-dialog .ui-dialog-titlebar {

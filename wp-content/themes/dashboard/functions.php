@@ -1,5 +1,4 @@
 <?php
-global $pc_users;
 // Featured image functionality.
 function mytheme_post_thumbnails()
 {
@@ -7,10 +6,13 @@ function mytheme_post_thumbnails()
 }
 add_action('after_setup_theme', 'mytheme_post_thumbnails');
 
-//Infinite Scroll
+/* sending data through ajax in modals */
 function wp_infinitepaginate()
 {
+    /* getting post type */
     $type = $_POST['type'];
+
+    /* Ajax query for video post type */
     if ($type == "video") {
         $v_id = $_POST['id'];
         $v_post = get_post($v_id);
@@ -35,13 +37,15 @@ function wp_infinitepaginate()
                 </p>
             </div>
         </div>
-    <?php   } else if ($type == "podcast") {
+    <?php
+            /* Ajax query for podcast post type */
+        } else if ($type == "podcast") {
             $pd_id = $_POST['id'];
             $pd_post = get_post($pd_id);
             $url = get_field('audio_file', $pd_post);
             ?>
         <div class="vc-main-c">
-            <div class="video-box" style="position:relative;width:100%">
+            <div class="podcast-box" style="position:relative;">
                 <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>
@@ -56,6 +60,7 @@ function wp_infinitepaginate()
         </div>
 
     <?php
+            /* Ajax query for gallery post type */
         } else if ($type == "gallery") {
             $g_id = $_POST['id'];
             $gallery = get_post($g_id);
@@ -82,6 +87,7 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
+            /* Ajax query for insight post type */
         } else if ($type == "insight") {
             $in_id = $_POST['id'];
             $in_post = get_post($in_id);
@@ -128,6 +134,7 @@ function wp_infinitepaginate()
         <?php wp_footer(); ?>
 
     <?php
+            /* Ajax query for archive post type */
         } else if ($type == "archive") {
             $a_id = $_POST['id'];
             $a_post = get_post($a_id);
@@ -142,7 +149,7 @@ function wp_infinitepaginate()
                 </a>
             </div>
             <div class="chart-div">
-                <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:350px;height:100%;width:100%"></iframe>
+                <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%"></iframe>
             </div>
             <div class="video-about">
                 <p class="video-titile"><?php echo $a_post->post_title; ?></p>
@@ -150,6 +157,7 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
+            /* Ajax query for live post type */
         } else if ($type == "live") {
             $live_id = $_POST['id'];
             $live_post = get_post($live_id);
@@ -166,6 +174,7 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
+            /* Ajax query for story post type */
         } else if ($type == "story") {
             $story_id = $_POST['id'];
             $story_post = get_post($story_id);
@@ -174,8 +183,7 @@ function wp_infinitepaginate()
         <div class="story-div">
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
-<?php
-    }
+<?php }
     die();
 }
 add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
@@ -206,17 +214,7 @@ function updateRestoreId()
 add_action('wp_ajax_update_restore_id', 'updateRestoreId'); // for logged in user
 add_action('wp_ajax_nopriv_update_restore_id', 'updateRestoreId'); // if user not logged in
 
-
-/* User last login update */
-// function user_last_login($user_id)
-// {
-//     $date = new DateTime();
-//     global $pc_meta;
-//     $pc_meta->add_meta($user_id, 'last_login', $date->getTimestamp());
-// }
-// add_action('pc_user_login', 'user_last_login');
-
-
+/* Saving pc users last login time */
 function last_login_time($user_id)
 {
     global $pc_meta;

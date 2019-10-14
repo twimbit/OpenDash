@@ -113,9 +113,27 @@ Lightbox
   box-sizing: border-box;
 }
 
+.podcast-box {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.video-box {
+    width: 90%;
+    margin: 0 auto;
+}
+
+ul.ampstart-dropdown-items {
+    padding-left: 23px;
+}
+
+.sidebar-links {
+  text-align: center;
+}
+
 .sidebar-social-links {
   position: absolute;
-  bottom: 60px;
+  bottom: 20px;
   left: 0;
   right: 0;
   display: flex;
@@ -1270,7 +1288,7 @@ pd-player {
 .sample-sidebar li,
 nav[toolbar] li {
   margin-bottom: var(--space-2);
-  margin-left: 25px;
+  margin-left: 16px;
   margin-right: var(--space-2);
   list-style: none;
 }
@@ -1928,17 +1946,7 @@ amp-carousel > div {
   -ms-flex-direction: column;
   flex-direction: column;
 }
-@media (max-width: 1366px) {
-  .container-title {
-    font-size: 14px;
-  }
-  .radar-container {
-    width: 48%;
-  }
-  .vsl-container {
-    width: 33%;
-  }
-}
+
 .video-title {
   position: absolute;
   bottom: -7px;
@@ -1972,7 +1980,6 @@ amp-carousel > div {
   text-decoration: none;
 }
 
-
 .i-amphtml-accordion-header {
   border: none;
   font-size: 18px;
@@ -2005,4 +2012,33 @@ amp-social-share {
   left: 20px;
   bottom: 130px;
   top: 48px;
+}
+
+@media (max-width: 1366px) {
+  .container-title {
+    font-size: 14px;
+  }
+  .radar-container {
+    width: 48%;
+  }
+  .vsl-container {
+    width: 33%;
+  }
+
+  /* Amp social links */
+  amp-social-share {
+    background-color: #008080;
+    background-image: url("https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_share_white_48dp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-size: 66%;
+    border-radius: 50%;
+    height: 35px !important;
+    width: 35px !important;
+    margin-right: 4px;
+  }
+  .sidebar-links {
+    text-align: center;
+  }
 }

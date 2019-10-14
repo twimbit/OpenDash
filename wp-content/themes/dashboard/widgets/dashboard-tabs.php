@@ -1,5 +1,6 @@
 <ul class="nav nav-tabs">
     <?php
+    /* Getting tab post type array */
     $tab = getPostArray('tab', get_queried_object()->term_id);
     $cat = get_queried_object()->term_id;
     $tabs = get_field('tab', $tab[0]);

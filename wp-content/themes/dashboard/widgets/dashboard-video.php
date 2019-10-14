@@ -1,5 +1,6 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
+    /* Getting video post type array */
     $video = getPostArray('video', get_queried_object()->term_id);
     ?>
     <?php

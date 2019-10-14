@@ -1,5 +1,6 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
+    /* Getting amp_story post type array */
     $story = getPostArray('amp_story', get_queried_object()->term_id);
     foreach ($story as $val) {
         $url = get_the_permalink($val);

@@ -1,4 +1,5 @@
 <?php
+get_header();
 $db_type = get_field('dashboard', get_queried_object());
 $gradient_start = get_field('gradient_start', get_queried_object());
 $gradient_end = get_field('gradient_end', get_queried_object());

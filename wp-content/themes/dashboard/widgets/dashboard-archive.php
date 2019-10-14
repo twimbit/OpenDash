@@ -1,4 +1,5 @@
 <?php
+/* Getting archive post type array */
 $archive = getPostArray('archive', get_queried_object()->term_id);
 ?>
 <div class="archive-files  archive-vertical-scroll">

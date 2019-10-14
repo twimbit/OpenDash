@@ -101,7 +101,5 @@
         <amp-social-share type="pinterest" data-param-media="https://amp.dev/static/samples/img/amp.jpg"></amp-social-share>
         <amp-social-share type="tumblr"></amp-social-share>
         <amp-social-share type="twitter"></amp-social-share>
-        <amp-social-share type="whatsapp"></amp-social-share>
-        <amp-social-share type="line"></amp-social-share>
     </div>
 </div>

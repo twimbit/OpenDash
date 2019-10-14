@@ -1,4 +1,5 @@
 <?php
+/* Getting timeline post type array */
 $timelines = getPostArray('timeline', get_queried_object()->term_id);
 $timeline = get_field('timeline_details', $timelines[0]);
 

@@ -1,4 +1,3 @@
-<?php get_header(); ?>
 <title>Dashboard-<?php echo get_queried_object()->name; ?></title>
 </head>
 

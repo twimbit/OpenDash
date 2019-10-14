@@ -1,4 +1,5 @@
 <?php
+/* Getting link post type array */
 $links = getPostArray('link', get_queried_object()->term_id);
 $link = get_field('link_details', $links[0]);
 

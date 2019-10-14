@@ -1,4 +1,5 @@
 <?php
+/* Getting contacts post type array */
 $tab = getPostArray('contact', get_queried_object()->term_id);
 $contact = get_field('contact_details', $tab[0]);
 foreach ($contact as $val) {

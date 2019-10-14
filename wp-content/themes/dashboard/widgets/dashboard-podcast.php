@@ -1,4 +1,5 @@
 <?php
+/* Getting podcast post type array */
 $podcast = getPostArray('podcast', get_queried_object()->term_id);
 ?>
 <?php

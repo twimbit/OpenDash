@@ -1,4 +1,4 @@
-<?php get_header();
+<?php 
 $template_dir = get_template_directory_uri();
 ?>
 <title>Dashboard-<?php echo get_queried_object()->name; ?></title>
@@ -331,7 +331,7 @@ $template_dir = get_template_directory_uri();
                                             <span class="container-title">Gallery</span>
                                             <?php get_template_part("widgets/dashboard", "gallery"); ?></div>
                                         <div class="podcast-container black-tint gap">
-                                            <span class="container-title" style="margin-left:10px">Podcast</span>
+                                            <span class="container-title">Podcast</span>
                                             <div class="podcast podcast-vertical-scroll">
                                                 <?php get_template_part("widgets/dashboard", "podcast"); ?>
                                             </div>

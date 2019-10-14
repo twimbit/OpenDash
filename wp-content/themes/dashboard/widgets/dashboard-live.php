@@ -1,5 +1,6 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
+    /* Getting webinar post type array */
     $webinars = getPostArray('webinar', get_queried_object()->term_id);
     foreach ($webinars as $val) {
         $title = $val->post_title;
