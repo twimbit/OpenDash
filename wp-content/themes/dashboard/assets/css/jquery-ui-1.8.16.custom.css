@@ -1173,16 +1173,20 @@ button.ui-button::-moz-focus-inner {
  * http://docs.jquery.com/UI/Dialog#theming
  */
 .ui-dialog {
+  /* display: flex !important; */
   position: absolute;
   /* padding: 0.2em; */
   /* width: 300px; */
   overflow: hidden;
   z-index: 12;
   background-color: #fff;
-  min-width: fit-content !important;
+  /* min-width: fit-content !important; */
   min-height: fit-content !important;
-  border-radius: 5px;
+  /* border-radius: 5px; */
+  min-height: 60vh !important;
   /* transform: translate(-50%, -50%); */
+  min-width: 40vw !important;
+  /* display: flex; */
 }
 .ui-dialog .ui-dialog-titlebar {
   /* padding: 0.4em 1em; */
@@ -1213,11 +1217,17 @@ button.ui-button::-moz-focus-inner {
   padding: 0;
 }
 .ui-dialog .ui-dialog-content {
-  position: relative;
+  position: absolute;
   background: none;
   zoom: 1;
-  min-width: 300px;
-  min-height: 200px !important;
+  top: 25px;
+  min-width: 100%;
+  /* min-height: 100% !important; */
+  /* display: flex; */
+  /* flex: 1; */
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .ui-dialog .ui-dialog-buttonpane {
   text-align: left;
@@ -1244,6 +1254,8 @@ button.ui-button::-moz-focus-inner {
   background-color: #4fa6fa;
   color: #212529;
   text-align: center;
+  height: 25px;
+  /* flex: 1; */
 }
 /*
  * jQuery UI Slider 1.8.16

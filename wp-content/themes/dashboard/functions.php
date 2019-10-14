@@ -167,6 +167,15 @@ function wp_infinitepaginate()
                 <p class="video-date"><?php echo $live_post->post_date; ?></p>
             </div>
         </div>
+    <?php
+        } else if ($type == "story") {
+            $story_id = $_POST['id'];
+            $story_post = get_post($story_id);
+            $url = get_the_permalink($story_post);
+            ?>
+        <div class="story-div">
+            <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
+        </div>
 <?php
     }
     die();

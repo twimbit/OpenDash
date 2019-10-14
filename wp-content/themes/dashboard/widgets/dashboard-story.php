@@ -15,7 +15,7 @@
         <div class="vsl-container">
             <div class="vsl-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">
-                <a href="<?php echo $url; ?>">
+                <a href="#" onclick="openModal('story',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <amp-img src="<?php echo $thumbnail; ?>" alt="" layout='fill'>
                         <div class="infinite">
                             <div class="pace pace-active">

@@ -1699,12 +1699,18 @@ p {
 }
 .vc-main {
   height: 100%;
+  /* position: absolute; */
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
   min-height: -webkit-fit-content;
   min-height: -moz-fit-content;
+  flex-grow: 1;
   min-height: fit-content;
+  /* top: 0; */
+  /* bottom: 0; */
+  /* left: 0; */
+  /* right: 0; */
 }
 .collapse-content i {
   font-size: 14px;
@@ -1906,4 +1912,13 @@ amp-carousel > div {
   right: 0;
   left: 7px;
   font-size: 11px;
+}
+.story-div {
+  -webkit-box-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  z-index: 3;
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
