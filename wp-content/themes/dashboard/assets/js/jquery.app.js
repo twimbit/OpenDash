@@ -258,7 +258,7 @@ function createModel(model_id, title) {
 
 /* Insight section loader hide */
 window.onload = function() {
-  $(".pace-activity").hide();
+  $(".in-pace-activity").hide();
 };
 
 /* Insight section scrolling next and previous buttons */

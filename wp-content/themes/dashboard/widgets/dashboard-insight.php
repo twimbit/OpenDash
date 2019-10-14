@@ -21,7 +21,7 @@ $cat = get_queried_object()->term_id;
             <div class="vsl-new in-new" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="infinite">
                 <div class="pace pace-active">
-                    <div class="pace-activity" style="display: block;"></div>
+                    <div class="in-pace-activity" style="display: block;"></div>
                 </div>
             </div>
             <div class="chart-container">

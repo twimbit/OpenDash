@@ -26,6 +26,9 @@ $tabs = get_field('tab', $tab[0]);
         $i++;
     }
     ?>
+    <li>
+        <a data-toggle="tab" href="#links" class="nav-link">links</a>
+    </li>
 </ul>
 <div class="tab-content">
     <?php
@@ -49,4 +52,9 @@ $tabs = get_field('tab', $tab[0]);
     <?php }
         $i++;
     } ?>
+    <div class="tab-pane show" id="links">
+        <div class="social-links gap">
+            <?php get_template_part("widgets/dashboard", "social"); ?>
+        </div>
+    </div>
 </div>

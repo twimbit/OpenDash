@@ -759,7 +759,7 @@ pd-player {
 }
 
 .social-links {
-  display: none;
+  /* display: none; */
 }
 .social-icon {
   -webkit-background-clip: padding-box;
@@ -955,6 +955,7 @@ pd-player {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex: 1;
 }
 .vsl-container {
   margin-bottom: 5px;
@@ -1018,7 +1019,7 @@ pd-player {
   margin: 0;
 }
 .black-tint {
-  background-color: #1410104a;
+  /* background-color: #1410104a; */
   /* border: 0.5px solid #ffffffb5; */
   /* border-radius: 3px; */
   padding: 7px;
@@ -1036,15 +1037,16 @@ pd-player {
 .social {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  /* display: flex; */
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 6px 6px;
   /* border-radius: 5px; */
   height: 100%;
-  overflow-y: scroll;
+  flex-wrap: wrap;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 .ext-main {
@@ -1178,7 +1180,7 @@ pd-player {
   flex-direction: column;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1541,7 +1543,8 @@ p {
 .pace-inactive {
   display: none;
 }
-.pace .pace-activity {
+.pace .pace-activity,
+.in-pace-activity {
   display: block;
   z-index: 2000;
   width: 14px;

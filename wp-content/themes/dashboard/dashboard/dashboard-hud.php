@@ -86,9 +86,6 @@ $template_dir = get_template_directory_uri();
                     <div class="tab-card card-box black-tint gap" id="overview">
                         <?php get_template_part("widgets/dashboard", "tabs"); ?>
                     </div>
-                    <div class="social-links gap">
-                        <?php get_template_part("widgets/dashboard", "social"); ?>
-                    </div>
                     <div class="mr">
                         <div class="key-members gap">
                             <?php get_template_part("widgets/dashboard", "members"); ?>

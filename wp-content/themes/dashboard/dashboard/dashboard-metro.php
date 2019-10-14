@@ -79,7 +79,11 @@
         <div class="dashboard">
             <div class="main-board" id="main-board">
                 <div class="insight-board">
-                    <div class="div-1"></div>
+                    <div class="div-1">
+                        <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("Name of Widgetized Area")) : ?>
+                        <?php endif; ?>
+
+                    </div>
                     <div class="div-2"></div>
                     <div class="div-3"></div>
                     <div class="div-4"></div>
