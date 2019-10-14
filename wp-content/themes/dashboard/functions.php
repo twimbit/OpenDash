@@ -149,7 +149,7 @@ function wp_infinitepaginate()
                 </a>
             </div>
             <div class="chart-div">
-                <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%"></iframe>
+                <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
             </div>
             <div class="video-about">
                 <p class="video-titile"><?php echo $a_post->post_title; ?></p>

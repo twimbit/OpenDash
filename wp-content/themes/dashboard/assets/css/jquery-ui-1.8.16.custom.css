@@ -1180,12 +1180,12 @@ button.ui-button::-moz-focus-inner {
   overflow: hidden;
   z-index: 12;
   background-color: #fff;
-  min-width: 720px;
-  min-height: fit-content !important;
+  /* width: 720px !important; */
+  min-height: 76vh !important;
   /* border-radius: 5px; */
-  min-height: 60vh !important;
+  /* height: 78vh !important; */
   /* transform: translate(-50%, -50%); */
-  /* min-width: 60vw !important; */
+  min-width: 50vw !important;
   /* display: flex; */
 }
 .ui-dialog .ui-dialog-titlebar {
@@ -1221,13 +1221,15 @@ button.ui-button::-moz-focus-inner {
   background: none;
   zoom: 1;
   top: 25px;
-  min-width: 100%;
+  min-width: 50vw !important;
   /* min-height: 100% !important; */
   /* display: flex; */
   /* flex: 1; */
   bottom: 0;
+  /* overflow: hidden; */
   left: 0;
   right: 0;
+  /* height: 100%; */
 }
 .ui-dialog .ui-dialog-buttonpane {
   text-align: left;

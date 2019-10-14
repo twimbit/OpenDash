@@ -30,13 +30,17 @@ $template_dir = get_template_directory_uri();
     .login_side {
         background-color: rgba(255, 255, 255, 1);
         flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .login_right {
         position: relative;
-        top: 40%;
+        /* top: 40%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); */
+        /* margin-top: 100px; */
         text-align: center;
         width: 60%;
     }
@@ -97,7 +101,8 @@ $template_dir = get_template_directory_uri();
         /*padding: 16px 50px;*/
         width: 170px;
         height: 50px;
-        margin: 30px 100px;
+        margin-top: 30px;
+        /* margin: 30px 100px; */
         text-align: center;
         font-size: 16px;
         cursor: pointer;
@@ -112,10 +117,31 @@ $template_dir = get_template_directory_uri();
         color: white;
     }
 
+    .login-right-logo {
+        display: none;
+    }
 
     @media (max-width:768px) {
         .login_banner {
             display: none;
+        }
+
+        .login-right-logo {
+            display: block;
+        }
+
+        .login_heading {
+            font-size: 22px;
+        }
+
+        .login-right-logo img {
+            width: 80px;
+        }
+    }
+
+    @media (max-width:420px) {
+        .login_right {
+            width: 80%;
         }
     }
 </style>
@@ -135,6 +161,9 @@ if (pc_user_logged('username')) {
             ​
             <div class="login_side">
                 <div class="login_right">
+                    <div class="login-right-logo">
+                        <img src="<?php echo $template_dir; ?>/assets/images/logo.png" alt="Twimbit logo">
+                    </div>
                     <div class="login_heading">
                         <span>Twimbit Enterprise</span>
                     </div>

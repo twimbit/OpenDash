@@ -1,4 +1,4 @@
-<?php 
+<?php
 $template_dir = get_template_directory_uri();
 ?>
 <title>Dashboard-<?php echo get_queried_object()->name; ?></title>
@@ -6,7 +6,6 @@ $template_dir = get_template_directory_uri();
 
 <body>
     <!-- Begin page -->
-
     <div id="wrapper">
         <!-- Sidebar  -->
         <amp-sidebar id="sidebar-right" class="sample-sidebar" layout="nodisplay" side="right">
@@ -84,7 +83,7 @@ $template_dir = get_template_directory_uri();
                         </div>
                     </div>
 
-                    <div class="analytics-charts black-tint gap">
+                    <div class="analytics-charts black-tint gap" id="insight">
                         <?php get_template_part("widgets/dashboard", "insight"); ?>
                     </div>
                 </div>
@@ -130,7 +129,7 @@ $template_dir = get_template_directory_uri();
                                                                         </g>
                                                                         <path id="Path_3191" data-name="Path 3191" d="M93.075,242.491c0-18.773-15.5-33.991-34.628-33.991S23.82,223.718,23.82,242.491s15.5,33.991,34.628,33.991S93.075,261.264,93.075,242.491Z" transform="translate(6.923 -178.335)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1" opacity="0.3"></path>
                                                                         <path id="Path_3192" data-name="Path 3192" d="M105.828,246.16c.012-22.7-17.506-41.72-40.519-43.987s-44.031,12.955-48.615,35.207,8.758,44.294,30.86,50.982l12.743-42.1,42.8,15.254a43.583,43.583,0,0,0,2.732-15.356Z" transform="translate(4.556 -181.89)" opacity="0.4" fill="url(#linear-gradient)"></path>
-                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(39px, 66px) rotate(16deg);"><a href="#" style="text-decoration: none;fill: #fff;"> DBS</a></text>
+                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(34px, 64px) rotate(16deg);"><a href="#" style="text-decoration: none;fill: #fff;font-weight: bold;font-family: Lato;"><?php echo get_queried_object()->name; ?></a></text>
                                                                         <path id="Path_3195" data-name="Path 3195" d="M19.112,193.279H16.017v3.013h-.57v-3.013H12.43v-.547h3.017V189.72h.57v3.013h3.095Z" transform="translate(3.563 -74.273)" fill="#9ae5e5" opacity="0.18"></path>
                                                                         <text id="FOLDER_02" data-name="FOLDER 02" transform="matrix(1, 0, 0, -1, 195.244, 8.171)" fill="#fff" font-size="1" font-family="OpenSans-Regular, Open Sans" opacity="0.5">
                                                                             <tspan x="0" y="0">FOLDER 02</tspan>
@@ -305,10 +304,10 @@ $template_dir = get_template_directory_uri();
                                                                         </g>
                                                                         <path id="Path_3291" data-name="Path 3291" d="M157.6,273.084l84.614-132.951,55.321-.2Z" transform="translate(46.385 -87.774)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.1"></path>
                                                                         <path id="Path_3292" data-name="Path 3292" d="M157.6,311.334v0Z" transform="translate(46.385 -126.023)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.1"></path>
-                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(73px, 236px) rotate(16deg);"><a href="#" style="text-decoration: none;fill: #fff;"> DBS</a></text>
-                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(117px, 90px) rotate(16deg);"><a href="#" style="text-decoration: none;fill: #fff;"> DBS</a></text>
-                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(203px, 65px) rotate(16deg);"><a href="#" style="text-decoration: none;fill: #fff;"> DBS</a></text>
-                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(208px, 300px) rotate(16deg);"><a href="#" style="text-decoration: none;fill: #fff;"> DBS</a></text>
+                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(73px, 236px) rotate(16deg);"><a href="#story" class="radar-link" style="text-decoration: none;fill: #fff;">Story</a></text>
+                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(117px, 90px) rotate(16deg);"><a href="#overview" class="radar-link" style="text-decoration: none;fill: #fff;">Overview</a></text>
+                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(257px, 97px) rotate(16deg);"><a href="#insight" class="radar-link" style="text-decoration: none;fill: #fff;">Insights</a></text>
+                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(208px, 300px) rotate(16deg);"><a href="#webinar" class="radar-link" style="text-decoration: none;fill: #fff;">Webinar</a></text>
                                                                     </g>
                                                                 </g>
                                                             </g>
@@ -347,15 +346,15 @@ $template_dir = get_template_directory_uri();
                             </div>
                         </div>
                         <div class="vsl-main">
-                            <div class="video-slider gap black-tint">
+                            <div class="video-slider gap black-tint" id="story">
                                 <span class="container-title">Story</span>
                                 <?php get_template_part("widgets/dashboard", "story"); ?>
                             </div>
-                            <div class="video-slider gap black-tint">
+                            <div class="video-slider gap black-tint" id="video">
                                 <span class="container-title">Videos</span>
                                 <?php get_template_part("widgets/dashboard", "video"); ?>
                             </div>
-                            <div class="video-slider gap black-tint">
+                            <div class="video-slider gap black-tint" id="webinar">
                                 <span class="container-title">Live</span>
                                 <?php get_template_part("widgets/dashboard", "live"); ?>
                             </div>

@@ -26,10 +26,14 @@ foreach ($user_cats as $cat_id) {
             </div>
             <div class="right">
                 <div style="display: flex; align-items: center;">
-                    <p style="margin:0 7px"><?php echo $user_name; ?></p>
+                    <p style="margin: 4px 7px 0 7px;"><?php echo $user_name; ?></p>
                     <i class="fa fa-user"></i>
                 </div>
-                <a href="/ds/?pc_logout"> <img src="./icons/logout.png" /></a>
+                <a href="/ds/?pc_logout" style="margin-left: 15px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.72" height="15.72" class="home-logout" viewBox="0 0 15.72 15.72">
+                        <path id="ic_exit_to_app_24px" d="M12.528,14,11.3,15.227,6.93,10.86,11.3,6.493l1.231,1.231L10.275,9.987H18.72v1.747H10.275ZM4.747,3H16.973A1.746,1.746,0,0,1,18.72,4.747V8.24H16.973V4.747H4.747V16.973H16.973V13.48H18.72v3.493a1.746,1.746,0,0,1-1.747,1.747H4.747A1.752,1.752,0,0,1,3,16.973V4.747A1.752,1.752,0,0,1,4.747,3Z" transform="translate(-3 -3)" fill="#fff" />
+                    </svg>
+                </a>
             </div>
         </header>
         <section class="main">
@@ -127,7 +131,9 @@ foreach ($user_cats as $cat_id) {
                         </h5>
                         <div class="three-body"></div>
                     </div>
-                    <div id="chartdiv"></div>
+                    <div id="chartdiv">
+                        <div id="world-map"></div>
+                    </div>
                 </div>
             </div>
         </section>
