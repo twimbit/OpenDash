@@ -1,9 +1,5 @@
 <?php
-$args = array(
-    'post_type' => 'link',
-    'cat' => get_queried_object()->term_id
-);
-$links = get_posts($args);
+$links = getPostArray('link', get_queried_object()->term_id);
 $link = get_field('link_details', $links[0]);
 
 ?>

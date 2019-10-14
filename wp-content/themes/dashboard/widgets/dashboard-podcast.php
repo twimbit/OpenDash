@@ -1,10 +1,5 @@
 <?php
-$args = array(
-    'post_type' => 'podcast',
-    'cat' => get_queried_object()->term_id
-);
-$podcast = get_posts($args);
-$cat = get_queried_object()->term_id;
+$podcast = getPostArray('podcast', get_queried_object()->term_id);
 ?>
 <?php
 foreach ($podcast as $val) {

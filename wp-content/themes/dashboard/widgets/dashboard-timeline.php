@@ -1,9 +1,5 @@
 <?php
-$args = array(
-    'post_type' => 'timeline',
-    'cat' => get_queried_object()->term_id
-);
-$timelines = get_posts($args);
+$timelines = getPostArray('timeline', get_queried_object()->term_id);
 $timeline = get_field('timeline_details', $timelines[0]);
 
 ?>

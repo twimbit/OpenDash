@@ -1,15 +1,8 @@
-<?php
-$args = array(
-    'post_type' => 'tab',
-    'cat' => get_queried_object()->term_id
-);
-$tab = get_posts($args);
-$cat = get_queried_object()->term_id;
-$tabs = get_field('tab', $tab[0]);
-?>
-
 <ul class="nav nav-tabs">
     <?php
+    $tab = getPostArray('tab', get_queried_object()->term_id);
+    $cat = get_queried_object()->term_id;
+    $tabs = get_field('tab', $tab[0]);
     $i = 0;
     foreach ($tabs as $val) {
         $title = $val['tab_title'];

@@ -1,12 +1,7 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
-    $args = array(
-        'post_type' => 'webinar',
-        'cat' => get_queried_object()->term_id
-    );
-    $webinars = get_posts($args);
-    ?>
-    <?php foreach ($webinars as $val) {
+    $webinars = getPostArray('webinar', get_queried_object()->term_id);
+    foreach ($webinars as $val) {
         $title = $val->post_title;
         $thumbnail = get_the_post_thumbnail_url($val, 'thumbnail');
         $file_url = get_field('archive_file_url', $val);

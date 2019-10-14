@@ -1,13 +1,6 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
-    $args = array(
-        'post_type' => 'gallery',
-        'cat' => get_queried_object()->term_id
-    );
-    $gallery = get_posts($args);
-    $cat = get_queried_object()->term_id;
-    ?>
-    <?php
+    $gallery = getPostArray('gallery', get_queried_object()->term_id);
     foreach ($gallery as $val) {
         $title = $val->post_title;
         $description = $val->post_content;

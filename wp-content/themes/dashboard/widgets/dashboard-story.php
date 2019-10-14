@@ -1,13 +1,6 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
-    $args = array(
-        'post_type' => 'amp_story',
-        'cat' => get_queried_object()->term_id
-    );
-    $story = get_posts($args);
-    $cat = get_queried_object()->term_id;
-    ?>
-    <?php
+    $story = getPostArray('amp_story', get_queried_object()->term_id);
     foreach ($story as $val) {
         $url = get_the_permalink($val);
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");

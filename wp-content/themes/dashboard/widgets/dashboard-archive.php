@@ -1,9 +1,5 @@
 <?php
-$args = array(
-    'post_type' => 'archive',
-    'cat' => get_queried_object()->term_id
-);
-$archive = get_posts($args);
+$archive = getPostArray('archive', get_queried_object()->term_id);
 ?>
 <div class="archive-files  archive-vertical-scroll">
     <?php foreach ($archive as $val) {

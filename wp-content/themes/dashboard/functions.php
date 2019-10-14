@@ -17,7 +17,7 @@ function wp_infinitepaginate()
         $url = get_field('video_file', $v_post);
         add_post_meta($v_id, 'viewed', '1', true);
         ?>
-        <div class="vc-main-c" style="min-height:300px;min-width:400px">
+        <div class="vc-main-c">
             <div class="video-box" style="position:relative;">
                 <div class="infinite">
                     <div class="pace pace-active">
@@ -63,16 +63,14 @@ function wp_infinitepaginate()
             ?>
         <div class="vc-main-c">
             <div class="g-container">
-                <div class="g-content">
-                    <amp-carousel width="400" height="300" layout="responsive" type="slides">
-                        <?php
-                                foreach ($gallery_array as $val) {
-                                    $url = $val['sizes']['medium'];
-                                    ?>
-                            <amp-img src="<?php echo $url; ?>" width="400" height="300" layout="responsive" alt=""></amp-img>
-                        <?php } ?>
-                    </amp-carousel>
-                </div>
+                <amp-carousel layout="fill" type="slides">
+                    <?php
+                            foreach ($gallery_array as $val) {
+                                $url = $val['sizes']['medium'];
+                                ?>
+                        <amp-img src="<?php echo $url; ?>" width="400" height="300" layout="responsive" alt=""></amp-img>
+                    <?php } ?>
+                </amp-carousel>
             </div>
 
             <div class="video-about">
@@ -252,3 +250,14 @@ if (function_exists('register_sidebar'))
             'after_title' => '</h3>',
         )
     );
+
+
+/* get post array */
+function getPostArray($type, $queriedObject)
+{
+    $args = array(
+        'post_type' => $type,
+        'cat' => $queriedObject
+    );
+    return get_posts($args);
+}

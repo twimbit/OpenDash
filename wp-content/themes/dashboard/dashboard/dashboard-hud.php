@@ -12,13 +12,55 @@ $template_dir = get_template_directory_uri();
         <amp-sidebar id="sidebar-right" class="sample-sidebar" layout="nodisplay" side="right">
             <button on="tap:sidebar-right.close" class="sidebar-close">X</button>
             <nav>
-                <ul>
-                    <li>Nav item 1</li>
-                    <li>Nav item 2</li>
-                    <li>Nav item 1</li>
-                    <li>Nav item 2</li>
-                    <li>Nav item 1</li>
-                    <li>Nav item 2</li>
+                <ul class="ampstart-dropdown-items list-reset m0 p0">
+                    <p>Content</p>
+                    <hr>
+                    <li class="ampstart-nav-item">
+                        <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown ml1 i-amphtml-element i-amphtml-layout-container i-amphtml-layout" expand-single-section="" i-amphtml-layout="container">
+                            <section>
+                                <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_0" aria-expanded="false" tabindex="0">Insights</header>
+                                <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_0">
+                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="https://twimbit.pro/category/business_model/consumer_to_business/" class="text-decoration-none">Consumer to Business</a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5em" role="button" aria-controls="26_AMP_content_1" aria-expanded="false" tabindex="0">Gallery</header>
+                                <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_1">
+                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="https://twimbit.pro/category/careers/functions/" class="text-decoration-none">Functions- CIO, CTO</a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_2" aria-expanded="false" tabindex="0">Podcasts</header>
+                                <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_2">
+                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="https://twimbit.pro/category/companies/atlan/" class="text-decoration-none">Atlan</a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_3" aria-expanded="false" tabindex="0">Archive</header>
+                                <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_3">
+                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="https://twimbit.pro/category/technology/5g/" class="text-decoration-none">5G</a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_4" aria-expanded="false" tabindex="0">Live</header>
+                                <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_4">
+                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="https://twimbit.pro/category/exclusive/alliance/" class="text-decoration-none">Alliance</a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_5" aria-expanded="false" tabindex="0">Videos</header>
+                                <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_5">
+                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="https://twimbit.pro/category/industry/asia_pac_telecom_outlook/" class="text-decoration-none">Asia Pac telecom outlook</a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_5" aria-expanded="false" tabindex="0">Stories</header>
+                                <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_5">
+                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="https://twimbit.pro/category/industry/asia_pac_telecom_outlook/" class="text-decoration-none">Asia Pac telecom outlook</a></li>
+                                </ul>
+                            </section>
+                        </amp-accordion>
+                    </li>
                 </ul>
             </nav>
 

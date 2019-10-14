@@ -1,11 +1,6 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
-    $args = array(
-        'post_type' => 'video',
-        'cat' => get_queried_object()->term_id
-    );
-    $video = get_posts($args);
-    $cat = get_queried_object()->term_id;
+    $video = getPostArray('video', get_queried_object()->term_id);
     ?>
     <?php
     foreach ($video as $val) {

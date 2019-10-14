@@ -76,6 +76,10 @@ $theme_color = get_field('theme_color', get_queried_object());
         border-top-color: #f16c70;
         border-left-color: #f16c70;
     }
+
+    .ui-draggable .ui-dialog-titlebar {
+        background-color: <?php echo $primary_color; ?> !important;
+    }
 </style>
 <?php
 get_template_part("dashboard/dashboard", $db_type);

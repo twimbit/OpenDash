@@ -1,9 +1,5 @@
 <?php
-$args = array(
-    'post_type' => 'contact',
-    'cat' => get_queried_object()->term_id
-);
-$tab = get_posts($args);
+$tab = getPostArray('contact', get_queried_object()->term_id);
 $contact = get_field('contact_details', $tab[0]);
 foreach ($contact as $val) {
     $name = $val['contact_name'];
