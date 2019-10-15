@@ -1,7 +1,7 @@
 # kaas-core documenatation
 
 
-### Use file from attachment [Download this](main.zip) ###
+### Use file from attachment [Download this](main.zip) ('main.zip')###
 
 1. Install **CPT UI plugin** ['https://wordpress.org/plugins/custom-post-type-ui/']
     * Go to CPT UI -> Tools and paste the txt file to import types. (CPT_UI.txt.zip)  
