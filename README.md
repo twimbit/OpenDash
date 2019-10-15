@@ -21,4 +21,5 @@
     * Go to Settings in Wp Webhooks and Activate the Triggers and Actions accordingly and save them.
     * Then go to Receive data and copy the link from Webhook URL.
 6. Install Plugin **WP Mail SMTP by WPForms** ['https://wordpress.org/plugins/wp-mail-smtp/'] for sending mails.
+7. Install AMP plugin 
 
