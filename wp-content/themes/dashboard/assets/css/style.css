@@ -178,7 +178,7 @@ html {
 
 body {
   font-family: "Lato", Calibri, Arial, sans-serif;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 a {
@@ -1200,6 +1200,11 @@ pd-player {
   /* max-height: 250px; */
   /* flex: 1; */
 }
+
+#insight {
+  position: absolute;
+  right: 0;
+}
 .row-2 {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -1236,6 +1241,16 @@ pd-player {
   top: 0;
   bottom: 0;
   left: 230px;
+  right: 0;
+}
+
+#story {
+    position: absolute;
+    left: 0;
+}
+
+#webinar {
+  position: absolute;
   right: 0;
 }
 .mr {
@@ -2054,9 +2069,18 @@ amp-social-share {
   .sidebar-links {
     text-align: center;
   }
+  .sample-sidebar {
+    width: 50%;
+  }
 }
 
 .radar-link {
   font-family: Lato;
   font-size: 21px;
+}
+
+@media (max-width: 420px) {
+  .sample-sidebar {
+    width: 80%;
+  }
 }

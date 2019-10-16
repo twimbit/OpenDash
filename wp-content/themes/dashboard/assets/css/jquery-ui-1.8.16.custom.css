@@ -1188,6 +1188,12 @@ button.ui-button::-moz-focus-inner {
   min-width: 50vw !important;
   /* display: flex; */
 }
+@media (max-width: 420px) {
+  .ui-dialog {
+    min-height: 76vh !important;
+    min-width: 90vw !important;
+  }
+}
 .ui-dialog .ui-dialog-titlebar {
   /* padding: 0.4em 1em; */
   position: relative;

@@ -4,9 +4,9 @@ $template_dir = get_template_directory_uri();
 <title>Dashboard-<?php echo get_queried_object()->name; ?></title>
 </head>
 
-<body>
+<body style="overflow-y:hidden">
     <!-- Begin page -->
-    <div id="wrapper">
+    <div id="wrapper" style="overflow-y:hidden">
         <!-- Sidebar  -->
         <amp-sidebar id="sidebar-right" class="sample-sidebar" layout="nodisplay" side="right">
             <?php get_template_part("widgets/dashboard", "sidebar"); ?>
@@ -21,7 +21,7 @@ $template_dir = get_template_directory_uri();
                 </a>
             </div>
             <div class="client-icon">
-                <img src="<?php echo get_field('category_logo', get_queried_object())['sizes']['thumbnail']; ?>" alt="" />
+                <img src="<?php echo get_field('category_logo', get_queried_object())['url']; ?>" alt="" />
                 <a href="#" class="client-link"></a>
             </div>
             <h4 class="client-name">
@@ -68,7 +68,7 @@ $template_dir = get_template_directory_uri();
                 </div>
             </div>
         </div>
-        <div class="dashboard">
+        <div class="dashboard" style="overflow-y:hidden">
             <div class="main-board" id="main-board">
                 <div class="row-1">
                     <div class="tab-card card-box black-tint gap" id="overview">
@@ -83,8 +83,9 @@ $template_dir = get_template_directory_uri();
                         </div>
                     </div>
 
-                    <div class="analytics-charts black-tint gap" id="insight">
+                    <div class="analytics-charts black-tint gap">
                         <?php get_template_part("widgets/dashboard", "insight"); ?>
+                        <div id="insight"></div>
                     </div>
                 </div>
                 <div class="row-2">
@@ -346,17 +347,19 @@ $template_dir = get_template_directory_uri();
                             </div>
                         </div>
                         <div class="vsl-main">
-                            <div class="video-slider gap black-tint" id="story">
+                            <div class="video-slider gap black-tint">
                                 <span class="container-title">Story</span>
                                 <?php get_template_part("widgets/dashboard", "story"); ?>
+                                <div id="story"></div>
                             </div>
                             <div class="video-slider gap black-tint" id="video">
                                 <span class="container-title">Videos</span>
                                 <?php get_template_part("widgets/dashboard", "video"); ?>
                             </div>
-                            <div class="video-slider gap black-tint" id="webinar">
+                            <div class="video-slider gap black-tint">
                                 <span class="container-title">Live</span>
                                 <?php get_template_part("widgets/dashboard", "live"); ?>
+                                <div id="webinar"></div>
                             </div>
                         </div>
                     </div>
