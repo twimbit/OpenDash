@@ -25,7 +25,7 @@
   grid-template-rows: repeat(auto-fit, 50px);
   grid-row-gap: 10px;
   position: relative;
-  top: 41px;
+  top: 90px;
   height: calc(100% - 94px);
   grid-auto-flow: column;
   margin-right: 30px;
@@ -46,9 +46,10 @@
   height: 100%;
   margin-top: 20px;
   margin-left: 20px;
-  width: 100%;
+  width: 97%;
   overflow-x: auto;
   overflow-y: hidden;
+  margin-right: 20px;
 }
 
 .m-lg-card {
@@ -92,9 +93,9 @@
   flex: 1;
 }
 
-.m-img-sm:hover {
+.m-subcat-name:hover {
   transform: scale(1.01);
-  transition: transform 0.4s;
+  transition: transform 0.2s;
 }
 .m-heading-sm h4 {
   font-size: 18px;
@@ -107,4 +108,12 @@
   flex: 1;
   padding: 10px; /* word-break: break-all; */
   white-space: normal;
+}
+.m-main-heading {
+  position: fixed;
+  margin-left: 10px;
+}
+.m-main-heading h3 {
+  font-size: 27px;
+  font-weight: bold;
 }

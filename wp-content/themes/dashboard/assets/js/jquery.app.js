@@ -211,6 +211,15 @@ $(".video-slider").mousewheel(function(event, delta) {
 //   acceptPropagatedEvent: false
 // });
 
+/* Metro ui js */
+/* Charts container mousewheel scroll */
+$(".m-container").mousewheel(function(event, delta) {
+  mainScroll = 0;
+  this.scrollLeft -= delta * vgScroll;
+  event.preventDefault();
+});
+/* Metro ui js end */
+
 document.onreadystatechange = function() {
   let state = document.readyState;
   if (state == "interactive") {

@@ -1608,7 +1608,7 @@ button.ui-button::-moz-focus-inner {
   right: 0;
   z-index: 2;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 33px;
 }
 
