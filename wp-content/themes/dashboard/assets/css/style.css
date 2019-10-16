@@ -7,6 +7,8 @@
   outline: none;
 }
 
+
+
 body,
 html {
   scroll-behavior: smooth;
@@ -768,7 +770,7 @@ pd-player {
 }
 .dashboard {
   margin-bottom: 3px;
-  overflow-x: scroll;
+  overflow-x: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1245,8 +1247,8 @@ pd-player {
 }
 
 #story {
-    position: absolute;
-    left: 0;
+  position: absolute;
+  left: 0;
 }
 
 #webinar {
@@ -1669,30 +1671,6 @@ p {
   background-image: url("https://img.icons8.com/small/16/000000/less-than.png");
 }
 
-.insight-board {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column wrap;
-  flex-flow: column wrap;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-}
-
-.insight-board div {
-  width: 25%;
-  height: 25%;
-  background: #ec985a;
-  color: white;
-  margin: 5px;
-  text-align: center;
-  font-family: system-ui;
-  font-weight: 900;
-  font-size: 2rem;
-}
 .visualizer-front {
   height: 100% !important;
   z-index: 2;
