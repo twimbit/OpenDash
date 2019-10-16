@@ -2,6 +2,23 @@
 <?php $template_dir = get_template_directory_uri(); ?>
 <!-- Metro ui css -->
 <link href="<?php echo $template_dir; ?>/assets/css/metro-ui.css" rel="stylesheet" type="text/css" />
+<style>
+    .m-col-subcat::before {
+        content: "Subcat name";
+        position: absolute;
+        top: -33px;
+        font-size: 20px;
+        left: 30px;
+    }
+
+    .dashboard {
+        overflow-x: hidden;
+    }
+
+    .main-board {
+        padding-right: 0;
+    }
+</style>
 </head>
 
 <body>
@@ -80,7 +97,54 @@
                             </a>
                         </div>
                     </div>
-                    
+                    <div class="m-col-subcat">
+                        <div class="m-subcat-name m-row-span-4">
+                            <a href="#" class="m-lg-card">
+                                <img class="m-img-lg" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
+                                <h4 class="m-heading-lg">This is large card info</h4>
+                            </a>
+                        </div>
+                        <div class="m-subcat-name m-row-span-3">
+                            <a href="#" class="m-sm-card">
+                                <img class="m-img-sm" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
+                                <div class="m-heading-sm">
+                                    <h4>This is large card info</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="m-subcat-name m-row-span-3">
+                            <a href="#" class="m-sm-card">
+                                <img class="m-img-sm" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
+                                <div class="m-heading-sm">
+                                    <h4>This is large card info</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="m-subcat-name m-row-span-3">
+                            <a href="#" class="m-sm-card">
+                                <img class="m-img-sm" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
+                                <div class="m-heading-sm">
+                                    <h4>This is large card info</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="m-subcat-name m-row-span-3">
+                            <a href="#" class="m-sm-card">
+                                <img class="m-img-sm" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
+                                <div class="m-heading-sm">
+                                    <h4>This is large card info</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="m-subcat-name m-row-span-3">
+                            <a href="#" class="m-sm-card">
+                                <img class="m-img-sm" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
+                                <div class="m-heading-sm">
+                                    <h4>This is large card info</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

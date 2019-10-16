@@ -24,10 +24,11 @@
   grid-auto-columns: 350px;
   grid-template-rows: repeat(auto-fit, 50px);
   grid-row-gap: 10px;
-  position: absolute;
-  top: 113px;
-  bottom: 14px;
+  position: relative;
+  top: 41px;
+  height: calc(100% - 94px);
   grid-auto-flow: column;
+  margin-right: 30px;
 }
 .m-row-span-4 {
   grid-row: span 4;
@@ -45,14 +46,11 @@
   height: 100%;
   margin-top: 20px;
   margin-left: 20px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-.m-col-subcat::before {
-  content: "Subcat name";
-  position: absolute;
-  top: -33px;
-  font-size: 20px;
-  left: 30px;
-}
+
 .m-lg-card {
   position: absolute;
   top: 0;
