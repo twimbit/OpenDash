@@ -84,7 +84,4 @@ $theme_color = get_field('theme_color', get_queried_object());
 </style>
 <?php
 get_template_part("dashboard/dashboard", $db_type);
-?>
-
-<div id="dialog_window_minimized_container"></div>
-<?php get_footer(); ?>
+get_footer(); ?>

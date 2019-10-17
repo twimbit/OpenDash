@@ -314,49 +314,6 @@ $template_dir = get_template_directory_uri();
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener("keypress", keyUpTextField, false);
-
-        function keyUpTextField(e) {
-            var keyCode = e.keyCode;
-            if (keyCode == 70 || keyCode == 102) {
-                toggleFullScreen(document.body);
-            }
-        }
-        /* Fullscreen logic */
-        function toggleFullScreen(elem) {
-            // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-            if (
-                (document.fullScreenElement !== undefined &&
-                    document.fullScreenElement === null) ||
-                (document.msFullscreenElement !== undefined &&
-                    document.msFullscreenElement === null) ||
-                (document.mozFullScreen !== undefined && !document.mozFullScreen) ||
-                (document.webkitIsFullScreen !== undefined &&
-                    !document.webkitIsFullScreen)
-            ) {
-                if (elem.requestFullScreen) {
-                    elem.requestFullScreen();
-                } else if (elem.mozRequestFullScreen) {
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullScreen) {
-                    elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-                } else if (elem.msRequestFullscreen) {
-                    elem.msRequestFullscreen();
-                }
-            } else {
-                if (document.cancelFullScreen) {
-                    document.cancelFullScreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.webkitCancelFullScreen) {
-                    document.webkitCancelFullScreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-            }
-        }
-    </script>
     <!-- jQuery  -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.min.js"></script>
     <script src="<?php echo $template_dir; ?>/assets/js/popper.min.js"></script>

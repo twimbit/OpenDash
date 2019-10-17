@@ -13,6 +13,7 @@
 <h4 class="client-name">
     <p><span style="font-weight: 700">Terminal</span> - <?php echo get_queried_object()->name; ?></p>
 </h4>
+<div id="dialog_window_minimized_container"></div>
 <div class="right-tools">
     <div class="hamberger-icon">
         <svg on="tap:sidebar-right.toggle" id="sidebarCollapse" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

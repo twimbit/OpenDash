@@ -105,7 +105,7 @@
   margin: 0;
 }
 .m-heading-sm {
-  /* flex: 1; */
+  flex-grow: 1;
   padding: 8px;
   /* word-break: break-all; */
   white-space: normal;

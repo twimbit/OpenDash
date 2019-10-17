@@ -12,18 +12,6 @@
         font-weight: bold;
     }
 
-    .board-header {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        background: #ffffff2e;
-        width: 100%;
-        height: 47px;
-        left: -57px;
-        padding-left: 10px;
-        margin-left: 0;
-    }
-
     .dashboard {
         overflow-x: hidden;
     }
@@ -47,7 +35,7 @@
             <?php get_template_part("widgets/dashboard", "sidebar"); ?>
         </amp-sidebar>
         <div class="board-header">
-            <?php get_template_part("widgets/dashboard", "tools"); ?>
+            <?php get_template_part("widgets/dashboard", "header"); ?>
         </div>
         <div class="dashboard">
             <div class="main-board" id="main-board">
@@ -57,7 +45,7 @@
                     </div>
                     <div class="m-col-subcat">
                         <div class="m-subcat-name m-row-span-4">
-                            <a href="#" class="m-lg-card">
+                            <a href="#" class="m-lg-card" onclick='openModalMetro()'>
                                 <img class="m-img-lg" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
                                 <div class="m-heading-sm" style="position: relative;top: -7px;">
                                     <h4 class="m-heading-lg">This is large card info</h4>

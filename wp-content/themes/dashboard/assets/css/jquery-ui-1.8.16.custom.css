@@ -1601,20 +1601,22 @@ button.ui-button::-moz-focus-inner {
 
 /* minimized css */
 #dialog_window_minimized_container {
-  position: fixed;
+  /* position: fixed; */
   bottom: 15px;
   top: 150px;
   /* left: 0; */
   right: 0;
   z-index: 2;
-  overflow-x: hidden;
-  overflow-y: auto;
-  width: 33px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 58%;
+  /* background-color: #000; */
+  margin-left: auto;
 }
 
 .dialog_window_minimized {
   /* float: left; */
-  padding: 5px 1px;
+  padding: 9px 1px;
   font-size: 12px;
   cursor: pointer;
   color: #fff;
@@ -1622,12 +1624,14 @@ button.ui-button::-moz-focus-inner {
   /* word-break: break-all; */
   display: none;
   background-color: #859ba1;
-  margin-bottom: 5px;
-  writing-mode: vertical-lr;
+  /* margin-bottom: 5px; */
+  /* writing-mode: vertical-lr; */
   text-orientation: inherit;
   padding-left: 6px;
-  width: 30px;
-  height: 60px;
+  width: 100px;
+  height: 37px;
+  margin-left: 5px;
+  margin-top: 5px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
