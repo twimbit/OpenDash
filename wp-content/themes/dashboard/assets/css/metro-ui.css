@@ -21,14 +21,14 @@
 }
 .m-col-subcat {
   display: inline-grid;
-  grid-auto-columns: 350px;
-  grid-template-rows: repeat(auto-fit, 50px);
+  grid-auto-columns: 378px;
+  grid-template-rows: repeat(auto-fit, 10%);
   grid-row-gap: 10px;
   position: relative;
-  top: 90px;
-  height: calc(100% - 94px);
+  top: 119px;
+  height: calc(100% - 170px);
   grid-auto-flow: column;
-  margin-right: 30px;
+  margin-right: 52px;
 }
 .m-row-span-4 {
   grid-row: span 4;
@@ -45,11 +45,12 @@
 .m-container {
   height: 100%;
   margin-top: 20px;
-  margin-left: 20px;
-  width: 97%;
+  margin-left: 65px;
+  /* width: 97%; */
   overflow-x: auto;
   overflow-y: hidden;
   margin-right: 20px;
+  font-family: Montserrat;
 }
 
 .m-lg-card {
@@ -70,16 +71,15 @@
   display: flex;
 }
 .m-subcat-name {
-  margin-left: 30px;
+  margin-left: 10px;
+  background-color: rgba(255, 255, 255, 0.13);
+  box-shadow: inset 0px 0px 19px 5px rgba(198, 198, 198, 0.2);
+  /* border: 1.6px solid #535050; */
 }
 .m-img-lg {
   object-fit: cover;
   height: 64%;
   width: 100%;
-}
-.m-img-lg:hover {
-  transform: scale(1.01);
-  transition: transform 0.4s;
 }
 
 .m-heading-lg {
@@ -89,8 +89,8 @@
 .m-img-sm {
   object-fit: cover;
   height: 100%;
-  width: 50%;
-  flex: 1;
+  width: 40%;
+  /* flex: 1; */
 }
 
 .m-subcat-name:hover {
@@ -105,8 +105,9 @@
   margin: 0;
 }
 .m-heading-sm {
-  flex: 1;
-  padding: 10px; /* word-break: break-all; */
+  /* flex: 1; */
+  padding: 8px;
+  /* word-break: break-all; */
   white-space: normal;
 }
 .m-main-heading {
