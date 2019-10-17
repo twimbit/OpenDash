@@ -100,28 +100,28 @@ $(".in-prev").click(function() {
 });
 
 /* Create modals for widgets*/
-function openModalMetro(modal, id, title) {
-  modalClass = $(modal);
+function openModalMetro(id, title) {
+  modalClass = $(id);
   /* Create model */
-  if ($("#" + modal + "-" + id).length) {
-    $("#dialog-" + modal + "-" + id).dialog("open");
+  if ($("#" + "-" + id).length) {
+    $("#dialog-" + id).dialog("open");
   } else {
-    createModel(modal + "-" + id, title);
+    createModel(id, title);
     // Ajax call
-    loadArticle(id, modal);
+    loadArticle(id);
   }
 }
 
 // Ajax calling method for modals
-function loadArticle(id, type) {
+function loadArticle(id) {
   $(".pace-activity").show("fast");
   $.ajax({
     url: "/ds/wp-admin/admin-ajax.php",
     type: "POST",
-    data: "action=infinite_scroll&id=" + id + "&type=" + type,
+    data: "action=infinite_scroll&id=" + id,
     success: function(data) {
       $(".pace-activity").hide("1000");
-      $("#" + type + "-" + id).append(data);
+      $("#" + id).append(data);
     }
   });
   return false;

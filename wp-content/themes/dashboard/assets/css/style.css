@@ -763,9 +763,10 @@ pd-player {
   background: #ffffff2e;
   width: 100%;
   height: 47px;
-  left: -57px;
+  /* left: -57px; */
   padding-left: 10px;
   margin-left: 0;
+  position: relative;
 }
 .dashboard {
   margin-bottom: 3px;
@@ -1154,7 +1155,7 @@ pd-player {
   background-color: #859ba1;
   z-index: 99;
   display: flex;
-  margin-left: 16px;
+  margin-left: auto;
 }
 .right-tools svg {
   width: 100%;

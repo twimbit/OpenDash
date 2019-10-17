@@ -1601,17 +1601,20 @@ button.ui-button::-moz-focus-inner {
 
 /* minimized css */
 #dialog_window_minimized_container {
-  /* position: fixed; */
-  bottom: 15px;
-  top: 150px;
+  position: absolute;
+  /* bottom: 15px; */
+  /* top: 150px; */
   /* left: 0; */
   right: 0;
   z-index: 2;
   overflow-x: auto;
   overflow-y: hidden;
-  width: 58%;
+  /* width: 58%; */
   /* background-color: #000; */
   margin-left: auto;
+  height: 100%;
+  right: 280px;
+  left: 350px;
 }
 
 .dialog_window_minimized {

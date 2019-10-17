@@ -45,7 +45,7 @@
                     </div>
                     <div class="m-col-subcat">
                         <div class="m-subcat-name m-row-span-4">
-                            <a href="#" class="m-lg-card" onclick='openModalMetro()'>
+                            <a href="#" class="m-lg-card" onclick='openModalMetro(10,"this is modal title")'>
                                 <img class="m-img-lg" src="<?php echo $template_dir; ?>/assets/images/small/img-1.jpg" alt="lg-img-card">
                                 <div class="m-heading-sm" style="position: relative;top: -7px;">
                                     <h4 class="m-heading-lg">This is large card info</h4>
