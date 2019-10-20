@@ -25,7 +25,6 @@
   grid-template-rows: repeat(auto-fit, 10%);
   grid-row-gap: 10px;
   position: relative;
-  grid:;
   top: 119px;
   height: calc(100% - 170px);
   grid-auto-flow: column;
@@ -58,6 +57,7 @@
   color: #fff !important;
   /* white-space: nowrap; */
   display: flex;
+  /* padding-right: 20px; */
 }
 
 .m-lg-card {
@@ -103,7 +103,7 @@
 
 .m-subcat-name:hover {
   transform: scale(1.01);
-  transition: transform 0.2s;
+  /* transition: transform 0.2s; */
 }
 .m-heading-sm h4 {
   font-size: 18px;
@@ -144,8 +144,8 @@
 .md-next a {
   text-decoration: none;
   margin-right: 15px;
-  margin-top: 11px;
-  width: 22px;
+  margin-top: 16px;
+  width: 16px;
   transition: transform 0.3s;
 }
 .md-next svg {

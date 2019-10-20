@@ -1,6 +1,3 @@
-$("#ui-icon-1").click(function() {
-  alert("hello");
-});
 /* Full screen logic */
 document.addEventListener("keypress", keyUpTextField, false);
 
@@ -103,6 +100,7 @@ $(".in-next").click(function() {
   var leftPos = $(".charts-container").scrollLeft();
   $(".charts-container").animate({ scrollLeft: leftPos + 200 }, 400);
 });
+
 $(".in-prev").click(function() {
   var leftPos = $(".charts-container").scrollLeft();
   $(".charts-container").animate({ scrollLeft: leftPos - 200 }, 400);
@@ -110,9 +108,8 @@ $(".in-prev").click(function() {
 
 /* Create modals for widgets*/
 function openModalMetro(id, title) {
-  modalClass = $(id);
   /* if modal exist maximize */
-  if ($("#" + "-" + id).length) {
+  if ($("#dialog-" + id).length) {
     $("#dialog-" + id).dialog("open");
   } else {
     /* else create modal */

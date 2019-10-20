@@ -1314,7 +1314,7 @@ pd-player {
   border-left: #ffffff3d solid 0.6px;
   padding: var(--space-2);
   -webkit-box-shadow: -4px 0px 19px 4px black;
-  box-shadow: -3px 11px 19px 4px black;
+  box-shadow: 1px 11px 10px 1px black;
   /* filter: (1px); */
   color: white important;
   background: #ffffff14;
