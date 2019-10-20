@@ -15,7 +15,7 @@ $theme_color = get_field('theme_color', get_queried_object());
     }
 
     .ext-main {
-        background-color: <?php echo $primary_color; ?> !important;
+        /* background-color: <?php //echo $primary_color; ?> !important; */
     }
 
     .social-icon:hover,
@@ -61,7 +61,7 @@ $theme_color = get_field('theme_color', get_queried_object());
     }
 
     .right-tools {
-        background-color: <?php echo $secondary_color; ?> !important;
+        /* background-color: <?php //echo $secondary_color; ?> !important; */
     }
 
     .chart-container {

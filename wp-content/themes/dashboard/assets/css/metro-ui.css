@@ -20,15 +20,18 @@
   font-size: 2rem;
 }
 .m-col-subcat {
-  display: inline-grid;
-  grid-auto-columns: 378px;
+  display: grid;
+  grid-auto-columns: 400px;
   grid-template-rows: repeat(auto-fit, 10%);
   grid-row-gap: 10px;
   position: relative;
+  grid:;
   top: 119px;
   height: calc(100% - 170px);
   grid-auto-flow: column;
   margin-right: 52px;
+  /* width: 400px; */
+  /* vertical-align: top; */
 }
 .m-row-span-4 {
   grid-row: span 4;
@@ -45,12 +48,16 @@
 .m-container {
   height: 100%;
   margin-top: 20px;
-  margin-left: 65px;
+  margin-left: 20px;
   /* width: 97%; */
   overflow-x: auto;
   overflow-y: hidden;
   margin-right: 20px;
   font-family: Montserrat;
+  padding-left: 45px;
+  color: #fff !important;
+  /* white-space: nowrap; */
+  display: flex;
 }
 
 .m-lg-card {
@@ -73,8 +80,9 @@
 .m-subcat-name {
   margin-left: 10px;
   background-color: rgba(255, 255, 255, 0.13);
-  box-shadow: inset 0px 0px 19px 5px rgba(198, 198, 198, 0.2);
+  /* box-shadow: inset 0px 0px 19px 5px rgba(198, 198, 198, 0.2); */
   /* border: 1.6px solid #535050; */
+  box-shadow: 1px 1px 7px 0px #00000066;
 }
 .m-img-lg {
   object-fit: cover;
@@ -89,7 +97,7 @@
 .m-img-sm {
   object-fit: cover;
   height: 100%;
-  width: 40%;
+  width: 38%;
   /* flex: 1; */
 }
 
@@ -102,6 +110,10 @@
   /* margin-left: 5px; */
   /* padding: 10px; */
   /* word-break: break-all; */
+  margin: 0;
+}
+.m-heading-sm h3 {
+  font-size: 14px;
   margin: 0;
 }
 .m-heading-sm {
@@ -117,4 +129,44 @@
 .m-main-heading h3 {
   font-size: 27px;
   font-weight: bold;
+}
+.md-next {
+  display: flex;
+  justify-content: flex-end; /* padding-right: 50px; */
+  height: 50px;
+  border: 1px solid #ccc;
+  margin: 15px;
+}
+.md-container {
+  height: 100%;
+  position: relative;
+}
+.md-next a {
+  text-decoration: none;
+  margin-right: 15px;
+  margin-top: 11px;
+  width: 22px;
+  transition: transform 0.3s;
+}
+.md-next svg {
+  transition: transform 0.2s;
+}
+.md-next svg:hover {
+  transform: scale(1.2);
+}
+.md-title {
+  margin: 15px;
+}
+.md-title h3 {
+  font-weight: bold;
+}
+.md-content p {
+}
+.md-content {
+  margin: 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  top: 110px;
 }

@@ -3,10 +3,6 @@ get_header();
 $template_dir = get_template_directory_uri();
 $user_cats = pc_user_logged('categories');
 $user_name = pc_user_logged('name');
-foreach ($user_cats as $cat_id) {
-    $cat_name = get_the_category_by_ID($cat_id);
-    $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
-}
 // echo do_shortcode('[pc-logout-box]');
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />

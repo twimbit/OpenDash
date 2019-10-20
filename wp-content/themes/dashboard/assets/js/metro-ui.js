@@ -1,3 +1,6 @@
+$("#ui-icon-1").click(function() {
+  alert("hello");
+});
 /* Full screen logic */
 document.addEventListener("keypress", keyUpTextField, false);
 
@@ -42,6 +45,12 @@ function toggleFullScreen(elem) {
 
 /* Charts container mousewheel scroll */
 $(".m-container").mousewheel(function(event, delta) {
+  this.scrollLeft -= delta * 30;
+  event.preventDefault();
+});
+
+/* Charts container mousewheel scroll */
+$("#dialog_window_minimized_container").mousewheel(function(event, delta) {
   this.scrollLeft -= delta * 30;
   event.preventDefault();
 });
@@ -102,10 +111,11 @@ $(".in-prev").click(function() {
 /* Create modals for widgets*/
 function openModalMetro(id, title) {
   modalClass = $(id);
-  /* Create model */
+  /* if modal exist maximize */
   if ($("#" + "-" + id).length) {
     $("#dialog-" + id).dialog("open");
   } else {
+    /* else create modal */
     createModel(id, title);
     // Ajax call
     loadArticle(id);
@@ -118,7 +128,7 @@ function loadArticle(id) {
   $.ajax({
     url: "/ds/wp-admin/admin-ajax.php",
     type: "POST",
-    data: "action=infinite_scroll&id=" + id,
+    data: "action=metroModal&id=" + id,
     success: function(data) {
       $(".pace-activity").hide("1000");
       $("#" + id).append(data);

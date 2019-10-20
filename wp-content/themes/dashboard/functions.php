@@ -193,11 +193,47 @@ function wp_infinitepaginate()
         <div class="story-div">
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
-<?php }
+    <?php }
+        die();
+    }
+    add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
+    add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
+
+
+    /* Metro modal creation function */
+
+    function wp_metroModal()
+    {
+        /* getting post id */
+        $id = $_POST['id'];
+        ?>
+    <div class="md-container">
+        <div class="md-next">
+            <a href="#">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
+                </svg>
+            </a>
+            <a href="#">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="md-title">
+            <h3>This is title</h3>
+        </div>
+        <div class="md-content">
+            <p>This is metro modal content</p>
+        </div>
+    </div>
+<?php
     die();
 }
-add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
-add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
+
+
+add_action('wp_ajax_metroModal', 'wp_metroModal'); // for logged in user
+add_action('wp_ajax_nopriv_metroModal', 'wp_metroModal'); // if user not logged in
 
 
 /* Restoring update id for chat */

@@ -13,7 +13,7 @@ $template_dir = get_template_directory_uri();
         </amp-sidebar>
 
         <div class="board-header">
-            <?php get_template_part("widgets/dashboard", "tools"); ?>
+            <?php get_template_part("widgets/dashboard", "header"); ?>
         </div>
         <div class="dashboard" style="overflow-y:hidden">
             <div class="main-board" id="main-board">

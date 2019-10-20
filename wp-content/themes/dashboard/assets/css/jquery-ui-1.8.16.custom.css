@@ -67,10 +67,10 @@
 
 /* states and images */
 .ui-icon {
-  display: block;
-  text-indent: -99999px;
-  overflow: hidden;
-  background-repeat: no-repeat;
+  /* display: block; */
+  /* text-indent: -99999px; */
+  /* overflow: hidden; */
+  /* background-repeat: no-repeat; */
 }
 
 /* Misc visuals
@@ -243,8 +243,8 @@
 
 /* states and images */
 .ui-icon {
-  width: 16px;
-  height: 16px;
+  /* width: 16px; */
+  /* height: 16px; */
   /* background-image: url(images/ui-icons_ff0084_256x240.png); */
 }
 .ui-widget-content .ui-icon {
@@ -474,7 +474,7 @@
   background-position: -32px -80px;
 }
 .ui-icon-newwin {
-  background-position: -48px -80px;
+  /* background-position: -48px -80px; */
 }
 .ui-icon-refresh {
   background-position: -64px -80px;
@@ -1214,6 +1214,9 @@ button.ui-button::-moz-focus-inner {
   background-color: red;
   outline: none !important;
 }
+.ui-dialog .ui-dialog-titlebar-close:hover{
+  transform:scale(1.2);
+}
 .ui-dialog .ui-dialog-titlebar-close span {
   display: block;
   margin: 1px;
@@ -1605,7 +1608,7 @@ button.ui-button::-moz-focus-inner {
   /* bottom: 15px; */
   /* top: 150px; */
   /* left: 0; */
-  right: 0;
+  /* right: 0; */
   z-index: 2;
   overflow-x: auto;
   overflow-y: hidden;
@@ -1613,12 +1616,16 @@ button.ui-button::-moz-focus-inner {
   /* background-color: #000; */
   margin-left: auto;
   height: 100%;
-  right: 280px;
+  right: 265px;
   left: 350px;
+  display: grid;
+  grid-auto-columns: 105px;
+  grid-auto-flow: column;
 }
 
 .dialog_window_minimized {
-  /* float: left; */
+  /* float: right; */
+  /* display: flex; */
   padding: 9px 1px;
   font-size: 12px;
   cursor: pointer;
@@ -1626,25 +1633,52 @@ button.ui-button::-moz-focus-inner {
   margin-right: 2px;
   /* word-break: break-all; */
   display: none;
-  background-color: #859ba1;
+  /* background-color: #859ba1; */
+  border: 1px solid #cccccc78;
   /* margin-bottom: 5px; */
   /* writing-mode: vertical-lr; */
   text-orientation: inherit;
   padding-left: 6px;
   width: 100px;
   height: 37px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   margin-top: 5px;
   text-overflow: ellipsis;
   overflow: hidden;
+  position: relative;
   white-space: nowrap;
+  z-index: 3;
+  transition: background-color 0.4s;
+}
+.dialog_window_minimized:hover{
+  background-color: #ffffff40;
 }
 
-.dialog_window_minimized .ui-icon {
-  display: none;
-  position: relative;
-  top: 3px;
-  cursor: pointer;
+.dialog_window_minimized .ui-icon-1 {
+  /* display: none; */
+  /* position: absolute; */
+  /* top: 3px; */
+  /* cursor: pointer; */
+  /* width: 10px; */
+  /* height: 10px; */
+  /* border-radius: 50%; */
+  /* background-color: #ff0000c2; */
+  /* top: 2px; */
+  /* right: 3px; */
+  /* z-index: 4; */
+}
+.dialog_window_minimized .ui-icon-1:hover{
+  transform: scale(1.5);
+}
+.dialog_window_minimized .ui-icon-1::before{
+  /* content:"X"; */
+  position: absolute;
+  /* background-color: red; */
+  width: 8px;
+  height: 8px;
+  right: 0px;
+  top: -1px;
+  font-size: 9px;
 }
 
 .ui-dialog .ui-dialog-titlebar-minimize {
@@ -1657,6 +1691,9 @@ button.ui-button::-moz-focus-inner {
   height: 12px;
   border-radius: 50px;
   background-color: #ffbf00;
+}
+.ui-dialog .ui-dialog-titlebar-minimize:hover {
+  transform:scale(1.2);
 }
 
 .ui-dialog .ui-dialog-titlebar-minimize .ui-icon {
