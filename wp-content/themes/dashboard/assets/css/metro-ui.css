@@ -179,12 +179,4 @@
   bottom: 15px;
   top: 110px;
 }
-.fa-remove:before,
-.fa-close:before,
-.fa-times:before {
-  content: "\00d7";
-}
-.sidebar-close:hover {
-  background-color: hsla(0, 0%, 100%, 0.05);
-  color: #fff;
-}
+

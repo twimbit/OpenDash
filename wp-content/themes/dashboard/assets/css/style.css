@@ -1931,7 +1931,7 @@ p {
   cursor: pointer;
   z-index: 2;
   background-color: #fff0;
-  color: hsla(0,0%,100%,.7);
+  color: hsla(0, 0%, 100%, 0.7);
 }
 .in-upper-content {
   display: -webkit-box;
@@ -2029,7 +2029,7 @@ amp-carousel > div {
   padding: 0 1rem 0 0rem;
   /* color: #003f93; */
   height: 18px;
-  background-image: url('../images/chevron-right-solid.svg');
+  background-image: url("../images/chevron-right-solid.svg");
   width: 35px;
   background-repeat: no-repeat;
   /* background-color: white; */
@@ -2044,7 +2044,7 @@ amp-carousel > div {
   border: none;
 }
 .ampstart-nav-item a {
-  color: #F8F8FA;
+  color: #f8f8fa;
   text-decoration: none;
   margin-left: 15px;
 }
@@ -2052,7 +2052,7 @@ amp-carousel > div {
 .i-amphtml-accordion-header {
   border: none;
   font-size: 18px;
-  color: rgb(199,199,200) !important;
+  color: rgb(199, 199, 200) !important;
 }
 
 .ampstart-dropdown-items p {
@@ -2165,4 +2165,13 @@ amp-social-share {
   font-size: 20px;
   line-height: 1.33334;
   font-weight: 900;
+}
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: "\00d7";
+}
+.sidebar-close:hover {
+  background-color: hsla(0, 0%, 100%, 0.05);
+  color: #fff;
 }
