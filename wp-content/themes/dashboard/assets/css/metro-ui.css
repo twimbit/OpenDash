@@ -2,7 +2,7 @@
   /* -webkit-box-orient: vertical; */
   /* -webkit-box-direction: normal; */
   -ms-flex-flow: column wrap;
-  /* flex-flow: column wrap; */
+  flex-flow: column wrap;
   height: 100%;
   overflow: auto;
   width: 320px;
@@ -160,7 +160,6 @@
 }
 .md-next svg {
   transition: transform 0.2s;
-  font-weight: ;
 }
 .md-next svg:hover {
   transform: scale(1.2);
@@ -171,8 +170,7 @@
 .md-title h3 {
   font-weight: bold;
 }
-.md-content p {
-}
+
 .md-content {
   margin: 15px;
   position: absolute;
@@ -180,4 +178,13 @@
   right: 0;
   bottom: 15px;
   top: 110px;
+}
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: "\00d7";
+}
+.sidebar-close:hover {
+  background-color: hsla(0, 0%, 100%, 0.05);
+  color: #fff;
 }

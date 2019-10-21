@@ -1117,7 +1117,7 @@ pd-player {
 }
 .ext-main svg:hover {
   -webkit-transform: translate(4px, 4px) scale(1);
-  transform: translate(4px, 4px) scale(1);
+  transform: translate(4px, 5px) scale(1);
 }
 .ext-main svg path {
   fill: #fff;
@@ -1337,7 +1337,7 @@ amp-sidebar#sidebar-right {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   right: 0;
   /* background-color: #ffffff; */
   /* filter: blur(10px); */
@@ -1921,14 +1921,17 @@ p {
 }
 
 .sidebar-close {
-  border-radius: 50%;
+  border-radius: 4px;
   border: none;
-  height: 32px;
+  height: 34px;
   width: 32px;
   margin-top: 10px;
   outline: none !important;
   margin-left: 10px;
   cursor: pointer;
+  z-index: 2;
+  background-color: #fff0;
+  color: hsla(0,0%,100%,.7);
 }
 .in-upper-content {
   display: -webkit-box;
@@ -2022,25 +2025,34 @@ amp-carousel > div {
 }
 .ampstart-dropdown > section > header:before {
   display: inline-block;
-  content: "+";
+  content: "";
   padding: 0 1rem 0 0rem;
-  color: #003f93;
+  /* color: #003f93; */
+  height: 18px;
+  background-image: url('../images/chevron-right-solid.svg');
+  width: 35px;
+  background-repeat: no-repeat;
+  /* background-color: white; */
+  transition: background-image 0.4s cubic-bezier(1, -0.12, 0.07, 0.93);
 }
 .ampstart-dropdown > [expanded] > header:before {
-  content: "–";
+  content: "";
+  transition: background-image 0.4s cubic-bezier(1, -0.12, 0.07, 0.93);
+  background-image: url(../images/chevron-down-solid.svg);
 }
 .i-amphtml-accordion-header {
   border: none;
 }
 .ampstart-nav-item a {
-  color: #000000ba;
+  color: #F8F8FA;
   text-decoration: none;
+  margin-left: 15px;
 }
 
 .i-amphtml-accordion-header {
   border: none;
   font-size: 18px;
-  color: #fff !important;
+  color: rgb(199,199,200) !important;
 }
 
 .ampstart-dropdown-items p {
@@ -2144,8 +2156,13 @@ amp-social-share {
 }
 .sidebar-header p {
   margin-top: 15px;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
-  text-align: center;
+  text-align: left;
   font-size: 21px;
+  z-index: 0;
+  margin-left: 23px;
+  font-size: 20px;
+  line-height: 1.33334;
+  font-weight: 900;
 }

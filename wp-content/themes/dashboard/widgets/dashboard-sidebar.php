@@ -1,5 +1,7 @@
 <div class="sidebar-header">
-    <button on="tap:sidebar-right.close" class="sidebar-close">X</button>
+    <button on="tap:sidebar-right.close" class="sidebar-close">
+        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+    </button>
     <p>Content</p>
 </div>
 <nav class="sidebar-nav">
