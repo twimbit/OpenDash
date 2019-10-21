@@ -92,7 +92,8 @@
         visibility: visible
       }
     }
-  </style><noscript>
+  </style>
+  <noscript>
     <style amp-boilerplate>
       body {
         -webkit-animation: none;

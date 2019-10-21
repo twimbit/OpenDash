@@ -40,7 +40,7 @@
             <div class="main-board" id="main-board">
                 <div class="m-container">
                     <?php
-                    $category_child = get_categories(array('child_of' => get_category_by_slug(get_queried_object()->slug)->term_id, 'hide_empty' => FALSE));
+                    $category_child = get_categories(array('child_of' => get_queried_object()->term_id, 'hide_empty' => FALSE));
                     foreach ($category_child as $singleSubCategory) {   // echo do_shortcode('[pc-logout-box]');
                         ?>
                         <div class="m-col-subcat">
@@ -57,8 +57,16 @@
                                     if ($i == 0) {
                                         ?>
                                     <div class="m-subcat-name m-row-span-4">
-                                        <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
-                                            <img class="m-img-lg" src="<?php echo $thumbnail; ?>" alt="lg-img-card">
+                                        <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)">
+                                            <div class="m-img-lg">
+                                                <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
+                                                    <div class="infinite">
+                                                        <div class="pace pace-active">
+                                                            <div class="pace-activity" style="display: block;"></div>
+                                                        </div>
+                                                    </div>
+                                                </amp-img>
+                                            </div>
                                             <div class="m-heading-sm" style="position: relative;top: -7px;">
                                                 <h4 class="m-heading-lg"><?php echo $title; ?></h4>
                                                 <h3 class="m-heading-lg"><?php echo $excerpt; ?></h3>
@@ -68,7 +76,15 @@
                                 <?php } else { ?>
                                     <div class="m-subcat-name m-row-span-3">
                                         <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
-                                            <img class="m-img-sm" src="<?php echo $thumbnail; ?>" alt="lg-img-card">
+                                            <div class="m-img-sm">
+                                                <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
+                                                    <div class="infinite">
+                                                        <div class="pace pace-active">
+                                                            <div class="pace-activity" style="display: block;"></div>
+                                                        </div>
+                                                    </div>
+                                                </amp-img>
+                                            </div>
                                             <div class="m-heading-sm">
                                                 <h4><?php echo $title; ?></h4>
                                                 <h3><?php echo $excerpt; ?></h3>

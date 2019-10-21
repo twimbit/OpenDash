@@ -1,8 +1,9 @@
-<button on="tap:sidebar-right.close" class="sidebar-close">X</button>
+<div class="sidebar-header">
+    <button on="tap:sidebar-right.close" class="sidebar-close">X</button>
+    <p>Content</p>
+</div>
 <nav class="sidebar-nav">
     <ul class="ampstart-dropdown-items list-reset m0 p0">
-        <p>Content</p>
-        <hr>
         <li class="ampstart-nav-item" style="height: 93%;overflow-y: auto;">
             <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown ml1 i-amphtml-element i-amphtml-layout-container i-amphtml-layout" expand-single-section="" i-amphtml-layout="container">
                 <section>

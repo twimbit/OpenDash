@@ -107,7 +107,7 @@ $(".in-prev").click(function() {
 });
 
 /* Create modals for widgets*/
-function openModalMetro(id, title) {
+function openModalMetro(id, title, cat_id) {
   /* if modal exist maximize */
   if ($("#dialog-" + id).length) {
     $("#dialog-" + id).dialog("open");
@@ -115,17 +115,17 @@ function openModalMetro(id, title) {
     /* else create modal */
     createModel(id, title);
     // Ajax call
-    loadArticle(id);
+    loadArticle(id, cat_id);
   }
 }
 
 // Ajax calling method for modals
-function loadArticle(id) {
+function loadArticle(id, cat_id) {
   $(".pace-activity").show("fast");
   $.ajax({
     url: "/ds/wp-admin/admin-ajax.php",
     type: "POST",
-    data: "action=metroModal&id=" + id,
+    data: "action=metroModal&id=" + id + "&cat_id=" + cat_id,
     success: function(data) {
       $(".pace-activity").hide("1000");
       $("#" + id).append(data);
