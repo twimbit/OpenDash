@@ -57,7 +57,7 @@
                                     if ($i == 0) {
                                         ?>
                                     <div class="m-subcat-name m-row-span-4">
-                                        <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)">
+                                        <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                             <div class="m-img-lg">
                                                 <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                     <div class="infinite">
@@ -67,7 +67,7 @@
                                                     </div>
                                                 </amp-img>
                                             </div>
-                                            <div class="m-heading-sm" style="position: relative;top: -7px;">
+                                            <div class="m-heading-sm" style="position: relative;">
                                                 <h4 class="m-heading-lg"><?php echo $title; ?></h4>
                                                 <h3 class="m-heading-lg"><?php echo $excerpt; ?></h3>
                                             </div>
@@ -75,7 +75,7 @@
                                     </div>
                                 <?php } else { ?>
                                     <div class="m-subcat-name m-row-span-3">
-                                        <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
+                                        <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                             <div class="m-img-sm">
                                                 <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                     <div class="infinite">
@@ -113,7 +113,7 @@
                             if ($i == 0) {
                                 ?>
                                 <div class="m-subcat-name m-row-span-4">
-                                    <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)">
+                                    <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                         <div class="m-img-lg">
                                             <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                 <div class="infinite">
@@ -123,7 +123,7 @@
                                                 </div>
                                             </amp-img>
                                         </div>
-                                        <div class="m-heading-sm" style="position: relative;top: -7px;">
+                                        <div class="m-heading-sm" style="position: relative;">
                                             <h4 class="m-heading-lg"><?php echo $title; ?></h4>
                                             <h3 class="m-heading-lg"><?php echo $excerpt; ?></h3>
                                         </div>
@@ -131,7 +131,7 @@
                                 </div>
                             <?php } else { ?>
                                 <div class="m-subcat-name m-row-span-3">
-                                    <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
+                                    <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                         <div class="m-img-sm">
                                             <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                 <div class="infinite">

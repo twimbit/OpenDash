@@ -121,6 +121,7 @@
   /* padding: 10px; */
   /* word-break: break-all; */
   margin: 0;
+  font-weight: 600;
 }
 .m-heading-sm h3 {
   font-size: 14px;

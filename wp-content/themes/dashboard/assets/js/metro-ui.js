@@ -133,3 +133,31 @@ function loadArticle(id, cat_id) {
   });
   return false;
 }
+
+// Ajax calling method for modals
+function mdModalPosts(type, id, title) {
+  $(".ui-dialog-title").text(title);
+  $(".md-container").empty();
+  $(".pace-activity").show("fast");
+  if (type == "prev") {
+    $.ajax({
+      url: "/ds/wp-admin/admin-ajax.php",
+      type: "POST",
+      data: "action=metroModalNextPrev&id=" + id,
+      success: function(data) {
+        $(".pace-activity").hide("1000");
+        $(".md-container").append(data);
+      }
+    });
+  } else {
+    $.ajax({
+      url: "/ds/wp-admin/admin-ajax.php",
+      type: "POST",
+      data: "action=metroModalNextPrev&id=" + id,
+      success: function(data) {
+        $(".pace-activity").hide("1000");
+        $(".md-container").append(data);
+      }
+    });
+  }
+}
