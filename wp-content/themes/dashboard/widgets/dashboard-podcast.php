@@ -1,15 +1,15 @@
 <?php
-$args = array(
-    'post_type' => 'podcast',
-    'cat' => get_queried_object()->term_id
-);
-$podcast = get_posts($args);
+/* Getting podcast post type array */
+$podcast = getPostArray('podcast', get_queried_object()->term_id);
+?>
+<?php
 foreach ($podcast as $val) {
     $title = $val->post_title;
     $description = $val->post_content;
-    $url = get_permalink($val->ID);
+    $url = get_field('audio_file', $val);
     ?>
-    <a href="<?php echo $url; ?>" data-lightbox="iframe" style="text-decoration:none">
+    <a href="#" style="text-decoration:none;position:relative" class='pd-player' onclick="openModal('podcast',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
+        <div class="vsl-new in-new" style="visibility:<?php newPost($val->ID) ?>"></div>
         <div class="play black-tint">
             <div class="podcast-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85.658" height="85.658" viewBox="0 0 85.658 85.658" class="icon">
