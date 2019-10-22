@@ -43,7 +43,7 @@ $get_post_feed = get_posts($post_args);
                             $link = get_the_permalink();
                             $title = get_the_title();
                             $excerpt = get_the_excerpt();
-                            $img = get_the_post_thumbnail_url($val,'thumbnail');
+                            $img = get_the_post_thumbnail_url($val, 'thumbnail');
                             ?>
                         <a href="<?php echo $link; ?>" class="search-link">
                             <div class="search-list">
@@ -52,7 +52,7 @@ $get_post_feed = get_posts($post_args);
                                 </div>
                                 <div class="search-desc">
                                     <h3><?php echo $title; ?></h3>
-                                    <p><?php echo $excerpt; ?></p>
+                                    <p style="overflow:hidden;"><?php echo $excerpt; ?></p>
                                 </div>
                             </div>
                         </a>

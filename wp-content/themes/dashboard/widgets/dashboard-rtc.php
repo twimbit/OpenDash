@@ -1,1 +1,1 @@
-<iframe id="flotRealTime" frameBorder="0" style="height: 70px; padding: 0px; position: relative;"></iframe>
+<iframe id="flotRealTime" frameBorder="0" style="height: 140px; padding: 0px; position: relative;"></iframe>

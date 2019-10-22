@@ -33,11 +33,13 @@ $template_dir = get_template_directory_uri();
                     </div>
                 </div>
                 <div class="row-2">
-                    <div class="timeline-card card-box widget-box-two gap timeline-vertical-scroll black-tint container-title">
-                        <?php get_template_part("widgets/dashboard", "timeline"); ?>
-                    </div>
-                    <div class="realTimeChart black-tint gap">
-                        <?php get_template_part("widgets/dashboard", "rtc"); ?>
+                    <div class="tl">
+                        <div class="timeline-card card-box widget-box-two gap timeline-vertical-scroll black-tint container-title">
+                            <?php get_template_part("widgets/dashboard", "timeline"); ?>
+                        </div>
+                        <div class="realTimeChart black-tint gap">
+                            <?php get_template_part("widgets/dashboard", "rtc"); ?>
+                        </div>
                     </div>
                     <div class="column-1">
                         <div class="row-2-1">

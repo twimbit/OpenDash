@@ -96,6 +96,61 @@
                                 } ?>
                         </div>
                     <?php } ?>
+
+                    <!-- miscellaneous section -->
+
+                    <div class="m-col-subcat">
+                        <p>Miscellaneous</p>
+                        <?php
+                        $i = 0;
+                        /* Getting posts type array */
+                        $posts = getPostArray(array('post'), get_queried_object()->term_id);
+                        foreach ($posts as $val) {
+                            $title = $val->post_title;
+                            $description = $val->post_content;
+                            $excerpt = $val->post_excerpt;
+                            $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
+                            if ($i == 0) {
+                                ?>
+                                <div class="m-subcat-name m-row-span-4">
+                                    <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)">
+                                        <div class="m-img-lg">
+                                            <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
+                                                <div class="infinite">
+                                                    <div class="pace pace-active">
+                                                        <div class="pace-activity" style="display: block;"></div>
+                                                    </div>
+                                                </div>
+                                            </amp-img>
+                                        </div>
+                                        <div class="m-heading-sm" style="position: relative;top: -7px;">
+                                            <h4 class="m-heading-lg"><?php echo $title; ?></h4>
+                                            <h3 class="m-heading-lg"><?php echo $excerpt; ?></h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php } else { ?>
+                                <div class="m-subcat-name m-row-span-3">
+                                    <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
+                                        <div class="m-img-sm">
+                                            <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
+                                                <div class="infinite">
+                                                    <div class="pace pace-active">
+                                                        <div class="pace-activity" style="display: block;"></div>
+                                                    </div>
+                                                </div>
+                                            </amp-img>
+                                        </div>
+                                        <div class="m-heading-sm">
+                                            <h4><?php echo $title; ?></h4>
+                                            <h3><?php echo $excerpt; ?></h3>
+                                        </div>
+                                    </a>
+                                </div>
+                        <?php }
+                            $i++;
+                        } ?>
+                    </div>
                 </div>
             </div>
         </div>

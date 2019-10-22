@@ -49,8 +49,8 @@
   margin-top: 20px;
   margin-left: 20px;
   /* width: 100%; */
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   margin-right: 20px;
   font-family: Montserrat;
   padding-left: 45px;
