@@ -1,8 +1,8 @@
 <?php
 
 /* require acf and cpt ui configuration files */
-//require_once dirname(__FILE__) . '/plugin_conf/acf_conf.php';
-// require_once dirname(__FILE__) . '/plugin_conf/cpt_conf.php';
+require_once dirname(__FILE__) . '/plugin_conf/acf_conf.php';
+require_once dirname(__FILE__) . '/plugin_conf/cpt_conf.php';
 
 
 /* Plugin required file */
@@ -206,7 +206,8 @@ function wp_infinitepaginate()
         /* getting post id */
         $id = $_POST['id'];
         $cat_id = $_POST['cat_id'];
-        $posts = getPostArray(array('post'), $cat_id);
+        $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
+        // $posts = getPostArray(array('post'), $cat_id);
         ?>
     <div class="md-container">
         <div class="md-next">

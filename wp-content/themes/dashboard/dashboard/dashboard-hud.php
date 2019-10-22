@@ -25,9 +25,6 @@ $template_dir = get_template_directory_uri();
                         <div class="key-members gap">
                             <?php get_template_part("widgets/dashboard", "members"); ?>
                         </div>
-                        <div class="realTimeChart black-tint gap">
-                            <?php get_template_part("widgets/dashboard", "rtc"); ?>
-                        </div>
                     </div>
 
                     <div class="analytics-charts black-tint gap">
@@ -38,6 +35,9 @@ $template_dir = get_template_directory_uri();
                 <div class="row-2">
                     <div class="timeline-card card-box widget-box-two gap timeline-vertical-scroll black-tint container-title">
                         <?php get_template_part("widgets/dashboard", "timeline"); ?>
+                    </div>
+                    <div class="realTimeChart black-tint gap">
+                        <?php get_template_part("widgets/dashboard", "rtc"); ?>
                     </div>
                     <div class="column-1">
                         <div class="row-2-1">
@@ -274,9 +274,10 @@ $template_dir = get_template_directory_uri();
                             <div class="rs-container">
                                 <div class="rs-inner">
                                     <div class="podcast-archive">
-                                        <div class="gallery-in gap black-tint">
+                                        <div class="gallery-in gap black-tint" hidden>
                                             <span class="container-title">Gallery</span>
-                                            <?php get_template_part("widgets/dashboard", "gallery"); ?></div>
+                                            <?php get_template_part("widgets/dashboard", "gallery"); ?>
+                                        </div>
                                         <div class="podcast-container black-tint gap">
                                             <span class="container-title">Podcast</span>
                                             <div class="podcast podcast-vertical-scroll">
@@ -330,11 +331,6 @@ $template_dir = get_template_directory_uri();
 
     <!-- Echart init -->
     <script src="<?php echo $template_dir; ?>/assets/pages/jquery.echart.init.js"></script>
-
-    <!-- Flot chart -->
-    <script src="<?php echo $template_dir; ?>/plugins/flot-chart/jquery.flot.min.js"></script>
-    <script src="<?php echo $template_dir; ?>/plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
-    <script src="<?php echo $template_dir; ?>/assets/pages/jquery.flot.init.js"></script>
 
     <!-- Jquery ui -->
     <script src="<?php echo $template_dir; ?>/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
