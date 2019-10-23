@@ -1,6 +1,11 @@
 /* Full screen logic */
 document.addEventListener("keypress", keyUpTextField, false);
 
+/* Insight section loader hide */
+window.onload = function() {
+  $(".pace-activity").hide();
+};
+
 function keyUpTextField(e) {
   var keyCode = e.keyCode;
   if (keyCode == 70 || keyCode == 102) {
@@ -132,4 +137,32 @@ function loadArticle(id, cat_id) {
     }
   });
   return false;
+}
+
+// Ajax calling method for modals
+function mdModalPosts(type, id, title) {
+  $(".ui-dialog-title").text(title);
+  $(".md-container").empty();
+  $(".pace-activity").show("fast");
+  if (type == "prev") {
+    $.ajax({
+      url: "/ds/wp-admin/admin-ajax.php",
+      type: "POST",
+      data: "action=metroModalNextPrev&id=" + id,
+      success: function(data) {
+        $(".pace-activity").hide("1000");
+        $(".md-container").append(data);
+      }
+    });
+  } else {
+    $.ajax({
+      url: "/ds/wp-admin/admin-ajax.php",
+      type: "POST",
+      data: "action=metroModalNextPrev&id=" + id,
+      success: function(data) {
+        $(".pace-activity").hide("1000");
+        $(".md-container").append(data);
+      }
+    });
+  }
 }

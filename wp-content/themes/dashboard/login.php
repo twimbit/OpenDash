@@ -165,7 +165,7 @@ if (pc_user_logged('username')) {
                         <img src="<?php echo $template_dir; ?>/assets/images/logo.png" alt="Twimbit logo">
                     </div>
                     <div class="login_heading">
-                        <span>Twimbit Enterprise</span>
+                        <span>Twimbit Professional</span>
                     </div>
                     <div class="login_welcome">
                         <span>Welcome back! Please login to your account.</span>

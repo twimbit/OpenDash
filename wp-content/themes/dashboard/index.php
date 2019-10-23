@@ -104,23 +104,13 @@ $user_name = pc_user_logged('name');
                         </h5>
                     </div>
                     <div class="two-body">
-                        <div class="item">
-                            <span>Instagram</span>
-                            <span>notification</span>
-                            <span>$20</span>
-                        </div>
-
-                        <div class="item">
-                            <span>Instagram</span>
-                            <span>notification</span>
-                            <span>$20</span>
-                        </div>
-
-                        <div class="item">
-                            <span>Instagram</span>
-                            <span>notification</span>
-                            <span>$20</span>
-                        </div>
+                        <?php $update = getPostArray('update', null);
+                        foreach ($update as $val) { ?>
+                            <div class="notification-items">
+                                <span><?php echo $val->post_title; ?></span>
+                                <span><?php echo $val->post_content; ?></span>
+                            </div>
+                        <?php } ?>
                     </div>
                     <footer style="color:rgb(24, 123, 216); text-align: center">
                         <p style="font-size:11px; letter-spacing: 0.5px;">

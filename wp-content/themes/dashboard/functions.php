@@ -9,6 +9,7 @@ require_once dirname(__FILE__) . '/plugin_conf/cpt_conf.php';
 require_once dirname(__FILE__) . '/assets/lib/inc/class-tgm-plugin-activation.php';
 add_action('tgmpa_register', 'enterprise_register_required_plugins');
 
+
 // Featured image functionality.
 function mytheme_post_thumbnails()
 {
@@ -27,7 +28,7 @@ function wp_infinitepaginate()
         $v_id = $_POST['id'];
         $v_post = get_post($v_id);
         $url = get_field('video_file', $v_post);
-        add_post_meta($v_id, 'viewed', '1', true);
+        // add_post_meta($v_id, 'viewed', '1', true);
         ?>
         <div class="vc-main-c">
             <div class="video-box" style="position:relative;">
@@ -206,45 +207,187 @@ function wp_infinitepaginate()
         /* getting post id */
         $id = $_POST['id'];
         $cat_id = $_POST['cat_id'];
-        $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
-        // $posts = getPostArray(array('post'), $cat_id);
-        ?>
-    <div class="md-container">
-        <div class="md-next">
-            <a href="#" title="previous">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
-                </svg>
-            </a>
-            <a href="#" title="next">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
-                </svg>
-            </a>
+        // $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
+        $current_post = get_post($id);
+        $url = get_the_permalink($current_post);
+        if ($current_post->post_type == "amp_story") {
+            ?>
+        <div class="story-div">
+            <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
-        <?php foreach ($posts as $val) {
-                $title = $val->post_title;
-                $description = $val->post_content;
-                $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
-                ?>
-            <div class="md-title">
-                <h3><?php echo $title; ?></h3>
+    <?php } else if ($current_post->post_type == "insights") {
+            $current_post = get_post($id);
+            $description = $current_post->post_content;
+            $title = $current_post->post_title;
+            $date = $current_post->post_date;
+            $visualiser = get_field('visualizer', $current_post);
+            $excerpt = $current_post->post_excerpt;
+            ?>
+        <div class="chart-ajax">
+            <div class="in-upper-content">
+                <div class="chart-div">
+                    <div class="infinite">
+                        <div class="pace pace-active">
+                            <div class="pace-activity" style="display: block;"></div>
+                        </div>
+                    </div>
+                    <?php
+                            echo $visualiser;
+                            ?>
+                    <link rel='stylesheet' id='visualizer-front-css' href='http://localhost/ds/wp-content/plugins/visualizer/css/front.css?ver=3.3.2' type='text/css' media='all' />
+                </div>
+                <div class="in-title">
+                    <ul>
+                        <li class="in-title-1">
+                            <?php echo $title; ?>
+                        </li>
+                        <li class="in-date">
+                            <?php echo $date; ?>
+                        </li>
+                        <li class="in-about">
+                            <?php echo $excerpt; ?>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="md-content">
-                <p><?php echo $description; ?></p>
+
+            <div class="video-about">
+                <p class="video-date"><?php echo $description; ?></p>
             </div>
-        <?php } ?>
+        </div>
+        <script type='text/javascript' src='http://localhost/ds/wp-content/uploads/visualizer/customization.js'></script>
+        <script type='text/javascript' defer="defer" src='//www.google.com/jsapi'></script>
+        <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
+        <script type='text/javascript' defer="defer" src='http://localhost/ds/wp-content/plugins/visualizer/js/render-google.js?ver=3.3.2'></script>
+        <script type='text/javascript' defer="defer" src='http://localhost/ds/wp-content/plugins/visualizer/js/render-facade.js?ver=3.3.2'></script>
+    <?php } else if ($current_post->post_type == "archive") {
+            $current_post = get_post($id);
+            $description = $current_post->post_content;
+            $url = get_field('archive_file_url', $current_post);
+            ?>
+        <div class="archive-ajax">
+            <div class="archive-download" style="display:none">
+                <a href="#">Download
+                    <i class="fa fa-download" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <div class="chart-div">
+                <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+            </div>
+        </div>
+    <?php } else if ($current_post->post_type == "video") {
+            $id = $_POST['id'];
+            $current_post = get_post($id);
+            $url = get_field('video_file', $current_post);
+            // add_post_meta($id, 'viewed', '1', true);
+            ?>
+        <div class="vc-main-c">
+            <div class="video-box" style="position:relative;">
+                <div class="infinite">
+                    <div class="pace pace-active">
+                        <div class="pace-activity" style="display: block;"></div>
+                    </div>
+                </div>
+                <amp-video autoplay src="<?php echo $url; ?>" layout="responsive" width="717" height="405" controls style="z-index:2">
+                </amp-video>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+                <p>
+                    <?php echo $current_post->post_content; ?>
+                </p>
+            </div>
+        </div>
+    <?php } else { ?>
+        <div class="md-container">
+            <?php
+                    $title = $current_post->post_title;
+                    $description = $current_post->post_content;
+                    $thumbnail = get_the_post_thumbnail_url($current_post, "thumbnail");
+                    ?>
+            <div class="md-next">
+                <a href="#" title="previous" id="md-prev-post" onclick="mdModalPosts('prev',<?php echo get_previous_post_id($id)['id']; ?>,'<?php echo get_previous_post_id($id)['title']; ?>')">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
+                    </svg>
+                </a>
+                <a href="#" title="next" id="md-next-post" onclick="mdModalPosts('next',<?php echo get_next_post_id($id)['id']; ?>,'<?php echo get_next_post_id($id)['title']; ?>')">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="md-modal-content">
+                <div class="md-title">
+                    <h3><?php echo $title; ?></h3>
+                </div>
+                <div class="md-content">
+                    <p><?php echo $description;
+                                wp_link_pages(
+                                    array(
+                                        'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'twentysixteen') . '</span>',
+                                        'after'       => '</div>',
+                                        'link_before' => '<span>',
+                                        'link_after'  => '</span>',
+                                        'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'twentysixteen') . ' </span>%',
+                                        'separator'   => '<span class="screen-reader-text">, </span>',
+                                    )
+                                );
+                                ?></p>
+                </div>
+            </div>
+        </div>
+    <?php }
+        die();
+    }
+
+    add_action('wp_ajax_metroModal', 'wp_metroModal'); // for logged in user
+    add_action('wp_ajax_nopriv_metroModal', 'wp_metroModal'); // if user not logged in
+
+
+    /* getting next and previous posts */
+    function wp_metroModalNextPrev()
+    {
+        /* getting post id */
+        $id = $_POST['id'];
+        // $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
+        $current_post = get_post($id);
+        $title = $current_post->post_title;
+        $description = $current_post->post_content;
+        $thumbnail = get_the_post_thumbnail_url($current_post, "thumbnail");
+        ?>
+    <div class="md-next">
+        <a href="#" title="previous" id="md-prev-post" onclick="mdModalPosts('prev',<?php echo get_previous_post_id($id)['id']; ?>,'<?php echo get_previous_post_id($id)['title']; ?>')">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
+            </svg>
+        </a>
+        <a href="#" title="next" id="md-next-post" onclick="mdModalPosts('next',<?php echo get_next_post_id($id)['id']; ?>,'<?php echo get_next_post_id($id)['title']; ?>')">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
+            </svg>
+        </a>
+    </div>
+    <div class="md-modal-content">
+        <div class="md-title">
+            <h3><?php echo $title; ?></h3>
+        </div>
+        <div class="md-content">
+            <p><?php echo $description; ?></p>
+        </div>
     </div>
 <?php
     die();
 }
 
-
-
-
-add_action('wp_ajax_metroModal', 'wp_metroModal'); // for logged in user
-add_action('wp_ajax_nopriv_metroModal', 'wp_metroModal'); // if user not logged in
-
+add_action('wp_ajax_metroModalNextPrev', 'wp_metroModalNextPrev'); // for logged in user
+add_action('wp_ajax_nopriv_metroModalNextPrev', 'wp_metroModalNextPrev'); // if user not logged in
 
 /* Restoring update id for chat */
 function updateRestoreId()
@@ -310,6 +453,7 @@ if (function_exists('register_sidebar'))
 function getPostArray($type, $queriedObject)
 {
     $args = array(
+        'numberposts' => 0,
         'post_type' => $type,
         'cat' => $queriedObject
     );
@@ -411,4 +555,42 @@ function enterprise_register_required_plugins()
     );
 
     tgmpa($plugins, $config);
+}
+
+
+/* Get previous post from post id */
+function get_previous_post_id($post_id)
+{
+    // Get a global post reference since get_adjacent_post() references it
+    global $post;
+    // Store the existing post object for later so we don't lose it
+    $oldGlobal = $post;
+    // Get the post object for the specified post and place it in the global variable
+    $post = get_post($post_id);
+    // Get the post object for the previous post
+    $previous_post = get_previous_post();
+    // Reset our global object
+    $post = $oldGlobal;
+    if ('' == $previous_post)
+        return 0;
+
+    return array('id' => $previous_post->ID, 'title' => get_post($previous_post->ID)->post_title);
+}
+
+/* Get next post from post id */
+function get_next_post_id($post_id)
+{
+    // Get a global post reference since get_adjacent_post() references it
+    global $post;
+    // Store the existing post object for later so we don't lose it
+    $oldGlobal = $post;
+    // Get the post object for the specified post and place it in the global variable
+    $post = get_post($post_id);
+    // Get the post object for the next post
+    $next_post = get_next_post();
+    // Reset our global object
+    $post = $oldGlobal;
+    if ('' == $next_post)
+        return 0;
+    return array('id' => $next_post->ID, 'title' => get_post($next_post->ID)->post_title);
 }
