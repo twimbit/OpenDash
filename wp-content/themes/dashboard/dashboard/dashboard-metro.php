@@ -48,7 +48,7 @@
                             <?php
                                 $i = 0;
                                 /* Getting posts type array */
-                                $posts = getPostArray(array('post','amp_story','video','podcast','insights'), $singleSubCategory->term_id);
+                                $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), $singleSubCategory->term_id);
                                 foreach ($posts as $val) {
                                     $title = $val->post_title;
                                     $description = $val->post_content;
@@ -104,7 +104,7 @@
                         <?php
                         $i = 0;
                         /* Getting posts type array */
-                        $posts = getPostArray(array('post'), get_queried_object()->term_id);
+                        $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), get_queried_object()->term_id);
                         foreach ($posts as $val) {
                             $title = $val->post_title;
                             $description = $val->post_content;

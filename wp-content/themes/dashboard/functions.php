@@ -9,6 +9,7 @@ require_once dirname(__FILE__) . '/plugin_conf/cpt_conf.php';
 require_once dirname(__FILE__) . '/assets/lib/inc/class-tgm-plugin-activation.php';
 add_action('tgmpa_register', 'enterprise_register_required_plugins');
 
+
 // Featured image functionality.
 function mytheme_post_thumbnails()
 {
@@ -27,7 +28,7 @@ function wp_infinitepaginate()
         $v_id = $_POST['id'];
         $v_post = get_post($v_id);
         $url = get_field('video_file', $v_post);
-        add_post_meta($v_id, 'viewed', '1', true);
+        // add_post_meta($v_id, 'viewed', '1', true);
         ?>
         <div class="vc-main-c">
             <div class="video-box" style="position:relative;">
@@ -231,9 +232,9 @@ function wp_infinitepaginate()
                         </div>
                     </div>
                     <?php
-                            wp_head();
                             echo $visualiser;
                             ?>
+                    <link rel='stylesheet' id='visualizer-front-css' href='http://localhost/ds/wp-content/plugins/visualizer/css/front.css?ver=3.3.2' type='text/css' media='all' />
                 </div>
                 <div class="in-title">
                     <ul>
@@ -254,7 +255,55 @@ function wp_infinitepaginate()
                 <p class="video-date"><?php echo $description; ?></p>
             </div>
         </div>
-        <?php wp_footer(); ?>
+        <script type='text/javascript' src='http://localhost/ds/wp-content/uploads/visualizer/customization.js'></script>
+        <script type='text/javascript' defer="defer" src='//www.google.com/jsapi'></script>
+        <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
+        <script type='text/javascript' defer="defer" src='http://localhost/ds/wp-content/plugins/visualizer/js/render-google.js?ver=3.3.2'></script>
+        <script type='text/javascript' defer="defer" src='http://localhost/ds/wp-content/plugins/visualizer/js/render-facade.js?ver=3.3.2'></script>
+    <?php } else if ($current_post->post_type == "archive") {
+            $current_post = get_post($id);
+            $description = $current_post->post_content;
+            $url = get_field('archive_file_url', $current_post);
+            ?>
+        <div class="archive-ajax">
+            <div class="archive-download" style="display:none">
+                <a href="#">Download
+                    <i class="fa fa-download" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <div class="chart-div">
+                <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+            </div>
+        </div>
+    <?php } else if ($current_post->post_type == "video") {
+            $id = $_POST['id'];
+            $current_post = get_post($id);
+            $url = get_field('video_file', $current_post);
+            // add_post_meta($id, 'viewed', '1', true);
+            ?>
+        <div class="vc-main-c">
+            <div class="video-box" style="position:relative;">
+                <div class="infinite">
+                    <div class="pace pace-active">
+                        <div class="pace-activity" style="display: block;"></div>
+                    </div>
+                </div>
+                <amp-video autoplay src="<?php echo $url; ?>" layout="responsive" width="717" height="405" controls style="z-index:2">
+                </amp-video>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+                <p>
+                    <?php echo $current_post->post_content; ?>
+                </p>
+            </div>
+        </div>
     <?php } else { ?>
         <div class="md-container">
             <?php
@@ -279,7 +328,18 @@ function wp_infinitepaginate()
                     <h3><?php echo $title; ?></h3>
                 </div>
                 <div class="md-content">
-                    <p><?php echo $description; ?></p>
+                    <p><?php echo $description;
+                                wp_link_pages(
+                                    array(
+                                        'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'twentysixteen') . '</span>',
+                                        'after'       => '</div>',
+                                        'link_before' => '<span>',
+                                        'link_after'  => '</span>',
+                                        'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'twentysixteen') . ' </span>%',
+                                        'separator'   => '<span class="screen-reader-text">, </span>',
+                                    )
+                                );
+                                ?></p>
                 </div>
             </div>
         </div>
@@ -393,6 +453,7 @@ if (function_exists('register_sidebar'))
 function getPostArray($type, $queriedObject)
 {
     $args = array(
+        'numberposts' => 0,
         'post_type' => $type,
         'cat' => $queriedObject
     );
