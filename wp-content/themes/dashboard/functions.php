@@ -231,10 +231,11 @@ function wp_infinitepaginate()
                             <div class="pace-activity" style="display: block;"></div>
                         </div>
                     </div>
+                    <link rel='stylesheet' id='visualizer-front-css' href='http://localhost/ds/wp-content/plugins/visualizer/css/front.css?ver=3.3.2' type='text/css' media='all' />
                     <?php
                             echo $visualiser;
                             ?>
-                    <link rel='stylesheet' id='visualizer-front-css' href='http://localhost/ds/wp-content/plugins/visualizer/css/front.css?ver=3.3.2' type='text/css' media='all' />
+
                 </div>
                 <div class="in-title">
                     <ul>
@@ -256,10 +257,9 @@ function wp_infinitepaginate()
             </div>
         </div>
         <script type='text/javascript' src='http://localhost/ds/wp-content/uploads/visualizer/customization.js'></script>
+        <!-- <script type='text/javascript' defer="defer" src='//www.gstatic.com/charts/loader.js'></script> -->
         <script type='text/javascript' defer="defer" src='//www.google.com/jsapi'></script>
-        <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
         <script type='text/javascript' defer="defer" src='http://localhost/ds/wp-content/plugins/visualizer/js/render-google.js?ver=3.3.2'></script>
-        <script type='text/javascript' defer="defer" src='http://localhost/ds/wp-content/plugins/visualizer/js/render-facade.js?ver=3.3.2'></script>
     <?php } else if ($current_post->post_type == "archive") {
             $current_post = get_post($id);
             $description = $current_post->post_content;
