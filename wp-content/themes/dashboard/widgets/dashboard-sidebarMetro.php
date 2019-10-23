@@ -18,7 +18,7 @@
                         <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_0">
                             <?php
                                 /* Getting posts type array */
-                                $posts = getPostArray(array('post'), $singleSubCategory->term_id);
+                                $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), $singleSubCategory->term_id);
                                 foreach ((array) $posts as $val) {
                                     $title = $val->post_title;
                                     ?>
@@ -33,7 +33,7 @@
                     <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_0">
                         <?php
                         /* Getting posts type array */
-                        $posts = getPostArray(array('post'), get_queried_object()->term_id);
+                        $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), get_queried_object()->term_id);
                         foreach ((array) $posts as $val) {
                             if (get_the_category($val)[0]->parent == 0) {
                                 $title = $val->post_title;

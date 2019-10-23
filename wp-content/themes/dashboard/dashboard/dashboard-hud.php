@@ -9,7 +9,7 @@ $template_dir = get_template_directory_uri();
     <div id="wrapper" style="overflow-y:hidden">
         <!-- Sidebar  -->
         <amp-sidebar id="sidebar-right" class="sample-sidebar" layout="nodisplay" side="right">
-            <?php get_template_part("widgets/dashboard", "sidebar"); ?>
+            <?php get_template_part("widgets/dashboard", "sidebarHud"); ?>
         </amp-sidebar>
 
         <div class="board-header">
