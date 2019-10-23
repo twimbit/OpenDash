@@ -2,8 +2,8 @@
 /* Getting contacts post type array */
 $tab = getPostArray('contact', get_queried_object()->term_id);
 $contact = get_field('contact_details', $tab[0]);
-if(!empty($contact)){
-foreach ($contact as $val) {
+
+foreach ((array) $contact as $val) {
     $name = $val['contact_name'];
     $designation = $val['designation'];
     $pic = $val['contact_picture']['sizes']['thumbnail'];
@@ -66,4 +66,4 @@ foreach ($contact as $val) {
             </div>
         </div>
     </div>
-<?php }} ?>
+<?php } ?>

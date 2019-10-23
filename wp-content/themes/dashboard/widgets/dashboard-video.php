@@ -4,7 +4,7 @@
     $video = getPostArray('video', get_queried_object()->term_id);
     ?>
     <?php
-    foreach ($video as $val) {
+    foreach ((array)$video as $val) {
         $title = $val->post_title;
         $description = $val->post_content;
         $url = get_field('video_file', $val);

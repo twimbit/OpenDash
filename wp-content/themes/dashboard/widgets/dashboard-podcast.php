@@ -3,7 +3,7 @@
 $podcast = getPostArray('podcast', get_queried_object()->term_id);
 ?>
 <?php
-foreach ($podcast as $val) {
+foreach ((array)$podcast as $val) {
     $title = $val->post_title;
     $description = $val->post_content;
     $url = get_field('audio_file', $val);
