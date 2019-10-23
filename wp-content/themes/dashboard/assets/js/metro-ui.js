@@ -1,6 +1,11 @@
 /* Full screen logic */
 document.addEventListener("keypress", keyUpTextField, false);
 
+/* Insight section loader hide */
+window.onload = function() {
+  $(".pace-activity").hide();
+};
+
 function keyUpTextField(e) {
   var keyCode = e.keyCode;
   if (keyCode == 70 || keyCode == 102) {

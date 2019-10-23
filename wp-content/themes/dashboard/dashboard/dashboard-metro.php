@@ -48,7 +48,7 @@
                             <?php
                                 $i = 0;
                                 /* Getting posts type array */
-                                $posts = getPostArray(array('post'), $singleSubCategory->term_id);
+                                $posts = getPostArray(array('post','amp_story','video','podcast','insights'), $singleSubCategory->term_id);
                                 foreach ($posts as $val) {
                                     $title = $val->post_title;
                                     $description = $val->post_content;
@@ -60,7 +60,7 @@
                                         <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                             <div class="m-img-lg">
                                                 <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                    <div class="infinite">
+                                                    <div class="infinite" hidden>
                                                         <div class="pace pace-active">
                                                             <div class="pace-activity" style="display: block;"></div>
                                                         </div>
@@ -78,7 +78,7 @@
                                         <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                             <div class="m-img-sm">
                                                 <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                    <div class="infinite">
+                                                    <div class="infinite" hidden>
                                                         <div class="pace pace-active">
                                                             <div class="pace-activity" style="display: block;"></div>
                                                         </div>
@@ -116,7 +116,7 @@
                                     <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                         <div class="m-img-lg">
                                             <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                <div class="infinite">
+                                                <div class="infinite" hidden>
                                                     <div class="pace pace-active">
                                                         <div class="pace-activity" style="display: block;"></div>
                                                     </div>
@@ -134,7 +134,7 @@
                                     <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                         <div class="m-img-sm">
                                             <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                <div class="infinite">
+                                                <div class="infinite" hidden>
                                                     <div class="pace pace-active">
                                                         <div class="pace-activity" style="display: block;"></div>
                                                     </div>
