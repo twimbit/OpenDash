@@ -2,7 +2,7 @@
     <?php
     /* Getting amp_story post type array */
     $story = getPostArray('amp_story', get_queried_object()->term_id);
-    foreach ($story as $val) {
+    foreach ((array)$story as $val) {
         $url = get_the_permalink($val);
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>

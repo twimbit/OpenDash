@@ -11,8 +11,7 @@ $timeline = get_field('timeline_details', $timelines[0]);
                 Timeline
             </li>
             <?php
-            if(!empty($timeline)){
-                foreach ($timeline as $val) { ?>
+                foreach ((array)$timeline as $val) { ?>
                     <li>
                         <div class="cbp_tmicon cbp_tmicon-phone" style="background-image: url(<?php echo $val['timeline_favicon']['sizes']['thumbnail'] ?>);"></div>
                         <div class="cbp_tmlabel" style="display:flex">
@@ -23,7 +22,7 @@ $timeline = get_field('timeline_details', $timelines[0]);
                         </div>
                     </li>
                 <?php }
-            } ?>
+            ?>
         </ul>
     </div>
 </div>

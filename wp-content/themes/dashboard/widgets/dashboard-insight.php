@@ -2,7 +2,7 @@
     <?php
     /* Getting insights post type array */
     $insight = getPostArray('insights', get_queried_object()->term_id);
-    foreach ($insight as $val) {
+    foreach ((array) $insight as $val) {
         $title = $val->post_title;
         $description = $val->post_content;
         $size = get_field('size', $val);

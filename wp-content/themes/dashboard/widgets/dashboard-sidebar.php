@@ -11,7 +11,7 @@
 
                 <?php
                 $category_child = get_categories(array('child_of' => get_queried_object()->term_id, 'hide_empty' => FALSE));
-                foreach ($category_child as $singleSubCategory) {   // echo do_shortcode('[pc-logout-box]');
+                foreach ((array)$category_child as $singleSubCategory) {   // echo do_shortcode('[pc-logout-box]');
                     ?>
                     <section>
                         <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_0" aria-expanded="false" tabindex="0"><?php echo $singleSubCategory->name; ?></header>
@@ -19,7 +19,7 @@
                             <?php
                                 /* Getting posts type array */
                                 $posts = getPostArray(array('post'), $singleSubCategory->term_id);
-                                foreach ($posts as $val) {
+                                foreach ((array)$posts as $val) {
                                     $title = $val->post_title;
                                     ?>
                                 <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="#" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)"><?php echo $title; ?></a></li>
@@ -33,7 +33,7 @@
                         <?php
                         /* Getting posts type array */
                         $posts = getPostArray(array('post'), get_queried_object()->term_id);
-                        foreach ($posts as $val) {
+                        foreach ((array)$posts as $val) {
                             $title = $val->post_title;
                             ?>
                             <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="#" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)"><?php echo $title; ?></a></li>

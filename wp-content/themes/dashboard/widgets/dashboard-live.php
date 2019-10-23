@@ -2,7 +2,7 @@
     <?php
     /* Getting webinar post type array */
     $webinars = getPostArray('webinar', get_queried_object()->term_id);
-    foreach ($webinars as $val) {
+    foreach ((array) $webinars as $val) {
         $title = $val->post_title;
         $thumbnail = get_the_post_thumbnail_url($val, 'thumbnail');
         $file_url = get_field('archive_file_url', $val);

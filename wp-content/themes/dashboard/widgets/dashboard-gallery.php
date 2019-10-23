@@ -2,7 +2,7 @@
     <?php
     /* Getting gallery post type array */
     $gallery = getPostArray('gallery', get_queried_object()->term_id);
-    foreach ($gallery as $val) {
+    foreach ((array) $gallery as $val) {
         $title = $val->post_title;
         $description = $val->post_content;
         $url = get_field('photos', $val);

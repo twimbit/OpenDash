@@ -306,7 +306,7 @@ $template_dir = get_template_directory_uri();
                                 <span class="container-title">Videos</span>
                                 <?php get_template_part("widgets/dashboard", "video"); ?>
                             </div>
-                            <div class="video-slider gap black-tint">
+                            <div class="video-slider gap black-tint" hidden>
                                 <span class="container-title">Live</span>
                                 <?php get_template_part("widgets/dashboard", "live"); ?>
                                 <div id="webinar"></div>
