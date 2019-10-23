@@ -212,7 +212,7 @@ html {
 
 body {
   font-family: "Lato", Calibri, Arial, sans-serif;
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
 }
 
 a {
@@ -298,7 +298,7 @@ pd-player {
 /* Timeline css */
 
 .tab-card {
-  width: 230px;
+  width: 400px;
 }
 .timeline-card {
   white-space: normal;
@@ -352,7 +352,6 @@ pd-player {
   /* flex: 1; */
   /* height: 100%; */
   display: grid;
-  grid-template-columns: 50% 50%;
   /* grid-template-rows: 70px 70px; */
 }
 .world-map {
@@ -375,7 +374,8 @@ pd-player {
 }
 .video-slider span {
   /* font-size: 12px; */
-  margin-top: 6px;
+  margin-top: 8px;
+  /* display: inline; */
 }
 
 .vsl-content amp-img {
@@ -1322,7 +1322,7 @@ pd-player {
   right: 0;
 }
 .mr {
-  width: 350px;
+  width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1331,6 +1331,11 @@ pd-player {
   -ms-flex-direction: column;
   flex-direction: column;
   margin: 5px;
+}
+.mr:before{
+  content:'Key Persons';
+  margin-left: 5px;
+  font-size: 14px;
 }
 
 @media (max-width: 480px) {
@@ -2052,6 +2057,13 @@ amp-carousel > div {
   right: 0;
   left: 7px;
   font-size: 15px;
+  overflow: hidden;
+  /* color: #fff; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.video-title span{
+  display:inline;
 }
 .story-div {
   /* -webkit-box-flex: 3; */

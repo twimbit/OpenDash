@@ -2940,7 +2940,7 @@ input[type="submit"].btn-block {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   font-family: montserrat;
-  font-weight: 600;
+  font-weight: bold;
 }
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
