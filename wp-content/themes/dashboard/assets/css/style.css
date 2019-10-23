@@ -333,7 +333,7 @@ pd-player {
   overflow-y: hidden;
   min-width: 1366px;
   max-width: 1920px;
-  min-height: 600px;
+  /* min-height: 600px; */
   max-height: 1080px;
   /* margin: 0 auto; */
   background-size: 40px 40px;
@@ -820,7 +820,8 @@ pd-player {
   display: flex;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
-  flex-grow: 1;
+  flex: 1;
+  overflow-y: hidden;
   position: relative;
   -webkit-transition: overflow 0.4s;
   transition: overflow 0.4s;

@@ -26,7 +26,7 @@
   grid-row-gap: 10px;
   position: relative;
   top: 119px;
-  height: calc(100% - 170px);
+  height: 100%;
   grid-auto-flow: column;
   margin-right: 52px;
   /* width: 400px; */
@@ -56,7 +56,7 @@
   padding-left: 45px;
   color: #fff !important;
   /* white-space: nowrap; */
-  /* display: flex; */
+  display: flex;
   /* padding-right: 20px; */
 }
 
@@ -189,38 +189,52 @@
     justify-content: space-between;
   }
   .m-container {
-    /* margin: 0.8rem; */
-    height: 100%;
-    overflow-y: scroll;
+    margin: 0;
+    /* height: 100%; */
+    overflow-y: auto;
     font-family: Montserrat;
-    flex-direction: column;
+    /* flex-direction: column; */
     display: block;
     color: #fff !important;
-    padding: 0;
-    position: none;
+    padding: 0 15px;
+    /* top: 81px; */
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   .m-col-subcat {
-    height: 100%;
+    height: auto;
     grid-template-columns: 1fr;
-    grid-auto-rows: 300px;
-    margin: 0;
+    /* grid-auto-rows: 0px; */
+    /* margin: 0; */
     padding: 0;
     grid-auto-flow: row;
+    grid-auto-rows: 90px;
+    /* top: 75px; */
+    position: relative;
+    top: 73px;
+    /* bottom: 0; */
+    grid-template-rows: auto;
+    margin-bottom: 120px;
+    /* left: 0; */
+    margin-right: auto;
+    /* right: 0; */
   }
-  .m-subcat-name {
+  .m-subcat-name{
     margin: 0;
-    position: none;
+    position: relative;
   }
-  .m-row-span-4 {
-    grid-row: span 2;
-    position: none;
+  .m-row-span-4{
+    grid-row: span 3;
+    position: relative;
   }
-  .m-row-span-3 {
+  .m-row-span-3{
     grid-row: span 1;
-    position: none;
   }
-  .m-img-sm {
+  .m-img-sm{
     width: 25%;
     position: none;
   }
-}
+ }
