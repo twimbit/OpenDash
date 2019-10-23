@@ -177,7 +177,7 @@ if (pc_user_logged('username')) {
                         <form class="pc_rm_login  pc_lf_long_labels">
                             <div class="pc_login_row ">
                                 <div class="pc_field_container">
-                                    <input type="text" name="pc_auth_username" value="" autocapitalize="off" autocomplete="off" autocorrect="off" maxlength="150" class="login_inputbox" placeholder="Email">
+                                    <input type="text" name="pc_auth_username" value="" autocapitalize="off" autocomplete="off" autocorrect="off" maxlength="150" class="login_inputbox" placeholder="Email/Username">
                                 </div>
                             </div>
                             <div class="pc_login_row ">
