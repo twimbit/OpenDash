@@ -44,7 +44,7 @@
                     foreach ($category_child as $singleSubCategory) {   // echo do_shortcode('[pc-logout-box]');
                         ?>
                         <div class="m-col-subcat">
-                            <p><?php echo $singleSubCategory->name; ?></p>
+                            <p style="text-transform: capitalize"><?php echo $singleSubCategory->name; ?></p>
                             <?php
                                 $i = 0;
                                 /* Getting posts type array */
@@ -100,12 +100,35 @@
                     <!-- miscellaneous section -->
 
                     <div class="m-col-subcat">
-                        <p>Miscellaneous</p>
+                        <p>Updates & Other info</p>
                         <?php
+
+
+                        function get_level($category, $level = 0)
+                        {
+                            if ($category->category_parent == 0) {
+                                return $level;
+                            } else {
+                                $level++;
+                                $category = get_category($category->category_parent);
+                                return get_level($category, $level);
+                            }
+
+                        }
+
+                        function category_has_parent($catid){
+                            $category = get_category($catid);
+                            if ($category->category_parent > 0){
+                                return true;
+                            }
+                            return false;
+                        }
+
                         $i = 0;
                         /* Getting posts type array */
                         $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), get_queried_object()->term_id);
                         foreach ($posts as $val) {
+                            if(get_the_category($val)[0]->parent == 0 ){
                             $title = $val->post_title;
                             $description = $val->post_content;
                             $excerpt = $val->post_excerpt;
@@ -147,7 +170,7 @@
                                         </div>
                                     </a>
                                 </div>
-                        <?php }
+                        <?php }}
                             $i++;
                         } ?>
                     </div>
