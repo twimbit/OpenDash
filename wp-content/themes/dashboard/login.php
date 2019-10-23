@@ -138,6 +138,9 @@ $template_dir = get_template_directory_uri();
             width: 80px;
         }
     }
+    .pc_field_container{
+        -webkit-user-select: text!important;
+    }
 
     @media (max-width:420px) {
         .login_right {

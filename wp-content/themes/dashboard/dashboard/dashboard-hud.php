@@ -2,6 +2,8 @@
 $template_dir = get_template_directory_uri();
 ?>
 <title>Dashboard-<?php echo get_queried_object()->name; ?></title>
+
+
 </head>
 
 <body style="overflow-y:hidden">
@@ -15,7 +17,7 @@ $template_dir = get_template_directory_uri();
         <div class="board-header">
             <?php get_template_part("widgets/dashboard", "header"); ?>
         </div>
-        <div class="dashboard" style="overflow-y:hidden">
+        <div class="dashboard"  id="dashboard-container" style="overflow-y:hidden">
             <div class="main-board" id="main-board">
                 <div class="row-1">
                     <div class="tab-card card-box black-tint gap" id="overview">
@@ -95,7 +97,7 @@ $template_dir = get_template_directory_uri();
                                                                         <path id="Path_3204" data-name="Path 3204" d="M204.531,140.147,189,140.109v-1.6h-.35v1.6l-5.892-.013v-.725h-.35v.725l-3.574-.013v-.712h-.363v.712l1.968-.013v-1.564h-.35v1.564l-5.063-.013v-.686h-.35v.686h-3.587v-.686h-.35v.674h-4.26v-1.64h-.142v1.64h-.311V138.38l-1.671.953-1.671.941,1.671.953,1.671.941v-1.78h.311v1.83h.142v-1.83l4.26-.025v.941h.35v-.941l3.587-.013v.953h.35v-.953l5.063-.013v1.716h.35v-1.716l-1.968-.013v.979h.363v-.979l3.574-.013v.991h.35v-.991l5.892-.025v1.767H189v-1.767l15.527-.051Z" transform="translate(47.886 45.062)" fill="#fff" opacity="0.38"></path>
                                                                         <path id="Path_3205" data-name="Path 3205" d="M121.39,140.489l15.527.038v1.614h.35v-1.614l5.879.013v.737h.35v-.737l3.587.013v.725h.363v-.725l-1.968.013v1.576h.35v-1.576l5.05.013v.7h.363v-.7l3.587.013v.686h.35v-.686l4.248.013v1.627h.155V140.6h.311v1.64l1.658-.928,1.671-.953-1.671-.941-1.658-.953v1.792h-.311v-1.83h-.155v1.83l-4.248.013v-.928h-.35v.928l-3.587.013v-.941h-.363v.941l-5.05.013v-1.716h-.35V140.3l1.968.025v-.979h-.363v.979l-3.587.013v-.992h-.35v.992l-5.879.013v-1.767h-.35v1.767l-15.527.051Z" transform="translate(35.704 44.974)" fill="#fff" opacity="0.38"></path>
                                                                         <path id="Path_3206" data-name="Path 3206" d="M158.2,149.14l.039,15.241h1.632v.343H158.24l.013,5.771h.738v.343h-.738v3.521h.738v.356h-.738l.026,5.593h1.593v.343h-1.593l.013,4.97h.7v.343h-.7v3.521h.7v.343h-.7l.013,4.182h1.671v.14H158.3v.305h1.683l-.958,1.64-.958,1.64-.971-1.64-.958-1.64h1.813v-.305H156.09v-.14h1.865l.013-4.182h-.945v-.343h.945l.013-3.521h-.958v-.343h.958l.013-4.97h-1.735v-.343h1.748l.013-5.593h-1v-.356h1l.013-3.521h-1.01V170.5h1.01l.013-5.771h-1.787v-.343h1.787l.065-15.241Z" transform="translate(45.94 -24.134)" fill="#fff" opacity="0.38"></path>
-                                                                        <path id="Path_3207" data-name="Path 3207" d="M259.52,201.815l5.4-3.025.44.763-5.4,3.013Z" transform="translate(76.449 -92.076)" fill="#fff"></path>
+                                                                        <path id="Path_3207" data-name="Path 3207" d="M259.52,201.815l5.4-3.025.44.763-5.4,3.013Z" transform="translate(76.449 -92.076)" fill="#fff"></path><text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(257px, 97px) rotate(16deg);"><a data-scroll href="#insight"  class="radar-link" style="text-decoration: none;fill: #fff; z-index: 10;">Insights</a></text>
                                                                         <path id="Path_3293" data-name="Path 3293" d="M2.265,6.917l.881-.007L3.193.719,2.312.726Z" transform="translate(343.603 109.053) rotate(62.35)" fill="#fff"></path>
                                                                         <path id="Path_3208" data-name="Path 3208" d="M263.35,194.2l5.607-2.644.376.788-5.607,2.631Z" transform="translate(77.579 -75.299)" fill="#fff"></path>
                                                                         <path id="Path_3294" data-name="Path 3294" d="M2.075,6.789l.88-.006L3,.585l-.88.006Z" transform="translate(348.564 118.963) rotate(66.39)" fill="#fff"></path>
@@ -256,7 +258,7 @@ $template_dir = get_template_directory_uri();
                                                                         <path id="Path_3292" data-name="Path 3292" d="M157.6,311.334v0Z" transform="translate(46.385 -126.023)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.1"></path>
                                                                         <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(73px, 236px) rotate(16deg);"><a href="#story" class="radar-link" style="text-decoration: none;fill: #fff;">Story</a></text>
                                                                         <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(117px, 90px) rotate(16deg);"><a href="#overview" class="radar-link" style="text-decoration: none;fill: #fff;">Overview</a></text>
-                                                                        <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(257px, 97px) rotate(16deg);"><a href="#insight" class="radar-link" style="text-decoration: none;fill: #fff;">Insights</a></text>
+
                                                                         <text id="_000067866756" data-name="000067866756" transform="" fill="#fff" font-size="24" font-family="OpenSans-Regular, Open Sans" opacity="1" style="transform: translate(208px, 300px) rotate(16deg);"><a href="#webinar" class="radar-link" style="text-decoration: none;fill: #fff;">Webinar</a></text>
                                                                     </g>
                                                                 </g>
@@ -297,7 +299,7 @@ $template_dir = get_template_directory_uri();
                             </div>
                         </div>
                         <div class="vsl-main">
-                            <div class="video-slider gap black-tint">
+                            <div id="story" class="video-slider gap black-tint">
                                 <span class="container-title">Story</span>
                                 <?php get_template_part("widgets/dashboard", "story"); ?>
                                 <div id="story"></div>
@@ -337,47 +339,49 @@ $template_dir = get_template_directory_uri();
     <!-- Jquery ui -->
     <script src="<?php echo $template_dir; ?>/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
     <script>
-        /* Minimize modal logic */
-        var _init = $.ui.dialog.prototype._init;
-        $.ui.dialog.prototype._init = function() {
-            //Run the original initialization code
-            _init.apply(this, arguments);
+        $(document).ready(function(){
+            /* Minimize modal logic */
+            var _init = $.ui.dialog.prototype._init;
+            $.ui.dialog.prototype._init = function () {
+                //Run the original initialization code
+                _init.apply(this, arguments);
 
-            //set some variables for use later
-            var dialog_element = this;
-            var dialog_id = this.uiDialogTitlebar.next().attr('id');
+                //set some variables for use later
+                var dialog_element = this;
+                var dialog_id = this.uiDialogTitlebar.next().attr('id');
 
-            //append our minimize icon
-            this.uiDialogTitlebar.append('<a href="#" id="' + dialog_id +
-                '-minbutton" class="ui-dialog-titlebar-minimize ui-corner-all">' +
-                '<span class="ui-icon ui-icon-minusthick"></span></a>');
+                //append our minimize icon
+                this.uiDialogTitlebar.append('<a href="#" id="' + dialog_id +
+                    '-minbutton" class="ui-dialog-titlebar-minimize ui-corner-all">' +
+                    '<span class="ui-icon ui-icon-minusthick"></span></a>');
 
-            //append our minimized state
-            $('#dialog_window_minimized_container').append(
-                '<div class="dialog_window_minimized ui-widget ui-state-default ui-corner-all" id="' +
-                dialog_id + '_minimized">' + this.uiDialogTitlebar.find('.ui-dialog-title').text() +
-                '<span class="ui-icon ui-icon-newwin"></div>');
+                //append our minimized state
+                $('#dialog_window_minimized_container').append(
+                    '<div class="dialog_window_minimized ui-widget ui-state-default ui-corner-all" id="' +
+                    dialog_id + '_minimized">' + this.uiDialogTitlebar.find('.ui-dialog-title').text() +
+                    '<span class="ui-icon ui-icon-newwin"></div>');
 
-            //create a hover event for the minimize button so that it looks good
-            $('#' + dialog_id + '-minbutton').hover(function() {
-                $(this).addClass('ui-state-hover');
-            }, function() {
-                $(this).removeClass('ui-state-hover');
-            }).click(function() {
-                //add a click event as well to do our "minimalization" of the window
-                dialog_element.close();
+                //create a hover event for the minimize button so that it looks good
+                $('#' + dialog_id + '-minbutton').hover(function () {
+                    $(this).addClass('ui-state-hover');
+                }, function () {
+                    $(this).removeClass('ui-state-hover');
+                }).click(function () {
+                    //add a click event as well to do our "minimalization" of the window
+                    dialog_element.close();
 
-                // $('.model-container').hide();
-                $('#' + dialog_id + '_minimized').show();
-            });
+                    // $('.model-container').hide();
+                    $('#' + dialog_id + '_minimized').show();
+                });
 
-            //create another click event that maximizes our minimized window
-            $('#' + dialog_id + '_minimized').click(function() {
-                $(this).hide();
-                // $('.model-container').show();
-                dialog_element.open();
-            });
-        };
+                //create another click event that maximizes our minimized window
+                $('#' + dialog_id + '_minimized').click(function () {
+                    $(this).hide();
+                    // $('.model-container').show();
+                    dialog_element.open();
+                });
+            };
+        });
     </script>
     <!-- App js -->
     <script src="<?php echo $template_dir; ?>/assets/js/hud-ui.js"></script>
