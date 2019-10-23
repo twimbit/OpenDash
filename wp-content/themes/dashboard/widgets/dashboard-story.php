@@ -2,8 +2,9 @@
     <?php
     /* Getting amp_story post type array */
     $story = getPostArray('amp_story', get_queried_object()->term_id);
-    foreach ((array)$story as $val) {
+    foreach ((array) $story as $val) {
         $url = get_the_permalink($val);
+        $title = $val->post_title;
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
         ?>
         <div class="vsl-container">
@@ -19,7 +20,7 @@
                     </amp-img>
                 </a>
                 <div class="video-title">
-                    <span>this is title</span>
+                    <span><?php echo $title ?></span>
                 </div>
             </div>
         </div>

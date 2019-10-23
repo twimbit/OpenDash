@@ -1,4 +1,11 @@
-
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: -moz-none !important;
+  -o-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  outline: none;
+}
 
 body,
 html {
@@ -819,8 +826,6 @@ pd-player {
   position: relative;
   -webkit-transition: overflow 0.4s;
   transition: overflow 0.4s;
-  scroll-behavior: smooth;
-  animation: ease-in-out 0.3s;
 }
 .board-header {
   display: -webkit-box;
@@ -1440,7 +1445,6 @@ nav[toolbar] li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 5;
 }
 .radar-container svg {
   position: absolute;
@@ -2137,7 +2141,6 @@ amp-social-share {
   }
   .radar-container {
     width: 48%;
-    min-width: 200px;
   }
   .vsl-container {
     width: 26%;

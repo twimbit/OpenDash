@@ -1,12 +1,4 @@
-/* real time stock iframe js */
-var iframe = document.getElementById("flotRealTime"),
-  iframedoc = iframe.contentDocument || iframe.contentWindow.document;
-iframedoc.open();
-iframedoc.writeln(
-  '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta http-equiv="X-UA-Compatible" content="ie=edge" /><title>Document</title><style>body{width: 100%;height: 100vh;margin:0}*{overflow:hidden}.tradingview-widget-container__widget{height:70px}</style></head><body><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BSE:HDFCBANK","width": "100%","height": "100%","locale": "in","dateRange": "12m","colorTheme": "dark","trendLineColor": "#37a6ef","underLineColor": "rgba(55, 166, 239, 0.15)","isTransparent": false,"autosize": true,"largeChartUrl": ""}</script></div></body>'
-);
 
-iframedoc.close();
 /* fullscreen code */
 document.addEventListener("keypress", keyUpTextField, false);
 

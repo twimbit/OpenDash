@@ -4,7 +4,7 @@
     $video = getPostArray('video', get_queried_object()->term_id);
     ?>
     <?php
-    foreach ((array)$video as $val) {
+    foreach ((array) $video as $val) {
         $title = $val->post_title;
         $description = $val->post_content;
         $url = get_field('video_file', $val);
@@ -24,7 +24,7 @@
                     </amp-img>
                 </a>
                 <div class="video-title">
-                    <span>this is title</span>
+                    <span><?php echo $title ?></span>
                 </div>
             </div>
         </div>
