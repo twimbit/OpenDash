@@ -5,6 +5,7 @@
     $cat = get_queried_object()->term_id;
     $tabs = get_field('tab', $tab[0]);
     $i = 0;
+    if(!empty($tabs)){
     foreach ($tabs as $val) {
         $title = $val['tab_title'];
         if ($i == 0) {
@@ -16,8 +17,9 @@
             <li>
                 <a data-toggle="tab" href="#<?php echo $title; ?>" class="nav-link"><?php echo $title; ?></a>
             </li>
-    <?php }
+        <?php }
         $i++;
+
     }
     ?>
     <li>
@@ -43,9 +45,10 @@
                     <?php echo $content; ?>
                 </p>
             </div>
-    <?php }
+        <?php }
         $i++;
-    } ?>
+    }
+    }?>
     <div class="tab-pane show" id="links">
         <div class="social-links gap">
             <?php get_template_part("widgets/dashboard", "social"); ?>

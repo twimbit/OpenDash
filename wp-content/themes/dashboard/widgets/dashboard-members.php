@@ -2,6 +2,7 @@
 /* Getting contacts post type array */
 $tab = getPostArray('contact', get_queried_object()->term_id);
 $contact = get_field('contact_details', $tab[0]);
+if(!empty($contact)){
 foreach ($contact as $val) {
     $name = $val['contact_name'];
     $designation = $val['designation'];
@@ -9,7 +10,7 @@ foreach ($contact as $val) {
     $insta = $val['instagram'];
     $twitter = $val['twitter'];
     $face = $val['facebook'];
-    $linkdn = $val['linkdin'];
+    $linkdin = $val['linkdin'];
     $email = $val['email'];
     ?>
     <div class="card promoting-card black-tint">
@@ -65,4 +66,4 @@ foreach ($contact as $val) {
             </div>
         </div>
     </div>
-<?php } ?>
+<?php }} ?>
