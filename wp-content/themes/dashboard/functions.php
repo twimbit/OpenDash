@@ -448,16 +448,17 @@ if (function_exists('register_sidebar'))
 
 
 /* get post array */
-function getPostArray($type, $queriedObject)
+function getPostArray($type, $queriedObject ,  $order = 'ASC' , $post_sorting = 'date')
 {
     $args = array(
         'numberposts' => 0,
         'post_type' => $type,
-        'cat' => $queriedObject
+        'cat' => $queriedObject,
+        'orderby' => $post_sorting,
+        'order' => $order
     );
     return get_posts($args);
 }
-
 
 function enterprise_register_required_plugins()
 {
