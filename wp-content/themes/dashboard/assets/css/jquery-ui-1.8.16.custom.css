@@ -1181,10 +1181,12 @@ button.ui-button::-moz-focus-inner {
   min-width: 50vw !important;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
-@media (max-width: 420px) {
+@media (max-width: 620px) {
   .ui-dialog {
-    min-height: 76vh !important;
-    min-width: 90vw !important;
+    height: 92% !important;
+    width: 99% !important;
+    bottom: 0;
+    top: 47px !important;
   }
 }
 .ui-dialog .ui-dialog-titlebar {

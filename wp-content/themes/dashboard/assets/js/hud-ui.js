@@ -341,6 +341,8 @@ function openModal(modal, id, title) {
   }
 }
 
+
+
 let site_url = window.location.origin + "/wp-admin/admin-ajax.php";
 // Ajax calling method for modals
 function loadArticle(id, type) {
