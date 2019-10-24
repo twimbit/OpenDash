@@ -70,14 +70,15 @@ $user_name = pc_user_logged('name');
                             $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
                             $db_type = get_field('dashboard', get_category_by_slug($cat_name));
                             $args = array(
-                                'posts_per_page' => 1, // we need only the latest post, so get that post only
-                                'cat' => $cat_id // Use the category id, can also replace with category_name which uses category slug
+                                'posts_per_page' => 1,
+                                'cat' => $cat_id
                             );
                             $posts = get_posts($args);
-                            print_r($posts);
+                            // print_r($posts);
                             ?><a href="<?php echo $cat_link; ?>" class="item">
-                                <span style="display: flex; align-items: center;"><?php echo $cat_name; ?></span>
-                                <span class="alert-success">Last updated</span>
+                                <span style="display: flex; align-items: center;text-transform: capitalize;
+    font-size: 14px;font-weight:bold"><?php echo $cat_name; ?></span>
+
                                 <?php if ($db_type == "metro") { ?>
                                     <svg aria-hidden="true" title="Metro Dashboard" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path>
@@ -112,18 +113,23 @@ $user_name = pc_user_logged('name');
                         <?php $update = getPostArray('update', null);
                         foreach ($update as $val) {
                             $link = get_the_permalink($val);
+                            $cat_name = get_the_category($val)[0]->name;
                             ?>
-                            <a href="" class="notification-items">
-                                <span><?php echo $val->post_title; ?></span>
-                                <span><?php echo $val->post_content; ?></span>
+                            <a href="" class="notification-items" onclick="openNotificationModal()">
+                                <div class="notification-text">
+                                    <span style="text-transform:capitalize;"><?php echo $val->post_title; ?></span>
+                                    <span><?php echo $val->post_content; ?></span>
+                                </div>
+                                <div class="notification-cat">
+                                    <p><?php echo $cat_name; ?></p>
+                                </div>
+                                <div class="notification-time">
+                                    <p><?php
+                                            echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
+                                </div>
                             </a>
                         <?php } ?>
                     </div>
-                    <footer style="color:rgb(24, 123, 216); text-align: center">
-                        <p style="font-size:11px; letter-spacing: 0.5px;">
-                            view all notification
-                        </p>
-                    </footer>
                 </div>
 
                 <div class="side3">
@@ -147,67 +153,6 @@ $user_name = pc_user_logged('name');
             </div>
         </section>
     </div>
-    <script>
-        const one = document.querySelector(".side1");
-        const two = document.querySelector(".side2");
-        const three = document.querySelector(".side3");
-        const terminal = document.querySelector(".one");
-        const notification = document.querySelector(".two");
-        const availability = document.querySelector(".three");
-        const btn = document.querySelectorAll("button");
-
-        btn[0].addEventListener("click", function() {
-            if ([...btn[0].classList].includes("btn-active")) {
-                btn[0].classList.remove("btn-active");
-            }
-            btn[0].classList.add("btn-active");
-            btn[1].classList.remove("btn-active");
-            btn[2].classList.remove("btn-active");
-        });
-        btn[1].addEventListener("click", function() {
-            if ([...btn[1].classList].includes("btn-active")) {
-                btn[1].classList.remove("btn-active");
-            }
-            btn[1].classList.add("btn-active");
-            btn[0].classList.remove("btn-active");
-            btn[2].classList.remove("btn-active");
-        });
-        btn[2].addEventListener("click", function() {
-            if ([...btn[2].classList].includes("btn-active")) {
-                btn[2].classList.remove("btn-active");
-            }
-            btn[2].classList.add("btn-active");
-            btn[1].classList.remove("btn-active");
-            btn[0].classList.remove("btn-active");
-        });
-
-        one.addEventListener("click", function() {
-            one.children[0].classList.replace("fa-plus", "fa-minus");
-            two.children[0].classList.replace("fa-minus", "fa-plus");
-            three.children[0].classList.replace("fa-minus", "fa-plus");
-            terminal.style.width = "100%";
-            notification.style.width = "0";
-            availability.style.width = "0";
-        });
-
-        two.addEventListener("click", function() {
-            one.children[0].classList.replace("fa-minus", "fa-plus");
-            two.children[0].classList.replace("fa-plus", "fa-minus");
-            three.children[0].classList.replace("fa-minus", "fa-plus");
-            terminal.style.width = "0";
-            notification.style.width = "100%";
-            availability.style.width = "0";
-        });
-
-        three.addEventListener("click", function() {
-            three.children[0].classList.replace("fa-plus", "fa-minus");
-            one.children[0].classList.replace("fa-minus", "fa-plus");
-            two.children[0].classList.replace("fa-minus", "fa-plus");
-            terminal.style.width = "0";
-            notification.style.width = "0";
-            availability.style.width = "100%";
-        });
-    </script>
     <!-- jQuery  -->
     <script src="<?php echo $template_dir; ?>/assets/js/jquery.min.js"></script>
     <script src="<?php echo $template_dir; ?>/assets/js/popper.min.js"></script>
@@ -218,10 +163,6 @@ $user_name = pc_user_logged('name');
     <!-- Popper for Bootstrap -->
     <script src="<?php echo $template_dir; ?>/assets/js/bootstrap.min.js"></script>
 
-    <!--Echart Chart-->
-    <script type="text/javascript" src="<?php echo $template_dir; ?>/plugins/echart/echarts.js"></script>
-    <script type="text/javascript" src="<?php echo $template_dir; ?>/plugins/echart/world.js"></script>
-
-    <!-- Echart init -->
-    <script src="<?php echo $template_dir; ?>/assets/pages/jquery.echart.init.js"></script>
+    <!-- index js -->
+    <script src="<?php echo $template_dir; ?>/assets/js/index.app.js"></script>
     <?php get_footer(); ?>

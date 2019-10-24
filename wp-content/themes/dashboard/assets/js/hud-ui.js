@@ -1,4 +1,3 @@
-
 /* fullscreen code */
 document.addEventListener("keypress", keyUpTextField, false);
 
@@ -246,8 +245,14 @@ $(".video-slider").mousewheel(function(event, delta) {
 //   $(".collapse.in").toggleClass("in");
 //   $("a[aria-expanded=true]").attr("aria-expanded", "false");
 // });
-
-// $(".dashboard").animate({ scrollLeft: 600 }, 1000);
+$(".dashboard").animate(
+  {
+    scrollLeft: $(".radar-container svg").offset().left
+  },
+  1000
+);
+// let ds_width = $(".dashboard").width() / 2;
+// $(".dashboard").animate({ scrollLeft: ds_width }, 1000);
 
 // $(".analytics-charts, .charts-container").dragscrollable({
 //   dragSelector: "a",
@@ -336,11 +341,12 @@ function openModal(modal, id, title) {
   }
 }
 
+let site_url = window.location.origin;
 // Ajax calling method for modals
 function loadArticle(id, type) {
   $(".pace-activity").show("fast");
   $.ajax({
-    url: "/ds/wp-admin/admin-ajax.php",
+    url: site_url,
     type: "POST",
     data: "action=infinite_scroll&id=" + id + "&type=" + type,
     success: function(data) {

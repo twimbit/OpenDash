@@ -676,13 +676,16 @@ pd-player {
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+  flex: 1;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 .podcast .play {
   margin-bottom: 3px;
   height: inherit;
   left: 14px;
-  width: 96%;
+  width: 91%;
   /* border-radius: 8px; */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -690,6 +693,7 @@ pd-player {
   border-bottom: 1.3px solid #ffffff14;
   background-color: transparent;
   /* justify-content: space-between; */
+  flex-direction: row;
 }
 .podcast-icon {
   width: 42px;
@@ -825,6 +829,7 @@ pd-player {
   position: relative;
   -webkit-transition: overflow 0.4s;
   transition: overflow 0.4s;
+  scroll-behavior: smooth;
 }
 .board-header {
   display: -webkit-box;
@@ -1125,6 +1130,8 @@ pd-player {
   /* background-color: white; */
   /* box-shadow: 1px 1px 1px black; */
   grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-in amp-img {
@@ -1453,7 +1460,7 @@ nav[toolbar] li {
 .radar-container svg {
   position: absolute;
   width: 100%;
-  /* height: 248px; */
+  height: 100%;
 }
 .radar-labels {
   width: 50%;
