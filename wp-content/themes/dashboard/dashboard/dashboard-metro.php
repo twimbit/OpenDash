@@ -39,7 +39,7 @@
         <div class="dashboard">
             <div class="main-board" id="main-board">
                 <div class="m-container">
-                    <!-- Updates & Other info -->
+                    <!-- miscellaneous section -->
 
                     <div class="m-col-subcat">
                         <p>Updates & Other info</p>
@@ -52,7 +52,7 @@
                                 $title = $val->post_title;
                                 $description = $val->post_content;
                                 $excerpt = $val->post_excerpt;
-                                $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
+                                $thumbnail = get_the_post_thumbnail_url($val, "medium");
                                 if ($i == 0) {
                                     ?>
                                     <div class="m-subcat-name m-row-span-4">
@@ -109,7 +109,7 @@
                                     $title = $val->post_title;
                                     $description = $val->post_content;
                                     $excerpt = $val->post_excerpt;
-                                    $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
+                                    $thumbnail = get_the_post_thumbnail_url($val, "medium");
                                     if ($i == 0) {
                                         ?>
                                     <div class="m-subcat-name m-row-span-4">

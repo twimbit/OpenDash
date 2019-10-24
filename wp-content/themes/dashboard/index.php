@@ -124,7 +124,8 @@ $user_name = pc_user_logged('name');
                                     <p><?php echo $cat_name; ?></p>
                                 </div>
                                 <div class="notification-time">
-                                    <p><?php echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
+                                    <p><?php
+                                            echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
                                 </div>
                             </a>
                         <?php } ?>
