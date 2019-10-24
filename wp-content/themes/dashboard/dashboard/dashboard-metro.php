@@ -39,7 +39,7 @@
         <div class="dashboard">
             <div class="main-board" id="main-board">
                 <div class="m-container">
-                    <!-- miscellaneous section -->
+                    <!-- Updates & Other info -->
 
                     <div class="m-col-subcat">
                         <p>Updates & Other info</p>
@@ -213,4 +213,3 @@
 
         <!-- Metro ui js -->
         <script src="<?php echo $template_dir; ?>/assets/js/metro-ui.js"></script>
-      

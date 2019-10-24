@@ -115,7 +115,7 @@ $user_name = pc_user_logged('name');
                             $link = get_the_permalink($val);
                             $cat_name = get_the_category($val)[0]->name;
                             ?>
-                            <a href="#" class="notification-items" onclick="let notification_title = <?php echo $val->post_content; ?>;openModal(<?php echo $val->ID; ?>,'<?php echo $val->post_title; ?>',notification_title)">
+                            <a href="#" class="notification-items" onclick="let notification_title = `<?php echo $val->post_content; ?>`;openModal(<?php echo $val->ID; ?>,'<?php echo $val->post_title; ?>',notification_title)">
                                 <div class="notification-text">
                                     <span style="text-transform:capitalize;"><?php echo $val->post_title; ?></span>
                                     <span><?php echo $val->post_content; ?></span>
@@ -124,8 +124,7 @@ $user_name = pc_user_logged('name');
                                     <p><?php echo $cat_name; ?></p>
                                 </div>
                                 <div class="notification-time">
-                                    <p><?php
-                                            echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
+                                    <p><?php echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
                                 </div>
                             </a>
                         <?php } ?>
