@@ -326,18 +326,7 @@ function wp_infinitepaginate()
                     <h3><?php echo $title; ?></h3>
                 </div>
                 <div class="md-content">
-                    <p><?php echo $description;
-                                wp_link_pages(
-                                    array(
-                                        'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'twentysixteen') . '</span>',
-                                        'after'       => '</div>',
-                                        'link_before' => '<span>',
-                                        'link_after'  => '</span>',
-                                        'pagelink'    => '<span class="screen-reader-text">' . __('Page', 'twentysixteen') . ' </span>%',
-                                        'separator'   => '<span class="screen-reader-text">, </span>',
-                                    )
-                                );
-                                ?></p>
+                    <p><?php echo $description; ?></p>
                 </div>
             </div>
         </div>
