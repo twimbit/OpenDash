@@ -429,13 +429,6 @@ $template_dir = get_template_directory_uri();
     <!-- Popper for Bootstrap -->
     <script src="<?php echo $template_dir; ?>/assets/js/bootstrap.min.js"></script>
 
-    <!--Echart Chart-->
-    <script type="text/javascript" src="<?php echo $template_dir; ?>/plugins/echart/echarts.js"></script>
-    <script type="text/javascript" src="<?php echo $template_dir; ?>/plugins/echart/world.js"></script>
-
-    <!-- Echart init -->
-    <script src="<?php echo $template_dir; ?>/assets/pages/jquery.echart.init.js"></script>
-
     <!-- Jquery ui -->
     <script src="<?php echo $template_dir; ?>/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
     <script>

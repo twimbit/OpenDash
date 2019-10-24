@@ -163,6 +163,161 @@ $user_name = pc_user_logged('name');
     <!-- Popper for Bootstrap -->
     <script src="<?php echo $template_dir; ?>/assets/js/bootstrap.min.js"></script>
 
-    <!-- index js -->
-    <script src="<?php echo $template_dir; ?>/assets/js/index.app.js"></script>
+    <!-- Jquery ui -->
+    <script src="<?php echo $template_dir; ?>/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script>
+        /* Minimize modal logic */
+        var _init = $.ui.dialog.prototype._init;
+        $.ui.dialog.prototype._init = function() {
+            //Run the original initialization code
+            _init.apply(this, arguments);
+
+            //set some variables for use later
+            var dialog_element = this;
+            var dialog_id = this.uiDialogTitlebar.next().attr('id');
+
+            //append our minimize icon
+            this.uiDialogTitlebar.append('<a href="#" id="' + dialog_id +
+                '-minbutton" class="ui-dialog-titlebar-minimize ui-corner-all">' +
+                '<span class="ui-icon ui-icon-minusthick"></span></a>');
+
+            //append our minimized state
+            $('#dialog_window_minimized_container').append(
+                '<div class="dialog_window_minimized ui-widget ui-state-default ui-corner-all" id="' +
+                dialog_id + '_minimized">' + this.uiDialogTitlebar.find('.ui-dialog-title').text() +
+                '<span class="ui-icon ui-icon-newwin"></div>');
+
+            //create a hover event for the minimize button so that it looks good
+            $('#' + dialog_id + '-minbutton').hover(function() {
+                $(this).addClass('ui-state-hover');
+            }, function() {
+                $(this).removeClass('ui-state-hover');
+            }).click(function() {
+                //add a click event as well to do our "minimalization" of the window
+                dialog_element.close();
+
+                // $('.model-container').hide();
+                $('#' + dialog_id + '_minimized').show();
+            });
+
+            //create another click event that maximizes our minimized window
+            $('#' + dialog_id + '_minimized').click(function() {
+                $(this).hide();
+                // $('.model-container').show();
+                dialog_element.open();
+            });
+        };
+    </script>
+
+    <script>
+        const one = document.querySelector(".side1");
+        const two = document.querySelector(".side2");
+        const three = document.querySelector(".side3");
+        const terminal = document.querySelector(".one");
+        const notification = document.querySelector(".two");
+        const availability = document.querySelector(".three");
+        const btn = document.querySelectorAll("button");
+
+        btn[0].addEventListener("click", function() {
+            if ([...btn[0].classList].includes("btn-active")) {
+                btn[0].classList.remove("btn-active");
+            }
+            btn[0].classList.add("btn-active");
+            btn[1].classList.remove("btn-active");
+            btn[2].classList.remove("btn-active");
+        });
+        btn[1].addEventListener("click", function() {
+            if ([...btn[1].classList].includes("btn-active")) {
+                btn[1].classList.remove("btn-active");
+            }
+            btn[1].classList.add("btn-active");
+            btn[0].classList.remove("btn-active");
+            btn[2].classList.remove("btn-active");
+        });
+        btn[2].addEventListener("click", function() {
+            if ([...btn[2].classList].includes("btn-active")) {
+                btn[2].classList.remove("btn-active");
+            }
+            btn[2].classList.add("btn-active");
+            btn[1].classList.remove("btn-active");
+            btn[0].classList.remove("btn-active");
+        });
+
+        one.addEventListener("click", function() {
+            one.children[0].classList.replace("fa-plus", "fa-minus");
+            two.children[0].classList.replace("fa-minus", "fa-plus");
+            three.children[0].classList.replace("fa-minus", "fa-plus");
+            terminal.style.width = "100%";
+            notification.style.width = "0";
+            availability.style.width = "0";
+        });
+
+        two.addEventListener("click", function() {
+            one.children[0].classList.replace("fa-minus", "fa-plus");
+            two.children[0].classList.replace("fa-plus", "fa-minus");
+            three.children[0].classList.replace("fa-minus", "fa-plus");
+            terminal.style.width = "0";
+            notification.style.width = "100%";
+            availability.style.width = "0";
+        });
+
+        three.addEventListener("click", function() {
+            three.children[0].classList.replace("fa-plus", "fa-minus");
+            one.children[0].classList.replace("fa-minus", "fa-plus");
+            two.children[0].classList.replace("fa-minus", "fa-plus");
+            terminal.style.width = "0";
+            notification.style.width = "0";
+            availability.style.width = "100%";
+        });
+
+        function createModel(model_id, title, description) {
+            //get the total number of existing dialog windows plus one (1)
+            var div_count = $(".dialog_window").length + 1;
+
+            //generate a unique id based on the total number
+            var div_id = "dialog-" + model_id;
+
+            //get the title of the new window from our form, as well as the content
+            // var div_title = $('#new_window_title').val();
+            // var div_content = $('#new_window_content').val();
+
+            //append the dialog window HTML to the body
+            $("body").append(
+                '<div class="dialog_window" id="' +
+                div_id +
+                '" title="' +
+                title +
+                '"><div class="infinite"><div class="pace pace-active"><div class="pace-activity" style="display:none"></div> </div> </div><div class="vc-main" id="' +
+                model_id +
+                '"><div class="md-modal-content"><div class="md-title"><h3>' + title + '</h3></div><div class="md-content"><p>' + description + '</p></div></div></div></div>'
+            );
+
+            //initialize our new dialog
+            var dialog = $("#" + div_id).dialog({
+                width: "auto",
+                height: "auto",
+                "min-height": "100px",
+                "max-height": "250px",
+                "z-index": "10",
+                autoOpen: true
+            });
+
+            $(".ui-dialog").css({
+                "margin-right": "auto",
+                "margin-left": "auto"
+            });
+        }
+
+        /* Create modals for widgets*/
+        function openModal(id, title, description) {
+            /* Create model */
+            if ($("#" + id).length) {
+                $("#dialog-" + id).dialog("open");
+            } else {
+                createModel(id, title);
+                // Ajax call
+                // loadArticle(id, modal);
+            }
+        }
+    </script>
     <?php get_footer(); ?>

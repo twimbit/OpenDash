@@ -749,7 +749,7 @@ pd-player {
   position: relative;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   -ms-flex: 1;
@@ -762,6 +762,7 @@ pd-player {
   width: 100%;
   border-radius: 8px;
   padding-top: 5px;
+  height: 100%;
 }
 .archive-container span {
   /* margin-left: 10px; */
@@ -775,11 +776,13 @@ pd-player {
   -ms-flex-direction: column;
   flex-direction: column;
   /* height: 100%; */
-  width: 100%;
+  /* width: 100%; */
   top: 35px;
   bottom: 0;
   position: absolute;
   overflow-y: auto;
+  left: 0;
+  right: 0;
 }
 .archive-file {
   display: -webkit-box;
@@ -1677,6 +1680,10 @@ p {
   left: 0;
   bottom: 0;
   right: 0;
+}
+.vc-main-c iframe{
+      height: 100%;
+      position: absolute;
 }
 
 /* Gallery modal */
