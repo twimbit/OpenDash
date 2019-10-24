@@ -216,12 +216,12 @@ function wp_infinitepaginate()
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
     <?php } else if ($current_post->post_type == "insights") {
-            $current_post = get_post($id);
-            $description = $current_post->post_content;
-            $title = $current_post->post_title;
-            $date = $current_post->post_date;
-            $visualiser = get_field('visualizer', $current_post);
-            $excerpt = $current_post->post_excerpt;
+            $in_post = get_post($id);
+            $description = $in_post->post_content;
+            $title = $in_post->post_title;
+            $date = $in_post->post_date;
+            $visualiser = get_field('visualizer', $in_post);
+            $excerpt = $in_post->post_excerpt;
             ?>
         <div class="chart-ajax">
             <div class="in-upper-content">
@@ -232,9 +232,9 @@ function wp_infinitepaginate()
                         </div>
                     </div>
                     <?php
+                            wp_head();
                             echo $visualiser;
                             ?>
-
                 </div>
                 <div class="in-title">
                     <ul>
@@ -252,9 +252,12 @@ function wp_infinitepaginate()
             </div>
 
             <div class="video-about">
-                <p class="video-date"><?php echo $description; ?></p>
+                <p class="video-date"><?php echo $description;
+                                                // newPost($in_id);
+                                                ?></p>
             </div>
         </div>
+        <?php wp_footer(); ?>
     <?php } else if ($current_post->post_type == "archive") {
             $current_post = get_post($id);
             $description = $current_post->post_content;

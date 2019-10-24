@@ -39,15 +39,15 @@ $user_name = pc_user_logged('name');
             </div>
         </header>
         <section class="main">
-            <header class="btn-header">
+            <header class="btn-header" style="background-color: #1A2535">
                 <button class="btn btn-active">
-                    <i class="fa fa-home" style="margin-right:.4em; color: rgb(151, 146, 146)"></i>Home
+                    <i class="fa fa-home" style="margin-right:.4em; color: #F55D54"></i>Home
                 </button>
                 <button class="btn" hidden>
-                    <i class="fa fa-globe" style="margin-right:.4em; color: rgb(151, 146, 146)"></i>Home Center
+                    <i class="fa fa-globe" style="margin-right:.4em; color: #F55D54"></i>Home Center
                 </button>
                 <button class="btn" hidden>
-                    <i class="fa fa-cog" style="margin-right:.4em; color: rgb(151, 146, 146)"></i>Settings
+                    <i class="fa fa-cog" style="margin-right:.4em; color: #F55D54"></i>Settings
                 </button>
             </header>
             <div class="content">
@@ -69,16 +69,22 @@ $user_name = pc_user_logged('name');
                             $cat_name = get_the_category_by_ID($cat_id);
                             $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
                             $db_type = get_field('dashboard', get_category_by_slug($cat_name));
+                            $args = array(
+                                'posts_per_page' => 1, // we need only the latest post, so get that post only
+                                'cat' => $cat_id // Use the category id, can also replace with category_name which uses category slug
+                            );
+                            $posts = get_posts($args);
+                            print_r($posts);
                             ?><a href="<?php echo $cat_link; ?>" class="item">
                                 <span style="display: flex; align-items: center;"><?php echo $cat_name; ?></span>
                                 <span class="alert-success">Last updated</span>
                                 <?php if ($db_type == "metro") { ?>
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <svg aria-hidden="true" title="Metro Dashboard" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path>
                                     </svg>
                                 <?php
                                     } else { ?>
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                    <svg aria-hidden="true" title="Hud Dashboard" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                                         <path fill="currentColor" d="M225.38 233.37c-12.5 12.5-12.5 32.76 0 45.25 12.49 12.5 32.76 12.5 45.25 0 12.5-12.5 12.5-32.76 0-45.25-12.5-12.49-32.76-12.49-45.25 0zM248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm126.14 148.05L308.17 300.4a31.938 31.938 0 0 1-15.77 15.77l-144.34 65.97c-16.65 7.61-33.81-9.55-26.2-26.2l65.98-144.35a31.938 31.938 0 0 1 15.77-15.77l144.34-65.97c16.65-7.6 33.8 9.55 26.19 26.2z"></path>
                                     </svg>
                                 <?php } ?>
@@ -135,7 +141,7 @@ $user_name = pc_user_logged('name');
                         <div class="three-body"></div>
                     </div>
                     <div id="chartdiv">
-                        <div id="world-map"></div>
+                        <?php echo do_shortcode('[visualizer id="98"]'); ?>
                     </div>
                 </div>
             </div>

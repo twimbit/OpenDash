@@ -48,7 +48,7 @@ function toggleFullScreen(elem) {
 /* Charts container mousewheel scroll */
 $(".m-container").mousewheel(function(event, delta) {
   this.scrollLeft -= delta * 30;
-  event.preventDefault();
+  // event.preventDefault();
 });
 
 /* Charts container mousewheel scroll */
