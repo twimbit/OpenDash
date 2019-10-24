@@ -213,3 +213,4 @@
 
         <!-- Metro ui js -->
         <script src="<?php echo $template_dir; ?>/assets/js/metro-ui.js"></script>
+      

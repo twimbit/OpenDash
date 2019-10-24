@@ -165,7 +165,10 @@ input {
 .item:hover{
   background-color: #8080802b;
   box-shadow: 0px 0px 2px 0px #0000005c;
+
+
 }
+
 
 .content .three {
   width: 18%;
@@ -381,6 +384,8 @@ input {
   flex: 1;
   z-index: 10;
 }
+
+
 .item span {
   flex: 1;
   text-align: center;

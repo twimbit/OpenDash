@@ -124,11 +124,12 @@ function openModalMetro(id, title, cat_id) {
   }
 }
 
+let site_url = window.location.origin;
 // Ajax calling method for modals
 function loadArticle(id, cat_id) {
   $(".pace-activity").show("fast");
   $.ajax({
-    url: "/ds/wp-admin/admin-ajax.php",
+    url: site_url,
     type: "POST",
     data: "action=metroModal&id=" + id + "&cat_id=" + cat_id,
     success: function(data) {
@@ -146,7 +147,7 @@ function mdModalPosts(type, id, title) {
   $(".pace-activity").show("fast");
   if (type == "prev") {
     $.ajax({
-      url: "/ds/wp-admin/admin-ajax.php",
+      url: site_url,
       type: "POST",
       data: "action=metroModalNextPrev&id=" + id,
       success: function(data) {
@@ -156,7 +157,7 @@ function mdModalPosts(type, id, title) {
     });
   } else {
     $.ajax({
-      url: "/ds/wp-admin/admin-ajax.php",
+      url: site_url,
       type: "POST",
       data: "action=metroModalNextPrev&id=" + id,
       success: function(data) {

@@ -341,11 +341,12 @@ function openModal(modal, id, title) {
   }
 }
 
+let site_url = window.location.origin;
 // Ajax calling method for modals
 function loadArticle(id, type) {
   $(".pace-activity").show("fast");
   $.ajax({
-    url: "/ds/wp-admin/admin-ajax.php",
+    url: site_url,
     type: "POST",
     data: "action=infinite_scroll&id=" + id + "&type=" + type,
     success: function(data) {
