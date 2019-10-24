@@ -115,7 +115,7 @@ $user_name = pc_user_logged('name');
                             $link = get_the_permalink($val);
                             $cat_name = get_the_category($val)[0]->name;
                             ?>
-                            <a href="#" class="notification-items" onclick="openModal(<?php echo $val->ID; ?>,'<?php echo $val->post_title; ?>','<?php echo $val->post_content; ?>')">
+                            <a href="#" class="notification-items" onclick="let notification_title = <?php echo $val->post_content; ?>;openModal(<?php echo $val->ID; ?>,'<?php echo $val->post_title; ?>',notification_title)">
                                 <div class="notification-text">
                                     <span style="text-transform:capitalize;"><?php echo $val->post_title; ?></span>
                                     <span><?php echo $val->post_content; ?></span>
@@ -270,7 +270,7 @@ $user_name = pc_user_logged('name');
             availability.style.width = "100%";
         });
 
-        function createModel(model_id, title) {
+        function createModel(model_id, title, description) {
             //get the total number of existing dialog windows plus one (1)
             var div_count = $(".dialog_window").length + 1;
 
@@ -309,7 +309,7 @@ $user_name = pc_user_logged('name');
         }
 
         /* Create modals for widgets*/
-        function openModal(id, title) {
+        function openModal(id, title, description) {
             /* Create model */
             if ($("#" + id).length) {
                 $("#dialog-" + id).dialog("open");

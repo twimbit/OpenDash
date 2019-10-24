@@ -219,45 +219,10 @@ function wp_infinitepaginate()
             $in_post = get_post($id);
             $description = $in_post->post_content;
             $title = $in_post->post_title;
-            $date = $in_post->post_date;
-            $visualiser = get_field('visualizer', $in_post);
-            $excerpt = $in_post->post_excerpt;
             ?>
-        <div class="chart-ajax">
-            <div class="in-upper-content">
-                <div class="chart-div">
-                    <div class="infinite">
-                        <div class="pace pace-active">
-                            <div class="pace-activity" style="display: block;"></div>
-                        </div>
-                    </div>
-                    <?php
-                            wp_head();
-                            echo $visualiser;
-                            ?>
-                </div>
-                <div class="in-title">
-                    <ul>
-                        <li class="in-title-1">
-                            <?php echo $title; ?>
-                        </li>
-                        <li class="in-date">
-                            <?php echo $date; ?>
-                        </li>
-                        <li class="in-about">
-                            <?php echo $excerpt; ?>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="video-about">
-                <p class="video-date"><?php echo $description;
-                                                // newPost($in_id);
-                                                ?></p>
-            </div>
+        <div class="vc-main-c">
+            <?php echo $description; ?>
         </div>
-        <?php wp_footer(); ?>
     <?php } else if ($current_post->post_type == "archive") {
             $current_post = get_post($id);
             $description = $current_post->post_content;
