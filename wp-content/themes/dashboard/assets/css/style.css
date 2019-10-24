@@ -2196,6 +2196,7 @@ amp-social-share {
 }
 .i-amphtml-accordion-header {
   background-color: #efefef00 !important;
+  outline: none !important;
 }
 .sample-sidebar::after {
   filter: blur(2px);

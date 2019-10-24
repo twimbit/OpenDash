@@ -352,6 +352,7 @@ input {
 .item svg {
   height: 18px;
   flex: 1;
+  z-index: 10;
 }
 .item span {
   flex: 1;
@@ -364,6 +365,10 @@ input {
 }
 .notification-items span:nth-child(1){
   font-weight:bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline;
 }
 .notification-items span:nth-child(2){
     overflow: hidden;
