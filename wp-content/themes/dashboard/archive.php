@@ -23,9 +23,19 @@ $color = json_decode($theme_color, false);
 
     .sidebar-header {
         background-color: var(--sidebar-header-color);
-        color: var(--sidebar-content-header-color);
+        color: var(--sidebar-content-heading-color);
     }
+.radar-container a:link {
+     text-decoration: none;
 
+ }
+    .radar-container .y{
+        fill: var(--secondary-color);
+    }
+    .radar-container a:hover .y{
+        text-decoration: none;
+        opacity: 0.7;
+    }
     .ampstart-dropdown>section>header:before {
         color: var(--sidebar-plus-color);
     }

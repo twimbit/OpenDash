@@ -70,11 +70,11 @@ $user_name = pc_user_logged('name');
                             $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
                             $db_type = get_field('dashboard', get_category_by_slug($cat_name));
                             $args = array(
-                                'posts_per_page' => 1, // we need only the latest post, so get that post only
-                                'cat' => $cat_id // Use the category id, can also replace with category_name which uses category slug
+                                'posts_per_page' => 1,
+                                'cat' => $cat_id
                             );
                             $posts = get_posts($args);
-                            print_r($posts);
+                            // print_r($posts);
                             ?><a href="<?php echo $cat_link; ?>" class="item">
                                 <span style="display: flex; align-items: center;"><?php echo $cat_name; ?></span>
                                 <span class="alert-success">Last updated</span>
