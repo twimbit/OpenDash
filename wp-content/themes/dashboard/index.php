@@ -78,7 +78,7 @@ $user_name = pc_user_logged('name');
                             ?><a href="<?php echo $cat_link; ?>" class="item">
                                 <span style="display: flex; align-items: center;text-transform: capitalize;
     font-size: 14px;font-weight:bold"><?php echo $cat_name; ?></span>
-                                <span class="alert-success">Last updated</span>
+                               
                                 <?php if ($db_type == "metro") { ?>
                                     <svg aria-hidden="true" title="Metro Dashboard" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path>
@@ -113,27 +113,23 @@ $user_name = pc_user_logged('name');
                         <?php $update = getPostArray('update', null);
                         foreach ($update as $val) {
                             $link = get_the_permalink($val);
-
+                            $cat_name = get_the_category($val)[0]->name;
                             ?>
                             <a href="" class="notification-items">
                                 <div class="notification-text">
-                                    <span><?php echo $val->post_title; ?></span>
+                                    <span style="text-transform:capitalize;"><?php echo $val->post_title; ?></span>
                                     <span><?php echo $val->post_content; ?></span>
                                 </div>
                                 <div class="notification-cat">
-                                    <p>cigna</p>
+                                    <p><?php echo $cat_name; ?></p>
                                 </div>
                                 <div class="notification-time">
-                                    <p>12:pm today</p>
+                                    <p><?php
+                                            echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
                                 </div>
                             </a>
                         <?php } ?>
                     </div>
-                    <footer style="color:rgb(24, 123, 216); text-align: center">
-                        <p style="font-size:11px; letter-spacing: 0.5px;">
-                            view all notification
-                        </p>
-                    </footer>
                 </div>
 
                 <div class="side3">

@@ -26,7 +26,7 @@ body {
     align-items: center;
 }
 .notification-cat p{
-  background-color: rgb(113, 200, 113);
+  background-color: #F55D54;
   color: whitesmoke;
   padding: 5px;
   border-radius: 2px;
@@ -43,7 +43,7 @@ button {
   cursor: pointer;
 }
 .alert-success {
-  background-color: rgb(113, 200, 113);
+  background-color: #F55D54;
   color: whitesmoke;
   padding: 2px;
   border-radius: 2px;
@@ -137,6 +137,7 @@ input {
 }
 .content .two {
   width: 41%;
+  color: black;
 }
 .one-body,
 .two-body {
