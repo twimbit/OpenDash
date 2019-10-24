@@ -414,6 +414,7 @@ function getPostArray($type, $queriedObject ,  $order = 'ASC' , $post_sorting = 
     return get_posts($args);
 }
 
+
 function enterprise_register_required_plugins()
 {
     /*
