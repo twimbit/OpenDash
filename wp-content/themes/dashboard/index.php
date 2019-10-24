@@ -76,7 +76,8 @@ $user_name = pc_user_logged('name');
                             $posts = get_posts($args);
                             // print_r($posts);
                             ?><a href="<?php echo $cat_link; ?>" class="item">
-                                <span style="display: flex; align-items: center;"><?php echo $cat_name; ?></span>
+                                <span style="display: flex; align-items: center;text-transform: capitalize;
+    font-size: 14px;font-weight:bold"><?php echo $cat_name; ?></span>
                                 <span class="alert-success">Last updated</span>
                                 <?php if ($db_type == "metro") { ?>
                                     <svg aria-hidden="true" title="Metro Dashboard" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -112,10 +113,19 @@ $user_name = pc_user_logged('name');
                         <?php $update = getPostArray('update', null);
                         foreach ($update as $val) {
                             $link = get_the_permalink($val);
+
                             ?>
                             <a href="" class="notification-items">
-                                <span><?php echo $val->post_title; ?></span>
-                                <span><?php echo $val->post_content; ?></span>
+                                <div class="notification-text">
+                                    <span><?php echo $val->post_title; ?></span>
+                                    <span><?php echo $val->post_content; ?></span>
+                                </div>
+                                <div class="notification-cat">
+                                    <p>cigna</p>
+                                </div>
+                                <div class="notification-time">
+                                    <p>12:pm today</p>
+                                </div>
                             </a>
                         <?php } ?>
                     </div>
