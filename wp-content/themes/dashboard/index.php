@@ -270,7 +270,7 @@ $user_name = pc_user_logged('name');
             availability.style.width = "100%";
         });
 
-        function createModel(model_id, title, description) {
+        function createModel(model_id, title) {
             //get the total number of existing dialog windows plus one (1)
             var div_count = $(".dialog_window").length + 1;
 
@@ -309,12 +309,12 @@ $user_name = pc_user_logged('name');
         }
 
         /* Create modals for widgets*/
-        function openModal(id, title, description) {
+        function openModal(id, title) {
             /* Create model */
             if ($("#" + id).length) {
                 $("#dialog-" + id).dialog("open");
             } else {
-                createModel(id, title, description);
+                createModel(id, title);
                 // Ajax call
                 // loadArticle(id, modal);
             }
