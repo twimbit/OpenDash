@@ -252,7 +252,10 @@ $(".dashboard").animate(
   1000
 );
 // let ds_width = $(".dashboard").width() / 2;
-// $(".dashboard").animate({ scrollLeft: ds_width }, 1000);
+$(".dashboard").animate(
+  { scrollLeft: $(".radar-container").offset().left },
+  1000
+);
 
 // $(".analytics-charts, .charts-container").dragscrollable({
 //   dragSelector: "a",
@@ -340,8 +343,6 @@ function openModal(modal, id, title) {
     loadArticle(id, modal);
   }
 }
-
-
 
 let site_url = window.location.origin + "/wp-admin/admin-ajax.php";
 // Ajax calling method for modals
