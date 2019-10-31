@@ -314,7 +314,7 @@ $user_name = pc_user_logged('name');
             if ($("#" + id).length) {
                 $("#dialog-" + id).dialog("open");
             } else {
-                createModel(id, title);
+                createModel(id, title, description);
                 // Ajax call
                 // loadArticle(id, modal);
             }

@@ -440,3 +440,11 @@ input {
 .notification-items span:nth-child(2) p {
   display: inline;
 }
+.md-modal-content{
+  padding: 10px;
+  height: 100%;
+}
+.md-title{margin: 10px;}
+.md-content{
+  margin: 10px;
+}
