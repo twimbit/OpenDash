@@ -1282,7 +1282,8 @@ pd-player {
 
 #insight {
   position: absolute;
-  right: 0;
+  top: 0;
+  left: 0;
 }
 .row-2 {
   -webkit-box-flex: 1;
@@ -1455,7 +1456,7 @@ nav[toolbar] li {
   -ms-flex-align: center;
   align-items: center;
   height: 100%;
-  width: 50%;
+  width: 43%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2254,4 +2255,24 @@ a.search-link {
 }
 a.search-link:hover {
   transform: scale(1.01);
+}
+#overview {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#podcast {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#archive {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#videos {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

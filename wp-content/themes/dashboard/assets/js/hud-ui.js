@@ -359,3 +359,32 @@ function loadArticle(id, type) {
   });
   return false;
 }
+
+/* Open sidebar modals */
+/* Create modals for widgets*/
+function openModalMetro(id, title, cat_id) {
+  /* if modal exist maximize */
+  if ($("#dialog-" + id).length) {
+    $("#dialog-" + id).dialog("open");
+  } else {
+    /* else create modal */
+    createModel(id, title);
+    // Ajax call
+    loadArticleSidebar(id, cat_id);
+  }
+}
+
+// Ajax calling method for modals
+function loadArticleSidebar(id, cat_id) {
+  $(".pace-activity").show("fast");
+  $.ajax({
+    url: site_url,
+    type: "POST",
+    data: "action=metroModal&id=" + id + "&cat_id=" + cat_id,
+    success: function(data) {
+      $(".pace-activity").hide("1000");
+      $("#" + id).append(data);
+    }
+  });
+  return false;
+}

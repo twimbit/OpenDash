@@ -267,6 +267,25 @@ function wp_infinitepaginate()
                 </p>
             </div>
         </div>
+    <?php } else if ($current_post->post_type == "podcast") {
+            $current_post = get_post($id);
+            $description = $current_post->post_content;
+            $url = get_field('audio_file', $current_post);
+            ?>
+        <div class="vc-main-c">
+            <div class="podcast-box" style="position:relative;">
+                <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
+                    <div fallback>Your browser doesn’t support HTML5 audio</div>
+                </amp-audio>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+                <p>
+                    <?php echo $current_post->post_content; ?>
+                </p>
+            </div>
+        </div>
     <?php } else { ?>
         <div class="md-container">
             <?php
@@ -402,7 +421,7 @@ if (function_exists('register_sidebar'))
 
 
 /* get post array */
-function getPostArray($type, $queriedObject ,  $order = 'ASC' , $post_sorting = 'date')
+function getPostArray($type, $queriedObject,  $order = 'ASC', $post_sorting = 'date')
 {
     $args = array(
         'numberposts' => 0,

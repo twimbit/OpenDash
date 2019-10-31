@@ -18,7 +18,8 @@ $template_dir = get_template_directory_uri();
         <div class="dashboard" style="overflow-y:hidden">
             <div class="main-board" id="main-board">
                 <div class="row-1">
-                    <div class="tab-card card-box black-tint gap" id="overview">
+                    <div class="tab-card card-box black-tint gap">
+                        <div id="overview"></div>
                         <?php get_template_part("widgets/dashboard", "tabs"); ?>
                     </div>
                     <div class="mr">
@@ -51,7 +52,170 @@ $template_dir = get_template_directory_uri();
                                     <div class="radar-container">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="401.41" height="342.735" viewBox="0 0 401.41 342.735">
                                             <defs>
-                                                <style>.a,.c,.u,.v{opacity:0.3;}.b,.c,.m,.x{fill:none;stroke:#fff;stroke-miterlimit:10;}.b{stroke-width:0.2px;stroke-dasharray:2.01;}.d,.j,.k,.l,.t,.w{opacity:0.4;}.d{fill:url(#a);}.e,.f,.h,.n,.p,.q,.r,.s,.v,.z{fill:#fff;}.e,.m,.q{opacity:0.1;}.g{fill:#9ae5e5;opacity:0.18;}.h{font-size:1px;}.h,.p,.q,.r{font-family:OpenSans-Regular, Open Sans;}.h,.o,.r{opacity:0.5;}.i{opacity:0.2;fill:url(#b);}.j{fill:url(#c);}.k{fill:url(#d);}.l{fill:url(#e);}.m{stroke-width:0.5px;}.n{opacity:0.38;}.p,.q,.r{font-size:2px;}.p{opacity:0.6;}.s{opacity:0.05;}.t{fill:url(#f);}.u{fill:#9ae3ef;}.x{stroke-width:0.1px;}.y{fill:rgba(241,108,112,0.92);}.z{font-size:15px;font-family:montserrat, Segoe UI;}.aa{filter:url(#q);}.ab{filter:url(#o);}.ac{filter:url(#m);}.ad{filter:url(#k);}.ae{filter:url(#i);}.af{filter:url(#g);tspan{font-family:'montserrat'}}</style>
+                                                <style>
+                                                    .a,
+                                                    .c,
+                                                    .u,
+                                                    .v {
+                                                        opacity: 0.3;
+                                                    }
+
+                                                    .b,
+                                                    .c,
+                                                    .m,
+                                                    .x {
+                                                        fill: none;
+                                                        stroke: #fff;
+                                                        stroke-miterlimit: 10;
+                                                    }
+
+                                                    .b {
+                                                        stroke-width: 0.2px;
+                                                        stroke-dasharray: 2.01;
+                                                    }
+
+                                                    .d,
+                                                    .j,
+                                                    .k,
+                                                    .l,
+                                                    .t,
+                                                    .w {
+                                                        opacity: 0.4;
+                                                    }
+
+                                                    .d {
+                                                        fill: url(#a);
+                                                    }
+
+                                                    .e,
+                                                    .f,
+                                                    .h,
+                                                    .n,
+                                                    .p,
+                                                    .q,
+                                                    .r,
+                                                    .s,
+                                                    .v,
+                                                    .z {
+                                                        fill: #fff;
+                                                    }
+
+                                                    .e,
+                                                    .m,
+                                                    .q {
+                                                        opacity: 0.1;
+                                                    }
+
+                                                    .g {
+                                                        fill: #9ae5e5;
+                                                        opacity: 0.18;
+                                                    }
+
+                                                    .h {
+                                                        font-size: 1px;
+                                                    }
+
+                                                    .h,
+                                                    .p,
+                                                    .q,
+                                                    .r {
+                                                        font-family: OpenSans-Regular, Open Sans;
+                                                    }
+
+                                                    .h,
+                                                    .o,
+                                                    .r {
+                                                        opacity: 0.5;
+                                                    }
+
+                                                    .i {
+                                                        opacity: 0.2;
+                                                        fill: url(#b);
+                                                    }
+
+                                                    .j {
+                                                        fill: url(#c);
+                                                    }
+
+                                                    .k {
+                                                        fill: url(#d);
+                                                    }
+
+                                                    .l {
+                                                        fill: url(#e);
+                                                    }
+
+                                                    .m {
+                                                        stroke-width: 0.5px;
+                                                    }
+
+                                                    .n {
+                                                        opacity: 0.38;
+                                                    }
+
+                                                    .p,
+                                                    .q,
+                                                    .r {
+                                                        font-size: 2px;
+                                                    }
+
+                                                    .p {
+                                                        opacity: 0.6;
+                                                    }
+
+                                                    .s {
+                                                        opacity: 0.05;
+                                                    }
+
+                                                    .t {
+                                                        fill: url(#f);
+                                                    }
+
+                                                    .u {
+                                                        fill: #9ae3ef;
+                                                    }
+
+                                                    .x {
+                                                        stroke-width: 0.1px;
+                                                    }
+
+                                                    .y {
+                                                        fill: rgba(241, 108, 112, 0.92);
+                                                    }
+
+                                                    .z {
+                                                        font-size: 13px;
+                                                        font-family: montserrat, Segoe UI;
+                                                    }
+
+                                                    .aa {
+                                                        filter: url(#q);
+                                                    }
+
+                                                    .ab {
+                                                        filter: url(#o);
+                                                    }
+
+                                                    .ac {
+                                                        filter: url(#m);
+                                                    }
+
+                                                    .ad {
+                                                        filter: url(#k);
+                                                    }
+
+                                                    .ae {
+                                                        filter: url(#i);
+                                                    }
+
+                                                    .af {
+                                                        filter: url(#g);
+
+                                                        tspan {
+                                                            font-family: 'montserrat'
+                                                        }
+                                                    }
+                                                </style>
                                                 <linearGradient id="a" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
                                                     <stop offset="0" stop-color="#88ffdf" />
                                                     <stop offset="1" stop-opacity="0" />
@@ -391,6 +555,7 @@ $template_dir = get_template_directory_uri();
                                             <?php get_template_part("widgets/dashboard", "gallery"); ?>
                                         </div>
                                         <div class="podcast-container black-tint gap">
+                                            <div id="podcast"></div>
                                             <span class="container-title">Podcast</span>
                                             <div class="podcast podcast-vertical-scroll">
                                                 <?php get_template_part("widgets/dashboard", "podcast"); ?>
@@ -398,6 +563,7 @@ $template_dir = get_template_directory_uri();
                                         </div>
                                         <div class="archive gap black-tint">
                                             <div class="archive-container">
+                                                <div id="archive"></div>
                                                 <span class="container-title">Archive</span>
                                                 <?php get_template_part("widgets/dashboard", "archive"); ?>
                                             </div>
@@ -412,7 +578,8 @@ $template_dir = get_template_directory_uri();
                                 <?php get_template_part("widgets/dashboard", "story"); ?>
                                 <div id="story"></div>
                             </div>
-                            <div class="video-slider gap black-tint" id="video">
+                            <div class="video-slider gap black-tint">
+                                <div id="videos"></div>
                                 <span class="container-title">Videos</span>
                                 <?php get_template_part("widgets/dashboard", "video"); ?>
                             </div>
