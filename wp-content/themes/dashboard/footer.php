@@ -73,7 +73,7 @@ if (($logged_user_name = pc_user_logged('username')) !== false) {
         function initiateCall() {
             initialize(document, "freshchat-js-sdk")
         }
-        // window.addEventListener ? window.addEventListener("load", initiateCall, !1) : window.attachEvent("load", initiateCall, !1);
+        window.addEventListener ? window.addEventListener("load", initiateCall, !1) : window.attachEvent("load", initiateCall, !1);
     </script>
 <?php
 

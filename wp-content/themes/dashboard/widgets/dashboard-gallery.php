@@ -13,11 +13,6 @@
             <div class="vsl-content">
                 <a href="#" onclick="openModal('gallery',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <amp-img src="<?php echo $thumbnail; ?>" alt="" layout='fill'>
-                        <div class="infinite">
-                            <div class="pace pace-active">
-                                <div class="pace-activity" style="display: block;"></div>
-                            </div>
-                        </div>
                     </amp-img>
                 </a>
                 <div class="video-title">
