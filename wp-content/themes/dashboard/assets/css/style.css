@@ -1343,8 +1343,8 @@ pd-player {
   flex-direction: column;
   margin: 5px;
 }
-.mr:before{
-  content:'Key Persons';
+.mr:before {
+  content: "Key Persons";
   margin-left: 5px;
   font-size: 14px;
 }
@@ -1681,9 +1681,9 @@ p {
   bottom: 0;
   right: 0;
 }
-.vc-main-c iframe{
-      height: 100%;
-      position: absolute;
+.vc-main-c iframe {
+  height: 100%;
+  position: absolute;
 }
 
 /* Gallery modal */
@@ -2077,8 +2077,8 @@ amp-carousel > div {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.video-title span{
-  display:inline;
+.video-title span {
+  display: inline;
 }
 .story-div {
   /* -webkit-box-flex: 3; */
@@ -2238,15 +2238,15 @@ amp-social-share {
   line-height: 1.33334;
   font-weight: 900;
 }
-.fa-remove:before,
-.fa-close:before,
-.fa-times:before {
-  content: "\00d7";
-}
+
 .sidebar-close:hover {
   background-color: hsla(0, 0%, 100%, 0.05);
-  color: #fff;
+  fill: #fff;
 }
+.sidebar-close svg {
+  transform: translate(1px, 5px) scale(0.9);
+}
+
 a.search-link {
   text-decoration: none !important;
   color: #000;
