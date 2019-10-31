@@ -321,7 +321,7 @@ $user_name = pc_user_logged('name');
         }
 
 
-        let site_url = window.location.origin + "/wp-admin/admin-ajax.php";
+        let site_url = window.location.origin + "/ds/wp-admin/admin-ajax.php";
         // Ajax calling method for modals
         function loadArticle(id) {
             $(".pace-activity").show("fast");
@@ -331,7 +331,8 @@ $user_name = pc_user_logged('name');
                 data: "action=notification&id=" + id,
                 success: function(data) {
                     $(".pace-activity").hide("1000");
-                    $(".md-content").append(data);
+                    $('#dialog-' + id + ' .md-content').append(data);
+                    $('.md-content a').attr('target', '_blank');
                 }
             });
             return false;
