@@ -567,3 +567,15 @@ function get_next_post_id($post_id)
         return 0;
     return array('id' => $next_post->ID, 'title' => get_post($next_post->ID)->post_title);
 }
+
+
+function wp_notification()
+{
+    /* getting post id */
+    $id = $_POST['id'];
+    echo get_post($id)->post_content;
+    die();
+}
+
+add_action('wp_ajax_notification', 'wp_notification'); // for logged in user
+add_action('wp_ajax_nopriv_notification', 'wp_notification'); // if user not logged in
