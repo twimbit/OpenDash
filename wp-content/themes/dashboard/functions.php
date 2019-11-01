@@ -194,7 +194,17 @@ function wp_infinitepaginate()
         <div class="story-div">
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
-    <?php }
+    <?php } else if ($type == "contact") {
+            $contact_id = $_POST['id'];
+            $contact_post = get_post($contact_id);
+            $description = $contact_post->post_content;
+            ?>
+        <div class="contact-ajax">
+            <h1>contact</h1>
+        </div>
+    <?php
+            /* Ajax query for story post type */
+        }
         die();
     }
     add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
