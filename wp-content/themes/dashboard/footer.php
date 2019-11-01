@@ -16,7 +16,7 @@ if (($logged_user_name = pc_user_logged('username')) !== false) {
 
         function initFreshChat() {
             window.fcWidget.init({
-                token: "a3ff1209-258e-41c3-bcf0-cedcd389d73d",
+                token: "f070c161-687d-43d4-aa75-ffe469b32da4",
                 host: "https://wchat.freshchat.com",
                 externalId: '<?php echo $logged_user_id; ?>',
                 restoreId: restoreId ? restoreId : null
