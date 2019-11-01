@@ -2,7 +2,7 @@
 /* Getting contacts post type array */
 $tab = getPostArray('contact', get_queried_object()->term_id);
 $contact = get_field('contact_details', $tab[0]);
-foreach ((array) $contact as $val) {
+foreach ((array) $contact as $key => $val) {
     $name = $val['contact_name'];
     $designation = $val['designation'];
     $pic = $val['contact_picture']['sizes']['thumbnail'];
@@ -17,7 +17,7 @@ foreach ((array) $contact as $val) {
         <!-- Card content -->
         <div class=" d-flex flex-row" style="position:relative">
             <!-- member links -->
-            <a href="#" class="key-member-anchor" onclick="openModal('contact',<?php echo $tab[0]->ID; ?>,'<?php echo $name; ?>')"></a>
+            <a href="#" class="key-member-anchor" onclick="openModal('contact','<?php echo $key . '-' . $tab[0]->ID; ?>','<?php echo $name; ?>')"></a>
             <!-- Avatar -->
             <img src="<?php echo $pic; ?>" class="rounded-circle" height="50px" width="50px" alt="avatar" />
 

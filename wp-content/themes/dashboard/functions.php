@@ -195,12 +195,30 @@ function wp_infinitepaginate()
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
     <?php } else if ($type == "contact") {
-            $contact_id = $_POST['id'];
-            $contact_post = get_post($contact_id);
-            $description = $contact_post->post_content;
+            $contact_string = $_POST['id'];
+            $list = explode('-', $contact_string, 3);
+            $contact_id = $list[0];
+            $tab_id = $list[1];
+            $tab = get_post($tab_id);
+            $contact = get_field('contact_details', $tab)[$contact_id];
+            $pic = $contact['contact_picture']['sizes']['thumbnail'];
+
             ?>
         <div class="contact-ajax">
-            <h1>contact</h1>
+            <div class="img-contact">
+                <div class="img">
+                    <!-- Avatar -->
+                    <img src="<?php echo $pic; ?>" class="rounded-circle" height="200px" width="200px" alt="avatar" />
+                </div>
+                <div class="member-ajax-contact">
+                    <div class="member-ajax-name"><?php echo $contact['contact_name']; ?></div>
+                    <div class="member-ajax-email"><?php echo $contact['email']; ?></div>
+                    <div class="member-ajax-contact"><?php echo $contact['designation']; ?></div>
+                </div>
+            </div>
+            <div class="member-ajax-wys">
+                salkdjskldjfsdklf
+            </div>
         </div>
     <?php
             /* Ajax query for story post type */
