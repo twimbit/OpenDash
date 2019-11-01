@@ -8,7 +8,7 @@
         $file_url = get_field('archive_file_url', $val);
         ?>
         <div class="vsl-container">
-            <div class="vsl-new" style="visibility:<?php newPost($val->ID) ?>"></div>
+            <div class="vsl-new" title="new content" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">
                 <a href="#" style="text-decoration:none" class='archive-f' onclick="openModal('live',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
                     <amp-img src="<?php echo $thumbnail; ?>" alt="" layout='fill'>

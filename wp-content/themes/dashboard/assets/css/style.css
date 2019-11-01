@@ -2042,6 +2042,7 @@ p {
   position: absolute;
   right: 6px;
   top: 4px;
+  z-index: 3;
 }
 .archive-new {
   position: absolute;
