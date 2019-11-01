@@ -215,6 +215,42 @@ body {
   /* overflow: hidden !important; */
 }
 
+.member-ajax-wys {
+    margin: 15px;
+    overflow: auto;
+    position: absolute;
+    bottom: 10px;
+    top: 230px;
+    left: 0;
+    right: 0;
+}
+
+.member-ajax-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.member-ajax-contact {margin-top: 27px;}
+
+.img {
+    margin-right: 30px;
+    position: relative;
+    display: flex;
+}
+.img:before{
+  content:"";
+  position: absolute;
+  height: 90%;
+  width: 1px;
+  background-color: #ccc;
+  right: -14px;
+  /* top: 11px; */
+  display: flex;
+  align-self: center;
+}
+
+.img-contact {display: flex;justify-content: center;margin: 15px;box-shadow: 0px 0 3px 0px #00000075;padding: 10px;position: relative;}
+
 a {
   color: #f0f0f0;
   text-decoration: none;

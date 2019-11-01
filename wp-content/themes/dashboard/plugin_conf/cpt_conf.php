@@ -391,45 +391,11 @@ function cptui_register_my_cpts()
         "rewrite" => array("slug" => "update", "with_front" => true),
         "query_var" => true,
         "menu_icon" => "dashicons-update",
-        "supports" => array("title", "editor", "thumbnail", "custom-fields", "revisions", "author"),
+        "supports" => array("title", "editor", "thumbnail", "excerpt", "custom-fields", "revisions", "author"),
         "taxonomies" => array("category", "post_tag"),
     );
 
     register_post_type("update", $args);
-
-    /**
-     * Post Type: cigna_dashboard.
-     */
-
-    $labels = array(
-        "name" => __("cigna_dashboard", "custom-post-type-ui"),
-        "singular_name" => __("cigna_dashboard", "custom-post-type-ui"),
-    );
-
-    $args = array(
-        "label" => __("cigna_dashboard", "custom-post-type-ui"),
-        "labels" => $labels,
-        "description" => "",
-        "public" => true,
-        "publicly_queryable" => true,
-        "show_ui" => true,
-        "delete_with_user" => false,
-        "show_in_rest" => true,
-        "rest_base" => "",
-        "rest_controller_class" => "WP_REST_Posts_Controller",
-        "has_archive" => true,
-        "show_in_menu" => false,
-        "show_in_nav_menus" => true,
-        "exclude_from_search" => false,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => array("slug" => "cigna_dashboard", "with_front" => true),
-        "query_var" => true,
-        "supports" => array("thumbnail"),
-    );
-
-    register_post_type("cigna_dashboard", $args);
 
     /**
      * Post Type: Insights.

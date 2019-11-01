@@ -212,12 +212,12 @@ function wp_infinitepaginate()
                 </div>
                 <div class="member-ajax-contact">
                     <div class="member-ajax-name"><?php echo $contact['contact_name']; ?></div>
+                    <div class="member-in-contact"><?php echo $contact['designation']; ?></div>
                     <div class="member-ajax-email"><?php echo $contact['email']; ?></div>
-                    <div class="member-ajax-contact"><?php echo $contact['designation']; ?></div>
                 </div>
             </div>
             <div class="member-ajax-wys">
-                salkdjskldjfsdklf
+                <?php echo $contact['contact_details']; ?>
             </div>
         </div>
     <?php
