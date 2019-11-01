@@ -20,14 +20,14 @@
                     if (!(empty($posts))) {
                         ?>
                         <section>
-                            <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_0" aria-expanded="false" tabindex="0"><?php echo $singleSubCategory->name; ?></header>
-                            <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_0">
+                            <header class="ampstart-nav-item subcat-header i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_0" aria-expanded="false" tabindex="0"><?php echo $singleSubCategory->name; ?></header>
+                            <ul class="ampstart-dropdown-items list-reset subcat-list m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_0">
                                 <?php
                                         /* Getting posts type array */
                                         foreach ((array) $posts as $val) {
                                             $title = $val->post_title;
                                             ?>
-                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="#" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)"><?php echo $title; ?></a></li>
+                                    <li class="ampstart-nav-item" on="tap:sidebar-right.close" style="margin-bottom:1rem"><a href="#" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)"><?php echo $title; ?></a></li>
                                 <?php } ?>
                             </ul>
                         </section>
@@ -37,16 +37,16 @@
                     if (!(empty($posts))) {
                         ?>
                     <section>
-                        <header class="ampstart-nav-item i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_0" aria-expanded="false" tabindex="0">Updates & Other info
+                        <header class="ampstart-nav-item subcat-header i-amphtml-accordion-header" style="background-color:#fff;color:#094d5f;margin-bottom:0.5rem" role="button" aria-controls="26_AMP_content_0" aria-expanded="false" tabindex="0">Updates & Other info
                         </header>
-                        <ul class="ampstart-dropdown-items list-reset m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_0">
+                        <ul class="ampstart-dropdown-items list-reset subcat-list m0 ml1 p0 i-amphtml-accordion-content" id="26_AMP_content_0">
                             <?php
                                 /* Getting posts type array */
                                 foreach ((array) $posts as $val) {
                                     if (get_the_category($val)[0]->parent == 0) {
                                         $title = $val->post_title;
                                         ?>
-                                    <li class="ampstart-nav-item" style="margin-bottom:1rem"><a href="#" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)"><?php echo $title; ?></a></li>
+                                    <li class="ampstart-nav-item" on="tap:sidebar-right.close" style="margin-bottom:1rem"><a href="#" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)"><?php echo $title; ?></a></li>
                             <?php }
                                 } ?>
                         </ul>

@@ -1418,7 +1418,7 @@ amp-sidebar#sidebar-right {
 .sample-sidebar li,
 nav[toolbar] li {
   margin-bottom: var(--space-2);
-  margin-left: 16px;
+  margin-left: 10px;
   margin-right: var(--space-2);
   list-style: none;
 }
@@ -2118,7 +2118,7 @@ amp-carousel > div {
 .ampstart-nav-item a {
   color: #f8f8fa;
   text-decoration: none;
-  margin-left: 15px;
+  /* margin-left: 15px; */
 }
 
 .i-amphtml-accordion-header {
@@ -2234,7 +2234,7 @@ amp-social-share {
   text-align: left;
   font-size: 21px;
   z-index: 0;
-  margin-left: 23px;
+  margin-left: 13px;
   font-size: 20px;
   line-height: 1.33334;
   font-weight: 500;
@@ -2276,4 +2276,19 @@ a.search-link:hover {
   position: absolute;
   top: 0;
   right: 0;
+}
+.subcat-list li{
+  margin-left: 25px;
+  overflow: hidden;
+  /* color: #fff; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media (max-width:600px){
+  .subcat-list li{
+  font-size:13px;
+}
+.subcat-header{
+  font-size:14px;
+}
 }
