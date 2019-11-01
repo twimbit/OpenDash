@@ -321,12 +321,11 @@ $user_name = pc_user_logged('name');
         }
 
 
-        let site_url = window.location.origin + "/ds/wp-admin/admin-ajax.php";
         // Ajax calling method for modals
         function loadArticle(id) {
             $(".pace-activity").show("fast");
             $.ajax({
-                url: site_url,
+                url: '<?php echo home_url(); ?>' + '/wp-admin/admin-ajax.php',
                 type: "POST",
                 data: "action=notification&id=" + id,
                 success: function(data) {
