@@ -196,7 +196,7 @@ function wp_infinitepaginate()
         </div>
     <?php } else if ($type == "contact") {
             $contact_string = $_POST['id'];
-            $list = explode('-', $contact_string, 3);
+            $list = explode('-', $contact_string, 2);
             $contact_id = $list[0];
             $tab_id = $list[1];
             $tab = get_post($tab_id);

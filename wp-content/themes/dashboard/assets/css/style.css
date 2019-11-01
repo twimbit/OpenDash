@@ -223,6 +223,7 @@ body {
     top: 230px;
     left: 0;
     right: 0;
+    scroll-behavior: smooth;
 }
 
 .member-ajax-name {
