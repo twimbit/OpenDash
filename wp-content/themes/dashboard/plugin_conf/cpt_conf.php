@@ -391,7 +391,7 @@ function cptui_register_my_cpts()
         "rewrite" => array("slug" => "update", "with_front" => true),
         "query_var" => true,
         "menu_icon" => "dashicons-update",
-        "supports" => array("title", "editor", "thumbnail", "custom-fields", "revisions", "author"),
+        "supports" => array("title", "editor", "thumbnail", "excerpt", "custom-fields", "revisions", "author"),
         "taxonomies" => array("category", "post_tag"),
     );
 
