@@ -11,8 +11,7 @@
     <a href="#" class="client-link"></a>
 </div>
 <h4 class="client-name">
-    <?php if (!(empty(get_search_query()))) { ?>
-    <?php } else { ?>
+    <?php if (!(is_search())) { ?>
         <p><span style="font-weight: 700">Terminal</span> - <?php echo get_queried_object()->name; ?></p>
     <?php } ?>
 

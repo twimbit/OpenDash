@@ -1,6 +1,19 @@
 <?php
 get_header();
 $template_dir = get_template_directory_uri();
+function get_search_cats()
+{
+    $cats = array();
+    $posts = array();
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            array_push($cats, get_the_category());
+            array_push($posts, get_post());
+        }
+    }
+    return (array('cats' => $cats, 'posts' => $posts));
+}
 ?>
 <title>Search result</title>
 <!-- Metro ui css -->
@@ -45,73 +58,90 @@ $template_dir = get_template_directory_uri();
             <?php get_template_part("widgets/dashboard", "sidebarMetro"); ?>
         </amp-sidebar>
         <div class="board-header">
+            <div class="search-page">
+                <form action="<?php echo site_url(); ?>" method="get">
+                    <div class="search-form d-flex">
+                        <button type="submit" href="#" style="border:none;background:none;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <input type="text" placeholder="search content" name="s" />
+                    </div>
+                </form>
+            </div>
             <?php get_template_part("widgets/dashboard", "header"); ?>
         </div>
         <div class="dashboard">
             <div class="main-board" id="main-board">
-                <div class="m-container">
-                    <div class="m-col-subcat">
-                        <p style="text-transform: capitalize"><?php printf(__('%s Search Results found for : %s', 'twentysixteen'), '<span>' . esc_html($wp_query->found_posts), esc_html(get_search_query()) . '</span>'); ?></p>
+                <?php
+                if (!empty(get_search_query())) { ?>
+                    <p class="search-heading"><?php printf(__('%s Search Results found for : %s', 'twentysixteen'), '<span>' . esc_html($wp_query->found_posts), esc_html(get_search_query()) . '</span>'); ?></p>
+                    <div class="m-container">
                         <?php
-                        $i = 0;
-                        if (have_posts()) {
-                            while (have_posts()) {
-                                the_post();
-                                $title = get_the_title();
-                                $excerpt = get_the_excerpt();
-                                $thumbnail = get_the_post_thumbnail_url($val, "medium");
-                                $s_category = get_the_category()[0]->name;
-                                if ($i == 0) {
+                            $s_cats = get_search_cats()['cats'];
+                            if (!(empty($s_cats))) {
+                                foreach ($s_cats as $val) {
                                     ?>
-                                    <div class="m-subcat-name m-row-span-4">
-                                        <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
-                                            <div class="m-img-lg">
-                                                <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                    <div class="infinite" hidden>
-                                                        <div class="pace pace-active">
-                                                            <div class="pace-activity" style="display: block;"></div>
+                                <div class="m-col-subcat">
+                                    <p style="text-transform: capitalize"><?php echo  $val[0]->name; ?></p>
+                                    <?php $i = 0;
+                                                foreach ((array) get_search_cats()['posts'] as $post_val) {
+                                                    $title = $post_val->post_title;
+                                                    $description = $post_val->post_content;
+                                                    $excerpt = $post_val->post_excerpt;
+                                                    $thumbnail = get_the_post_thumbnail_url($post_val, "medium");
+                                                    /* first post of array */
+                                                    if (get_the_category($post_val)[0]->term_id == $val[0]->term_id) {
+                                                        if ($i == 0) {
+                                                            ?>
+                                                <div class="m-subcat-name m-row-span-4">
+                                                    <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $post_val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
+                                                        <div class="m-img-lg">
+                                                            <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
+                                                                <div class="infinite" hidden>
+                                                                    <div class="pace pace-active">
+                                                                        <div class="pace-activity" style="display: block;"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </amp-img>
                                                         </div>
-                                                    </div>
-                                                </amp-img>
-                                                <div class="s-t-c">
-                                                    <div class="s-t">
-                                                        <h4>type</h4>
-                                                    </div>
-                                                    <div class="s-c">
-                                                        <h4><?php echo $s_category; ?></h4>
-                                                    </div>
+                                                        <div class="m-heading-sm" style="position: relative;">
+                                                            <h4 class="m-heading-lg"><?php echo $title; ?></h4>
+                                                            <h3 class="m-heading-lg"><?php echo $excerpt; ?></h3>
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                            </div>
-                                            <div class="m-heading-sm" style="position: relative;">
-                                                <h4 class="m-heading-lg"><?php echo $title; ?></h4>
-                                                <h3 class="m-heading-lg"><?php echo $excerpt; ?></h3>
-                                            </div>
-                                        </a>
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="m-subcat-name m-row-span-3">
-                                        <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
-                                            <div class="m-img-sm">
-                                                <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                    <div class="infinite" hidden>
-                                                        <div class="pace pace-active">
-                                                            <div class="pace-activity" style="display: block;"></div>
+                                                <!-- rest posts of array -->
+                                            <?php } else {
+                                                                    $thumbnail = get_the_post_thumbnail_url($post_val, "thumbnail"); ?>
+                                                <div class="m-subcat-name m-row-span-3">
+                                                    <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $post_val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
+                                                        <div class="m-img-sm">
+                                                            <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
+                                                                <div class="infinite" hidden>
+                                                                    <div class="pace pace-active">
+                                                                        <div class="pace-activity" style="display: block;"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </amp-img>
                                                         </div>
-                                                    </div>
-                                                </amp-img>
-                                            </div>
-                                            <div class="m-heading-sm">
-                                                <h4><?php echo $title; ?></h4>
-                                                <h3><?php echo $excerpt; ?></h3>
-                                            </div>
-                                        </a>
-                                    </div>
-                        <?php }
-                                $i++;
-                            }
-                        } ?>
+                                                        <div class="m-heading-sm">
+                                                            <h4><?php echo $title; ?></h4>
+                                                            <h3><?php echo $excerpt; ?></h3>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                    <?php }
+                                                        $i++;
+                                                    }
+                                                } ?>
+                                </div>
+                        <?php  }
+                            } ?>
+
                     </div>
-                </div>
+                <?php } else {
+                    echo 'type something to search';
+                } ?>
             </div>
         </div>
         <!-- jQuery  -->
