@@ -22,7 +22,7 @@ $template_dir = get_template_directory_uri();
                         <div id="overview"></div>
                         <?php get_template_part("widgets/dashboard", "tabs"); ?>
                     </div>
-                    <div class="mr">
+                    <div class="mr black-tint">
                         <div class="key-members gap">
                             <?php get_template_part("widgets/dashboard", "members"); ?>
                         </div>

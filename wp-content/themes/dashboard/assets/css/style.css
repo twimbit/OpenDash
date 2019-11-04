@@ -458,6 +458,7 @@ pd-player {
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .nav-link {
   padding: 4px 7px;
@@ -1396,7 +1397,7 @@ pd-player {
   margin: 5px;
 }
 .mr:before {
-  content: "Key Persons";
+  content: "Executive Profile";
   margin-left: 5px;
   font-size: 14px;
 }

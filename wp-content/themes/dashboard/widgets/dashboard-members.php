@@ -13,7 +13,7 @@ foreach ((array) $contact as $key => $val) {
     $email = $val['email'];
     ?>
 
-    <div class="card promoting-card black-tint">
+    <div class="card promoting-card">
         <!-- Card content -->
         <div class=" d-flex flex-row" style="position:relative">
             <!-- member links -->
