@@ -250,7 +250,7 @@ body {
   align-self: center;
 }
 
-.img-contact {display: flex;justify-content: center;margin: 15px;box-shadow: 0px 0 3px 0px #00000075;padding: 10px;position: relative;}
+.img-contact {display: flex;margin: 15px;box-shadow: 0px 0 3px 0px #00000075;padding: 10px;position: relative;padding-left: 50px;}
 
 a {
   color: #f0f0f0;

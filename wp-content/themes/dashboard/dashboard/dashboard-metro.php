@@ -41,8 +41,10 @@
                 <div class="m-container">
 
                     <?php
+                    /* getting child category of parent category */
                     $category_child = get_categories(array('child_of' => get_queried_object()->term_id, 'hide_empty' => FALSE));
-                    foreach ($category_child as $singleSubCategory) {   // echo do_shortcode('[pc-logout-box]');
+                    /* Itterating through all child category */
+                    foreach ($category_child as $singleSubCategory) {
                         ?>
                         <div class="m-col-subcat">
                             <p style="text-transform: capitalize"><?php echo $singleSubCategory->name; ?></p>
@@ -54,7 +56,7 @@
                                     $title = $val->post_title;
                                     $description = $val->post_content;
                                     $excerpt = $val->post_excerpt;
-                                    $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
+                                    $thumbnail = get_the_post_thumbnail_url($val, "medium");
                                     if ($i == 0) {
                                         ?>
                                     <div class="m-subcat-name m-row-span-4">
@@ -74,7 +76,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                <?php } else { ?>
+                                <?php } else {
+                                            $thumbnail = get_the_post_thumbnail_url($val, "thumbnail"); ?>
                                     <div class="m-subcat-name m-row-span-3">
                                         <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                             <div class="m-img-sm">
@@ -97,13 +100,14 @@
                                 } ?>
                         </div>
                     <?php } ?>
-                    <!-- miscellaneous section -->
 
+                    <!-- miscellaneous section -->
                     <div class="m-col-subcat">
                         <?php
                         $i = 0;
-                        /* Getting posts type array */
+                        /* Getting posts type array of parrent category */
                         $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), get_queried_object()->term_id);
+                        /* checking if parent category is emppty */
                         if (!empty($posts)) {
                             ?>
                             <p>Updates & Other info</p>
@@ -113,7 +117,8 @@
                                         $title = $val->post_title;
                                         $description = $val->post_content;
                                         $excerpt = $val->post_excerpt;
-                                        $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
+                                        $thumbnail = get_the_post_thumbnail_url($val, "medium");
+                                        /* first post of array */
                                         if ($i == 0) {
                                             ?>
                                         <div class="m-subcat-name m-row-span-4">
@@ -133,7 +138,9 @@
                                                 </div>
                                             </a>
                                         </div>
-                                    <?php } else { ?>
+                                        <!-- rest posts of array -->
+                                    <?php } else {
+                                                    $thumbnail = get_the_post_thumbnail_url($val, "thumbnail"); ?>
                                         <div class="m-subcat-name m-row-span-3">
                                             <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                                 <div class="m-img-sm">
