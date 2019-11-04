@@ -10,6 +10,16 @@ require_once dirname(__FILE__) . '/assets/lib/inc/class-tgm-plugin-activation.ph
 add_action('tgmpa_register', 'enterprise_register_required_plugins');
 
 
+// search filter
+function searchfilter($query)
+{
+    if ($query->is_search && !is_admin()) {
+        $query->set('post_type', array('post', 'video', 'amp_story', 'podcast', 'insights'));
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'searchfilter');
+
 // Featured image functionality.
 function mytheme_post_thumbnails()
 {

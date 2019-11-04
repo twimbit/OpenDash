@@ -140,7 +140,7 @@ function get_search_cats()
 
                     </div>
                 <?php } else {
-                    echo 'type something to search';
+                    echo '<div class="s-type">Please write in search box to search.</div>';
                 } ?>
             </div>
         </div>

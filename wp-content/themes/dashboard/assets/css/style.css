@@ -100,12 +100,13 @@ Lightbox
 
 .search-page{
     position: absolute;
-    left: 151px;
-    top: 4px;
-    bottom: 4px;
+    left: 110px;
+    top: 7px;
+    bottom: 7px;
     /* width: 6%; */
     /* right: 0; */
     /* border-radius: 10px; */
+    opacity: 0.5;
 }
 .search-page form{
     width:100%;
@@ -2353,8 +2354,25 @@ a.search-link:hover {
     height: 100%;
     width: 100%;
     /* border-radius: 5px; */
+    background-color: #fff !important;
+    border-radius: 10px;
 }
 .search-form button{
     cursor: pointer;
-    background-color: #ccc !important;
+    background-color: #fffefe !important;
+    border-radius: 10px;
+    outline: none;
+}
+.search-form input{
+    outline: none;
+    border: 0;
+    margin-left: 5px;
+    border-radius: 10px;
+}
+.s-type{
+  position: relative;
+  left: 50px;
+  top: 20px;
+  font-size: 20px;
+  font-weight: 600;
 }

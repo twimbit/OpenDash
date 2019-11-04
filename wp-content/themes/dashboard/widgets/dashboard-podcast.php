@@ -3,11 +3,12 @@
 $podcast = getPostArray('podcast', get_queried_object()->term_id);
 ?>
 <?php
-foreach ((array)$podcast as $val) {
+foreach ((array) $podcast as $val) {
     $title = $val->post_title;
     $description = $val->post_content;
     $url = get_field('audio_file', $val);
     ?>
+
     <a href="#" style="text-decoration:none;position:relative" class='pd-player' onclick="openModal('podcast',<?php echo $val->ID; ?>,'<?php echo $title; ?>')">
         <div class="vsl-new in-new" title="new content" style="visibility:<?php newPost($val->ID) ?>"></div>
         <div class="play black-tint">
@@ -50,8 +51,20 @@ foreach ((array)$podcast as $val) {
                 </div>
             </div>
             <div class="podcast-length">
-                10:23
+                <audio id="podcast-audio" controls src="<?php echo $url ?>" hidden></audio>
+                <p></p>
             </div>
         </div>
     </a>
+    <script>
+        var audio = document.getElementById("podcast-audio");
+        if (audio.readyState > 0) {
+            var minutes = parseInt(audio.duration / 60, 10);
+            var seconds = parseInt(audio.duration % 60);
+        }
+        if (document.readyState == "load") {
+            console.log(minutes);
+        }
+        document.querySelector('.podcast-length p').innerHTML = "sdfd";
+    </script>
 <?php } ?>
