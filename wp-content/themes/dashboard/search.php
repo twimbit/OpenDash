@@ -1,19 +1,16 @@
 <?php
 get_header();
 $template_dir = get_template_directory_uri();
-function get_search_cats()
-{
-    $cats = array();
-    $posts = array();
-    if (have_posts()) {
-        while (have_posts()) {
-            the_post();
-            array_push($cats, get_the_category());
-            array_push($posts, get_post());
-        }
+$s_cats = array();
+$s_posts = array();
+if (have_posts()) {
+    while (have_posts()) {
+        the_post();
+        array_push($s_cats, get_the_category(get_the_ID())[0]->term_id);
+        array_push($s_posts, get_post(get_the_ID()));
     }
-    return (array('cats' => $cats, 'posts' => $posts));
 }
+$u_cats = array_unique($s_cats);
 ?>
 <title>Search result</title>
 <!-- Metro ui css -->
@@ -77,20 +74,19 @@ function get_search_cats()
                     <p class="search-heading"><?php printf(__('%s Search Results found for : %s', 'twentysixteen'), '<span>' . esc_html($wp_query->found_posts), esc_html(get_search_query()) . '</span>'); ?></p>
                     <div class="m-container">
                         <?php
-                            $s_cats = get_search_cats()['cats'];
-                            if (!(empty($s_cats))) {
-                                foreach ($s_cats as $val) {
+                            if (!(empty($u_cats))) {
+                                foreach ($u_cats as $val) {
                                     ?>
                                 <div class="m-col-subcat">
-                                    <p style="text-transform: capitalize"><?php echo  $val[0]->name; ?></p>
+                                    <p style="text-transform: capitalize"><?php echo  get_the_category_by_ID($val) ?></p>
                                     <?php $i = 0;
-                                                foreach ((array) get_search_cats()['posts'] as $post_val) {
+                                                foreach ((array) $s_posts as $post_val) {
                                                     $title = $post_val->post_title;
                                                     $description = $post_val->post_content;
                                                     $excerpt = $post_val->post_excerpt;
                                                     $thumbnail = get_the_post_thumbnail_url($post_val, "medium");
                                                     /* first post of array */
-                                                    if (get_the_category($post_val)[0]->term_id == $val[0]->term_id) {
+                                                    if (get_the_category($post_val)[0]->term_id == $val) {
                                                         if ($i == 0) {
                                                             ?>
                                                 <div class="m-subcat-name m-row-span-4">
