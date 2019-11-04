@@ -1,26 +1,33 @@
 <?php
 get_header();
+$template_dir = get_template_directory_uri();
 ?>
 <title>Search result</title>
+<!-- Metro ui css -->
+<link href="<?php echo $template_dir; ?>/assets/css/metro-ui.css" rel="stylesheet" type="text/css" />
+<style>
+    .m-col-subcat>p {
+        position: absolute;
+        top: -60px;
+        font-size: 28px;
+        left: 10px;
+        font-weight: bold;
+    }
+
+    .dashboard {
+        overflow-x: hidden;
+    }
+
+    .main-board {
+        padding-right: 0;
+    }
+
+    .main-board {
+        min-width: auto;
+        padding-left: 0;
+    }
+</style>
 </head>
-<?php
-
-$post_args = array(
-    'orderby' => 'date',
-    'posts_per_page' => get_option('posts_per_page'),
-    'order' => 'DESC', // the 1st array element will be 1st story(oldest story)
-    'include' => array(),
-    'exclude' => array(),
-    'meta_key' => '',
-    'meta_value' => '',
-    'post_type' => array('post'),
-    'suppress_filters' => true,
-    's' => get_search_query(),
-    'paged' => get_query_var('paged') ? absint(get_query_var('paged')) : 1
-);
-$get_post_feed = get_posts($post_args);
-
-?>
 <style>
     #main {
         color: #000;
@@ -43,24 +50,19 @@ $get_post_feed = get_posts($post_args);
         <div class="dashboard">
             <div class="main-board" id="main-board">
                 <div class="m-container">
-
-                    <?php
-                    $category_child = get_categories(array('child_of' => get_queried_object()->term_id, 'hide_empty' => FALSE));
-                    foreach ($category_child as $singleSubCategory) {   // echo do_shortcode('[pc-logout-box]');
-                        ?>
-                        <div class="m-col-subcat">
-                            <p style="text-transform: capitalize"><?php echo $singleSubCategory->name; ?></p>
-                            <?php
-                                $i = 0;
-                                /* Getting posts type array */
-                                $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), $singleSubCategory->term_id);
-                                foreach ((array) $posts as $val) {
-                                    $title = $val->post_title;
-                                    $description = $val->post_content;
-                                    $excerpt = $val->post_excerpt;
-                                    $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
-                                    if ($i == 0) {
-                                        ?>
+                    <div class="m-col-subcat">
+                        <p style="text-transform: capitalize"><?php printf(__('%s Search Results found for : %s', 'twentysixteen'), '<span>' . esc_html($wp_query->found_posts), esc_html(get_search_query()) . '</span>'); ?></p>
+                        <?php
+                        $i = 0;
+                        if (have_posts()) {
+                            while (have_posts()) {
+                                the_post();
+                                $title = get_the_title();
+                                $excerpt = get_the_excerpt();
+                                $thumbnail = get_the_post_thumbnail_url($val, "medium");
+                                $s_category = get_the_category()[0]->name;
+                                if ($i == 0) {
+                                    ?>
                                     <div class="m-subcat-name m-row-span-4">
                                         <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
                                             <div class="m-img-lg">
@@ -71,6 +73,14 @@ $get_post_feed = get_posts($post_args);
                                                         </div>
                                                     </div>
                                                 </amp-img>
+                                                <div class="s-t-c">
+                                                    <div class="s-t">
+                                                        <h4>type</h4>
+                                                    </div>
+                                                    <div class="s-c">
+                                                        <h4><?php echo $s_category; ?></h4>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="m-heading-sm" style="position: relative;">
                                                 <h4 class="m-heading-lg"><?php echo $title; ?></h4>
@@ -96,71 +106,11 @@ $get_post_feed = get_posts($post_args);
                                             </div>
                                         </a>
                                     </div>
-                            <?php }
-                                    $i++;
-                                } ?>
-                        </div>
-                    <?php } ?>
-                    <!-- miscellaneous section -->
-
-                    <div class="m-col-subcat">
-                        <?php
-                        $i = 0;
-                        /* Getting posts type array */
-                        $posts = getPostArray(array('post', 'amp_story', 'video', 'podcast', 'insights', 'archive'), get_queried_object()->term_id);
-                        if (!empty($posts)) {
-                            ?>
-                            <p>Updates & Other info</p>
-                            <?php
-                                foreach ((array) $posts as $val) {
-                                    if (get_the_category($val)[0]->parent == 0) {
-                                        $title = $val->post_title;
-                                        $description = $val->post_content;
-                                        $excerpt = $val->post_excerpt;
-                                        $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
-                                        if ($i == 0) {
-                                            ?>
-                                        <div class="m-subcat-name m-row-span-4">
-                                            <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
-                                                <div class="m-img-lg">
-                                                    <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                        <div class="infinite" hidden>
-                                                            <div class="pace pace-active">
-                                                                <div class="pace-activity" style="display: block;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </amp-img>
-                                                </div>
-                                                <div class="m-heading-sm" style="position: relative;">
-                                                    <h4 class="m-heading-lg"><?php echo $title; ?></h4>
-                                                    <h3 class="m-heading-lg"><?php echo $excerpt; ?></h3>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    <?php } else { ?>
-                                        <div class="m-subcat-name m-row-span-3">
-                                            <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
-                                                <div class="m-img-sm">
-                                                    <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
-                                                        <div class="infinite" hidden>
-                                                            <div class="pace pace-active">
-                                                                <div class="pace-activity" style="display: block;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </amp-img>
-                                                </div>
-                                                <div class="m-heading-sm">
-                                                    <h4><?php echo $title; ?></h4>
-                                                    <h3><?php echo $excerpt; ?></h3>
-                                                </div>
-                                            </a>
-                                        </div>
-                            <?php }
-                                        $i++;
-                                    }
-                                } ?>
+                        <?php }
+                                $i++;
+                            }
+                        } ?>
                     </div>
-                <?php } ?>
                 </div>
             </div>
         </div>

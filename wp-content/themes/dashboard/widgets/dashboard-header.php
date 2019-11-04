@@ -11,7 +11,11 @@
     <a href="#" class="client-link"></a>
 </div>
 <h4 class="client-name">
-    <p><span style="font-weight: 700">Terminal</span> - <?php echo get_queried_object()->name; ?></p>
+    <?php if (!(empty(get_search_query()))) { ?>
+    <?php } else { ?>
+        <p><span style="font-weight: 700">Terminal</span> - <?php echo get_queried_object()->name; ?></p>
+    <?php } ?>
+
 </h4>
 <div id="dialog_window_minimized_container"></div>
 <div class="twimbit-icon">
