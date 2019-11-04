@@ -3,6 +3,7 @@ get_header();
 $template_dir = get_template_directory_uri();
 $s_cats = array();
 $s_posts = array();
+/* creating posts and cats arrays from search results */
 if (have_posts()) {
     while (have_posts()) {
         the_post();
@@ -85,8 +86,9 @@ $u_cats = array_unique($s_cats);
                                                     $description = $post_val->post_content;
                                                     $excerpt = $post_val->post_excerpt;
                                                     $thumbnail = get_the_post_thumbnail_url($post_val, "medium");
-                                                    /* first post of array */
+                                                    /* selecting posts as per category from $s_posts array*/
                                                     if (get_the_category($post_val)[0]->term_id == $val) {
+                                                        /* checking first post of array */
                                                         if ($i == 0) {
                                                             ?>
                                                 <div class="m-subcat-name m-row-span-4">
