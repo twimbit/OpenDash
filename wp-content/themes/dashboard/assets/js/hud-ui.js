@@ -1,12 +1,3 @@
-/* fullscreen code */
-document.addEventListener("keypress", keyUpTextField, false);
-
-function keyUpTextField(e) {
-  var keyCode = e.keyCode;
-  if (keyCode == 70 || keyCode == 102) {
-    toggleFullScreen(document.body);
-  }
-}
 /* Fullscreen logic */
 function toggleFullScreen(elem) {
   // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {

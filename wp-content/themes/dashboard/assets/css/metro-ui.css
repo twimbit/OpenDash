@@ -126,6 +126,7 @@
   overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  line-height: 1.6rem;
 }
 .m-heading-sm h3 {
   font-size: 14px;
@@ -189,7 +190,7 @@
   top: 110px;
 }
 
-@media only screen and (max-width: 620px) and (min-width: 360px) {
+@media only screen and (max-width: 620px) {
   .board-header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -207,7 +208,7 @@
     padding: 0 15px;
     /* top: 81px; */
     position: absolute;
-    top: 30px;
+    top: 62px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -230,28 +231,28 @@
     margin-right: auto;
     /* right: 0; */
   }
-  .m-subcat-name{
+  .m-subcat-name {
     margin: 0;
     position: relative;
   }
-  .m-row-span-4{
+  .m-row-span-4 {
     grid-row: span 3;
     position: relative;
   }
-  .m-row-span-3{
+  .m-row-span-3 {
     grid-row: span 1;
   }
-  .m-img-sm{
+  .m-img-sm {
     width: 25%;
     position: none;
   }
-  .m-heading-sm h4{
-    font-size:15px;
+  .m-heading-sm h4 {
+    font-size: 15px;
   }
-  .m-heading-sm h3{
-    font-size:13px;
+  .m-heading-sm h3 {
+    font-size: 13px;
   }
-  .m-heading-sm{
-    padding:5px;
+  .m-heading-sm {
+    padding: 5px;
   }
- }
+}
