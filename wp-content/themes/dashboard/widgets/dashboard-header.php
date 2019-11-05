@@ -27,24 +27,8 @@
         </svg>
     </div>
     <div class="fullscreen-icon" onclick="toggleFullScreen(document.body)">
-        <svg version="1.1" viewBox="0 0 36 36">
-            <g class="ytp-fullscreen-button-corner-0">
-                <use class="ytp-svg-shadow" xlink:href="#ytp-id-25"></use>
-                <path class="ytp-svg-fill" d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z" id="ytp-id-25"></path>
-            </g>
-            <g class="ytp-fullscreen-button-corner-1">
-                <use class="ytp-svg-shadow" xlink:href="#ytp-id-26"></use>
-                <path class="ytp-svg-fill" d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z" id="ytp-id-26"></path>
-            </g>
-            <g class="ytp-fullscreen-button-corner-2">
-                <use class="ytp-svg-shadow" xlink:href="#ytp-id-27"></use>
-                <path class="ytp-svg-fill" d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z" id="ytp-id-27"></path>
-            </g>
-            <g class="ytp-fullscreen-button-corner-3">
-                <use class="ytp-svg-shadow" xlink:href="#ytp-id-28"></use>
-                <path class="ytp-svg-fill" d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z" id="ytp-id-28"></path>
-            </g>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="22" viewBox="0 0 24 24">
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" /></svg>
     </div>
     <div class="zoom-in" hidden>
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search-plus" class="svg-inline--fa fa-search-plus fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
