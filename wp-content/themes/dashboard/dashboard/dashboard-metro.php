@@ -36,7 +36,7 @@
         <div class="board-header">
             <?php get_template_part("widgets/dashboard", "header"); ?>
         </div>
-        <div class="dashboard">
+        <div class="dashboard metro-board">
             <div class="main-board" id="main-board">
                 <div class="m-container">
 

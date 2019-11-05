@@ -236,17 +236,6 @@ $(".video-slider").mousewheel(function(event, delta) {
 //   $(".collapse.in").toggleClass("in");
 //   $("a[aria-expanded=true]").attr("aria-expanded", "false");
 // });
-$(".dashboard").animate(
-  {
-    scrollLeft: $(".radar-container svg").offset().left
-  },
-  1000
-);
-// let ds_width = $(".dashboard").width() / 2;
-$(".dashboard").animate(
-  { scrollLeft: $(".radar-container").offset().left },
-  1000
-);
 
 // $(".analytics-charts, .charts-container").dragscrollable({
 //   dragSelector: "a",
@@ -310,6 +299,11 @@ function createModel(model_id, title) {
 /* Insight section loader hide */
 window.onload = function() {
   $(".in-pace-activity").hide();
+  /* Scroll radar in middle */
+  $(".dashboard").animate(
+    { scrollLeft: $(".radar-container").offset().left },
+    1000
+  );
 };
 
 /* Insight section scrolling next and previous buttons */
