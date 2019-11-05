@@ -2195,7 +2195,9 @@ amp-carousel > div {
   background-image: url("../images/chevron-right-solid.svg");
   width: 35px;
   background-repeat: no-repeat;
+  /* color: #fff; */
   /* background-color: white; */
+  /* fill: #fff; */
   /* transition: background-image 0.4s cubic-bezier(0, 0.21, 0.43, 0.52); */
 }
 .ampstart-dropdown > [expanded] > header:before {

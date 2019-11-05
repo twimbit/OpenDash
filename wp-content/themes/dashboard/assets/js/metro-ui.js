@@ -1,5 +1,3 @@
-/* Full screen logic */
-document.addEventListener("keypress", keyUpTextField, false);
 
 /* Insight section loader hide */
 window.onload = function() {

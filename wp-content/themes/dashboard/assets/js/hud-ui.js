@@ -1,7 +1,3 @@
-/* fullscreen code */
-document.addEventListener("keypress", keyUpTextField, false);
-
-
 /* Fullscreen logic */
 function toggleFullScreen(elem) {
   // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {

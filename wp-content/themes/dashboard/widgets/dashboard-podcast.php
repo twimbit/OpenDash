@@ -14,7 +14,7 @@ foreach ((array) $podcast as $val) {
         <div class="podcast-fields">
             <div class="podcast-title"><?php echo $title; ?></div>
             <div class="podcast-desc">
-                <amp-audio src="<?php echo $url; ?>" height="30px" width="300px" controlslist="nodownload">
+                <amp-audio src="<?php echo $url; ?>" height="22px" width="300px" controlslist="nodownload">
                     <div fallback>
                         <p>Your browser doesn’t support HTML5 audio</p>
                     </div>
