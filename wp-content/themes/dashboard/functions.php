@@ -223,7 +223,7 @@ function wp_infinitepaginate()
             <div class="img-contact">
                 <div class="img">
                     <!-- Avatar -->
-                    <img src="<?php echo $pic; ?>" class="rounded-circle" alt="avatar" />
+                    <amp-img src="<?php echo $pic; ?>" class="rounded-circle" alt="avatar"></amp-img>
                 </div>
                 <div class="member-ajax-contact">
                     <div class="member-ajax-name"><?php echo $contact['contact_name']; ?></div>
@@ -390,13 +390,10 @@ function updateRestoreId()
 {
     $id = $_POST['id'];
     $restore_id = $_POST['restore_id'];
-    echo $restore_id;
+    // echo $restore_id;
     // update user - setting new email and surname
-    global $pc_users;
-    $data = array(
-        'surname'     => $restore_id
-    );
-    $result = $pc_users->update_user($id, $data);
+    global $pc_meta;
+    $result = $pc_meta->add_meta($id, 'restoreid', $restore_id);
     if (!$result) {
         // an error occurred - check related properties  
         return http_response_code(401);
