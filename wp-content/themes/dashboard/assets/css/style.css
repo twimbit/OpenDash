@@ -2385,14 +2385,7 @@ a.search-link:hover {
 
 .key-member-anchor {position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
 
-@media (max-width:600px){
-  .subcat-list li{
-  font-size:13px;
-}
-.subcat-header{
-  font-size:14px;
-}
-}
+
 .search-heading {position: relative;left: 50px;top: 20px;font-size: 20px;font-weight: 600;}
 .search-form {
     height: 100%;
@@ -2422,4 +2415,33 @@ a.search-link:hover {
 }
 .podcast-desc amp-audio audio{
   outline:none;
+}
+@media (max-width:600px){
+  .subcat-list li{
+  font-size:13px;
+}
+.subcat-header{
+  font-size:14px;
+}
+.search-heading{
+  position: relative;
+  left: 23px;
+  top: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  /* margin-bottom: 36px; */
+}
+.twimbit-icon{
+  display:none;
+}
+.search-page {
+    position: absolute;
+    left: 100px;
+    top: 7px;
+    bottom: 7px;
+    /* width: 6%; */
+    /* right: 0; */
+    /* border-radius: 10px; */
+    opacity: 0.5;
+}
 }
