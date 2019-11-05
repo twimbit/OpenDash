@@ -212,18 +212,54 @@ function wp_infinitepaginate()
             $tab = get_post($tab_id);
             $contact = get_field('contact_details', $tab)[$contact_id];
             $pic = $contact['contact_picture']['sizes']['thumbnail'];
+            $insta = $contact['instagram'];
+            $twitter = $contact['twitter'];
+            $face = $contact['facebook'];
+            $linkdin = $contact['linkdin'];
+            $email = $contact['email'];
 
             ?>
         <div class="contact-ajax">
             <div class="img-contact">
                 <div class="img">
                     <!-- Avatar -->
-                    <img src="<?php echo $pic; ?>" class="rounded-circle" height="200px" width="200px" alt="avatar" />
+                    <img src="<?php echo $pic; ?>" class="rounded-circle" alt="avatar" />
                 </div>
                 <div class="member-ajax-contact">
                     <div class="member-ajax-name"><?php echo $contact['contact_name']; ?></div>
                     <div class="member-in-contact"><?php echo $contact['designation']; ?></div>
                     <div class="member-ajax-email"><?php echo $contact['email']; ?></div>
+                    <div class="collapse-content" style="display: flex;
+                                justify-content: flex-start;margin-left:0">
+                        <p style="margin-bottom: 0px">
+                            <?php if ($insta) { ?>
+                                <a href="<?php echo $insta; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($twitter) { ?>
+                                <a href="<?php echo $twitter; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($face) { ?>
+                                <a href="<?php echo $face; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($linkdin) { ?>
+                                <a href="<?php echo $linkdin; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($email) { ?>
+                                <a href="<?php echo $email; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 10px;
+    transform: translate(-0.5px, -2px);"></i>
+                                </a>
+                            <?php } ?>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="member-ajax-wys">

@@ -252,7 +252,7 @@ body {
     overflow: auto;
     position: absolute;
     bottom: 10px;
-    top: 230px;
+    top: 163px;
     left: 0;
     right: 0;
     scroll-behavior: smooth;
@@ -263,12 +263,15 @@ body {
     font-weight: bold;
 }
 
-.member-ajax-contact {margin-top: 27px;}
+.member-ajax-contact {margin-top: 5px;}
 
 .img {
     margin-right: 30px;
     position: relative;
     display: flex;
+}
+.img img{
+   height: 140px;
 }
 .img:before{
   content:"";
