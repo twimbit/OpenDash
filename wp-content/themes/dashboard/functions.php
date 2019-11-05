@@ -66,12 +66,12 @@ function wp_infinitepaginate()
             $url = get_field('audio_file', $pd_post);
             ?>
         <div class="vc-main-c">
-            <div class="podcast-box" style="position:relative;">
+            <div class="podcast-box" style="position:relative;" hidden>
                 <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>
             </div>
-            <div class="video-about">
+            <div class="podcast-about">
                 <p class="video-titile"><?php echo $pd_post->post_title; ?></p>
                 <p class="video-date"><?php echo $pd_post->post_date; ?></p>
                 <p>
