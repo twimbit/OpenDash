@@ -138,6 +138,9 @@ $template_dir = get_template_directory_uri();
             width: 80px;
         }
     }
+    .pc_field_container{
+        -webkit-user-select: text!important;
+    }
 
     @media (max-width:420px) {
         .login_right {
@@ -165,7 +168,7 @@ if (pc_user_logged('username')) {
                         <img src="<?php echo $template_dir; ?>/assets/images/logo.png" alt="Twimbit logo">
                     </div>
                     <div class="login_heading">
-                        <span>Twimbit Enterprise</span>
+                        <span>Twimbit Professional</span>
                     </div>
                     <div class="login_welcome">
                         <span>Welcome back! Please login to your account.</span>
@@ -174,7 +177,7 @@ if (pc_user_logged('username')) {
                         <form class="pc_rm_login  pc_lf_long_labels">
                             <div class="pc_login_row ">
                                 <div class="pc_field_container">
-                                    <input type="text" name="pc_auth_username" value="" autocapitalize="off" autocomplete="off" autocorrect="off" maxlength="150" class="login_inputbox" placeholder="Email">
+                                    <input type="text" name="pc_auth_username" value="" autocapitalize="off" autocomplete="off" autocorrect="off" maxlength="150" class="login_inputbox" placeholder="Email/Username">
                                 </div>
                             </div>
                             <div class="pc_login_row ">

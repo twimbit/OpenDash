@@ -1,12 +1,9 @@
-/* Full screen logic */
-document.addEventListener("keypress", keyUpTextField, false);
 
-function keyUpTextField(e) {
-  var keyCode = e.keyCode;
-  if (keyCode == 70 || keyCode == 102) {
-    toggleFullScreen(document.body);
-  }
-}
+/* Insight section loader hide */
+window.onload = function() {
+  $(".pace-activity").hide();
+};
+
 /* Fullscreen logic */
 function toggleFullScreen(elem) {
   // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
@@ -43,7 +40,7 @@ function toggleFullScreen(elem) {
 /* Charts container mousewheel scroll */
 $(".m-container").mousewheel(function(event, delta) {
   this.scrollLeft -= delta * 30;
-  event.preventDefault();
+  // event.preventDefault();
 });
 
 /* Charts container mousewheel scroll */
@@ -119,11 +116,12 @@ function openModalMetro(id, title, cat_id) {
   }
 }
 
+let site_url = window.location.origin + "/ds/wp-admin/admin-ajax.php";
 // Ajax calling method for modals
 function loadArticle(id, cat_id) {
   $(".pace-activity").show("fast");
   $.ajax({
-    url: "/ds/wp-admin/admin-ajax.php",
+    url: site_url,
     type: "POST",
     data: "action=metroModal&id=" + id + "&cat_id=" + cat_id,
     success: function(data) {
@@ -132,4 +130,32 @@ function loadArticle(id, cat_id) {
     }
   });
   return false;
+}
+
+// Ajax calling method for modals
+function mdModalPosts(type, id, title) {
+  $(".ui-dialog-title").text(title);
+  $(".md-container").empty();
+  $(".pace-activity").show("fast");
+  if (type == "prev") {
+    $.ajax({
+      url: site_url,
+      type: "POST",
+      data: "action=metroModalNextPrev&id=" + id,
+      success: function(data) {
+        $(".pace-activity").hide("1000");
+        $(".md-container").append(data);
+      }
+    });
+  } else {
+    $.ajax({
+      url: site_url,
+      type: "POST",
+      data: "action=metroModalNextPrev&id=" + id,
+      success: function(data) {
+        $(".pace-activity").hide("1000");
+        $(".md-container").append(data);
+      }
+    });
+  }
 }

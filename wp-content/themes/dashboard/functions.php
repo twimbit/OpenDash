@@ -9,6 +9,17 @@ require_once dirname(__FILE__) . '/plugin_conf/cpt_conf.php';
 require_once dirname(__FILE__) . '/assets/lib/inc/class-tgm-plugin-activation.php';
 add_action('tgmpa_register', 'enterprise_register_required_plugins');
 
+
+// search filter
+function searchfilter($query)
+{
+    if ($query->is_search && !is_admin()) {
+        $query->set('post_type', array('post', 'video', 'amp_story', 'podcast', 'insights'));
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'searchfilter');
+
 // Featured image functionality.
 function mytheme_post_thumbnails()
 {
@@ -27,7 +38,7 @@ function wp_infinitepaginate()
         $v_id = $_POST['id'];
         $v_post = get_post($v_id);
         $url = get_field('video_file', $v_post);
-        add_post_meta($v_id, 'viewed', '1', true);
+        // add_post_meta($v_id, 'viewed', '1', true);
         ?>
         <div class="vc-main-c">
             <div class="video-box" style="position:relative;">
@@ -55,12 +66,12 @@ function wp_infinitepaginate()
             $url = get_field('audio_file', $pd_post);
             ?>
         <div class="vc-main-c">
-            <div class="podcast-box" style="position:relative;">
+            <div class="podcast-box" style="position:relative;" hidden>
                 <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>
             </div>
-            <div class="video-about">
+            <div class="podcast-about">
                 <p class="video-titile"><?php echo $pd_post->post_title; ?></p>
                 <p class="video-date"><?php echo $pd_post->post_date; ?></p>
                 <p>
@@ -137,7 +148,7 @@ function wp_infinitepaginate()
 
             <div class="video-about">
                 <p class="video-date"><?php echo $description;
-                                                newPost($in_id);
+                                                // newPost($in_id);
                                                 ?></p>
             </div>
         </div>
@@ -193,7 +204,71 @@ function wp_infinitepaginate()
         <div class="story-div">
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
-    <?php }
+    <?php } else if ($type == "contact") {
+            $contact_string = $_POST['id'];
+            $list = explode('-', $contact_string, 2);
+            $contact_id = $list[0];
+            $tab_id = $list[1];
+            $tab = get_post($tab_id);
+            $contact = get_field('contact_details', $tab)[$contact_id];
+            $pic = $contact['contact_picture']['sizes']['thumbnail'];
+            $insta = $contact['instagram'];
+            $twitter = $contact['twitter'];
+            $face = $contact['facebook'];
+            $linkdin = $contact['linkdin'];
+            $email = $contact['email'];
+
+            ?>
+        <div class="contact-ajax">
+            <div class="img-contact">
+                <div class="img">
+                    <!-- Avatar -->
+                    <amp-img src="<?php echo $pic; ?>" class="rounded-circle" alt="avatar"></amp-img>
+                </div>
+                <div class="member-ajax-contact">
+                    <div class="member-ajax-name"><?php echo $contact['contact_name']; ?></div>
+                    <div class="member-in-contact"><?php echo $contact['designation']; ?></div>
+                    <div class="member-ajax-email"><?php echo $contact['email']; ?></div>
+                    <div class="collapse-content" style="display: flex;
+                                justify-content: flex-start;margin-left:0">
+                        <p style="margin-bottom: 0px">
+                            <?php if ($insta) { ?>
+                                <a href="<?php echo $insta; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($twitter) { ?>
+                                <a href="<?php echo $twitter; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($face) { ?>
+                                <a href="<?php echo $face; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($linkdin) { ?>
+                                <a href="<?php echo $linkdin; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                            <?php if ($email) { ?>
+                                <a href="<?php echo $email; ?>" class="social-link-member social-icon">
+                                    <i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 10px;
+    transform: translate(-0.5px, -2px);"></i>
+                                </a>
+                            <?php } ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="member-ajax-wys">
+                <?php echo $contact['contact_details']; ?>
+            </div>
+        </div>
+    <?php
+            /* Ajax query for story post type */
+        }
         die();
     }
     add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
@@ -206,44 +281,108 @@ function wp_infinitepaginate()
         /* getting post id */
         $id = $_POST['id'];
         $cat_id = $_POST['cat_id'];
-        $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
-        // $posts = getPostArray(array('post'), $cat_id);
-        ?>
-    <div class="md-container">
-        <div class="md-next">
-            <a href="#" title="previous">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
-                </svg>
-            </a>
-            <a href="#" title="next">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
-                </svg>
-            </a>
+        // $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
+        $current_post = get_post($id);
+        $url = get_the_permalink($current_post);
+        if ($current_post->post_type == "amp_story") {
+            ?>
+        <div class="story-div">
+            <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
-        <?php foreach ($posts as $val) {
-                $title = $val->post_title;
-                $description = $val->post_content;
-                $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
-                ?>
-            <div class="md-title">
-                <h3><?php echo $title; ?></h3>
+    <?php } else if ($current_post->post_type == "insights") {
+            $in_post = get_post($id);
+            $description = $in_post->post_content;
+            $title = $in_post->post_title;
+            ?>
+        <div class="vc-main-c">
+            <?php echo $description; ?>
+        </div>
+    <?php } else if ($current_post->post_type == "archive") {
+            $current_post = get_post($id);
+            $description = $current_post->post_content;
+            $url = get_field('archive_file_url', $current_post);
+            ?>
+        <div class="archive-ajax">
+            <div class="archive-download" style="display:none">
+                <a href="#">Download
+                    <i class="fa fa-download" aria-hidden="true">
+                    </i>
+                </a>
             </div>
-            <div class="md-content">
-                <p><?php echo $description; ?></p>
+            <div class="chart-div">
+                <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
             </div>
-        <?php } ?>
-    </div>
-<?php
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+            </div>
+        </div>
+    <?php } else if ($current_post->post_type == "video") {
+            $id = $_POST['id'];
+            $current_post = get_post($id);
+            $url = get_field('video_file', $current_post);
+            // add_post_meta($id, 'viewed', '1', true);
+            ?>
+        <div class="vc-main-c">
+            <div class="video-box" style="position:relative;">
+                <div class="infinite">
+                    <div class="pace pace-active">
+                        <div class="pace-activity" style="display: block;"></div>
+                    </div>
+                </div>
+                <amp-video autoplay src="<?php echo $url; ?>" layout="responsive" width="717" height="405" controls style="z-index:2">
+                </amp-video>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+                <p>
+                    <?php echo $current_post->post_content; ?>
+                </p>
+            </div>
+        </div>
+    <?php } else if ($current_post->post_type == "podcast") {
+            $current_post = get_post($id);
+            $description = $current_post->post_content;
+            $url = get_field('audio_file', $current_post);
+            ?>
+        <div class="vc-main-c">
+            <div class="podcast-box" style="position:relative;">
+                <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
+                    <div fallback>Your browser doesn’t support HTML5 audio</div>
+                </amp-audio>
+            </div>
+            <div class="video-about">
+                <p class="video-titile"><?php echo $current_post->post_title; ?></p>
+                <p class="video-date"><?php echo $current_post->post_date; ?></p>
+                <p>
+                    <?php echo $current_post->post_content; ?>
+                </p>
+            </div>
+        </div>
+    <?php } else { ?>
+        <div class="md-container">
+            <?php
+                    $title = $current_post->post_title;
+                    $description = $current_post->post_content;
+                    $thumbnail = get_the_post_thumbnail_url($current_post, "thumbnail");
+                    ?>
+            <div class="md-modal-content">
+                <div class="md-title">
+                    <h3><?php echo $title; ?></h3>
+                </div>
+                <div class="md-content">
+                    <p><?php echo $description; ?></p>
+                </div>
+            </div>
+        </div>
+<?php }
     die();
 }
 
-
-
-
 add_action('wp_ajax_metroModal', 'wp_metroModal'); // for logged in user
 add_action('wp_ajax_nopriv_metroModal', 'wp_metroModal'); // if user not logged in
+
 
 
 /* Restoring update id for chat */
@@ -251,13 +390,10 @@ function updateRestoreId()
 {
     $id = $_POST['id'];
     $restore_id = $_POST['restore_id'];
-    echo $restore_id;
+    // echo $restore_id;
     // update user - setting new email and surname
-    global $pc_users;
-    $data = array(
-        'surname'     => $restore_id
-    );
-    $result = $pc_users->update_user($id, $data);
+    global $pc_meta;
+    $result = $pc_meta->add_meta($id, 'restoreid', $restore_id);
     if (!$result) {
         // an error occurred - check related properties  
         return http_response_code(401);
@@ -293,25 +429,16 @@ function newPost($post_id)
     }
 }
 
-/* Registering widget */
-if (function_exists('register_sidebar'))
-    register_sidebar(
-        array(
-            'name' => 'Name of Widgetized Area',
-            'before_widget' => '<div class = "widgetizedArea">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        )
-    );
-
 
 /* get post array */
-function getPostArray($type, $queriedObject)
+function getPostArray($type, $queriedObject,  $order = 'ASC', $post_sorting = 'date')
 {
     $args = array(
+        'numberposts' => 0,
         'post_type' => $type,
-        'cat' => $queriedObject
+        'cat' => $queriedObject,
+        'orderby' => $post_sorting,
+        'order' => $order
     );
     return get_posts($args);
 }
@@ -412,3 +539,15 @@ function enterprise_register_required_plugins()
 
     tgmpa($plugins, $config);
 }
+
+
+function wp_notification()
+{
+    /* getting post id */
+    $id = $_POST['id'];
+    echo get_post($id)->post_content;
+    die();
+}
+
+add_action('wp_ajax_notification', 'wp_notification'); // for logged in user
+add_action('wp_ajax_nopriv_notification', 'wp_notification'); // if user not logged in

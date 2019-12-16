@@ -5,7 +5,9 @@ $link = get_field('link_details', $links[0]);
 
 ?>
 <div class="social">
-    <?php foreach ($link as $val) { ?>
+    <?php
+
+    foreach ((array)$link as $val) { ?>
         <a class="social-icon" data-tooltip="LinkedIn" href="<?php echo $val['link']; ?>">
             <i class="fa <?php echo $val['link_icon']; ?>" aria-hidden="true"></i>
         </a>

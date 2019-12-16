@@ -1,21 +1,3 @@
-/* real time stock iframe js */
-var iframe = document.getElementById("flotRealTime"),
-  iframedoc = iframe.contentDocument || iframe.contentWindow.document;
-iframedoc.open();
-iframedoc.writeln(
-  '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta http-equiv="X-UA-Compatible" content="ie=edge" /><title>Document</title><style>body{width: 100%;height: 100vh;margin:0}*{overflow:hidden}.tradingview-widget-container__widget{height:70px}</style></head><body><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BSE:HDFCBANK","width": "100%","height": "100%","locale": "in","dateRange": "12m","colorTheme": "dark","trendLineColor": "#37a6ef","underLineColor": "rgba(55, 166, 239, 0.15)","isTransparent": false,"autosize": true,"largeChartUrl": ""}</script></div><script>let myiFrame = document.getElementsByTagName("iframe");let doc = myiFrame.contentDocument || myiFrame.contentWindow.document;doc.body.innerHTML = doc.body.innerHTML + "<style>.tv-mini-symbol-overview__ticker{padding: 2px 5px;}.tv-ticker-item-last__short-name{font-size: 10px;}.tv-ticker-item-last__title{font-size: 9px;margin-top: 0;}.tv-ticker-item-last__body{margin-top: 0; position: absolute;left: 91px;}.tv-ticker-item-last__last {font-size: 13px;}.tv-ticker-item-last__change-wrapper {font-size: 13px;}.tv-mini-symbol-overview__chart canvas{height: 53px;}</style>"</script></body>'
-);
-
-iframedoc.close();
-/* fullscreen code */
-document.addEventListener("keypress", keyUpTextField, false);
-
-function keyUpTextField(e) {
-  var keyCode = e.keyCode;
-  if (keyCode == 70 || keyCode == 102) {
-    toggleFullScreen(document.body);
-  }
-}
 /* Fullscreen logic */
 function toggleFullScreen(elem) {
   // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
@@ -255,8 +237,6 @@ $(".video-slider").mousewheel(function(event, delta) {
 //   $("a[aria-expanded=true]").attr("aria-expanded", "false");
 // });
 
-// $(".dashboard").animate({ scrollLeft: 600 }, 1000);
-
 // $(".analytics-charts, .charts-container").dragscrollable({
 //   dragSelector: "a",
 //   acceptPropagatedEvent: false
@@ -319,6 +299,11 @@ function createModel(model_id, title) {
 /* Insight section loader hide */
 window.onload = function() {
   $(".in-pace-activity").hide();
+  /* Scroll radar in middle */
+  $(".dashboard").animate(
+    { scrollLeft: $(".radar-container").offset().left },
+    1000
+  );
 };
 
 /* Insight section scrolling next and previous buttons */
@@ -344,16 +329,46 @@ function openModal(modal, id, title) {
   }
 }
 
+let site_url = window.location.origin + "/ds/wp-admin/admin-ajax.php";
 // Ajax calling method for modals
 function loadArticle(id, type) {
   $(".pace-activity").show("fast");
   $.ajax({
-    url: "/ds/wp-admin/admin-ajax.php",
+    url: site_url,
     type: "POST",
     data: "action=infinite_scroll&id=" + id + "&type=" + type,
     success: function(data) {
       $(".pace-activity").hide("1000");
       $("#" + type + "-" + id).append(data);
+    }
+  });
+  return false;
+}
+
+/* Open sidebar modals */
+/* Create modals for widgets*/
+function openModalMetro(id, title, cat_id) {
+  /* if modal exist maximize */
+  if ($("#dialog-" + id).length) {
+    $("#dialog-" + id).dialog("open");
+  } else {
+    /* else create modal */
+    createModel(id, title);
+    // Ajax call
+    loadArticleSidebar(id, cat_id);
+  }
+}
+
+// Ajax calling method for modals
+function loadArticleSidebar(id, cat_id) {
+  $(".pace-activity").show("fast");
+  $.ajax({
+    url: site_url,
+    type: "POST",
+    data: "action=metroModal&id=" + id + "&cat_id=" + cat_id,
+    success: function(data) {
+      $(".pace-activity").hide("1000");
+      $("#" + id).append(data);
     }
   });
   return false;

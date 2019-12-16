@@ -3,7 +3,7 @@
 $archive = getPostArray('archive', get_queried_object()->term_id);
 ?>
 <div class="archive-files  archive-vertical-scroll">
-    <?php foreach ($archive as $val) {
+    <?php foreach ((array) $archive as $val) {
         $title = $val->post_title;
         $file_url = get_field('archive_file_url', $val);
         ?>

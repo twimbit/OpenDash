@@ -31,7 +31,7 @@ $user_name = pc_user_logged('name');
                     <p style="margin: 4px 7px 0 7px;"><?php echo $user_name; ?></p>
                     <i class="fa fa-user"></i>
                 </div>
-                <a href="/ds/?pc_logout" style="margin-left: 15px;">
+                <a href="<?php echo site_url(); ?>/?pc_logout" style="margin-left: 15px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15.72" height="15.72" class="home-logout" viewBox="0 0 15.72 15.72">
                         <path id="ic_exit_to_app_24px" d="M12.528,14,11.3,15.227,6.93,10.86,11.3,6.493l1.231,1.231L10.275,9.987H18.72v1.747H10.275ZM4.747,3H16.973A1.746,1.746,0,0,1,18.72,4.747V8.24H16.973V4.747H4.747V16.973H16.973V13.48H18.72v3.493a1.746,1.746,0,0,1-1.747,1.747H4.747A1.752,1.752,0,0,1,3,16.973V4.747A1.752,1.752,0,0,1,4.747,3Z" transform="translate(-3 -3)" fill="#fff" />
                     </svg>
@@ -39,15 +39,15 @@ $user_name = pc_user_logged('name');
             </div>
         </header>
         <section class="main">
-            <header class="btn-header">
+            <header class="btn-header" style="background-color: #1A2535">
                 <button class="btn btn-active">
-                    <i class="fa fa-home" style="margin-right:.4em; color: rgb(151, 146, 146)"></i>Home
+                    <i class="fa fa-home" style="margin-right:.4em; color: #F55D54"></i>Home
                 </button>
                 <button class="btn" hidden>
-                    <i class="fa fa-globe" style="margin-right:.4em; color: rgb(151, 146, 146)"></i>Home Center
+                    <i class="fa fa-globe" style="margin-right:.4em; color: #F55D54"></i>Home Center
                 </button>
                 <button class="btn" hidden>
-                    <i class="fa fa-cog" style="margin-right:.4em; color: rgb(151, 146, 146)"></i>Settings
+                    <i class="fa fa-cog" style="margin-right:.4em; color: #F55D54"></i>Settings
                 </button>
             </header>
             <div class="content">
@@ -69,21 +69,27 @@ $user_name = pc_user_logged('name');
                             $cat_name = get_the_category_by_ID($cat_id);
                             $cat_link = get_category_link(get_category_by_slug($cat_name)->term_id);
                             $db_type = get_field('dashboard', get_category_by_slug($cat_name));
-                            ?>
-                            <div class="item">
-                                <a href="<?php echo $cat_link; ?>"> <span style="display: flex; align-items: center;"><?php echo $cat_name; ?></span></a>
-                                <span class="alert-success">Last updated</span>
+                            $args = array(
+                                'posts_per_page' => 1,
+                                'cat' => $cat_id
+                            );
+                            $posts = get_posts($args);
+                            // print_r($posts);
+                            ?><a href="<?php echo $cat_link; ?>" class="item">
+                                <span style="display: flex; align-items: center;text-transform: capitalize;
+    font-size: 14px;font-weight:bold"><?php echo $cat_name; ?></span>
+
                                 <?php if ($db_type == "metro") { ?>
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <svg aria-hidden="true" title="Metro Dashboard" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path>
                                     </svg>
                                 <?php
                                     } else { ?>
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                    <svg aria-hidden="true" title="Hud Dashboard" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                                         <path fill="currentColor" d="M225.38 233.37c-12.5 12.5-12.5 32.76 0 45.25 12.49 12.5 32.76 12.5 45.25 0 12.5-12.5 12.5-32.76 0-45.25-12.5-12.49-32.76-12.49-45.25 0zM248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm126.14 148.05L308.17 300.4a31.938 31.938 0 0 1-15.77 15.77l-144.34 65.97c-16.65 7.61-33.81-9.55-26.2-26.2l65.98-144.35a31.938 31.938 0 0 1 15.77-15.77l144.34-65.97c16.65-7.6 33.8 9.55 26.19 26.2z"></path>
                                     </svg>
                                 <?php } ?>
-                            </div>
+                            </a>
                         <?php } ?>
                     </div>
                 </div>
@@ -104,29 +110,26 @@ $user_name = pc_user_logged('name');
                         </h5>
                     </div>
                     <div class="two-body">
-                        <div class="item">
-                            <span>Instagram</span>
-                            <span>notification</span>
-                            <span>$20</span>
-                        </div>
-
-                        <div class="item">
-                            <span>Instagram</span>
-                            <span>notification</span>
-                            <span>$20</span>
-                        </div>
-
-                        <div class="item">
-                            <span>Instagram</span>
-                            <span>notification</span>
-                            <span>$20</span>
-                        </div>
+                        <?php $update = getPostArray('update', null);
+                        foreach ($update as $val) {
+                            $link = get_the_permalink($val);
+                            $cat_name = get_the_category($val)[0]->name;
+                            ?>
+                            <a href="#" class="notification-items" onclick="openModal(<?php echo $val->ID; ?>,'<?php echo $val->post_title; ?>')">
+                                <div class="notification-text">
+                                    <span style="text-transform:capitalize;"><?php echo $val->post_title; ?></span>
+                                    <span><?php echo $val->post_excerpt; ?></span>
+                                </div>
+                                <div class="notification-cat">
+                                    <p><?php echo $cat_name; ?></p>
+                                </div>
+                                <div class="notification-time">
+                                    <p><?php
+                                            echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
+                                </div>
+                            </a>
+                        <?php } ?>
                     </div>
-                    <footer style="color:rgb(24, 123, 216); text-align: center">
-                        <p style="font-size:11px; letter-spacing: 0.5px;">
-                            view all notification
-                        </p>
-                    </footer>
                 </div>
 
                 <div class="side3">
@@ -144,12 +147,68 @@ $user_name = pc_user_logged('name');
                         <div class="three-body"></div>
                     </div>
                     <div id="chartdiv">
-                        <div id="world-map"></div>
+                        <?php echo do_shortcode('[visualizer id="98"]'); ?>
                     </div>
                 </div>
             </div>
         </section>
     </div>
+    <!-- jQuery  -->
+    <script src="<?php echo $template_dir; ?>/assets/js/jquery.min.js"></script>
+    <script src="<?php echo $template_dir; ?>/assets/js/popper.min.js"></script>
+
+    <!-- Mouse wheel js -->
+    <script type="text/javascript" src="<?php echo $template_dir; ?>/assets/pages/jquery.mousewheel.min.js"></script>
+
+    <!-- Popper for Bootstrap -->
+    <script src="<?php echo $template_dir; ?>/assets/js/bootstrap.min.js"></script>
+
+    <!-- Jquery ui -->
+    <script src="<?php echo $template_dir; ?>/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script>
+        /* Minimize modal logic */
+        var _init = $.ui.dialog.prototype._init;
+        $.ui.dialog.prototype._init = function() {
+            //Run the original initialization code
+            _init.apply(this, arguments);
+
+            //set some variables for use later
+            var dialog_element = this;
+            var dialog_id = this.uiDialogTitlebar.next().attr('id');
+
+            //append our minimize icon
+            this.uiDialogTitlebar.append('<a href="#" id="' + dialog_id +
+                '-minbutton" class="ui-dialog-titlebar-minimize ui-corner-all">' +
+                '<span class="ui-icon ui-icon-minusthick"></span></a>');
+
+            //append our minimized state
+            $('#dialog_window_minimized_container').append(
+                '<div class="dialog_window_minimized ui-widget ui-state-default ui-corner-all" id="' +
+                dialog_id + '_minimized">' + this.uiDialogTitlebar.find('.ui-dialog-title').text() +
+                '<span class="ui-icon ui-icon-newwin"></div>');
+
+            //create a hover event for the minimize button so that it looks good
+            $('#' + dialog_id + '-minbutton').hover(function() {
+                $(this).addClass('ui-state-hover');
+            }, function() {
+                $(this).removeClass('ui-state-hover');
+            }).click(function() {
+                //add a click event as well to do our "minimalization" of the window
+                dialog_element.close();
+
+                // $('.model-container').hide();
+                $('#' + dialog_id + '_minimized').show();
+            });
+
+            //create another click event that maximizes our minimized window
+            $('#' + dialog_id + '_minimized').click(function() {
+                $(this).hide();
+                // $('.model-container').show();
+                dialog_element.open();
+            });
+        };
+    </script>
+
     <script>
         const one = document.querySelector(".side1");
         const two = document.querySelector(".side2");
@@ -210,21 +269,72 @@ $user_name = pc_user_logged('name');
             notification.style.width = "0";
             availability.style.width = "100%";
         });
+
+        function createModel(model_id, title) {
+            //get the total number of existing dialog windows plus one (1)
+            var div_count = $(".dialog_window").length + 1;
+
+            //generate a unique id based on the total number
+            var div_id = "dialog-" + model_id;
+
+            //get the title of the new window from our form, as well as the content
+            // var div_title = $('#new_window_title').val();
+            // var div_content = $('#new_window_content').val();
+
+            //append the dialog window HTML to the body
+            $("body").append(
+                '<div class="dialog_window" id="' +
+                div_id +
+                '" title="' +
+                title +
+                '"><div class="infinite"><div class="pace pace-active"><div class="pace-activity" style="display:none"></div> </div> </div><div class="vc-main" id="' +
+                model_id +
+                '"><div class="md-modal-content"><div class="md-title"><h3>' + title + '</h3></div><div class="md-content"><p></p></div></div></div></div>'
+            );
+
+            //initialize our new dialog
+            var dialog = $("#" + div_id).dialog({
+                width: "auto",
+                height: "auto",
+                "min-height": "100px",
+                "max-height": "250px",
+                "z-index": "10",
+                autoOpen: true
+            });
+
+            $(".ui-dialog").css({
+                "margin-right": "auto",
+                "margin-left": "auto"
+            });
+        }
+
+        /* Create modals for widgets*/
+        function openModal(id, title) {
+            /* Create model */
+            if ($("#" + id).length) {
+                $("#dialog-" + id).dialog("open");
+            } else {
+                createModel(id, title);
+                // Ajax call
+                loadArticle(id);
+            }
+        }
+
+
+        // Ajax calling method for modals
+        function loadArticle(id) {
+            $(".pace-activity").show("fast");
+            $.ajax({
+                url: '<?php echo home_url(); ?>' + '/wp-admin/admin-ajax.php',
+                type: "POST",
+                data: "action=notification&id=" + id,
+                success: function(data) {
+                    $(".pace-activity").hide("1000");
+                    $('#dialog-' + id + ' .md-content').append(data);
+                    $('.md-content a').attr('target', '_blank');
+                }
+            });
+            return false;
+        }
     </script>
-    <!-- jQuery  -->
-    <script src="<?php echo $template_dir; ?>/assets/js/jquery.min.js"></script>
-    <script src="<?php echo $template_dir; ?>/assets/js/popper.min.js"></script>
-
-    <!-- Mouse wheel js -->
-    <script type="text/javascript" src="<?php echo $template_dir; ?>/assets/pages/jquery.mousewheel.min.js"></script>
-
-    <!-- Popper for Bootstrap -->
-    <script src="<?php echo $template_dir; ?>/assets/js/bootstrap.min.js"></script>
-
-    <!--Echart Chart-->
-    <script type="text/javascript" src="<?php echo $template_dir; ?>/plugins/echart/echarts.js"></script>
-    <script type="text/javascript" src="<?php echo $template_dir; ?>/plugins/echart/world.js"></script>
-
-    <!-- Echart init -->
-    <script src="<?php echo $template_dir; ?>/assets/pages/jquery.echart.init.js"></script>
     <?php get_footer(); ?>
