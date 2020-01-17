@@ -1,12 +1,14 @@
 <amp-carousel id="custom-button" layout="fill" type="carousel">
     <?php
+    //$user_name = pc_user_logged('username');
+   
     /* Getting amp_story post type array */
     $story = getPostArray('amp_story', get_queried_object()->term_id);
     foreach ((array) $story as $val) {
         $url = get_the_permalink($val);
         $title = $val->post_title;
         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail");
-        ?>
+    ?>
         <div class="vsl-container">
             <div class="vsl-new" title="new content" style="visibility:<?php newPost($val->ID) ?>"></div>
             <div class="vsl-content">

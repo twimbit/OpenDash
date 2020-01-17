@@ -2444,4 +2444,7 @@ a.search-link:hover {
     /* border-radius: 10px; */
     opacity: 0.5;
 }
+.right-tools{
+  margin-left:auto;
+}
 }

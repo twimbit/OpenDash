@@ -1,0 +1,11 @@
+.values.ui-sortable {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+}
+
+.acf-flexible-content .layout {
+  margin: 0 !important;
+  flex: 1;
+}
