@@ -39,7 +39,7 @@ function wp_infinitepaginate()
         $v_post = get_post($v_id);
         $url = get_field('video_file', $v_post);
         // add_post_meta($v_id, 'viewed', '1', true);
-        ?>
+?>
         <div class="vc-main-c">
             <div class="video-box" style="position:relative;">
                 <div class="infinite">
@@ -59,12 +59,12 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
-            /* Ajax query for podcast post type */
-        } else if ($type == "podcast") {
-            $pd_id = $_POST['id'];
-            $pd_post = get_post($pd_id);
-            $url = get_field('audio_file', $pd_post);
-            ?>
+        /* Ajax query for podcast post type */
+    } else if ($type == "podcast") {
+        $pd_id = $_POST['id'];
+        $pd_post = get_post($pd_id);
+        $url = get_field('audio_file', $pd_post);
+    ?>
         <div class="vc-main-c">
             <div class="podcast-box" style="position:relative;" hidden>
                 <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
@@ -81,19 +81,19 @@ function wp_infinitepaginate()
         </div>
 
     <?php
-            /* Ajax query for gallery post type */
-        } else if ($type == "gallery") {
-            $g_id = $_POST['id'];
-            $gallery = get_post($g_id);
-            $gallery_array = get_field('photos', $gallery);
-            ?>
+        /* Ajax query for gallery post type */
+    } else if ($type == "gallery") {
+        $g_id = $_POST['id'];
+        $gallery = get_post($g_id);
+        $gallery_array = get_field('photos', $gallery);
+    ?>
         <div class="vc-main-c">
             <div class="g-container">
                 <amp-carousel layout="fill" type="slides">
                     <?php
-                            foreach ($gallery_array as $val) {
-                                $url = $val['sizes']['medium'];
-                                ?>
+                    foreach ($gallery_array as $val) {
+                        $url = $val['sizes']['medium'];
+                    ?>
                         <amp-img src="<?php echo $url; ?>" width="400" height="300" layout="responsive" alt=""></amp-img>
                     <?php } ?>
                 </amp-carousel>
@@ -108,16 +108,16 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
-            /* Ajax query for insight post type */
-        } else if ($type == "insight") {
-            $in_id = $_POST['id'];
-            $in_post = get_post($in_id);
-            $description = $in_post->post_content;
-            $title = $in_post->post_title;
-            $date = $in_post->post_date;
-            $visualiser = get_field('visualizer', $in_post);
-            $excerpt = $in_post->post_excerpt;
-            ?>
+        /* Ajax query for insight post type */
+    } else if ($type == "insight") {
+        $in_id = $_POST['id'];
+        $in_post = get_post($in_id);
+        $description = $in_post->post_content;
+        $title = $in_post->post_title;
+        $date = $in_post->post_date;
+        $visualiser = get_field('visualizer', $in_post);
+        $excerpt = $in_post->post_excerpt;
+    ?>
         <div class="chart-ajax">
             <div class="in-upper-content">
                 <div class="chart-div">
@@ -127,9 +127,9 @@ function wp_infinitepaginate()
                         </div>
                     </div>
                     <?php
-                            wp_head();
-                            echo $visualiser;
-                            ?>
+                    wp_head();
+                    echo $visualiser;
+                    ?>
                 </div>
                 <div class="in-title">
                     <ul>
@@ -148,20 +148,20 @@ function wp_infinitepaginate()
 
             <div class="video-about">
                 <p class="video-date"><?php echo $description;
-                                                // newPost($in_id);
-                                                ?></p>
+                                        // newPost($in_id);
+                                        ?></p>
             </div>
         </div>
         <?php wp_footer(); ?>
 
     <?php
-            /* Ajax query for archive post type */
-        } else if ($type == "archive") {
-            $a_id = $_POST['id'];
-            $a_post = get_post($a_id);
-            $description = $a_post->post_content;
-            $url = get_field('archive_file_url', $a_post);
-            ?>
+        /* Ajax query for archive post type */
+    } else if ($type == "archive") {
+        $a_id = $_POST['id'];
+        $a_post = get_post($a_id);
+        $description = $a_post->post_content;
+        $url = get_field('archive_file_url', $a_post);
+    ?>
         <div class="archive-ajax">
             <div class="archive-download" style="display:none">
                 <a href="#">Download
@@ -178,13 +178,13 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
-            /* Ajax query for live post type */
-        } else if ($type == "live") {
-            $live_id = $_POST['id'];
-            $live_post = get_post($live_id);
-            $description = $live_post->post_content;
-            $url = get_field('webinar_url', $live_post);
-            ?>
+        /* Ajax query for live post type */
+    } else if ($type == "live") {
+        $live_id = $_POST['id'];
+        $live_post = get_post($live_id);
+        $description = $live_post->post_content;
+        $url = get_field('webinar_url', $live_post);
+    ?>
         <div class="archive-ajax">
             <div class="chart-div">
 
@@ -195,30 +195,30 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
-            /* Ajax query for story post type */
-        } else if ($type == "story") {
-            $story_id = $_POST['id'];
-            $story_post = get_post($story_id);
-            $url = get_the_permalink($story_post);
-            ?>
+        /* Ajax query for story post type */
+    } else if ($type == "story") {
+        $story_id = $_POST['id'];
+        $story_post = get_post($story_id);
+        $url = get_the_permalink($story_post);
+    ?>
         <div class="story-div">
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
     <?php } else if ($type == "contact") {
-            $contact_string = $_POST['id'];
-            $list = explode('-', $contact_string, 2);
-            $contact_id = $list[0];
-            $tab_id = $list[1];
-            $tab = get_post($tab_id);
-            $contact = get_field('contact_details', $tab)[$contact_id];
-            $pic = $contact['contact_picture']['sizes']['thumbnail'];
-            $insta = $contact['instagram'];
-            $twitter = $contact['twitter'];
-            $face = $contact['facebook'];
-            $linkdin = $contact['linkdin'];
-            $email = $contact['email'];
+        $contact_string = $_POST['id'];
+        $list = explode('-', $contact_string, 2);
+        $contact_id = $list[0];
+        $tab_id = $list[1];
+        $tab = get_post($tab_id);
+        $contact = get_field('contact_details', $tab)[$contact_id];
+        $pic = $contact['contact_picture']['sizes']['thumbnail'];
+        $insta = $contact['instagram'];
+        $twitter = $contact['twitter'];
+        $face = $contact['facebook'];
+        $linkdin = $contact['linkdin'];
+        $email = $contact['email'];
 
-            ?>
+    ?>
         <div class="contact-ajax">
             <div class="img-contact">
                 <div class="img">
@@ -267,41 +267,42 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php
-            /* Ajax query for story post type */
-        }
-        die();
+        /* Ajax query for story post type */
     }
-    add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
-    add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
+    die();
+}
+add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
+add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
 
 
-    /* Metro modal creation function */
-    function wp_metroModal()
-    {
-        /* getting post id */
-        $id = $_POST['id'];
-        $cat_id = $_POST['cat_id'];
-        // $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
-        $current_post = get_post($id);
-        $url = get_the_permalink($current_post);
-        if ($current_post->post_type == "amp_story") {
-            ?>
+/* Metro modal creation function */
+function wp_metroModal()
+{
+    /* getting post id */
+    $id = $_POST['id'];
+    $cat_id = $_POST['cat_id'];
+    // $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
+    $current_post = get_post($id);
+    $url = get_the_permalink($current_post);
+    if ($current_post->post_type == "amp_story") {
+    ?>
         <div class="story-div">
             <iframe src="<?php echo $url; ?>" frameborder="0" style="min-height:100%;height:100%;width:100%"></iframe>
         </div>
     <?php } else if ($current_post->post_type == "insights") {
-            $in_post = get_post($id);
-            $description = $in_post->post_content;
-            $title = $in_post->post_title;
-            ?>
+        $in_post = get_post($id);
+        $description = $in_post->post_content;
+        $title = $in_post->post_title;
+    ?>
         <div class="vc-main-c">
             <?php echo $description; ?>
         </div>
     <?php } else if ($current_post->post_type == "archive") {
-            $current_post = get_post($id);
-            $description = $current_post->post_content;
-            $url = get_field('archive_file_url', $current_post);
-            ?>
+        $current_post = get_post($id);
+        $description = $current_post->post_content;
+        $url = get_field('archive_file_url', $current_post);
+        $username = pc_user_logged('username');
+    ?>
         <div class="archive-ajax">
             <div class="archive-download" style="display:none">
                 <a href="#">Download
@@ -312,17 +313,17 @@ function wp_infinitepaginate()
             <div class="chart-div">
                 <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
             </div>
-            <div class="video-about">
+            <div class="video-about" hidden>
                 <p class="video-titile"><?php echo $current_post->post_title; ?></p>
                 <p class="video-date"><?php echo $current_post->post_date; ?></p>
             </div>
         </div>
     <?php } else if ($current_post->post_type == "video") {
-            $id = $_POST['id'];
-            $current_post = get_post($id);
-            $url = get_field('video_file', $current_post);
-            // add_post_meta($id, 'viewed', '1', true);
-            ?>
+        $id = $_POST['id'];
+        $current_post = get_post($id);
+        $url = get_field('video_file', $current_post);
+        // add_post_meta($id, 'viewed', '1', true);
+    ?>
         <div class="vc-main-c">
             <div class="video-box" style="position:relative;">
                 <div class="infinite">
@@ -342,10 +343,10 @@ function wp_infinitepaginate()
             </div>
         </div>
     <?php } else if ($current_post->post_type == "podcast") {
-            $current_post = get_post($id);
-            $description = $current_post->post_content;
-            $url = get_field('audio_file', $current_post);
-            ?>
+        $current_post = get_post($id);
+        $description = $current_post->post_content;
+        $url = get_field('audio_file', $current_post);
+    ?>
         <div class="vc-main-c">
             <div class="podcast-box" style="position:relative;">
                 <amp-audio width="auto" height="50" src="<?php echo $url; ?>">
@@ -363,10 +364,10 @@ function wp_infinitepaginate()
     <?php } else { ?>
         <div class="md-container">
             <?php
-                    $title = $current_post->post_title;
-                    $description = $current_post->post_content;
-                    $thumbnail = get_the_post_thumbnail_url($current_post, "thumbnail");
-                    ?>
+            $title = $current_post->post_title;
+            $description = $current_post->post_content;
+            $thumbnail = get_the_post_thumbnail_url($current_post, "thumbnail");
+            ?>
             <div class="md-modal-content">
                 <div class="md-title">
                     <h3><?php echo $title; ?></h3>

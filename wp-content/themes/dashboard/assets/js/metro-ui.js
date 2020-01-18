@@ -116,7 +116,7 @@ function openModalMetro(id, title, cat_id) {
   }
 }
 
-let site_url = window.location.origin + "/ds/wp-admin/admin-ajax.php";
+let site_url = window.location.origin + "/tether/wp-admin/admin-ajax.php";
 // Ajax calling method for modals
 function loadArticle(id, cat_id) {
   $(".pace-activity").show("fast");
