@@ -75,7 +75,7 @@ $user_name = pc_user_logged('name');
                             );
                             $posts = get_posts($args);
                             // print_r($posts);
-                            ?><a href="<?php echo $cat_link; ?>" class="item">
+                        ?><a href="<?php echo $cat_link; ?>" class="item">
                                 <span style="display: flex; align-items: center;text-transform: capitalize;
     font-size: 14px;font-weight:bold"><?php echo $cat_name; ?></span>
 
@@ -84,7 +84,7 @@ $user_name = pc_user_logged('name');
                                         <path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path>
                                     </svg>
                                 <?php
-                                    } else { ?>
+                                } else { ?>
                                     <svg aria-hidden="true" title="Hud Dashboard" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                                         <path fill="currentColor" d="M225.38 233.37c-12.5 12.5-12.5 32.76 0 45.25 12.49 12.5 32.76 12.5 45.25 0 12.5-12.5 12.5-32.76 0-45.25-12.5-12.49-32.76-12.49-45.25 0zM248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm126.14 148.05L308.17 300.4a31.938 31.938 0 0 1-15.77 15.77l-144.34 65.97c-16.65 7.61-33.81-9.55-26.2-26.2l65.98-144.35a31.938 31.938 0 0 1 15.77-15.77l144.34-65.97c16.65-7.6 33.8 9.55 26.19 26.2z"></path>
                                     </svg>
@@ -114,7 +114,7 @@ $user_name = pc_user_logged('name');
                         foreach ($update as $val) {
                             $link = get_the_permalink($val);
                             $cat_name = get_the_category($val)[0]->name;
-                            ?>
+                        ?>
                             <a href="#" class="notification-items" onclick="openModal(<?php echo $val->ID; ?>,'<?php echo $val->post_title; ?>')">
                                 <div class="notification-text">
                                     <span style="text-transform:capitalize;"><?php echo $val->post_title; ?></span>
@@ -125,7 +125,7 @@ $user_name = pc_user_logged('name');
                                 </div>
                                 <div class="notification-time">
                                     <p><?php
-                                            echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
+                                        echo get_post_modified_time('g:i a, d/M ', false, $val, true); ?></p>
                                 </div>
                             </a>
                         <?php } ?>

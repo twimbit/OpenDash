@@ -2298,7 +2298,7 @@ amp-social-share {
     width: 50%;
   }
   .m-col-subcat {
-    grid-template-rows: repeat(auto-fit, 10%) !important;
+    grid-template-rows: repeat(8, 1fr) !important;
   }
 }
 

@@ -311,7 +311,7 @@ function wp_metroModal()
                 </a>
             </div>
             <div class="chart-div">
-                <iframe src="<?php echo $url; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
+                <iframe src="<?php echo $url . '?user=' . $username; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
             </div>
             <div class="video-about" hidden>
                 <p class="video-titile"><?php echo $current_post->post_title; ?></p>

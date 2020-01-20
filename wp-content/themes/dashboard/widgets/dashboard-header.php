@@ -7,8 +7,12 @@
     </a>
 </div>
 <div class="client-icon">
-    <img src="<?php echo get_field('category_logo', get_queried_object())['url']; ?>" alt="" />
-    <a href="#" class="client-link"></a>
+    <img src="<?php if (!empty(get_field('category_logo', get_queried_object())['url'])) {
+                    echo get_field('category_logo', get_queried_object())['url'];
+                } else {
+                    echo get_template_directory_uri() . '/assets/images/logo.png';
+                }  ?>" alt="" />
+    <a href="<?php echo home_url(); ?>" class="client-link"></a>
 </div>
 <h4 class="client-name">
     <?php if (!(is_search())) { ?>
