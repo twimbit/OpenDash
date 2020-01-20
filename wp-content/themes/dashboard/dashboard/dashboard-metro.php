@@ -1,5 +1,7 @@
 <title>Dashboard-<?php echo get_queried_object()->name; ?></title>
-<?php $template_dir = get_template_directory_uri(); ?>
+<?php $template_dir = get_template_directory_uri();
+$uid = pc_user_logged('id');
+?>
 <!-- Metro ui css -->
 <link href="<?php echo $template_dir; ?>/assets/css/metro-ui.css" rel="stylesheet" type="text/css" />
 <style>
@@ -64,7 +66,7 @@
                                         $thumbnail = get_the_post_thumbnail_url($val, "medium");
                                 ?>
                                         <div class="m-subcat-name m-row-span-4">
-                                            <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
+                                            <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>,<?php echo $uid; ?>)">
                                                 <div class="m-img-lg">
                                                     <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                         <div class="infinite" hidden>
@@ -84,7 +86,7 @@
                                     <?php } else {
                                         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail"); ?>
                                         <div class="m-subcat-name m-row-span-3">
-                                            <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>)">
+                                            <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo $singleSubCategory->term_id; ?>,<?php echo $uid; ?>)">
                                                 <div class="m-img-sm">
                                                     <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                     </amp-img>
@@ -124,7 +126,7 @@
                                         $thumbnail = get_the_post_thumbnail_url($val, "medium");
                             ?>
                                         <div class="m-subcat-name m-row-span-4">
-                                            <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)">
+                                            <a href="#" class="m-lg-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>,<?php echo $uid; ?>)">
                                                 <div class="m-img-lg">
                                                     <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                         <div class="infinite" hidden>
@@ -144,7 +146,7 @@
                                     <?php } else {
                                         $thumbnail = get_the_post_thumbnail_url($val, "thumbnail"); ?>
                                         <div class="m-subcat-name m-row-span-3">
-                                            <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>)">
+                                            <a href="#" class="m-sm-card" onclick="openModalMetro(<?php echo $val->ID; ?>,'<?php echo $title; ?>',<?php echo get_queried_object()->term_id; ?>,<?php echo $uid; ?>)">
                                                 <div class="m-img-sm">
                                                     <amp-img src="<?php echo $thumbnail; ?>" alt="lg-img-card" layout="fill">
                                                         <div class="infinite" hidden>

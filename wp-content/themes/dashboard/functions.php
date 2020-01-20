@@ -1,7 +1,7 @@
 <?php
 
 /* require acf and cpt ui configuration files */
-require_once dirname(__FILE__) . '/plugin_conf/acf_conf.php';
+//require_once dirname(__FILE__) . '/plugin_conf/acf_conf.php';
 require_once dirname(__FILE__) . '/plugin_conf/cpt_conf.php';
 
 
@@ -281,6 +281,7 @@ function wp_metroModal()
     /* getting post id */
     $id = $_POST['id'];
     $cat_id = $_POST['cat_id'];
+    $uid = $_POST['uid'];
     // $posts = get_posts(array('post_type' => array('post'), 'posts_per_page' => 1, 'paged' => 1, 'cat' => $cat_id));
     $current_post = get_post($id);
     $url = get_the_permalink($current_post);
@@ -300,8 +301,27 @@ function wp_metroModal()
     <?php } else if ($current_post->post_type == "archive") {
         $current_post = get_post($id);
         $description = $current_post->post_content;
-        $url = get_field('archive_file_url', $current_post);
-        $username = pc_user_logged('username');
+        $file = get_field('archive_file_url', $current_post);
+        $file_url = get_field('file_url', $current_post);
+        if (!(empty($file))) {
+            $iframe_url = $file;
+        } else {
+            $iframe_url = $file_url;
+        }
+
+        /* getting pc user global variable */
+        global $pc_users;
+        $uargs = array(
+            'to_get' => array(
+                'username', 'name', 'surname', 'email'
+            )
+        );
+        /* pc user data */
+        $udata = $pc_users->get_user(1, $uargs);
+        $name  = $udata['name'];
+        $sname = $udata['surname'];
+        $email = $udata['email'];
+        $uname = $udata['username'];
     ?>
         <div class="archive-ajax">
             <div class="archive-download" style="display:none">
@@ -311,7 +331,7 @@ function wp_metroModal()
                 </a>
             </div>
             <div class="chart-div">
-                <iframe src="<?php echo $url . '?user=' . $username; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
+                <iframe src="<?php echo $iframe_url . '?uname=' . $uname . '&sname=' . $sname . '&email=' . $email . '&name=' . $name; ?>" frameborder="0" style="height:100%;width:100%;position:absolute"></iframe>
             </div>
             <div class="video-about" hidden>
                 <p class="video-titile"><?php echo $current_post->post_title; ?></p>

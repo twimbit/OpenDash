@@ -1,4 +1,3 @@
-
 /* Insight section loader hide */
 window.onload = function() {
   $(".pace-activity").hide();
@@ -104,7 +103,7 @@ $(".in-prev").click(function() {
 });
 
 /* Create modals for widgets*/
-function openModalMetro(id, title, cat_id) {
+function openModalMetro(id, title, cat_id, uid) {
   /* if modal exist maximize */
   if ($("#dialog-" + id).length) {
     $("#dialog-" + id).dialog("open");
@@ -112,18 +111,18 @@ function openModalMetro(id, title, cat_id) {
     /* else create modal */
     createModel(id, title);
     // Ajax call
-    loadArticle(id, cat_id);
+    loadArticle(id, cat_id, uid);
   }
 }
 
 let site_url = window.location.origin + "/tether/wp-admin/admin-ajax.php";
 // Ajax calling method for modals
-function loadArticle(id, cat_id) {
+function loadArticle(id, cat_id, uid) {
   $(".pace-activity").show("fast");
   $.ajax({
     url: site_url,
     type: "POST",
-    data: "action=metroModal&id=" + id + "&cat_id=" + cat_id,
+    data: "action=metroModal&id=" + id + "&cat_id=" + cat_id + "&uid=" + uid,
     success: function(data) {
       $(".pace-activity").hide("1000");
       $("#" + id).append(data);
